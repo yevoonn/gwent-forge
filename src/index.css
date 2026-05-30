@@ -1,0 +1,19 @@
+html {
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  background:
+    radial-gradient(circle at top, rgba(200, 155, 60, 0.15), transparent 40%),
+    #265f53;
+  color: #f5f5f5;
+}
