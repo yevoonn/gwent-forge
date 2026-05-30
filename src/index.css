@@ -1,6 +1,23 @@
-html {
-  min-height: 100vh;
-  margin: 0;
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cinzel";
+  src: url("/fonts/Cinzel-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cinzel";
+  src: url("/fonts/Cinzel-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }
 
 #root {
@@ -9,11 +26,12 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Courier New", Courier, monospace;
   background:
     radial-gradient(circle at top, rgba(200, 155, 60, 0.15), transparent 40%),
     #265f53;
   color: #f5f5f5;
+}
+
+.font-cinzel {
+  font-family: "Cinzel", serif;
 }
