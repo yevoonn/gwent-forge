@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { AnimatePresence, motion } from "motion/react";
+import GwentCard from "./components/GwentCard";
 
 const factions = [
   { name: "Northern Realms", color: "text-sky-400" },
@@ -8,6 +9,44 @@ const factions = [
   { name: "Monsters", color: "text-red-600" },
   { name: "Scoia'tael", color: "text-emerald-400" },
   { name: "Skellige", color: "text-indigo-400" },
+];
+
+const featuredCards = [
+  {
+    name: "Foltest",
+    power: null,
+    faction: "Northern Realms",
+    rarity: null,
+    image: "/cards/foltest.jpg",
+  },
+  {
+    name: "Emhyr var Emreis",
+    power: null,
+    faction: "Nilfgaardian Empire",
+    rarity: null,
+    image: "/cards/emhyr.jpg",
+  },
+  {
+    name: "Eredin",
+    power: null,
+    faction: "Monsters",
+    rarity: null,
+    image: "/cards/eredin.jpg",
+  },
+  {
+    name: "Francesca Findabair",
+    power: null,
+    faction: "Scoia'tael",
+    rarity: null,
+    image: "/cards/francesca.jpg",
+  },
+  {
+    name: "Crach an Craite",
+    power: null,
+    faction: "Skellige",
+    rarity: null,
+    image: "/cards/crach.jpg",
+  },
 ];
 
 function App() {
@@ -42,7 +81,8 @@ function App() {
         </div>
       </nav>
 
-      <div className="flex flex-col items-center justify-center text-center min-h-[70dvh] px-4">
+      {/* HERO */}
+      <section className="min-h-[35dvh] flex flex-col items-center justify-center text-center px-4">
         <h1 className="font-cinzel text-7xl font-bold text-white leading-none tracking-tight">
           Gwent <span className="text-amber-400">Forge</span>
         </h1>
@@ -78,9 +118,9 @@ function App() {
                 ease: "easeInOut",
               }}
               className={`
-                text-4xl md:text-6xl font-bold tracking-wide
-                ${currentFaction.color}
-              `}
+            text-4xl md:text-6xl font-bold tracking-wide
+            ${currentFaction.color}
+          `}
               style={{
                 textShadow: "0 0 20px currentColor",
               }}
@@ -89,12 +129,23 @@ function App() {
             </motion.div>
           </AnimatePresence>
         </div>
+      </section>
 
-        {/* CTA */}
-        <button className="mt-8 px-8 py-3 cursor-pointer bg-amber-400 hover:bg-amber-500 text-black font-bold rounded-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-          Get Started
-        </button>
-      </div>
+      {/* FEATURED CARDS */}
+      <section className="mx-auto max-w-screen-2xl px-6 pb-24">
+        <div
+          className="
+            grid
+            gap-8
+            justify-items-center
+            [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]
+          "
+        >
+          {featuredCards.map((card) => (
+            <GwentCard key={card.name} {...card} />
+          ))}
+        </div>
+      </section>
     </>
   );
 }
