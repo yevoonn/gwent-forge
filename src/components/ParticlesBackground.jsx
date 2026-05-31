@@ -4,28 +4,27 @@ import { loadSlim } from "@tsparticles/slim";
 
 function ParticlesBackground() {
   useEffect(() => {
-    loadSlim(tsParticles).then(() => {
-      tsParticles.load({
+    let container;
+
+    const init = async () => {
+      await loadSlim(tsParticles);
+
+      container = await tsParticles.load({
         id: "particles",
         options: {
           fpsLimit: 60,
           fullScreen: {
-            enable: true,
-            zIndex: -1,
+            enable: false,
           },
           particles: {
             number: {
               value: 50,
-              density: {
-                enable: true,
-              },
+              density: { enable: true },
             },
             color: {
               value: ["#f5d06f", "#c89b3c", "#ffeb99"],
             },
-            shape: {
-              type: "circle",
-            },
+            shape: { type: "circle" },
             opacity: {
               value: { min: 0.1, max: 0.6 },
               animation: {
@@ -41,20 +40,24 @@ function ParticlesBackground() {
               speed: 0.3,
               direction: "none",
               random: true,
-              outModes: {
-                default: "out",
-              },
+              outModes: { default: "out" },
             },
-            links: {
-              enable: false,
-            },
+            links: { enable: false },
           },
         },
       });
-    });
+    };
+
+    init();
+
+    return () => {
+      if (container) {
+        container.destroy();
+      }
+    };
   }, []);
 
-  return <div id="particles" />;
+  return <div id="particles" className="fixed inset-0 -z-10" />;
 }
 
 export default ParticlesBackground;
