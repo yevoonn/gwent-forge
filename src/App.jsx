@@ -42,8 +42,8 @@ function App() {
         </div>
       </nav>
 
-      <div className="flex flex-col items-center justify-center text-center min-h-[70svh] px-4">
-        <h1 className="font-cinzel text-7xl font-bold text-white">
+      <div className="flex flex-col items-center justify-center text-center min-h-[70dvh] px-4">
+        <h1 className="font-cinzel text-7xl font-bold text-white leading-none tracking-tight">
           Gwent <span className="text-amber-400">Forge</span>
         </h1>
 
