@@ -132,7 +132,7 @@ function App() {
       </section>
 
       {/* FEATURED CARDS */}
-      <section className="mx-auto max-w-screen-2xl px-6 pb-24">
+      <section className="mx-auto max-w-screen-2xl px-6 pb-24 pt-8">
         <div
           className="
             grid
