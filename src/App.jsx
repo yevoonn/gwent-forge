@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ParticlesBackground from "./components/ParticlesBackground";
+// import ParticlesBackground from "./components/ParticlesBackground";
 import { AnimatePresence, motion } from "motion/react";
 
 const factions = [
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <ParticlesBackground />
+      {/* <ParticlesBackground /> */}
 
       <nav className="text-white">
         <div className="mx-auto px-6 py-4 flex justify-between items-center">
