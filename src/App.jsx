@@ -68,8 +68,19 @@ function App() {
 
       <nav className="text-white">
         <div className="mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="font-bold text-xl">Logo</div>
-
+          <a
+            href="/"
+            className="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-105"
+          >
+            <img
+              src="/logo.png"
+              alt="Gwent Forge Logo"
+              className="h-8 w-auto"
+            />
+            <span className="font-cinzel text-xl font-semibold">
+              Gwent <span className="text-amber-400">Forge</span>
+            </span>
+          </a>
           <ul className="flex gap-6">
             <li>
               <a href="/about">About</a>
