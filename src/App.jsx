@@ -77,7 +77,7 @@ function App() {
               alt="Gwent Forge Logo"
               className="h-8 w-auto"
             />
-            <span className="font-cinzel text-xl font-semibold">
+            <span className="hidden sm:inline font-cinzel text-xl font-semibold">
               Gwent <span className="text-amber-400">Forge</span>
             </span>
           </a>
