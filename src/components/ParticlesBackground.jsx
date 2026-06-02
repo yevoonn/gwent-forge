@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 import { tsParticles } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
+import { loadFirePreset } from "@tsparticles/preset-fire";
 
 function ParticlesBackground() {
   useEffect(() => {
     let container;
 
     const init = async () => {
-      await loadSlim(tsParticles);
+      await loadFirePreset(tsParticles);
 
       container = await tsParticles.load({
         id: "particles",
         options: {
+          preset: "fire",
           fpsLimit: 60,
           fullScreen: {
             enable: false,
