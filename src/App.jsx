@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { AnimatePresence, motion } from "motion/react";
 import GwentCard from "./components/GwentCard";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 const factions = [
@@ -67,99 +68,72 @@ function App() {
     <>
       <ParticlesBackground />
 
-      <nav className="text-white">
-        <div className="mx-auto px-6 py-4 flex justify-between items-center">
-          <a
-            href="/"
-            className="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-105"
-          >
-            <img
-              src="/logo.png"
-              alt="Gwent Forge Logo"
-              className="h-8 w-auto"
-            />
-            <span className="hidden sm:inline font-cinzel text-xl font-semibold">
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+
+        <main className="flex-1">
+          {/* HERO */}
+          <section className="min-h-[20dvh] flex flex-col items-center justify-center text-center px-4">
+            <h1 className="font-cinzel text-7xl font-bold text-white leading-none tracking-tight">
               Gwent <span className="text-amber-400">Forge</span>
-            </span>
-          </a>
-          <ul className="flex gap-6">
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+            </h1>
 
-      {/* HERO */}
-      <section className="min-h-[20dvh] flex flex-col items-center justify-center text-center px-4">
-        <h1 className="font-cinzel text-7xl font-bold text-white leading-none tracking-tight">
-          Gwent <span className="text-amber-400">Forge</span>
-        </h1>
+            <p className="mt-6 max-w-2xl text-xl text-slate-300">
+              Craft the perfect deck for every faction
+            </p>
 
-        <p className="mt-6 max-w-2xl text-xl text-slate-300">
-          Craft the perfect deck for every faction
-        </p>
-
-        <div className="mt-6 h-20 flex items-center justify-center min-w-[320px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentFaction.name}
-              initial={{
-                opacity: 0,
-                y: 20,
-                scale: 0.95,
-                filter: "blur(8px)",
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                filter: "blur(0px)",
-              }}
-              exit={{
-                opacity: 0,
-                y: -20,
-                scale: 1.05,
-                filter: "blur(8px)",
-              }}
-              transition={{
-                duration: 0.6,
-                ease: "easeInOut",
-              }}
-              className={`
+            <div className="mt-6 h-20 flex items-center justify-center min-w-[320px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentFaction.name}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                    scale: 0.95,
+                    filter: "blur(8px)",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    filter: "blur(0px)",
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: -20,
+                    scale: 1.05,
+                    filter: "blur(8px)",
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
+                  className={`
             text-4xl md:text-6xl font-bold tracking-wide
             ${currentFaction.color}
           `}
-              style={{
-                textShadow: "0 0 20px currentColor",
-              }}
-            >
-              {currentFaction.name}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
+                  style={{
+                    textShadow: "0 0 20px currentColor",
+                  }}
+                >
+                  {currentFaction.name}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </section>
 
-      {/* FEATURED CARDS */}
-      <section className="mx-auto max-w-screen-2xl px-6 pt-8">
-        <div
-          className="
-            grid
-            gap-8
-            justify-items-center
-            [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]
-          "
-        >
-          {featuredCards.map((card) => (
-            <GwentCard key={card.name} {...card} />
-          ))}
-        </div>
-      </section>
+          {/* FEATURED CARDS */}
+          <section className="mx-auto max-w-screen-2xl px-6 pt-8">
+            <div className="flex flex-wrap justify-center gap-8">
+              {featuredCards.map((card) => (
+                <GwentCard key={card.name} {...card} />
+              ))}
+            </div>
+          </section>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }
