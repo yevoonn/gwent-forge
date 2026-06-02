@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { AnimatePresence, motion } from "motion/react";
 import GwentCard from "./components/GwentCard";
+import Footer from "./components/Footer";
 
 const factions = [
   { name: "Northern Realms", color: "text-sky-400" },
@@ -93,7 +94,7 @@ function App() {
       </nav>
 
       {/* HERO */}
-      <section className="min-h-[35dvh] flex flex-col items-center justify-center text-center px-4">
+      <section className="min-h-[20dvh] flex flex-col items-center justify-center text-center px-4">
         <h1 className="font-cinzel text-7xl font-bold text-white leading-none tracking-tight">
           Gwent <span className="text-amber-400">Forge</span>
         </h1>
@@ -102,7 +103,7 @@ function App() {
           Craft the perfect deck for every faction
         </p>
 
-        <div className="mt-8 h-20 flex items-center justify-center min-w-[320px]">
+        <div className="mt-6 h-20 flex items-center justify-center min-w-[320px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentFaction.name}
@@ -143,7 +144,7 @@ function App() {
       </section>
 
       {/* FEATURED CARDS */}
-      <section className="mx-auto max-w-screen-2xl px-6 pb-24 pt-8">
+      <section className="mx-auto max-w-screen-2xl px-6 pt-8">
         <div
           className="
             grid
@@ -157,6 +158,8 @@ function App() {
           ))}
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }
