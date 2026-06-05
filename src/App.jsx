@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 const factions = [
   { name: "Northern Realms", color: "text-sky-400" },
-  { name: "Nilfgaardian Empire", color: "text-yellow-300" },
+  { name: "Nilfgaard", color: "text-yellow-300" },
   { name: "Monsters", color: "text-red-600" },
   { name: "Scoia'tael", color: "text-emerald-400" },
   { name: "Skellige", color: "text-indigo-400" },
@@ -19,35 +19,35 @@ const featuredCards = [
     power: null,
     faction: "Northern Realms",
     rarity: null,
-    image: "/cards/foltest.jpg",
+    image: "/cards/foltest.webp",
   },
   {
     name: "Emhyr var Emreis",
     power: null,
-    faction: "Nilfgaardian Empire",
+    faction: "Nilfgaard",
     rarity: null,
-    image: "/cards/emhyr.jpg",
+    image: "/cards/emhyr.webp",
   },
   {
     name: "Eredin",
     power: null,
     faction: "Monsters",
     rarity: null,
-    image: "/cards/eredin.jpg",
+    image: "/cards/eredin.webp",
   },
   {
     name: "Francesca Findabair",
     power: null,
     faction: "Scoia'tael",
     rarity: null,
-    image: "/cards/francesca.jpg",
+    image: "/cards/francesca.webp",
   },
   {
     name: "Crach an Craite",
     power: null,
     faction: "Skellige",
     rarity: null,
-    image: "/cards/crach.jpg",
+    image: "/cards/crach.webp",
   },
 ];
 
@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((current) => (current + 1) % factions.length);
-    }, 4000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -78,7 +78,7 @@ function App() {
               Gwent <span className="text-amber-400">Forge</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-xl text-slate-300">
+            <p className="font-cinzel mt-6 max-w-2xl text-xl text-slate-300">
               Craft the perfect deck for every faction
             </p>
 

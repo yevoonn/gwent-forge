@@ -13,10 +13,10 @@ export default function Navbar() {
         </a>
         <ul className="flex gap-6">
           <li>
-            <a href="/about">About</a>
+            <a href="/">About</a>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <a href="/">Contact</a>
           </li>
         </ul>
       </div>
