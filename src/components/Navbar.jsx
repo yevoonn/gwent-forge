@@ -13,10 +13,20 @@ export default function Navbar() {
         </a>
         <ul className="flex gap-6">
           <li>
-            <a href="/">About</a>
+            <a
+              href="/"
+              className="inline-flex transition-transform duration-200 hover:scale-115 hover:text-amber-400"
+            >
+              <p className="font-cinzel">About</p>
+            </a>
           </li>
           <li>
-            <a href="/">Contact</a>
+            <a
+              href="/"
+              className="inline-flex transition-transform duration-200 hover:scale-115 hover:text-amber-400"
+            >
+              <p className="font-cinzel">Contact</p>
+            </a>
           </li>
         </ul>
       </div>

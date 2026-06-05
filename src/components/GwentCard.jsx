@@ -9,7 +9,7 @@ const rarityStyles = {
 
 const factionStyles = {
   "Northern Realms": "border-sky-400",
-  "Nilfgaardian Empire": "border-yellow-300",
+  Nilfgaard: "border-yellow-300",
   Monsters: "border-red-500",
   "Scoia'tael": "border-emerald-400",
   Skellige: "border-indigo-400",

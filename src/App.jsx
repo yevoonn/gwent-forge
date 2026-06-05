@@ -78,7 +78,7 @@ function App() {
               Gwent <span className="text-amber-400">Forge</span>
             </h1>
 
-            <p className="font-cinzel mt-6 max-w-2xl text-xl text-slate-300">
+            <p className="font-cinzel font-semibold mt-6 max-w-2xl text-xl text-slate-300">
               Craft the perfect deck for every faction
             </p>
 
