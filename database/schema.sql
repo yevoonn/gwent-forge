@@ -181,14 +181,14 @@ CREATE TABLE
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     deck_id INTEGER NOT NULL,
     code VARCHAR(255) NOT NULL UNIQUE,
-    power INTEGER NOT NULL,
+    power INTEGER,
     is_deck_card BOOLEAN NOT NULL DEFAULT TRUE,
     type_id INTEGER NOT NULL,
-    range_id INTEGER NOT NULL,
+    range_id INTEGER,
     image_url VARCHAR(500),
     CONSTRAINT fk_card_deck FOREIGN KEY (deck_id) REFERENCES deck (id) ON DELETE CASCADE,
     CONSTRAINT fk_card_type FOREIGN KEY (type_id) REFERENCES card_type (id) ON DELETE CASCADE,
-    CONSTRAINT fk_card_range FOREIGN KEY (range_id) REFERENCES card_range (id) ON DELETE CASCADE
+    CONSTRAINT fk_card_range FOREIGN KEY (range_id) REFERENCES card_range (id) ON DELETE SET NULL
   );
 
 CREATE TABLE
