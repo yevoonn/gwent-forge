@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import GwentCard from "./components/GwentCard";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { API_URL } from "./config";
 
 const factions = [
   { name: "Northern Realms", color: "text-sky-400" },
