@@ -8,11 +8,11 @@ const rarityStyles = {
 };
 
 const factionStyles = {
-  "Northern Realms": "border-sky-400",
-  Nilfgaard: "border-yellow-300",
-  Monsters: "border-red-500",
-  "Scoia'tael": "border-emerald-400",
-  Skellige: "border-indigo-400",
+  "Northern Realms": "border-sky-400 cursor-pointer",
+  Nilfgaard: "border-yellow-300 cursor-pointer",
+  Monsters: "border-red-500 cursor-pointer",
+  "Scoia'tael": "border-emerald-400 cursor-pointer",
+  Skellige: "border-indigo-400 cursor-pointer",
 };
 
 export default function GwentCard({ name, power, faction, rarity, image }) {

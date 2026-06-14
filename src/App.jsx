@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { AnimatePresence, motion } from "motion/react";
+import { fetchCards } from "./api/cards";
 import GwentCard from "./components/GwentCard";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { API_URL } from "./config";
 
 const factions = [
   { name: "Northern Realms", color: "text-sky-400" },
@@ -17,6 +17,7 @@ const factions = [
 const featuredCards = [
   {
     name: "Foltest",
+    deckCode: "northern_realms",
     power: null,
     faction: "Northern Realms",
     rarity: null,
@@ -24,6 +25,7 @@ const featuredCards = [
   },
   {
     name: "Emhyr var Emreis",
+    deckCode: "nilfgaard",
     power: null,
     faction: "Nilfgaard",
     rarity: null,
@@ -31,6 +33,7 @@ const featuredCards = [
   },
   {
     name: "Eredin",
+    deckCode: "monsters",
     power: null,
     faction: "Monsters",
     rarity: null,
@@ -38,6 +41,7 @@ const featuredCards = [
   },
   {
     name: "Francesca Findabair",
+    deckCode: "scoiatael",
     power: null,
     faction: "Scoia'tael",
     rarity: null,
@@ -45,6 +49,7 @@ const featuredCards = [
   },
   {
     name: "Crach an Craite",
+    deckCode: "skellige",
     power: null,
     faction: "Skellige",
     rarity: null,
@@ -54,6 +59,23 @@ const featuredCards = [
 
 function App() {
   const [index, setIndex] = useState(0);
+  const [cards, setCards] = useState([]);
+
+  async function handleFactionClick(deckCode) {
+    try {
+      const data = await fetchCards({
+        deck: deckCode,
+        lang: "en",
+        sort: "name_asc",
+      });
+
+      setCards(data);
+
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -127,7 +149,26 @@ function App() {
           <section className="mx-auto max-w-screen-2xl px-6 pt-8">
             <div className="flex flex-wrap justify-center gap-8">
               {featuredCards.map((card) => (
-                <GwentCard key={card.name} {...card} />
+                <button
+                  key={card.name}
+                  onClick={() => handleFactionClick(card.deckCode)}
+                >
+                  <GwentCard {...card} />
+                </button>
+              ))}
+            </div>
+          </section>
+
+          {/* CARDS GRID */}
+          <section className="mx-auto max-w-screen-2xl px-6 py-16">
+            <div className="flex flex-wrap justify-center gap-8">
+              {cards.map((card) => (
+                <GwentCard
+                  key={card.code}
+                  name={card.name}
+                  power={card.power > 0 ? card.power : null}
+                  image="/cards/geralt.webp"
+                />
               ))}
             </div>
           </section>
