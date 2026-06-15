@@ -167,18 +167,20 @@ function App() {
           </section>
 
           {/* CARDS GRID */}
-          <section className="mx-auto max-w-screen-2xl px-6 py-16">
-            <div className="flex flex-wrap justify-center gap-8">
-              {cards.map((card) => (
-                <GwentCard
-                  key={card.code}
-                  name={card.name}
-                  power={card.power > 0 ? card.power : null}
-                  image="/cards/geralt.webp"
-                />
-              ))}
-            </div>
-          </section>
+          {cards.length > 0 && (
+            <section className="mx-auto max-w-screen-2xl px-6 pt-8">
+              <div className="flex flex-wrap justify-center gap-8">
+                {cards.map((card) => (
+                  <GwentCard
+                    key={card.code}
+                    name={card.name}
+                    power={card.power > 0 ? card.power : null}
+                    image="/cards/geralt.webp"
+                  />
+                ))}
+              </div>
+            </section>
+          )}
         </main>
 
         <Footer />
