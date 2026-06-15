@@ -5,6 +5,7 @@ import { fetchCards } from "./api/cards";
 import GwentCard from "./components/GwentCard";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const factions = [
   { name: "Northern Realms", color: "text-sky-400" },
@@ -60,8 +61,10 @@ const featuredCards = [
 function App() {
   const [index, setIndex] = useState(0);
   const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   async function handleFactionClick(deckCode) {
+    setLoading(true);
     try {
       const data = await fetchCards({
         deck: deckCode,
@@ -74,6 +77,8 @@ function App() {
       console.log(data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -90,6 +95,8 @@ function App() {
   return (
     <>
       <ParticlesBackground />
+
+      {loading && <LoadingSpinner />}
 
       <div className="min-h-screen flex flex-col">
         <Navbar />
