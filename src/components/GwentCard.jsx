@@ -1,12 +1,5 @@
 import { motion } from "motion/react";
 
-const rarityStyles = {
-  Common: "bg-slate-600",
-  Rare: "bg-sky-500",
-  Epic: "bg-violet-500",
-  Legendary: "bg-amber-500 text-black",
-};
-
 const factionStyles = {
   northern_realms: "border-sky-400",
   nilfgaard: "border-yellow-300",
@@ -20,8 +13,8 @@ export default function GwentCard({
   power,
   deckCode,
   faction,
-  rarity,
   image,
+  type,
   isButton = false,
 }) {
   return (
@@ -54,28 +47,54 @@ export default function GwentCard({
     >
       {/* Power */}
       {power && (
-        <div className="absolute left-3 top-3 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-amber-400 text-lg font-bold text-black shadow-lg">
-          {power}
-        </div>
-      )}
+        <div className="absolute left-1 top-1 z-20 h-20 w-20 flex items-center justify-center">
+          {type === "Hero" ? (
+            <>
+              <svg className="h-20 w-20" viewBox="0 0 100 100">
+                {[...Array(22)].map((_, i) => {
+                  const angle = (i * 360 * Math.PI) / (180 * 22);
+                  const spikeLength = 52;
+                  const spikeWidth = 20;
+                  const x1 = 50;
+                  const y1 = 50;
+                  const x2 = 50 + spikeLength * Math.cos(angle);
+                  const y2 = 50 + spikeLength * Math.sin(angle);
+                  const x3 = 50 + spikeWidth * Math.cos(angle + Math.PI / 2);
+                  const y3 = 50 + spikeWidth * Math.sin(angle + Math.PI / 2);
+                  const x4 = 50 + spikeWidth * Math.cos(angle - Math.PI / 2);
+                  const y4 = 50 + spikeWidth * Math.sin(angle - Math.PI / 2);
 
-      {/* Rarity */}
-      {rarity && (
-        <div
-          className={`
-          absolute
-          right-3
-          top-3
-          z-20
-          rounded-full
-          px-3
-          py-1
-          text-xs
-          font-semibold
-          ${rarityStyles[rarity]}
-        `}
-        >
-          {rarity}
+                  return (
+                    <polygon
+                      key={i}
+                      points={`${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4}`}
+                      fill="#fe9a00"
+                    />
+                  );
+                })}
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="35"
+                  fill="#272525"
+                  stroke="#fe9a00"
+                  strokeWidth="5"
+                />
+              </svg>
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h1 className="font-cinzel text-4xl font-bold text-gray-100">
+                  {power}
+                </h1>
+              </div>
+            </>
+          ) : (
+            <div className="h-14 w-14 rounded-full bg-gray-100 border-4 border-amber-500 shadow-lg flex items-center justify-center">
+              <h1 className="font-cinzel text-4xl font-bold text-gray-800">
+                {power}
+              </h1>
+            </div>
+          )}
         </div>
       )}
 
@@ -97,25 +116,10 @@ export default function GwentCard({
       </div>
 
       {/* Content */}
-      <div className="p-4">
+      <div className="p-4 h-32 text-center">
         <h1 className="font-cinzel text-lg font-bold text-white">{name}</h1>
 
-        <p className="mt-2 text-sm text-slate-400">{faction}</p>
-      </div>
-
-      {/* Glow */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          opacity-0
-          transition-opacity
-          duration-300
-          group-hover:opacity-100
-        "
-      >
-        <div className="absolute inset-0 rounded-2xl shadow-[0_0_40px_rgba(251,191,36,0.15)]" />
+        <p className="mt-8 text-sm text-slate-400">{faction}</p>
       </div>
     </motion.div>
   );

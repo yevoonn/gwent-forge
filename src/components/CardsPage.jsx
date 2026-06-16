@@ -95,6 +95,7 @@ export default function CardsPage({
                 power={card.power > 0 ? card.power : null}
                 deckCode={selectedFactionDeckCode}
                 image="/cards/geralt.webp"
+                type={card.type}
               />
             ))}
           </div>
