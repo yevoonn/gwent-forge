@@ -8,6 +8,7 @@ const featuredCards = [
     faction: "Northern Realms",
     rarity: null,
     image: "/cards/foltest.webp",
+    isButton: true,
   },
   {
     name: "Emhyr var Emreis",
@@ -16,6 +17,7 @@ const featuredCards = [
     faction: "Nilfgaard",
     rarity: null,
     image: "/cards/emhyr.webp",
+    isButton: true,
   },
   {
     name: "Eredin",
@@ -24,6 +26,7 @@ const featuredCards = [
     faction: "Monsters",
     rarity: null,
     image: "/cards/eredin.webp",
+    isButton: true,
   },
   {
     name: "Francesca Findabair",
@@ -32,6 +35,7 @@ const featuredCards = [
     faction: "Scoia'tael",
     rarity: null,
     image: "/cards/francesca.webp",
+    isButton: true,
   },
   {
     name: "Crach an Craite",
@@ -40,26 +44,47 @@ const featuredCards = [
     faction: "Skellige",
     rarity: null,
     image: "/cards/crach.webp",
+    isButton: true,
   },
 ];
 
-export default function CardsPage({ cards, loading, onFactionClick }) {
+export default function CardsPage({
+  selectedFactionDeckCode,
+  leaders,
+  cards,
+  loading,
+  onFactionClick,
+}) {
   return (
     <>
+      {/* LEADERS AND FEATURED CARDS */}
       <section className="mx-auto max-w-screen-2xl px-6 pt-8">
         <div className="flex flex-wrap justify-center gap-8">
-          {featuredCards.map((card) => (
-            <button
-              key={card.name}
-              onClick={() => onFactionClick(card.deckCode)}
-              disabled={loading}
-            >
-              <GwentCard {...card} />
-            </button>
-          ))}
+          {leaders.length > 0
+            ? // Show leaders when available
+              leaders.map((card) => (
+                <GwentCard
+                  key={card.code}
+                  name={card.name}
+                  power={card.power > 0 ? card.power : null}
+                  deckCode={selectedFactionDeckCode}
+                  image="/logo.png"
+                />
+              ))
+            : // Show featuredCards (clickable faction selectors) when no leaders
+              featuredCards.map((card) => (
+                <button
+                  key={card.name}
+                  onClick={() => onFactionClick(card.deckCode)}
+                  disabled={loading}
+                >
+                  <GwentCard {...card} />
+                </button>
+              ))}
         </div>
       </section>
 
+      {/* CARDS GRID */}
       <section className="mx-auto max-w-screen-2xl px-6 pt-8">
         {cards.length > 0 ? (
           <div className="flex flex-wrap justify-center gap-8">
@@ -68,6 +93,7 @@ export default function CardsPage({ cards, loading, onFactionClick }) {
                 key={card.code}
                 name={card.name}
                 power={card.power > 0 ? card.power : null}
+                deckCode={selectedFactionDeckCode}
                 image="/cards/geralt.webp"
               />
             ))}

@@ -10,18 +10,28 @@ import { factions } from "./data/factions";
 
 function App() {
   const [index, setIndex] = useState(0);
+  const [leaders, setLeaders] = useState([]);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedFactionDeckCode, setSelectedFactionDeckCode] = useState(null);
 
   async function handleFactionClick(deckCode) {
+    setSelectedFactionDeckCode(deckCode);
     setLoading(true);
     try {
-      const data = await fetchCards({
+      const leadersData = await fetchCards({
         deck: deckCode,
         lang: "en",
-        sort: "name_asc",
+        sort: "code_asc",
+        is_deck_card: "false",
+        type: "leader",
       });
 
+      const data = await fetchCards({
+        deck: deckCode,
+      });
+
+      setLeaders(leadersData);
       setCards(data);
     } catch (error) {
       console.error(error);
@@ -55,6 +65,8 @@ function App() {
 
           {/* CARDS GRID */}
           <CardsPage
+            selectedFactionDeckCode={selectedFactionDeckCode}
+            leaders={leaders}
             cards={cards}
             loading={loading}
             onFactionClick={handleFactionClick}

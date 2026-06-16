@@ -8,14 +8,22 @@ const rarityStyles = {
 };
 
 const factionStyles = {
-  "Northern Realms": "border-sky-400 cursor-pointer",
-  Nilfgaard: "border-yellow-300 cursor-pointer",
-  Monsters: "border-red-500 cursor-pointer",
-  "Scoia'tael": "border-emerald-400 cursor-pointer",
-  Skellige: "border-indigo-400 cursor-pointer",
+  northern_realms: "border-sky-400",
+  nilfgaard: "border-yellow-300",
+  monsters: "border-red-500",
+  scoiatael: "border-emerald-400",
+  skellige: "border-indigo-400",
 };
 
-export default function GwentCard({ name, power, faction, rarity, image }) {
+export default function GwentCard({
+  name,
+  power,
+  deckCode,
+  faction,
+  rarity,
+  image,
+  isButton = false,
+}) {
   return (
     <motion.div
       whileHover={{
@@ -37,7 +45,8 @@ export default function GwentCard({ name, power, faction, rarity, image }) {
         bg-slate-900/80
         backdrop-blur-sm
         shadow-xl
-        ${factionStyles[faction]}
+        ${factionStyles[deckCode]}
+        ${isButton ? "cursor-pointer" : ""}
       `}
       style={{
         transformStyle: "preserve-3d",
