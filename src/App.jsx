@@ -61,7 +61,9 @@ function App() {
 
         <main className="flex-1">
           {/* HERO */}
-          <HeroSection currentFaction={currentFaction} />
+          {!selectedFactionDeckCode ? (
+            <HeroSection currentFaction={currentFaction} />
+          ) : null}
 
           {/* CARDS GRID */}
           <CardsPage
