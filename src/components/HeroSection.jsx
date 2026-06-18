@@ -37,7 +37,7 @@ export default function HeroSection({ currentFaction }) {
               ease: "easeInOut",
             }}
             className={`
-            text-2xl sm:text-3xl md:text-6xl font-bold tracking-wide
+            text-2xl sm:text-2xl md:text-6xl font-bold tracking-wide font-cinzel
             ${currentFaction.color}
           `}
             style={{
