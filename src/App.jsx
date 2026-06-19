@@ -72,6 +72,7 @@ function App() {
             cards={cards}
             loading={loading}
             onFactionClick={handleFactionClick}
+            currentFactionCode={currentFaction.code}
           />
         </main>
 

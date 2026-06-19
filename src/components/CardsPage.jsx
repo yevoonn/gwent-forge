@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "motion/react";
 import GwentCard from "./GwentCard";
 
 const featuredCards = [
@@ -48,62 +49,136 @@ const featuredCards = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.95,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function CardsPage({
   selectedFactionDeckCode,
   leaders,
   cards,
   loading,
   onFactionClick,
+  currentFactionCode,
 }) {
+  const showLeaders = leaders.length > 0;
+
   return (
     <>
-      {/* LEADERS AND FEATURED CARDS */}
+      {/* LEADERS / FEATURED CARDS */}
       <section className="mx-auto max-w-screen-2xl px-6 pt-8">
-        <div className="flex flex-wrap justify-center gap-8">
-          {leaders.length > 0
-            ? // Show leaders when available
-              leaders.map((card) => (
-                <GwentCard
-                  key={card.code}
-                  name={card.name}
-                  power={card.power > 0 ? card.power : null}
-                  deckCode={selectedFactionDeckCode}
-                  image="/logo.png"
-                />
-              ))
-            : // Show featuredCards (clickable faction selectors) when no leaders
-              featuredCards.map((card) => (
-                <button
-                  key={card.name}
-                  onClick={() => onFactionClick(card.deckCode)}
-                  disabled={loading}
-                >
-                  <GwentCard {...card} />
-                </button>
+        <AnimatePresence mode="wait">
+          {!showLeaders ? (
+            <motion.div
+              key="featured-cards"
+              className="flex flex-wrap justify-center gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+            >
+              {featuredCards.map((card) => (
+                <motion.div key={card.name} variants={cardVariants}>
+                  <button
+                    key={card.name}
+                    onClick={() => onFactionClick(card.deckCode)}
+                    disabled={loading}
+                  >
+                    <GwentCard
+                      currentFactionCode={currentFactionCode}
+                      {...card}
+                    />
+                  </button>
+                </motion.div>
               ))}
-        </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="leaders"
+              className="flex flex-wrap justify-center gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{
+                opacity: 0,
+                filter: "blur(10px)",
+              }}
+            >
+              {leaders.map((card) => (
+                <motion.div key={card.code} variants={cardVariants}>
+                  <GwentCard
+                    name={card.name}
+                    power={card.power > 0 ? card.power : null}
+                    deckCode={selectedFactionDeckCode}
+                    image="/logo.png"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       {/* CARDS GRID */}
       <section className="mx-auto max-w-screen-2xl px-6 pt-8">
-        {cards.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-8">
-            {cards.map((card) => (
-              <GwentCard
-                key={card.code}
-                name={card.name}
-                power={card.power > 0 ? card.power : null}
-                deckCode={selectedFactionDeckCode}
-                image="/cards/geralt.webp"
-                type={card.type}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-slate-400 text-lg">
-            Select faction to view cards
-          </p>
-        )}
+        <AnimatePresence mode="wait">
+          {cards.length > 0 ? (
+            <motion.div
+              key={selectedFactionDeckCode}
+              className="flex flex-wrap justify-center gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{
+                opacity: 0,
+                filter: "blur(10px)",
+              }}
+            >
+              {cards.map((card) => (
+                <motion.div key={card.code} variants={cardVariants}>
+                  <GwentCard
+                    name={card.name}
+                    power={card.power > 0 ? card.power : null}
+                    deckCode={selectedFactionDeckCode}
+                    image="/cards/geralt.webp"
+                    type={card.type}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.p
+              key="empty-state"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-center text-slate-400 text-lg"
+            >
+              Select faction to view cards
+            </motion.p>
+          )}
+        </AnimatePresence>
       </section>
     </>
   );

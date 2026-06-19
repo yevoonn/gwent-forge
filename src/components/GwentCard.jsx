@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 
 const factionStyles = {
-  northern_realms: "border-sky-400",
-  nilfgaard: "border-yellow-300",
-  monsters: "border-red-500",
-  scoiatael: "border-emerald-400",
-  skellige: "border-indigo-400",
+  northern_realms: "border-sky-400 cursor-pointer",
+  nilfgaard: "border-yellow-300 cursor-pointer",
+  monsters: "border-red-500 cursor-pointer",
+  scoiatael: "border-emerald-400 cursor-pointer",
+  skellige: "border-indigo-400 cursor-pointer",
 };
 
 export default function GwentCard({
@@ -15,7 +15,7 @@ export default function GwentCard({
   faction,
   image,
   type,
-  isButton = false,
+  currentFactionCode,
 }) {
   return (
     <motion.div
@@ -39,7 +39,7 @@ export default function GwentCard({
         backdrop-blur-sm
         shadow-xl
         ${factionStyles[deckCode]}
-        ${isButton ? "cursor-pointer" : ""}
+        ${currentFactionCode === deckCode ? "animate-pulse-delayed" : ""}
       `}
       style={{
         transformStyle: "preserve-3d",
