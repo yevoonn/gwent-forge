@@ -28,26 +28,12 @@ export default function GwentCard({
         stiffness: 300,
         damping: 20,
       }}
-      className={`
-        group
-        relative
-        w-64
-        overflow-hidden
-        rounded-2xl
-        border-2
-        bg-slate-900/80
-        backdrop-blur-sm
-        shadow-xl
-        ${factionStyles[deckCode]}
-        ${currentFactionCode === deckCode ? "animate-pulse-delayed" : ""}
-      `}
-      style={{
-        transformStyle: "preserve-3d",
-      }}
+      className={`group relative w-40 sm:w-48 md:w-56 lg:w-64 overflow-hidden rounded-2xl border-2 bg-slate-900/80 backdrop-blur-sm shadow-xl ${factionStyles[deckCode]} ${currentFactionCode === deckCode ? "animate-pulse-delayed" : ""} `}
+      style={{ transformStyle: "preserve-3d" }}
     >
       {/* Power */}
       {power && (
-        <div className="absolute left-1 top-1 z-20 h-20 w-20 flex items-center justify-center">
+        <div className="absolute left-0.5 top-0.5 sm:left-1 sm:top-1 z-20 h-20 w-20 scale-75 sm:scale-90 md:scale-100 origin-top-left flex items-center justify-center">
           {type === "Hero" ? (
             <>
               <svg className="h-20 w-20" viewBox="0 0 100 100">
@@ -83,14 +69,14 @@ export default function GwentCard({
               </svg>
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <h1 className="font-cinzel text-4xl font-bold text-gray-100">
+                <h1 className="font-cinzel text-3xl lg:text-4xl font-bold text-gray-100">
                   {power}
                 </h1>
               </div>
             </>
           ) : (
             <div className="h-14 w-14 rounded-full bg-gray-100 border-4 border-amber-500 shadow-lg flex items-center justify-center">
-              <h1 className="font-cinzel text-4xl font-bold text-gray-800">
+              <h1 className="font-cinzel text-3xl lg:text-4xl font-bold text-gray-800">
                 {power}
               </h1>
             </div>
@@ -99,27 +85,23 @@ export default function GwentCard({
       )}
 
       {/* Image */}
-      <div className="relative h-80 overflow-hidden">
+      <div className="relative h-52 sm:h-64 md:h-72 lg:h-80 overflow-hidden">
         <img
           src={image}
           alt={name}
-          className="
-            h-full
-            w-full
-            object-cover
-            transition-transform
-            duration-500
-          "
+          className="h-full w-full object-cover transition-transform duration-500"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="p-4 h-32 text-center">
-        <h1 className="font-cinzel text-lg font-bold text-white">{name}</h1>
+      <div className="p-2 sm:p-3 md:p-4 h-20 sm:h-24 md:h-28 lg:h-32 flex flex-col text-center">
+        <h1 className="font-cinzel text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white line-clamp-2">
+          {name}
+        </h1>
 
-        <p className="mt-8 text-sm text-slate-400">{faction}</p>
+        <p className="mt-auto text-sm text-slate-400">{faction}</p>
       </div>
     </motion.div>
   );
