@@ -28,12 +28,12 @@ export default function GwentCard({
         stiffness: 300,
         damping: 20,
       }}
-      className={`group relative w-40 sm:w-48 md:w-56 lg:w-64 overflow-hidden rounded-2xl border-2 bg-slate-900/80 backdrop-blur-sm shadow-xl ${factionStyles[deckCode]} ${currentFactionCode === deckCode ? "animate-pulse-delayed" : ""} `}
+      className={`group relative w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 overflow-hidden rounded-2xl border-2 bg-slate-900/80 backdrop-blur-sm shadow-xl ${factionStyles[deckCode]} ${currentFactionCode === deckCode ? "animate-pulse-delayed" : ""} `}
       style={{ transformStyle: "preserve-3d" }}
     >
       {/* Power */}
       {power && (
-        <div className="absolute left-0.5 top-0.5 sm:left-1 sm:top-1 z-20 h-20 w-20 scale-75 sm:scale-90 md:scale-100 origin-top-left flex items-center justify-center">
+        <div className="absolute left-0.5 top-0.5 sm:left-1 sm:top-1 z-20 h-20 w-20 scale-55 sm:scale-65 md:scale-75 lg:scale-100 origin-top-left flex items-center justify-center">
           {type === "Hero" ? (
             <>
               <svg className="h-20 w-20" viewBox="0 0 100 100">
@@ -85,7 +85,7 @@ export default function GwentCard({
       )}
 
       {/* Image */}
-      <div className="relative h-52 sm:h-64 md:h-72 lg:h-80 overflow-hidden">
+      <div className="relative h-40 sm:h-52 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
         <img
           src={image}
           alt={name}
@@ -96,12 +96,14 @@ export default function GwentCard({
       </div>
 
       {/* Content */}
-      <div className="p-2 sm:p-3 md:p-4 h-20 sm:h-24 md:h-28 lg:h-32 flex flex-col text-center">
+      <div className="p-2 sm:p-3 md:p-4 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex flex-col text-center">
         <h1 className="font-cinzel text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white line-clamp-2">
           {name}
         </h1>
 
-        <p className="mt-auto text-sm text-slate-400">{faction}</p>
+        <p className="hidden md:block mt-auto text-sm text-slate-400">
+          {faction}
+        </p>
       </div>
     </motion.div>
   );
