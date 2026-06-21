@@ -88,7 +88,7 @@ export default function CardsPage({
   return (
     <>
       {/* LEADERS / FEATURED CARDS */}
-      <section className="mx-auto max-w-screen-2xl px-6 pt-8">
+      <section className="mx-auto max-w-screen-2xl px-6 pt-0 md:pt-8">
         <AnimatePresence mode="wait">
           {!showLeaders ? (
             <motion.div
