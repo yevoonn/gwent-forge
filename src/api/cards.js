@@ -6,11 +6,21 @@ export async function fetchCards({
   sort = "name_asc",
   is_deck_card = "true",
   type,
+  search = "",
 }) {
-  const params = new URLSearchParams({ deck, lang, sort, is_deck_card });
+  const params = new URLSearchParams({
+    deck,
+    lang,
+    sort,
+    is_deck_card,
+  });
 
   if (type) {
     params.append("type", type);
+  }
+
+  if (search) {
+    params.append("search", search);
   }
 
   const response = await fetch(`${API_URL}/api/cards?${params.toString()}`);

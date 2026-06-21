@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
+import { Search } from "lucide-react";
 import GwentCard from "./GwentCard";
 
 const featuredCards = [
@@ -81,6 +82,8 @@ export default function CardsPage({
   cards,
   loading,
   onFactionClick,
+  search,
+  setSearch,
   currentFactionCode,
 }) {
   const showLeaders = leaders.length > 0;
@@ -143,30 +146,47 @@ export default function CardsPage({
       {/* CARDS GRID */}
       <section className="mx-auto max-w-screen-2xl px-6 pt-8">
         <AnimatePresence mode="wait">
-          {cards.length > 0 ? (
-            <motion.div
-              key={selectedFactionDeckCode}
-              className="flex flex-wrap justify-center gap-8"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              exit={{
-                opacity: 0,
-                filter: "blur(10px)",
-              }}
-            >
-              {cards.map((card) => (
-                <motion.div key={card.code} variants={cardVariants}>
-                  <GwentCard
-                    name={card.name}
-                    power={card.power > 0 ? card.power : null}
-                    deckCode={selectedFactionDeckCode}
-                    image="/cards/geralt.webp"
-                    type={card.type}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+          {selectedFactionDeckCode ? (
+            <>
+              <form className="relative max-w-md mx-auto sticky top-4 z-10">
+                <Search
+                  size={18}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-400 z-10"
+                />
+
+                <input
+                  name="search"
+                  type="text"
+                  placeholder="Search cards..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full rounded-xl border border-slate-700 bg-slate-900/80 py-3 pl-11 pr-4 text-white placeholder:text-slate-500 backdrop-blur-sm transition-all duration-300 shadow-lg shadow-black/30 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 focus:outline-none focus:shadow-amber-500/20"
+                />
+              </form>
+              <motion.div
+                key={selectedFactionDeckCode}
+                className="flex flex-wrap justify-center gap-8 pt-8"
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                exit={{
+                  opacity: 0,
+                  filter: "blur(10px)",
+                }}
+              >
+                {cards.map((card) => (
+                  <motion.div key={card.code} variants={cardVariants}>
+                    <GwentCard
+                      name={card.name}
+                      power={card.power > 0 ? card.power : null}
+                      deckCode={selectedFactionDeckCode}
+                      image="/cards/geralt.webp"
+                      type={card.type}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </>
           ) : (
             <motion.p
               key="empty-state"

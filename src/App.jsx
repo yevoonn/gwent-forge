@@ -12,33 +12,66 @@ function App() {
   const [index, setIndex] = useState(0);
   const [leaders, setLeaders] = useState([]);
   const [cards, setCards] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [leadersLoading, setLeadersLoading] = useState(false);
+  const [cardsLoading, setCardsLoading] = useState(false);
   const [selectedFactionDeckCode, setSelectedFactionDeckCode] = useState(null);
+  const [search, setSearch] = useState("");
 
-  async function handleFactionClick(deckCode) {
+  const handleFactionClick = (deckCode) => {
+    setSearch("");
     setSelectedFactionDeckCode(deckCode);
-    setLoading(true);
-    try {
-      const leadersData = await fetchCards({
-        deck: deckCode,
-        lang: "en",
-        sort: "code_asc",
-        is_deck_card: "false",
-        type: "leader",
-      });
+  };
 
-      const data = await fetchCards({
-        deck: deckCode,
-      });
+  useEffect(() => {
+    if (!selectedFactionDeckCode) return;
 
-      setLeaders(leadersData);
-      setCards(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
+    const loadLeaders = async () => {
+      setLeadersLoading(true);
+      try {
+        const leadersData = await fetchCards({
+          deck: selectedFactionDeckCode,
+          lang: "en",
+          sort: "code_asc",
+          is_deck_card: "false",
+          type: "leader",
+        });
+
+        setLeaders(leadersData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLeadersLoading(false);
+      }
+    };
+
+    loadLeaders();
+  }, [selectedFactionDeckCode]);
+
+  useEffect(() => {
+    if (!selectedFactionDeckCode) return;
+
+    const timeoutId = setTimeout(
+      async () => {
+        setCardsLoading(true);
+
+        try {
+          const cardsData = await fetchCards({
+            deck: selectedFactionDeckCode,
+            search,
+          });
+
+          setCards(cardsData);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setCardsLoading(false);
+        }
+      },
+      search ? 500 : 0,
+    );
+
+    return () => clearTimeout(timeoutId);
+  }, [selectedFactionDeckCode, search]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,6 +82,7 @@ function App() {
   }, []);
 
   const currentFaction = factions[index];
+  const loading = leadersLoading || cardsLoading;
 
   return (
     <>
@@ -72,6 +106,8 @@ function App() {
             cards={cards}
             loading={loading}
             onFactionClick={handleFactionClick}
+            search={search}
+            setSearch={setSearch}
             currentFactionCode={currentFaction.code}
           />
         </main>
