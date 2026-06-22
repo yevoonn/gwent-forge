@@ -88,6 +88,10 @@ export default function CardsPage({
   setSortField,
   sortDirection,
   setSortDirection,
+  cardType,
+  setCardType,
+  cardRange,
+  setCardRange,
   currentFactionCode,
 }) {
   const showLeaders = leaders.length > 0;
@@ -158,6 +162,10 @@ export default function CardsPage({
                 sortField={sortField}
                 setSortField={setSortField}
                 sortDirection={sortDirection}
+                cardType={cardType}
+                setCardType={setCardType}
+                cardRange={cardRange}
+                setCardRange={setCardRange}
                 setSortDirection={setSortDirection}
               />
               <motion.div

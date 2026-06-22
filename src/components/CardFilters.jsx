@@ -9,6 +9,10 @@ export default function CardFilters({
   setSortField,
   sortDirection,
   setSortDirection,
+  cardType,
+  setCardType,
+  cardRange,
+  setCardRange,
 }) {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
@@ -123,6 +127,10 @@ export default function CardFilters({
         setSortField={setSortField}
         sortDirection={sortDirection}
         setSortDirection={setSortDirection}
+        cardType={cardType}
+        setCardType={setCardType}
+        cardRange={cardRange}
+        setCardRange={setCardRange}
       />
     </div>
   );

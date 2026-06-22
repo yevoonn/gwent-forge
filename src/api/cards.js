@@ -6,6 +6,7 @@ export async function fetchCards({
   sort = "name_asc",
   is_deck_card = "true",
   type,
+  range,
   search = "",
 }) {
   const params = new URLSearchParams({
@@ -17,6 +18,10 @@ export async function fetchCards({
 
   if (type) {
     params.append("type", type);
+  }
+
+  if (range) {
+    params.append("range", range);
   }
 
   if (search) {
