@@ -236,7 +236,6 @@ export default function Filters({
             </div>
 
             {/* RANGE */}
-            {/* RANGE */}
             <div className="mb-4">
               <label className="mb-2 block text-sm text-slate-400">Range</label>
 
@@ -247,18 +246,18 @@ export default function Filters({
                     type="button"
                     onClick={() => setCardRange(range.value)}
                     className={`
-          min-w-[80px]
-          rounded-lg
-          px-3
-          py-2
-          text-sm
-          transition-all
-          ${
-            cardRange === range.value
-              ? "bg-amber-500 text-black"
-              : "text-slate-300 hover:text-white"
-          }
-        `}
+                      min-w-[80px]
+                      rounded-lg
+                      px-3
+                      py-2
+                      text-sm
+                      transition-all
+                      ${
+                        cardRange === range.value
+                          ? "bg-amber-500 text-black"
+                          : "text-slate-300 hover:text-white"
+                      }
+                    `}
                   >
                     {range.label}
                   </button>
