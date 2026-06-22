@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
-import { Search } from "lucide-react";
 import GwentCard from "./GwentCard";
+import CardFilters from "./CardFilters";
 
 const featuredCards = [
   {
@@ -84,6 +84,10 @@ export default function CardsPage({
   onFactionClick,
   search,
   setSearch,
+  sortField,
+  setSortField,
+  sortDirection,
+  setSortDirection,
   currentFactionCode,
 }) {
   const showLeaders = leaders.length > 0;
@@ -148,21 +152,14 @@ export default function CardsPage({
         <AnimatePresence mode="wait">
           {selectedFactionDeckCode ? (
             <>
-              <form className="relative max-w-md mx-auto sticky top-4 z-10">
-                <Search
-                  size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-400 z-10"
-                />
-
-                <input
-                  name="search"
-                  type="text"
-                  placeholder="Search cards..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="w-full rounded-xl border border-slate-700 bg-slate-900/80 py-3 pl-11 pr-4 text-white placeholder:text-slate-500 backdrop-blur-sm transition-all duration-300 shadow-lg shadow-black/30 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 focus:outline-none focus:shadow-amber-500/20"
-                />
-              </form>
+              <CardFilters
+                search={search}
+                setSearch={setSearch}
+                sortField={sortField}
+                setSortField={setSortField}
+                sortDirection={sortDirection}
+                setSortDirection={setSortDirection}
+              />
               <motion.div
                 key={selectedFactionDeckCode}
                 className="flex flex-wrap justify-center gap-8 pt-8"

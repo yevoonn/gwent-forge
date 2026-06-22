@@ -16,6 +16,8 @@ function App() {
   const [cardsLoading, setCardsLoading] = useState(false);
   const [selectedFactionDeckCode, setSelectedFactionDeckCode] = useState(null);
   const [search, setSearch] = useState("");
+  const [sortField, setSortField] = useState("name");
+  const [sortDirection, setSortDirection] = useState("asc");
 
   const handleFactionClick = (deckCode) => {
     setSearch("");
@@ -58,6 +60,7 @@ function App() {
           const cardsData = await fetchCards({
             deck: selectedFactionDeckCode,
             search,
+            sort: `${sortField}_${sortDirection}`,
           });
 
           setCards(cardsData);
@@ -71,7 +74,7 @@ function App() {
     );
 
     return () => clearTimeout(timeoutId);
-  }, [selectedFactionDeckCode, search]);
+  }, [selectedFactionDeckCode, search, sortField, sortDirection]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,6 +111,10 @@ function App() {
             onFactionClick={handleFactionClick}
             search={search}
             setSearch={setSearch}
+            sortField={sortField}
+            setSortField={setSortField}
+            sortDirection={sortDirection}
+            setSortDirection={setSortDirection}
             currentFactionCode={currentFaction.code}
           />
         </main>
