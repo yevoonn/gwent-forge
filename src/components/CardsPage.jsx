@@ -50,13 +50,18 @@ const featuredCards = [
   },
 ];
 
-const containerVariants = {
+const featuredContainerVariants = {
   hidden: {},
   show: {
     transition: {
       staggerChildren: 0.08,
     },
   },
+};
+
+const cardsContainerVariants = {
+  hidden: {},
+  show: {},
 };
 
 const cardVariants = {
@@ -105,7 +110,7 @@ export default function CardsPage({
             <motion.div
               key="featured-cards"
               className="flex flex-wrap justify-center gap-8"
-              variants={containerVariants}
+              variants={featuredContainerVariants}
               initial="hidden"
               animate="show"
             >
@@ -128,12 +133,11 @@ export default function CardsPage({
             <motion.div
               key="leaders"
               className="flex flex-wrap justify-center gap-8"
-              variants={containerVariants}
+              variants={featuredContainerVariants}
               initial="hidden"
               animate="show"
               exit={{
                 opacity: 0,
-                filter: "blur(10px)",
               }}
             >
               {leaders.map((card) => (
@@ -171,12 +175,11 @@ export default function CardsPage({
               <motion.div
                 key={selectedFactionDeckCode}
                 className="flex flex-wrap justify-center gap-8 pt-8"
-                variants={containerVariants}
+                variants={cardsContainerVariants}
                 initial="hidden"
                 animate="show"
                 exit={{
                   opacity: 0,
-                  filter: "blur(10px)",
                 }}
               >
                 {cards.map((card) => (
