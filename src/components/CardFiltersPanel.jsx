@@ -75,14 +75,24 @@ export default function Filters({
               md:bg-slate-900/95
               md:backdrop-blur-md
             "
-            style={{ willChange: "transform" }}
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
+            initial={{
+              opacity: 0,
+              y: 40,
+              scale: 0.95,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              y: 40,
+              scale: 0.95,
+            }}
             transition={{
-              type: "spring",
-              damping: 25,
-              stiffness: 250,
+              duration: 0.25,
+              ease: "easeInOut",
             }}
           >
             {/* MOBILE DRAWER HANDLE */}
