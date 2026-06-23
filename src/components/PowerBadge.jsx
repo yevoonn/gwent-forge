@@ -1,6 +1,25 @@
 export default function PowerBadge({ power, type }) {
   return (
-    <div className="absolute left-0.5 top-0.5 sm:left-1 sm:top-1 z-20 h-20 w-20 scale-55 sm:scale-65 md:scale-75 lg:scale-100 origin-top-left flex items-center justify-center">
+    <div
+      className="
+        absolute
+        left-0.5
+        top-0.5
+        sm:left-1
+        sm:top-1
+        z-20
+        h-20
+        w-20
+        scale-55
+        sm:scale-65
+        md:scale-75
+        lg:scale-100
+        origin-top-left
+        flex
+        items-center
+        justify-center
+      "
+    >
       {type === "Hero" ? (
         <>
           <svg className="h-20 w-20" viewBox="0 0 100 100">
@@ -42,7 +61,20 @@ export default function PowerBadge({ power, type }) {
           </div>
         </>
       ) : (
-        <div className="h-14 w-14 rounded-full bg-gray-100 border-4 border-amber-500 shadow-lg flex items-center justify-center">
+        <div
+          className="
+            h-14
+            w-14
+            rounded-full
+            bg-gray-100
+            border-4
+            border-amber-500
+            shadow-lg
+            flex
+            items-center
+            justify-center
+          "
+        >
           <h1 className="font-cinzel text-3xl lg:text-4xl font-bold text-gray-800">
             {power}
           </h1>

@@ -25,7 +25,8 @@ Instead of spending valuable game night time building decks, players can prepare
 - React
 - Vite
 - Tailwind CSS
-- PostgreSQL
+- Motion for React
+- tsParticles
 
 ## Disclaimer
 
