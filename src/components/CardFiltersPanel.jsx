@@ -40,7 +40,7 @@ export default function Filters({
         <>
           {/* BACKDROP */}
           <motion.div
-            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-black/70"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -75,24 +75,13 @@ export default function Filters({
               md:bg-slate-900/95
               md:backdrop-blur-md
             "
-            initial={{
-              opacity: 0,
-              y: 40,
-              scale: 0.95,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0,
-              y: 40,
-              scale: 0.95,
-            }}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
             transition={{
-              duration: 0.25,
-              ease: "easeInOut",
+              type: "spring",
+              damping: 25,
+              stiffness: 250,
             }}
           >
             {/* MOBILE DRAWER HANDLE */}
