@@ -42,13 +42,12 @@ export default function CardFiltersPanel({
               shadow-2xl
               md:hidden
             "
+            style={{ willChange: "transform" }}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{
-              type: "spring",
-              damping: 25,
-              stiffness: 250,
+              duration: 0.15,
             }}
           >
             <CardFiltersContent
