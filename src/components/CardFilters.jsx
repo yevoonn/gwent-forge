@@ -25,11 +25,8 @@ export default function CardFilters({
         mx-auto
         flex
         max-w-3xl
-        flex-col
+        items-center
         gap-3
-        sm:flex-row
-        sm:items-center
-        sm:justify-center
       "
     >
       {/* SEARCH */}
@@ -99,14 +96,15 @@ export default function CardFilters({
         onClick={() => setIsFiltersOpen(true)}
         className="
           flex
+          h-[50px]
+          w-[50px]
+          shrink-0
           items-center
-          gap-2
+          justify-center
           rounded-xl
           border
           border-slate-700
           bg-slate-900/80
-          px-4
-          py-3
           text-white
           backdrop-blur-sm
           shadow-lg
@@ -114,10 +112,27 @@ export default function CardFilters({
           transition-all
           hover:border-amber-400
           hover:text-amber-400
+          sm:w-auto
+          sm:px-4
         "
       >
         <SlidersHorizontal size={18} />
-        Filters
+
+        <span className="hidden sm:inline ml-2">Filters</span>
+
+        {(cardType || cardRange) && (
+          <span
+            className="
+              absolute
+              -right-1
+              -top-1
+              h-3
+              w-3
+              rounded-full
+              bg-amber-400
+            "
+          />
+        )}
       </button>
 
       <CardFiltersPanel
