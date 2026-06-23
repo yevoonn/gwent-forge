@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
-import Filters from "./CardFiltersPanel";
+import CardFiltersPanel from "./CardFiltersPanel";
 
 export default function CardFilters({
   search,
@@ -120,7 +120,7 @@ export default function CardFilters({
         Filters
       </button>
 
-      <Filters
+      <CardFiltersPanel
         isOpen={isFiltersOpen}
         onClose={() => setIsFiltersOpen(false)}
         sortField={sortField}
