@@ -75,6 +75,7 @@ export default function Filters({
               md:bg-slate-900/95
               md:backdrop-blur-md
             "
+            style={{ willChange: "transform" }}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
