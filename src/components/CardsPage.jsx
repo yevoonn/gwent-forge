@@ -190,6 +190,7 @@ export default function CardsPage({
                       deckCode={selectedFactionDeckCode}
                       image="/cards/geralt.webp"
                       type={card.type}
+                      ability={card.abilities.length ? card.abilities[0] : null}
                     />
                   </motion.div>
                 ))}
