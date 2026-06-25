@@ -1,6 +1,5 @@
 export default function AbilityBadge({ type, ability }) {
-  const abilityCode = ability.code.toLowerCase();
-  let imageURL = `/icons/${abilityCode}_icon_transparent.webp`;
+  let imageURL = `/icons/${ability.code.toLowerCase()}_icon_transparent.webp`;
 
   return (
     <div
