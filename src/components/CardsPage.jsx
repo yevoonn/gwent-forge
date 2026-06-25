@@ -144,7 +144,7 @@ export default function CardsPage({
                 <motion.div key={card.code} variants={cardVariants}>
                   <GwentCard
                     name={card.name}
-                    power={card.power > 0 ? card.power : null}
+                    power={null}
                     deckCode={selectedFactionDeckCode}
                     image="/logo.png"
                   />
@@ -186,7 +186,7 @@ export default function CardsPage({
                   <motion.div key={card.code} variants={cardVariants}>
                     <GwentCard
                       name={card.name}
-                      power={card.power > 0 ? card.power : null}
+                      power={card.type !== "Special" ? card.power : null}
                       deckCode={selectedFactionDeckCode}
                       image="/cards/geralt.webp"
                       type={card.type}

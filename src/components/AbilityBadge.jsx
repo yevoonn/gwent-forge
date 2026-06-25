@@ -1,17 +1,6 @@
 export default function AbilityBadge({ type, ability }) {
   const abilityCode = ability.code.toLowerCase();
-  let imageURL = "logo.png";
-
-  if (
-    abilityCode === "berserker" ||
-    abilityCode === "bond" ||
-    abilityCode === "horn" ||
-    abilityCode === "mardroeme" ||
-    abilityCode === "muster" ||
-    abilityCode === "scorch_row"
-  ) {
-    imageURL = `/icons/${abilityCode}_icon_transparent.webp`;
-  }
+  let imageURL = `/icons/${abilityCode}_icon_transparent.webp`;
 
   return (
     <div
@@ -34,7 +23,7 @@ export default function AbilityBadge({ type, ability }) {
         justify-center
       "
     >
-      {type === "Unit" && ability && (
+      {(type === "Unit" || type === "Hero") && ability && (
         <div
           className="
             h-14
