@@ -146,7 +146,7 @@ export default function CardsPage({
                     name={card.name}
                     power={null}
                     deckCode={selectedFactionDeckCode}
-                    image="/logo.png"
+                    image={card.image_url}
                   />
                 </motion.div>
               ))}
