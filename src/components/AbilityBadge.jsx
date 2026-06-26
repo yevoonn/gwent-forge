@@ -6,12 +6,12 @@ export default function AbilityBadge({ type, ability }) {
       className="
         absolute
         left-0.5
-        top-30
+        top-28
         sm:left-1
-        sm:top-60
-        z-25
-        h-25
-        w-25
+        sm:top-56
+        z-22
+        h-22
+        w-22
         scale-55
         sm:scale-65
         md:scale-75
@@ -29,8 +29,9 @@ export default function AbilityBadge({ type, ability }) {
             w-14
             rounded-full
             bg-gray-100
+            border-dashed
             border-4
-            border-amber-500
+            border-gray-500
             shadow-lg
             flex
             items-center

@@ -12,9 +12,9 @@ export default function PowerBadge({ power, type, ability }) {
         top-0.5
         sm:left-1
         sm:top-1
-        z-25
-        h-25
-        w-25
+        z-22
+        h-22
+        w-22
         scale-55
         sm:scale-65
         md:scale-75
@@ -27,7 +27,7 @@ export default function PowerBadge({ power, type, ability }) {
     >
       {type === "Hero" ? (
         <>
-          <svg className="h-25 w-25" viewBox="0 0 100 100">
+          <svg className="h-22 w-22" viewBox="0 0 100 100">
             {[...Array(22)].map((_, i) => {
               const angle = (i * 360 * Math.PI) / (180 * 22);
               const spikeLength = 52;
@@ -60,7 +60,7 @@ export default function PowerBadge({ power, type, ability }) {
           </svg>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="font-cinzel text-5xl font-bold text-gray-100">
+            <h1 className="font-cinzel text-4xl font-bold text-gray-100">
               {power}
             </h1>
           </div>
@@ -68,11 +68,11 @@ export default function PowerBadge({ power, type, ability }) {
       ) : (
         <div
           className="
-            h-18
-            w-18
+            h-16
+            w-16
             rounded-full
             bg-gray-100
-            border-4
+            border-5
             border-amber-500
             shadow-lg
             flex
@@ -83,7 +83,7 @@ export default function PowerBadge({ power, type, ability }) {
           {type === "Special" ? (
             <img src={imageURL} className="scale-85"></img>
           ) : (
-            <h1 className="font-cinzel text-5xl font-bold text-gray-800">
+            <h1 className="font-cinzel text-4xl font-bold text-gray-800">
               {power}
             </h1>
           )}
