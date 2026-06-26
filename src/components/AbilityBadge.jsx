@@ -9,9 +9,9 @@ export default function AbilityBadge({ type, ability }) {
         top-30
         sm:left-1
         sm:top-60
-        z-20
-        h-20
-        w-20
+        z-25
+        h-25
+        w-25
         scale-55
         sm:scale-65
         md:scale-75
@@ -35,6 +35,7 @@ export default function AbilityBadge({ type, ability }) {
             flex
             items-center
             justify-center
+            scale-90
           "
         >
           <img src={imageURL} className="scale-85"></img>

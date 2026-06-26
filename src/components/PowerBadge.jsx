@@ -1,4 +1,9 @@
-export default function PowerBadge({ power, type }) {
+export default function PowerBadge({ power, type, ability }) {
+  const imageURL =
+    type === "Special"
+      ? `/icons/${ability.code.toLowerCase()}_icon_transparent.webp`
+      : null;
+
   return (
     <div
       className="
@@ -7,9 +12,9 @@ export default function PowerBadge({ power, type }) {
         top-0.5
         sm:left-1
         sm:top-1
-        z-20
-        h-20
-        w-20
+        z-25
+        h-25
+        w-25
         scale-55
         sm:scale-65
         md:scale-75
@@ -22,7 +27,7 @@ export default function PowerBadge({ power, type }) {
     >
       {type === "Hero" ? (
         <>
-          <svg className="h-20 w-20" viewBox="0 0 100 100">
+          <svg className="h-25 w-25" viewBox="0 0 100 100">
             {[...Array(22)].map((_, i) => {
               const angle = (i * 360 * Math.PI) / (180 * 22);
               const spikeLength = 52;
@@ -55,7 +60,7 @@ export default function PowerBadge({ power, type }) {
           </svg>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="font-cinzel text-3xl lg:text-4xl font-bold text-gray-100">
+            <h1 className="font-cinzel text-5xl font-bold text-gray-100">
               {power}
             </h1>
           </div>
@@ -63,8 +68,8 @@ export default function PowerBadge({ power, type }) {
       ) : (
         <div
           className="
-            h-14
-            w-14
+            h-18
+            w-18
             rounded-full
             bg-gray-100
             border-4
@@ -75,9 +80,13 @@ export default function PowerBadge({ power, type }) {
             justify-center
           "
         >
-          <h1 className="font-cinzel text-3xl lg:text-4xl font-bold text-gray-800">
-            {power}
-          </h1>
+          {type === "Special" ? (
+            <img src={imageURL} className="scale-85"></img>
+          ) : (
+            <h1 className="font-cinzel text-5xl font-bold text-gray-800">
+              {power}
+            </h1>
+          )}
         </div>
       )}
     </div>

@@ -35,7 +35,9 @@ export default function GwentCard({
       style={{ transformStyle: "preserve-3d" }}
     >
       {/* Power */}
-      {power !== null && <PowerBadge power={power} type={type} />}
+      {(power !== null || type === "Special") && (
+        <PowerBadge power={power} type={type} ability={ability} />
+      )}
 
       {/* Ability */}
       {ability && <AbilityBadge type={type} ability={ability} />}
