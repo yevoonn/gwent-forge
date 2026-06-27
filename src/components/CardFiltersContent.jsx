@@ -217,8 +217,8 @@ export default function CardFiltersContent({
                   src={range.icon}
                   alt={range.label}
                   className={`
-                    h-8
-                    w-8
+                    h-6
+                    w-6
                     object-contain
                     transition-all
                     ${
