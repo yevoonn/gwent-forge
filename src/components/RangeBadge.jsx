@@ -1,14 +1,14 @@
-export default function AbilityBadge({ type, ability }) {
-  let imageURL = `/icons/${ability.code.toLowerCase()}_icon_transparent.webp`;
+export default function RangeBadge({ type, range }) {
+  let imageURL = `/icons/${range.toLowerCase()}_icon_transparent.webp`;
 
   return (
     <div
       className="
         absolute
         left-0.5
-        top-23
+        top-12
         sm:left-1
-        sm:top-46
+        sm:top-24
         z-22
         h-22
         w-22
@@ -22,13 +22,13 @@ export default function AbilityBadge({ type, ability }) {
         justify-center
       "
     >
-      {(type === "Unit" || type === "Hero") && ability && (
+      {(type === "Unit" || type === "Hero") && range && (
         <div
           className="
             h-14
             w-14
             rounded-full
-            bg-stone-200
+            bg-amber-500
             border-4
             border-orange-300
             shadow-lg
@@ -38,7 +38,7 @@ export default function AbilityBadge({ type, ability }) {
             scale-90
           "
         >
-          <img src={imageURL} className="scale-85"></img>
+          <img src={imageURL} className="scale-75"></img>
         </div>
       )}
     </div>

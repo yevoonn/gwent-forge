@@ -191,6 +191,7 @@ export default function CardsPage({
                       image="/cards/geralt.webp"
                       type={card.type}
                       ability={card.abilities.length ? card.abilities[0] : null}
+                      range={card.range.code}
                     />
                   </motion.div>
                 ))}

@@ -60,7 +60,7 @@ export default function PowerBadge({ power, type, ability }) {
           </svg>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="font-cinzel text-4xl font-bold text-gray-100">
+            <h1 className="font-cinzel text-4xl font-bold text-stone-200">
               {power}
             </h1>
           </div>
@@ -71,7 +71,7 @@ export default function PowerBadge({ power, type, ability }) {
             h-16
             w-16
             rounded-full
-            bg-gray-100
+            bg-stone-200
             border-5
             border-amber-500
             shadow-lg

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import PowerBadge from "./PowerBadge";
 import AbilityBadge from "./AbilityBadge";
+import RangeBadge from "./RangeBadge";
 
 const factionStyles = {
   northern_realms: "border-sky-400 cursor-pointer",
@@ -18,6 +19,7 @@ export default function GwentCard({
   image,
   type,
   ability,
+  range,
   currentFactionCode,
 }) {
   return (
@@ -38,6 +40,9 @@ export default function GwentCard({
       {(power !== null || type === "Special") && (
         <PowerBadge power={power} type={type} ability={ability} />
       )}
+
+      {/* Range */}
+      {range && <RangeBadge type={type} range={range} />}
 
       {/* Ability */}
       {ability && <AbilityBadge type={type} ability={ability} />}
