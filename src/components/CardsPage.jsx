@@ -188,7 +188,7 @@ export default function CardsPage({
                       name={card.name}
                       power={card.type !== "Special" ? card.power : null}
                       deckCode={selectedFactionDeckCode}
-                      image="/cards/geralt.webp"
+                      image={card.image_url}
                       type={card.type}
                       ability={card.abilities.length ? card.abilities[0] : null}
                       range={card.range.code}
