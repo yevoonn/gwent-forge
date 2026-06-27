@@ -14,11 +14,26 @@ const cardTypes = [
 ];
 
 const cardRanges = [
-  { value: "", label: "All" },
-  { value: "agile", label: "Agile" },
-  { value: "close", label: "Close" },
-  { value: "ranged", label: "Ranged" },
-  { value: "siege", label: "Siege" },
+  {
+    value: "agile",
+    icon: "/icons/agile_icon_transparent.webp",
+    label: "Agile",
+  },
+  {
+    value: "close",
+    icon: "/icons/close_icon_transparent.webp",
+    label: "Close",
+  },
+  {
+    value: "ranged",
+    icon: "/icons/ranged_icon_transparent.webp",
+    label: "Ranged",
+  },
+  {
+    value: "siege",
+    icon: "/icons/siege_icon_transparent.webp",
+    label: "Siege",
+  },
 ];
 
 export default function CardFiltersContent({
@@ -171,27 +186,49 @@ export default function CardFiltersContent({
       <div className="mb-4">
         <label className="mb-2 block text-sm text-slate-400">Range</label>
 
-        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1 overflow-x-auto">
+        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
           {cardRanges.map((range) => (
             <button
               key={range.value}
               type="button"
-              onClick={() => setCardRange(range.value)}
+              onClick={() =>
+                setCardRange(cardRange === range.value ? "" : range.value)
+              }
+              title={range.label}
               className={`
-                      min-w-[80px]
-                      rounded-lg
-                      px-3
-                      py-2
-                      text-sm
-                      transition-all
-                      ${
-                        cardRange === range.value
-                          ? "bg-amber-500 text-black"
-                          : "text-slate-300 hover:text-white"
-                      }
-                    `}
+                flex-1
+                flex
+                items-center
+                justify-center
+                rounded-lg
+                py-2
+                transition-all
+                ${
+                  cardRange === range.value
+                    ? "bg-amber-500"
+                    : "text-slate-300 hover:bg-slate-700"
+                }
+              `}
             >
-              {range.label}
+              {range.value === "" ? (
+                <span className="text-sm font-medium">All</span>
+              ) : (
+                <img
+                  src={range.icon}
+                  alt={range.label}
+                  className={`
+                    h-8
+                    w-8
+                    object-contain
+                    transition-all
+                    ${
+                      cardRange === range.value
+                        ? "brightness-0"
+                        : "brightness-0 invert opacity-80"
+                    }
+                  `}
+                />
+              )}
             </button>
           ))}
         </div>
