@@ -77,76 +77,51 @@ export default function CardFiltersContent({
               type="button"
               onClick={() => setSortField(field.value)}
               className={`
-                      flex-1
-                      rounded-lg
-                      px-3
-                      py-2
-                      text-sm
-                      transition-all
-                      ${
-                        sortField === field.value
-                          ? "bg-amber-500 text-black"
-                          : "text-slate-300 hover:text-white"
-                      }
-                    `}
+              flex-1
+              rounded-lg
+              px-3
+              py-2
+              text-sm
+              transition-all
+              ${
+                sortField === field.value
+                  ? "bg-amber-500 text-black"
+                  : "text-slate-300 hover:text-white"
+              }
+            `}
             >
               {field.label}
             </button>
           ))}
-        </div>
-      </div>
 
-      {/* SORT DIRECTION */}
-      <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">Direction</label>
-
-        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
-          <button
-            type="button"
-            onClick={() => setSortDirection("asc")}
-            className={`
-                    flex-1
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-lg
-                    py-2
-                    text-sm
-                    transition-all
-                    ${
-                      sortDirection === "asc"
-                        ? "bg-amber-500 text-black"
-                        : "text-slate-300 hover:text-white"
-                    }
-                  `}
-          >
-            <ArrowUp size={16} />
-            Asc
-          </button>
+          <div className="mx-2 w-px bg-slate-600" />
 
           <button
             type="button"
-            onClick={() => setSortDirection("desc")}
-            className={`
-                    flex-1
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-lg
-                    py-2
-                    text-sm
-                    transition-all
-                    ${
-                      sortDirection === "desc"
-                        ? "bg-amber-500 text-black"
-                        : "text-slate-300 hover:text-white"
-                    }
-                  `}
+            onClick={() =>
+              setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
+            }
+            title={sortDirection === "asc" ? "Ascending" : "Descending"}
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-lg
+              bg-amber-500
+              text-black
+              transition-all
+              hover:bg-amber-400
+              active:scale-95
+            "
           >
-            <ArrowDown size={16} />
-            Desc
+            <ArrowUp
+              size={18}
+              className={`transition-transform duration-200 ${
+                sortDirection === "desc" ? "rotate-180" : ""
+              }`}
+            />
           </button>
         </div>
       </div>
@@ -155,26 +130,30 @@ export default function CardFiltersContent({
       <div className="mb-4">
         <label className="mb-2 block text-sm text-slate-400">Type</label>
 
-        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1 overflow-x-auto">
+        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
           {cardTypes.map((type) => (
             <button
               key={type.value}
               type="button"
               onClick={() => setCardType(type.value)}
               className={`
-                      flex-1
-                      min-w-[80px]
-                      rounded-lg
-                      px-3
-                      py-2
-                      text-sm
-                      transition-all
-                      ${
-                        cardType === type.value
-                          ? "bg-amber-500 text-black"
-                          : "text-slate-300 hover:text-white"
-                      }
-                    `}
+                flex-1
+                flex
+                items-center
+                justify-center
+                h-10
+                min-w-[80px]
+                rounded-lg
+                px-3
+                py-2
+                text-sm
+                transition-all
+                ${
+                  cardType === type.value
+                    ? "bg-amber-500 text-black"
+                    : "text-slate-300 hover:text-white"
+                }
+              `}
             >
               {type.label}
             </button>
