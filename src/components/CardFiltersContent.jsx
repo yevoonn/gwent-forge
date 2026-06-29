@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowDown, SlidersHorizontal, X } from "lucide-react";
+import { ArrowUp, SlidersHorizontal, X } from "lucide-react";
 
 const sortFields = [
   { value: "name", label: "Name" },
