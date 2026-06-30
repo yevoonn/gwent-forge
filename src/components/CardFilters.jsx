@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import CardFiltersPanel from "./CardFiltersPanel";
 
@@ -13,9 +12,9 @@ export default function CardFilters({
   setCardType,
   cardRange,
   setCardRange,
+  isFiltersOpen,
+  setIsFiltersOpen,
 }) {
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-
   return (
     <div
       className="

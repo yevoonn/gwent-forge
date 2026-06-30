@@ -5,3 +5,51 @@ export const factions = [
   { name: "Scoia'tael", code: "scoiatael", color: "text-emerald-400" },
   { name: "Skellige", code: "skellige", color: "text-indigo-400" },
 ];
+
+export const featuredCards = [
+  {
+    name: "Foltest",
+    deckCode: "northern_realms",
+    power: null,
+    faction: "Northern Realms",
+    rarity: null,
+    image: "/cards/foltest.webp",
+    isButton: true,
+  },
+  {
+    name: "Emhyr var Emreis",
+    deckCode: "nilfgaard",
+    power: null,
+    faction: "Nilfgaard",
+    rarity: null,
+    image: "/cards/emhyr.webp",
+    isButton: true,
+  },
+  {
+    name: "Eredin",
+    deckCode: "monsters",
+    power: null,
+    faction: "Monsters",
+    rarity: null,
+    image: "/cards/eredin.webp",
+    isButton: true,
+  },
+  {
+    name: "Francesca Findabair",
+    deckCode: "scoiatael",
+    power: null,
+    faction: "Scoia'tael",
+    rarity: null,
+    image: "/cards/francesca.webp",
+    isButton: true,
+  },
+  {
+    name: "Crach an Craite",
+    deckCode: "skellige",
+    power: null,
+    faction: "Skellige",
+    rarity: null,
+    image: "/cards/crach.webp",
+    isButton: true,
+  },
+];

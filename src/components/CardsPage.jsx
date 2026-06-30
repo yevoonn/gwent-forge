@@ -1,54 +1,9 @@
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import GwentCard from "./GwentCard";
 import CardFilters from "./CardFilters";
-
-const featuredCards = [
-  {
-    name: "Foltest",
-    deckCode: "northern_realms",
-    power: null,
-    faction: "Northern Realms",
-    rarity: null,
-    image: "/cards/foltest.webp",
-    isButton: true,
-  },
-  {
-    name: "Emhyr var Emreis",
-    deckCode: "nilfgaard",
-    power: null,
-    faction: "Nilfgaard",
-    rarity: null,
-    image: "/cards/emhyr.webp",
-    isButton: true,
-  },
-  {
-    name: "Eredin",
-    deckCode: "monsters",
-    power: null,
-    faction: "Monsters",
-    rarity: null,
-    image: "/cards/eredin.webp",
-    isButton: true,
-  },
-  {
-    name: "Francesca Findabair",
-    deckCode: "scoiatael",
-    power: null,
-    faction: "Scoia'tael",
-    rarity: null,
-    image: "/cards/francesca.webp",
-    isButton: true,
-  },
-  {
-    name: "Crach an Craite",
-    deckCode: "skellige",
-    power: null,
-    faction: "Skellige",
-    rarity: null,
-    image: "/cards/crach.webp",
-    isButton: true,
-  },
-];
+import ScrollToTopButton from "./ScrollToTopButton";
+import { featuredCards } from "../data/factions";
 
 const featuredContainerVariants = {
   hidden: {},
@@ -99,6 +54,7 @@ export default function CardsPage({
   setCardRange,
   currentFactionCode,
 }) {
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const showLeaders = leaders.length > 0;
 
   return (
@@ -171,6 +127,8 @@ export default function CardsPage({
                 cardRange={cardRange}
                 setCardRange={setCardRange}
                 setSortDirection={setSortDirection}
+                isFiltersOpen={isFiltersOpen}
+                setIsFiltersOpen={setIsFiltersOpen}
               />
               <motion.div
                 key={selectedFactionDeckCode}
@@ -196,6 +154,8 @@ export default function CardsPage({
                   </motion.div>
                 ))}
               </motion.div>
+
+              <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />
             </>
           ) : (
             <motion.p
