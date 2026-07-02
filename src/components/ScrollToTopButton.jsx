@@ -25,7 +25,7 @@ export default function ScrollToTopButton({ visible }) {
   return (
     <button
       onClick={scrollToTop}
-      className="
+      className={`
         fixed
         bottom-6
         right-6
@@ -42,7 +42,8 @@ export default function ScrollToTopButton({ visible }) {
         transition-all
         hover:scale-110
         hover:bg-amber-400
-      "
+        cursor-pointer
+      `}
       aria-label="Scroll to top"
     >
       <ArrowUp size={22} />
