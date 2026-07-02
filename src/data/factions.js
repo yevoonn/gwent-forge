@@ -13,7 +13,7 @@ export const featuredCards = [
     power: null,
     faction: "Northern Realms",
     rarity: null,
-    image: "/cards/foltest.webp",
+    image: "/cards/NOR002.webp",
     isButton: true,
   },
   {
@@ -22,7 +22,7 @@ export const featuredCards = [
     power: null,
     faction: "Nilfgaard",
     rarity: null,
-    image: "/cards/emhyr.webp",
+    image: "/cards/NIL005.webp",
     isButton: true,
   },
   {
@@ -31,7 +31,7 @@ export const featuredCards = [
     power: null,
     faction: "Monsters",
     rarity: null,
-    image: "/cards/eredin.webp",
+    image: "/cards/MON001.webp",
     isButton: true,
   },
   {
@@ -40,7 +40,7 @@ export const featuredCards = [
     power: null,
     faction: "Scoia'tael",
     rarity: null,
-    image: "/cards/francesca.webp",
+    image: "/cards/SCO005.webp",
     isButton: true,
   },
   {
@@ -49,7 +49,7 @@ export const featuredCards = [
     power: null,
     faction: "Skellige",
     rarity: null,
-    image: "/cards/crach.webp",
+    image: "/cards/SKE002.webp",
     isButton: true,
   },
 ];
