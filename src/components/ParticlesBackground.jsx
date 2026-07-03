@@ -5,9 +5,12 @@ import { loadFirePreset } from "@tsparticles/preset-fire";
 function ParticlesBackground() {
   useEffect(() => {
     let container;
+    let cancelled = false;
 
     const init = async () => {
       await loadFirePreset(tsParticles);
+
+      if (cancelled) return;
 
       container = await tsParticles.load({
         id: "particles",
@@ -52,6 +55,8 @@ function ParticlesBackground() {
     init();
 
     return () => {
+      cancelled = true;
+
       if (container) {
         container.destroy();
       }

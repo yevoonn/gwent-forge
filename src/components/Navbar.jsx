@@ -25,7 +25,7 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-6">
           <li>
             <Link
-              to="/"
+              to="/about"
               className="inline-flex items-center gap-2 transition-transform duration-200 hover:scale-110 hover:text-amber-400"
             >
               <Info size={16} />
@@ -35,7 +35,7 @@ export default function Navbar() {
 
           <li>
             <Link
-              to="/"
+              to="/contact"
               className="inline-flex items-center gap-2 transition-transform duration-200 hover:scale-110 hover:text-amber-400"
             >
               <Mail size={16} />
@@ -80,7 +80,7 @@ export default function Navbar() {
             className="md:hidden absolute right-6 top-full mt-2 w-44 overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/95 backdrop-blur-md shadow-2xl"
           >
             <Link
-              to="/"
+              to="/about"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 px-5 py-4 font-cinzel transition-colors hover:bg-slate-800 hover:text-amber-400"
             >
@@ -89,7 +89,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              to="/"
+              to="/contact"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 px-5 py-4 font-cinzel transition-colors hover:bg-slate-800 hover:text-amber-400"
             >

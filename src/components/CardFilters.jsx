@@ -100,17 +100,24 @@ export default function CardFilters({
           shrink-0
           items-center
           justify-center
+          cursor-pointer
           rounded-xl
           border
           border-slate-700
-          bg-slate-900/80
+          bg-slate-900/70
           text-white
           backdrop-blur-sm
+          transition-all
+          duration-200
           shadow-lg
           shadow-black/30
           transition-all
+          hover:text-amber-300
+          hover:-translate-y-0.5
           hover:border-amber-400
-          hover:text-amber-400
+          hover:bg-slate-800
+          hover:shadow-lg
+          hover:shadow-amber-500/20
           sm:w-auto
           sm:px-4
         "

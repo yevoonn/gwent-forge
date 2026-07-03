@@ -61,7 +61,10 @@ export default function CardFiltersContent({
           <h2 className="font-cinzel text-lg text-white">Filters</h2>
         </div>
 
-        <button onClick={onClose} className="text-slate-400 hover:text-white">
+        <button
+          onClick={onClose}
+          className="cursor-pointer text-slate-400 hover:text-white"
+        >
           <X size={20} />
         </button>
       </div>
