@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, Info, Mail } from "lucide-react";
 
@@ -9,8 +10,8 @@ export default function Navbar() {
     <nav className="relative z-50 text-white">
       <div className="mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-105"
         >
           <img src="/logo.png" alt="Gwent Forge Logo" className="h-8 w-auto" />
@@ -18,28 +19,28 @@ export default function Navbar() {
           <span className="hidden sm:inline font-cinzel text-xl font-semibold">
             Gwent <span className="text-amber-400">Forge</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-6">
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 transition-transform duration-200 hover:scale-110 hover:text-amber-400"
             >
               <Info size={16} />
               <span className="font-cinzel">About</span>
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 transition-transform duration-200 hover:scale-110 hover:text-amber-400"
             >
               <Mail size={16} />
               <span className="font-cinzel">Contact</span>
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -78,23 +79,23 @@ export default function Navbar() {
             }}
             className="md:hidden absolute right-6 top-full mt-2 w-44 overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/95 backdrop-blur-md shadow-2xl"
           >
-            <a
-              href="/"
+            <Link
+              to="/"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 px-5 py-4 font-cinzel transition-colors hover:bg-slate-800 hover:text-amber-400"
             >
               <Info size={18} />
               <span>About</span>
-            </a>
+            </Link>
 
-            <a
-              href="/"
+            <Link
+              to="/"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 px-5 py-4 font-cinzel transition-colors hover:bg-slate-800 hover:text-amber-400"
             >
               <Mail size={18} />
               <span>Contact</span>
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
