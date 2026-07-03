@@ -1,143 +1,17 @@
-import { useEffect, useState } from "react";
-import ParticlesBackground from "./components/ParticlesBackground";
-import { fetchCards } from "./api/cards";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import LoadingSpinner from "./components/LoadingSpinner";
-import CardsPage from "./components/CardsPage";
-import HeroSection from "./components/HeroSection";
-import { factions } from "./data/factions";
+import { Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
-function App() {
-  const [index, setIndex] = useState(0);
-  const [leaders, setLeaders] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [leadersLoading, setLeadersLoading] = useState(false);
-  const [cardsLoading, setCardsLoading] = useState(false);
-  const [selectedFactionDeckCode, setSelectedFactionDeckCode] = useState(null);
-  const [search, setSearch] = useState("");
-  const [sortField, setSortField] = useState("name");
-  const [sortDirection, setSortDirection] = useState("asc");
-  const [cardType, setCardType] = useState("");
-  const [cardRange, setCardRange] = useState("");
-
-  const handleFactionClick = (deckCode) => {
-    setSearch("");
-    setSelectedFactionDeckCode(deckCode);
-  };
-
-  useEffect(() => {
-    if (!selectedFactionDeckCode) return;
-
-    const loadLeaders = async () => {
-      setLeadersLoading(true);
-      try {
-        const leadersData = await fetchCards({
-          deck: selectedFactionDeckCode,
-          lang: "en",
-          sort: "code_asc",
-          is_deck_card: "false",
-          type: "leader",
-        });
-
-        setLeaders(leadersData);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLeadersLoading(false);
-      }
-    };
-
-    loadLeaders();
-  }, [selectedFactionDeckCode]);
-
-  useEffect(() => {
-    if (!selectedFactionDeckCode) return;
-
-    const timeoutId = setTimeout(
-      async () => {
-        setCardsLoading(true);
-
-        try {
-          const cardsData = await fetchCards({
-            deck: selectedFactionDeckCode,
-            search,
-            sort: `${sortField}_${sortDirection}`,
-            type: cardType,
-            range: cardRange,
-          });
-
-          setCards(cardsData);
-        } catch (error) {
-          console.error(error);
-        } finally {
-          setCardsLoading(false);
-        }
-      },
-      search ? 500 : 0,
-    );
-
-    return () => clearTimeout(timeoutId);
-  }, [
-    selectedFactionDeckCode,
-    search,
-    sortField,
-    sortDirection,
-    cardType,
-    cardRange,
-  ]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((current) => (current + 1) % factions.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentFaction = factions[index];
-  const loading = leadersLoading || cardsLoading;
-
+export default function App() {
   return (
-    <>
-      <ParticlesBackground />
-
-      {loading && <LoadingSpinner />}
-
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-
-        <main className="flex-1">
-          {/* HERO */}
-          {!selectedFactionDeckCode ? (
-            <HeroSection currentFaction={currentFaction} />
-          ) : null}
-
-          {/* CARDS GRID */}
-          <CardsPage
-            selectedFactionDeckCode={selectedFactionDeckCode}
-            leaders={leaders}
-            cards={cards}
-            loading={loading}
-            onFactionClick={handleFactionClick}
-            search={search}
-            setSearch={setSearch}
-            sortField={sortField}
-            setSortField={setSortField}
-            sortDirection={sortDirection}
-            setSortDirection={setSortDirection}
-            cardType={cardType}
-            setCardType={setCardType}
-            cardRange={cardRange}
-            setCardRange={setCardRange}
-            currentFactionCode={currentFaction.code}
-          />
-        </main>
-
-        <Footer />
-      </div>
-    </>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="contact" element={<ContactPage />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;
