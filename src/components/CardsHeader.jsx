@@ -29,7 +29,7 @@ export default function CardsHeader() {
           hover:shadow-amber-500/20
         "
       >
-        <ArrowLeft size={20} />
+        <ArrowLeft size={20} className="text-amber-400" />
         <span>Back to Factions</span>
       </Link>
     </header>

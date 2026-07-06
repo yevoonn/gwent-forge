@@ -122,7 +122,7 @@ export default function CardFilters({
           sm:px-4
         "
       >
-        <SlidersHorizontal size={18} />
+        <SlidersHorizontal size={18} className="text-amber-400" />
 
         <span className="hidden sm:inline ml-2">Filters</span>
 
