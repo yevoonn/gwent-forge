@@ -11,6 +11,14 @@ const factionStyles = {
   skellige: "border-indigo-400 cursor-pointer",
 };
 
+const factionGlow = {
+  northern_realms: "#38bdf8",
+  nilfgaard: "#fde047",
+  monsters: "#ef4444",
+  scoiatael: "#4ade80",
+  skellige: "#818cf8",
+};
+
 export default function GwentCard({
   name,
   power,
@@ -22,16 +30,28 @@ export default function GwentCard({
   range,
   currentFactionCode,
 }) {
+  const isActive = currentFactionCode === deckCode;
+
   return (
     <motion.div
       whileHover={{
         y: -10,
         scale: 1.1,
       }}
+      animate={
+        isActive
+          ? {
+              scale: 1.08,
+            }
+          : {
+              scale: 1,
+            }
+      }
       transition={{
         type: "spring",
         stiffness: 300,
-        damping: 20,
+        damping: isActive ? 75 : 20,
+        delay: isActive ? 0.75 : 0,
       }}
       className={`
         group
@@ -48,9 +68,14 @@ export default function GwentCard({
         backdrop-blur-sm
         shadow-xl
         ${factionStyles[deckCode]}
-        ${currentFactionCode === deckCode ? "animate-pulse-delayed" : ""}
+         ${isActive ? "animate-faction-glow" : ""}
       `}
-      style={{ transformStyle: "preserve-3d" }}
+      style={{
+        transformStyle: "preserve-3d",
+        ...(isActive && {
+          "--glow": factionGlow[deckCode],
+        }),
+      }}
     >
       {/* Power */}
       {(power !== null || type === "Special") && (
