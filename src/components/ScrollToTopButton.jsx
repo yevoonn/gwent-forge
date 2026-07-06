@@ -11,6 +11,7 @@ export default function ScrollToTopButton({ visible }) {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -47,25 +48,10 @@ export default function ScrollToTopButton({ visible }) {
             duration: 0.5,
             ease: [0.22, 1, 0.36, 1],
           }}
-          whileHover={{
-            scale: 1.12,
-            y: -3,
-          }}
-          whileTap={{
-            scale: 0.92,
-          }}
           className="fixed bottom-6 right-6 z-50"
         >
           <motion.button
-            animate={{
-              scale: [1, 1.05, 1],
-              y: [0, -2, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            onClick={scrollToTop}
             whileHover={{
               scale: 1.12,
               y: -3,
@@ -73,22 +59,39 @@ export default function ScrollToTopButton({ visible }) {
             whileTap={{
               scale: 0.92,
             }}
-            onClick={scrollToTop}
-            className={`
+            className="
               flex
               h-12
               w-12
+              cursor-pointer
               items-center
               justify-center
-              rounded-full
-              bg-amber-500
-              text-black
+              rounded-xl
+              border
+              border-slate-700
+              bg-slate-900/70
+              text-amber-400
+              backdrop-blur-sm
               shadow-lg
-              hover:bg-amber-400
-              cursor-pointer
-            `}
+              shadow-amber-500/10
+              hover:border-amber-400
+              hover:bg-slate-800
+              hover:text-amber-300
+              hover:shadow-amber-500/20
+            "
           >
-            <ArrowUp size={22} />
+            <motion.div
+              animate={{
+                y: [0, -3, 0],
+              }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <ArrowUp size={22} />
+            </motion.div>
           </motion.button>
         </motion.div>
       )}
