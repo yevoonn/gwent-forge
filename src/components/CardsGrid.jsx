@@ -108,7 +108,7 @@ export default function CardsGrid({
                 image={card.image_url}
                 type={card.type}
                 ability={card.abilities.length ? card.abilities[0] : null}
-                range={card.range.code}
+                range={card.range}
               />
             </motion.div>
           ))}
