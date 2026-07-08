@@ -15,9 +15,12 @@ export default function RangeBadge({ type, range }) {
       className={`
         absolute
         left-0.5
-        top-12
         sm:left-1
-        sm:top-24
+        top-12
+        sm:top-16
+        md:top-18
+        lg:top-22
+        xl:top-24
         z-30
         h-22
         w-22

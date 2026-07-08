@@ -11,9 +11,12 @@ export default function AbilityBadge({ type, ability }) {
       className="
         absolute
         left-0.5
-        top-23
         sm:left-1
-        sm:top-46
+        top-24
+        sm:top-28
+        md:top-34
+        lg:top-40
+        xl:top-44
         z-22
         h-22
         w-22
