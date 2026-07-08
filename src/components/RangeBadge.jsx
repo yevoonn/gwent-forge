@@ -94,6 +94,7 @@ export default function RangeBadge({ type, range }) {
                 p-3
                 shadow-xl
                 shadow-black/40
+                text-center
               `}
             >
               <h4 className="font-cinzel text-sm font-bold text-amber-300">
