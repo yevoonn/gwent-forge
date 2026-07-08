@@ -1,4 +1,9 @@
+import { useState } from "react";
+import BadgeTooltip from "./BadgeTooltip";
+
 export default function AbilityBadge({ type, ability }) {
+  const [hovered, setHovered] = useState(false);
+
   let imageURL = `/icons/${ability.code.toLowerCase()}_icon_transparent.webp`;
 
   return (
@@ -24,7 +29,12 @@ export default function AbilityBadge({ type, ability }) {
     >
       {(type === "Unit" || type === "Hero") && ability && (
         <div
-          className="
+          className="relative"
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          <div
+            className="
             h-14
             w-14
             rounded-full
@@ -37,8 +47,14 @@ export default function AbilityBadge({ type, ability }) {
             justify-center
             scale-90
           "
-        >
-          <img src={imageURL} className="scale-85"></img>
+          >
+            <img src={imageURL} className="scale-85"></img>
+          </div>
+          <BadgeTooltip
+            visible={hovered}
+            title={ability.name}
+            description={ability.description}
+          />
         </div>
       )}
     </div>

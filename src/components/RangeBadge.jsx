@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import BadgeTooltip from "./BadgeTooltip";
 
 export default function RangeBadge({ type, range }) {
   const [hovered, setHovered] = useState(false);
@@ -54,61 +54,11 @@ export default function RangeBadge({ type, range }) {
           <img src={imageURL} alt={range.name} className="scale-75" />
         </div>
 
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -10,
-                scale: 0.95,
-              }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                scale: 1,
-              }}
-              exit={{
-                opacity: 0,
-                x: -10,
-                scale: 0.95,
-              }}
-              transition={{
-                duration: 0.18,
-                ease: "easeOut",
-              }}
-              className={`
-                hidden
-                md:block
-                pointer-events-none
-                absolute
-                left-full
-                top-1/2
-                ml-3
-                -translate-y-1/2
-                w-40
-                rounded-xl
-                border
-                border-slate-700
-                bg-slate-900/90
-                backdrop-blur-sm
-                p-3
-                shadow-xl
-                shadow-black/40
-                text-center
-              `}
-            >
-              <h4 className="font-cinzel text-sm font-bold text-amber-300">
-                {range.name}
-              </h4>
-
-              {range.description && (
-                <p className="mt-1 text-xs leading-relaxed text-slate-300">
-                  {range.description}
-                </p>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <BadgeTooltip
+          visible={hovered}
+          title={range.name}
+          description={range.description}
+        />
       </div>
     </div>
   );
