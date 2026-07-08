@@ -16,8 +16,8 @@ export default function RangeBadge({ type, range }) {
         absolute
         left-0.5
         sm:left-1
-        top-12
-        sm:top-16
+        top-13
+        sm:top-15
         md:top-18
         lg:top-22
         xl:top-24
