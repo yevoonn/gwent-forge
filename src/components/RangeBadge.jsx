@@ -54,7 +54,12 @@ export default function RangeBadge({ type, range }) {
             scale-90
           `}
         >
-          <img src={imageURL} alt={range.name} className="scale-75" />
+          <img
+            src={imageURL}
+            alt={range.name}
+            alt={range.code}
+            className="scale-75"
+          />
         </div>
 
         <BadgeTooltip

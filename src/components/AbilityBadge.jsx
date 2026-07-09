@@ -51,7 +51,7 @@ export default function AbilityBadge({ type, ability }) {
             scale-90
           "
           >
-            <img src={imageURL} className="scale-85"></img>
+            <img src={imageURL} alt={ability.code} className="scale-85"></img>
           </div>
           <BadgeTooltip
             visible={hovered}
