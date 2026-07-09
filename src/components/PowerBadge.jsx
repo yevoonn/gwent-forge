@@ -81,7 +81,7 @@ export default function PowerBadge({ power, type, ability }) {
           "
         >
           {type === "Special" ? (
-            <img src={imageURL} className="scale-85"></img>
+            <img src={imageURL} alt={ability.code} className="scale-85"></img>
           ) : (
             <h1 className="font-cinzel text-4xl font-bold text-gray-800">
               {power}
