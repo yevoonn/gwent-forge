@@ -1,4 +1,9 @@
+import { useState } from "react";
+import BadgeTooltip from "./BadgeTooltip";
+
 export default function PowerBadge({ power, type, ability }) {
+  const [hovered, setHovered] = useState(false);
+
   const imageURL =
     type === "Special"
       ? `/icons/${ability.code.toLowerCase()}_icon_transparent.webp`
@@ -81,7 +86,19 @@ export default function PowerBadge({ power, type, ability }) {
           "
         >
           {type === "Special" ? (
-            <img src={imageURL} alt={ability.code} className="scale-85"></img>
+            <div
+              className="relative"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
+              <img src={imageURL} alt={ability.code} className="scale-85"></img>
+              <BadgeTooltip
+                visible={hovered}
+                title={ability.name}
+                description={ability.description}
+                className="top-0"
+              />
+            </div>
           ) : (
             <h1 className="font-cinzel text-4xl font-bold text-gray-800">
               {power}

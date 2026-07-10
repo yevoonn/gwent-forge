@@ -1,6 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 
-export default function BadgeTooltip({ visible, title, description }) {
+export default function BadgeTooltip({
+  visible,
+  title,
+  description,
+  className = "top-1/2 -translate-y-1/2",
+}) {
   return (
     <AnimatePresence>
       {visible && (
@@ -24,15 +29,14 @@ export default function BadgeTooltip({ visible, title, description }) {
             duration: 0.18,
             ease: "easeOut",
           }}
-          className="
+          className={`
             hidden
             md:block
             pointer-events-none
             absolute
             left-full
-            top-1/2
             ml-3
-            -translate-y-1/2
+            ${className}
             w-40
             rounded-xl
             border
@@ -44,7 +48,7 @@ export default function BadgeTooltip({ visible, title, description }) {
             shadow-black/40
             text-center
             z-50
-          "
+          `}
         >
           <h4 className="font-cinzel text-sm font-bold text-amber-300">
             {title}
