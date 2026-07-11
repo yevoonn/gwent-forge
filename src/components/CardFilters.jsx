@@ -74,6 +74,7 @@ export default function CardFilters({
         {search && (
           <button
             type="button"
+            aria-label="Clear search"
             onClick={() => setSearch("")}
             className="
               absolute
@@ -92,6 +93,7 @@ export default function CardFilters({
 
       <button
         type="button"
+        aria-label="Open filters"
         onClick={() => setIsFiltersOpen(true)}
         className="
           flex
