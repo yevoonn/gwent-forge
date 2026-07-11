@@ -1,6 +1,9 @@
 import { motion } from "motion/react";
-import { featuredCards } from "../data/factions";
+import { useTranslation } from "react-i18next";
+
 import GwentCard from "./GwentCard";
+
+import { featuredCards } from "../data/factions";
 
 const featuredContainerVariants = {
   hidden: {},
@@ -29,6 +32,8 @@ const cardVariants = {
 };
 
 export default function FeaturedCards({ onFactionClick, currentFactionCode }) {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="mx-auto max-w-screen-2xl px-6 pt-0 md:pt-8">
@@ -42,7 +47,11 @@ export default function FeaturedCards({ onFactionClick, currentFactionCode }) {
           {featuredCards.map((card) => (
             <motion.div key={card.name} variants={cardVariants}>
               <button onClick={() => onFactionClick(card.deckCode)}>
-                <GwentCard currentFactionCode={currentFactionCode} {...card} />
+                <GwentCard
+                  {...card}
+                  currentFactionCode={currentFactionCode}
+                  faction={t(`factions.${card.deckCode}`)}
+                />
               </button>
             </motion.div>
           ))}
@@ -57,7 +66,7 @@ export default function FeaturedCards({ onFactionClick, currentFactionCode }) {
           exit={{ opacity: 0 }}
           className="text-center text-slate-300 text-lg font-cinzel"
         >
-          Select faction to view cards
+          {t("featured.description")}
         </motion.p>
       </section>
     </>
