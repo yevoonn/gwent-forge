@@ -1,0 +1,32 @@
+{
+  "app": {
+    "name": "Gwent Forge",
+    "tagline": "Mniej przygotowań, więcej Gwinta"
+  },
+
+  "navigation": {
+    "about": "O projekcie",
+    "contact": "Kontakt"
+  },
+
+  "buttons": {
+    "back": "Powrót",
+    "search": "Szukaj"
+  },
+
+  "hero": {
+    "subtitle": "Stwórz idealną talię dla każdej frakcji"
+  },
+
+  "factions": {
+    "northern_realms": "Królestwa Północy",
+    "nilfgaard": "Nilfgaard",
+    "monsters": "Potwory",
+    "scoiatael": "Scoia'tael",
+    "skellige": "Skellige"
+  },
+
+  "featured": {
+    "description": "Wybierz frakcję, aby przeglądać karty"
+  }
+}

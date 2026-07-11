@@ -1,0 +1,32 @@
+{
+  "app": {
+    "name": "Gwent Forge",
+    "tagline": "Meno preparazione, più Gwent"
+  },
+
+  "navigation": {
+    "about": "Informazioni",
+    "contact": "Contatto"
+  },
+
+  "buttons": {
+    "back": "Indietro",
+    "search": "Cerca"
+  },
+
+  "hero": {
+    "subtitle": "Crea il mazzo perfetto per ogni fazione"
+  },
+
+  "factions": {
+    "northern_realms": "Regni Settentrionali",
+    "nilfgaard": "Nilfgaard",
+    "monsters": "Mostri",
+    "scoiatael": "Scoia'tael",
+    "skellige": "Skellige"
+  },
+
+  "featured": {
+    "description": "Seleziona una fazione per visualizzare le sue carte"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "app": {
+    "name": "Gwent Forge",
+    "tagline": "Less Setup, More Gwent"
+  },
+
+  "navigation": {
+    "about": "About",
+    "contact": "Contact"
+  },
+
+  "buttons": {
+    "back": "Back",
+    "search": "Search"
+  },
+
+  "hero": {
+    "subtitle": "Craft the perfect deck for every faction"
+  },
+
+  "factions": {
+    "northern_realms": "Northern Realms",
+    "nilfgaard": "Nilfgaard",
+    "monsters": "Monsters",
+    "scoiatael": "Scoia'tael",
+    "skellige": "Skellige"
+  },
+
+  "featured": {
+    "description": "Select faction to view cards"
+  }
+}
