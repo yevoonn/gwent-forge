@@ -55,7 +55,7 @@ export default function FeaturedCards({ onFactionClick, currentFactionCode }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="text-center text-slate-300 text-lg"
+          className="text-center text-slate-300 text-lg font-cinzel"
         >
           Select faction to view cards
         </motion.p>
