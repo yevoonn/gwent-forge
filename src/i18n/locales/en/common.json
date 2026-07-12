@@ -14,6 +14,10 @@
     "search": "Search"
   },
 
+  "spinner": {
+    "text": "Loading..."
+  },
+
   "hero": {
     "subtitle": "Craft the perfect deck for every faction"
   },

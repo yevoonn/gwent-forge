@@ -14,6 +14,10 @@
     "search": "Szukaj"
   },
 
+  "spinner": {
+    "text": "Wczytywanie..."
+  },
+
   "hero": {
     "subtitle": "Stwórz idealną talię dla każdej frakcji"
   },
