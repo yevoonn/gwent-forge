@@ -1,4 +1,6 @@
 import { Search, SlidersHorizontal, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import CardFiltersPanel from "./CardFiltersPanel";
 
 export default function CardFilters({
@@ -15,6 +17,8 @@ export default function CardFilters({
   isFiltersOpen,
   setIsFiltersOpen,
 }) {
+  const { t } = useTranslation();
+
   return (
     <div
       className="
@@ -44,7 +48,7 @@ export default function CardFilters({
 
         <input
           type="text"
-          placeholder="Search cards..."
+          placeholder={t("filters.search_placeholder")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="
@@ -126,7 +130,7 @@ export default function CardFilters({
       >
         <SlidersHorizontal size={18} className="text-amber-400" />
 
-        <span className="hidden sm:inline ml-2">Filters</span>
+        <span className="hidden sm:inline ml-2">{t("filters.title")}</span>
 
         {(cardType || cardRange) && (
           <span

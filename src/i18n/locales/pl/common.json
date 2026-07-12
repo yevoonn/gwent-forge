@@ -28,5 +28,25 @@
 
   "featured": {
     "description": "Wybierz frakcję, aby przeglądać karty"
+  },
+
+  "about": {
+    "title": "O Gwent Forge",
+    "description": "Gwent Forge to fanowski kreator talii do gry \"Gwint: Legendarna Gra Karciana\". Nie jest w żaden sposób powiązany z CD PROJEKT RED ani GOG.com. Wszystkie obrazy kart i zasoby są własnością CD PROJEKT RED."
+  },
+
+  "contact": {
+    "title": "Kontakt",
+    "description": "Jeśli masz jakiekolwiek pytania, sugestie lub uwagi, skontaktuj się z nami za pośrednictwem poczty elektronicznej lub mediów społecznościowych. Cenimy Twoje opinie i czekamy na kontakt!"
+  },
+
+  "footer": {
+    "description_1": "Gwent Forge jest nieoficjalnym dziełem fanowskim i nie jest zatwierdzony/popierany przez CD PROJEKT RED.",
+    "description_2": "Gwint i Wiedźmin są znakami towarowymi i chronionymi prawami autorskimi ich właścicieli."
+  },
+
+  "filters": {
+    "title": "Filtry",
+    "search_placeholder": "Wyszukaj karty..."
   }
 }

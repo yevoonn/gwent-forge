@@ -1,7 +1,10 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function CardsHeader() {
+  const { t } = useTranslation();
+
   return (
     <header className="mx-auto flex max-w-screen-2xl justify-center px-6 pt-2 pb-6">
       <Link
@@ -30,7 +33,7 @@ export default function CardsHeader() {
         "
       >
         <ArrowLeft size={20} className="text-amber-400" />
-        <span>Back to Factions</span>
+        <span>{t("buttons.back")}</span>
       </Link>
     </header>
   );

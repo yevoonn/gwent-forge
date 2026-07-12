@@ -28,5 +28,25 @@
 
   "featured": {
     "description": "Seleziona una fazione per visualizzare le sue carte"
+  },
+
+  "about": {
+    "title": "Informazioni su Gwent Forge",
+    "description": "Gwent Forge è un creatore di mazzi fan-made per \"Gwent: Il Leggendario Gioco di Carte\". Non è affiliato in alcun modo con CD PROJEKT RED o GOG.com. Tutte le immagini delle carte e le risorse sono di proprietà di CD PROJEKT RED."
+  },
+
+  "contact": {
+    "title": "Contatto",
+    "description": "Se hai domande, suggerimenti o feedback, non esitare a contattarci via email o sui social media. Apprezziamo il tuo contributo e non vediamo l'ora di sentirti!"
+  },
+
+  "footer": {
+    "description_1": "Gwent Forge è un'opera fan non ufficiale e non è approvata/sostenuta da CD PROJEKT RED.",
+    "description_2": "Gwent e The Witcher sono marchi registrati e proprietà protette da copyright dei rispettivi proprietari."
+  },
+
+  "filters": {
+    "title": "Filtri",
+    "search_placeholder": "Cerca carte..."
   }
 }

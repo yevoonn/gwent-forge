@@ -28,5 +28,25 @@
 
   "featured": {
     "description": "Select faction to view cards"
+  },
+
+  "about": {
+    "title": "About Gwent Forge",
+    "description": "Gwent Forge is a fan-made deck builder for \"Gwent: A Legendary Card Game\". It is not affiliated with CD PROJEKT RED or GOG.com in any way. All card images and assets are property of CD PROJEKT RED."
+  },
+
+  "contact": {
+    "title": "Contact",
+    "description": "If you have any questions, suggestions, or feedback, feel free to reach out to us via email or social media. We value your input and look forward to hearing from you!"
+  },
+
+  "footer": {
+    "description_1": "Gwent Forge is an unofficial fan work and is not approved/endorsed by CD PROJEKT RED.",
+    "description_2": "Gwent and The Witcher are trademarks and copyrighted properties of their respective owners."
+  },
+
+  "filters": {
+    "title": "Filters",
+    "search_placeholder": "Search cards..."
   }
 }
