@@ -30,7 +30,7 @@ export default function AbilityBadge({ type, ability }) {
         justify-center
       "
     >
-      {(type === "Unit" || type === "Hero") && ability && (
+      {(type === "UNIT" || type === "HERO") && ability && (
         <div
           className="relative"
           onMouseEnter={() => setHovered(true)}

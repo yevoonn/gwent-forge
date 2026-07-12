@@ -5,7 +5,7 @@ export default function PowerBadge({ power, type, ability }) {
   const [hovered, setHovered] = useState(false);
 
   const imageURL =
-    type === "Special"
+    type === "SPECIAL"
       ? `/icons/${ability.code.toLowerCase()}_icon_transparent.webp`
       : null;
 
@@ -30,7 +30,7 @@ export default function PowerBadge({ power, type, ability }) {
         justify-center
       "
     >
-      {type === "Hero" ? (
+      {type === "HERO" ? (
         <>
           <svg className="h-22 w-22" viewBox="0 0 100 100">
             {[...Array(22)].map((_, i) => {
@@ -85,7 +85,7 @@ export default function PowerBadge({ power, type, ability }) {
             justify-center
           "
         >
-          {type === "Special" ? (
+          {type === "SPECIAL" ? (
             <div
               className="relative"
               onMouseEnter={() => setHovered(true)}

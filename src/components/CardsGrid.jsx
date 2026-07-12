@@ -103,10 +103,10 @@ export default function CardsGrid({
             <motion.div key={card.code} variants={cardVariants}>
               <GwentCard
                 name={card.name}
-                power={card.type !== "Special" ? card.power : null}
+                power={card.type.code !== "SPECIAL" ? card.power : null}
                 deckCode={deckCode}
                 image={card.image_url}
-                type={card.type}
+                type={card.type.code}
                 ability={card.abilities.length ? card.abilities[0] : null}
                 range={card.range}
               />

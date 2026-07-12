@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCards } from "../api/cards";
+import useCurrentLanguage from "../hooks/useCurrentLanguage";
 import LoadingSpinner from "../components/LoadingSpinner";
 import CardsGrid from "../components/CardsGrid";
 import CardsHeader from "../components/CardsHeader";
 
 export default function CardsPage() {
+  const language = useCurrentLanguage();
+
   const { deckCode } = useParams();
 
   const [leaders, setLeaders] = useState([]);
@@ -28,7 +31,7 @@ export default function CardsPage() {
       try {
         const leadersData = await fetchCards({
           deck: deckCode,
-          lang: "en",
+          lang: language,
           sort: "code_asc",
           is_deck_card: "false",
           type: "leader",
@@ -43,7 +46,7 @@ export default function CardsPage() {
     };
 
     loadLeaders();
-  }, [deckCode]);
+  }, [deckCode, language]);
 
   useEffect(() => {
     if (!deckCode) return;
@@ -55,6 +58,7 @@ export default function CardsPage() {
         try {
           const cardsData = await fetchCards({
             deck: deckCode,
+            lang: language,
             search,
             sort: `${sortField}_${sortDirection}`,
             type: cardType,
@@ -72,7 +76,15 @@ export default function CardsPage() {
     );
 
     return () => clearTimeout(timeoutId);
-  }, [deckCode, search, sortField, sortDirection, cardType, cardRange]);
+  }, [
+    deckCode,
+    language,
+    search,
+    sortField,
+    sortDirection,
+    cardType,
+    cardRange,
+  ]);
 
   const loading = leadersLoading || cardsLoading;
 

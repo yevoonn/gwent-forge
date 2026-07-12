@@ -6,7 +6,7 @@ export default function RangeBadge({ type, range }) {
 
   let imageURL = `/icons/${range?.code?.toLowerCase()}_icon_transparent.webp`;
 
-  if ((type !== "Unit" && type !== "Hero") || !range) {
+  if ((type !== "UNIT" && type !== "HERO") || !range) {
     return null;
   }
 

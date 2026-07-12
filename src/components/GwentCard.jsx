@@ -78,7 +78,7 @@ export default function GwentCard({
       }}
     >
       {/* Power */}
-      {(power !== null || type === "Special") && (
+      {(power !== null || type === "SPECIAL") && (
         <PowerBadge power={power} type={type} ability={ability} />
       )}
 
