@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { ArrowUp, SlidersHorizontal, X } from "lucide-react";
 
 const sortFields = [
@@ -47,6 +48,8 @@ export default function CardFiltersContent({
   cardRange,
   setCardRange,
 }) {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* MOBILE DRAWER HANDLE */}
@@ -58,7 +61,9 @@ export default function CardFiltersContent({
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <SlidersHorizontal size={20} />
-          <h2 className="font-cinzel text-lg text-white">Filters</h2>
+          <h2 className="font-cinzel text-lg text-white">
+            {t("filters.title")}
+          </h2>
         </div>
 
         <button
@@ -71,7 +76,9 @@ export default function CardFiltersContent({
 
       {/* SORT FIELD */}
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">Sort by</label>
+        <label className="mb-2 block text-sm text-slate-400">
+          {t("filters.sort_by")}
+        </label>
 
         <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
           {sortFields.map((field) => (
@@ -131,7 +138,9 @@ export default function CardFiltersContent({
 
       {/* TYPE */}
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">Type</label>
+        <label className="mb-2 block text-sm text-slate-400">
+          {t("filters.type")}
+        </label>
 
         <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
           {cardTypes.map((type) => (
@@ -166,7 +175,9 @@ export default function CardFiltersContent({
 
       {/* RANGE */}
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">Range</label>
+        <label className="mb-2 block text-sm text-slate-400">
+          {t("filters.range")}
+        </label>
 
         <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
           {cardRanges.map((range) => (

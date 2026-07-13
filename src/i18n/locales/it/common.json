@@ -51,6 +51,10 @@
 
   "filters": {
     "title": "Filtri",
-    "search_placeholder": "Cerca carte..."
+    "search_placeholder": "Cerca carte...",
+    "type": "Tipo",
+    "range": "Fila",
+    "ability": "Abilità",
+    "sort_by": "Ordina per"
   }
 }

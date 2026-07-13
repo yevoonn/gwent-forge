@@ -51,6 +51,10 @@
 
   "filters": {
     "title": "Filtry",
-    "search_placeholder": "Wyszukaj karty..."
+    "search_placeholder": "Wyszukaj karty...",
+    "type": "Typ",
+    "range": "Zasięg",
+    "ability": "Zdolność",
+    "sort_by": "Sortuj według"
   }
 }

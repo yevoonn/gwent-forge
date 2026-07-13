@@ -51,6 +51,10 @@
 
   "filters": {
     "title": "Filters",
-    "search_placeholder": "Search cards..."
+    "search_placeholder": "Search cards...",
+    "type": "Type",
+    "range": "Range",
+    "ability": "Ability",
+    "sort_by": "Sort by"
   }
 }
