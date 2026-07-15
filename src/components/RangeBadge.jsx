@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BadgeTooltip from "./BadgeTooltip";
+import Tooltip from "./Tooltip";
 
 export default function RangeBadge({ type, range }) {
   const [hovered, setHovered] = useState(false);
@@ -62,10 +62,11 @@ export default function RangeBadge({ type, range }) {
           />
         </div>
 
-        <BadgeTooltip
+        <Tooltip
           visible={hovered}
           title={range.name}
           description={range.description}
+          className="left-full top-1/2 ml-3 -translate-y-1/2"
         />
       </div>
     </div>

@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import PowerBadge from "./PowerBadge";
 import AbilityBadge from "./AbilityBadge";
 import RangeBadge from "./RangeBadge";
+import Tooltip from "./Tooltip";
 
 const factionStyles = {
   northern_realms: "border-sky-400 cursor-pointer",
@@ -29,31 +31,38 @@ export default function GwentCard({
   ability,
   range,
   currentFactionCode,
+  showTooltip = false,
 }) {
+  const [hovered, setHovered] = useState(false);
   const isActive = currentFactionCode === deckCode;
 
   return (
-    <motion.div
-      whileHover={{
-        y: -10,
-        scale: 1.1,
-      }}
-      animate={
-        isActive
-          ? {
-              scale: 1.08,
-            }
-          : {
-              scale: 1,
-            }
-      }
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: isActive ? 75 : 20,
-        delay: isActive ? 0.75 : 0,
-      }}
-      className={`
+    <div
+      className="relative overflow-visible"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <motion.div
+        whileHover={{
+          y: -10,
+          scale: 1.1,
+        }}
+        animate={
+          isActive
+            ? {
+                scale: 1.08,
+              }
+            : {
+                scale: 1,
+              }
+        }
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: isActive ? 75 : 20,
+          delay: isActive ? 0.75 : 0,
+        }}
+        className={`
         group
         relative
         w-32
@@ -70,27 +79,27 @@ export default function GwentCard({
         ${factionStyles[deckCode]}
          ${isActive ? "animate-faction-glow" : ""}
       `}
-      style={{
-        transformStyle: "preserve-3d",
-        ...(isActive && {
-          "--glow": factionGlow[deckCode],
-        }),
-      }}
-    >
-      {/* Power */}
-      {(power !== null || type === "SPECIAL") && (
-        <PowerBadge power={power} type={type} ability={ability} />
-      )}
+        style={{
+          transformStyle: "preserve-3d",
+          ...(isActive && {
+            "--glow": factionGlow[deckCode],
+          }),
+        }}
+      >
+        {/* Power */}
+        {(power !== null || type === "SPECIAL") && (
+          <PowerBadge power={power} type={type} ability={ability} />
+        )}
 
-      {/* Range */}
-      {range && <RangeBadge type={type} range={range} />}
+        {/* Range */}
+        {range && <RangeBadge type={type} range={range} />}
 
-      {/* Ability */}
-      {ability && <AbilityBadge type={type} ability={ability} />}
+        {/* Ability */}
+        {ability && <AbilityBadge type={type} ability={ability} />}
 
-      {/* Image */}
-      <div
-        className={`
+        {/* Image */}
+        <div
+          className={`
           relative
           h-40
           sm:h-52
@@ -99,21 +108,21 @@ export default function GwentCard({
           xl:h-80
           overflow-hidden
         `}
-      >
-        <img
-          src={image}
-          alt={name}
-          className={`
+        >
+          <img
+            src={image}
+            alt={name}
+            className={`
             h-full
             w-full
             object-cover
             transition-transform
             duration-500
           `}
-        />
+          />
 
-        <div
-          className={`
+          <div
+            className={`
             absolute
             inset-0
             bg-gradient-to-t
@@ -121,12 +130,12 @@ export default function GwentCard({
             via-slate-900/20
             to-transparent
           `}
-        />
-      </div>
+          />
+        </div>
 
-      {/* Content */}
-      <div
-        className={`
+        {/* Content */}
+        <div
+          className={`
           p-2
           sm:p-3
           md:p-4
@@ -139,17 +148,17 @@ export default function GwentCard({
           flex-col
           text-center
         `}
-      >
-        <div
-          className={`
+        >
+          <div
+            className={`
             flex-1
             flex
             items-center
             justify-center
           `}
-        >
-          <h1
-            className={`
+          >
+            <h1
+              className={`
               font-cinzel
               text-xs
               sm:text-sm
@@ -160,13 +169,23 @@ export default function GwentCard({
               line-clamp-2
               leading-tight
             `}
-          >
-            {name}
-          </h1>
-        </div>
+            >
+              {name}
+            </h1>
+          </div>
 
-        <p className="hidden md:block text-sm text-slate-400">{faction}</p>
-      </div>
-    </motion.div>
+          <p className="hidden md:block text-sm text-slate-400">{faction}</p>
+        </div>
+      </motion.div>
+      {showTooltip && (
+        <Tooltip
+          visible={hovered}
+          title={name}
+          description={ability?.description ?? null}
+          width="w-56"
+          className="left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2"
+        />
+      )}
+    </div>
   );
 }

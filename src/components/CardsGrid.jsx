@@ -68,6 +68,7 @@ export default function CardsGrid({
                 power={null}
                 deckCode={deckCode}
                 image={card.image_url}
+                showTooltip
               />
             </motion.div>
           ))}
