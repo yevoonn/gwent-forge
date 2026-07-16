@@ -180,9 +180,10 @@ export default function GwentCard({
       {showTooltip && (
         <Tooltip
           visible={hovered}
-          title={name}
+          title={ability?.name ?? null}
           description={ability?.description ?? null}
           width="w-56"
+          descriptionSize="text-sm"
           className="left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2"
         />
       )}

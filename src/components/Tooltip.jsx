@@ -5,6 +5,7 @@ export default function Tooltip({
   title,
   description,
   width = "w-40",
+  descriptionSize = "text-xs",
   className = "",
 }) {
   return (
@@ -49,12 +50,12 @@ export default function Tooltip({
             ${className}
           `}
         >
-          <h4 className="font-cinzel text-sm font-bold text-amber-300">
-            {title}
-          </h4>
+          <h4 className="font-cinzel font-bold text-amber-300">{title}</h4>
 
           {description && (
-            <p className="mt-1 text-xs leading-relaxed text-slate-300">
+            <p
+              className={`mt-1 leading-relaxed text-slate-300 ${descriptionSize}`}
+            >
               {description}
             </p>
           )}

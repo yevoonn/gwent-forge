@@ -68,6 +68,7 @@ export default function CardsGrid({
                 power={null}
                 deckCode={deckCode}
                 image={card.image_url}
+                ability={card.abilities.length ? card.abilities[0] : null}
                 showTooltip
               />
             </motion.div>
