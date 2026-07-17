@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import PowerBadge from "./PowerBadge";
-import AbilityBadge from "./AbilityBadge";
-import RangeBadge from "./RangeBadge";
-import Tooltip from "./Tooltip";
+import PowerBadge from "../badge/PowerBadge";
+import AbilityBadge from "../badge/AbilityBadge";
+import RangeBadge from "../badge/RangeBadge";
+import Tooltip from "../ui/Tooltip";
 
 const factionStyles = {
   northern_realms: "border-sky-400 cursor-pointer",

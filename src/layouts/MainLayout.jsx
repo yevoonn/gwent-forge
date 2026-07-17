@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 
-import ParticlesBackground from "../components/ParticlesBackground";
+import ParticlesBackground from "../components/effects/ParticlesBackground";
 import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer";
 
 export default function MainLayout() {
   return (

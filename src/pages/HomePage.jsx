@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FeaturedCards from "../components/FeaturedCards";
-import HeroSection from "../components/HeroSection";
+import FeaturedCards from "../components/card/FeaturedCards";
+import HeroSection from "../components/layout/HeroSection";
 import { factions } from "../data/factions";
 
 export default function HomePage() {

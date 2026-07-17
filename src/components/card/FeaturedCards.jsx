@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import GwentCard from "./GwentCard";
 
-import { featuredCards } from "../data/factions";
+import { featuredCards } from "../../data/factions";
 
 const featuredContainerVariants = {
   hidden: {},

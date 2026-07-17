@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Tooltip from "./Tooltip";
+import Tooltip from "../ui/Tooltip";
 
 export default function RangeBadge({ type, range }) {
   const [hovered, setHovered] = useState(false);

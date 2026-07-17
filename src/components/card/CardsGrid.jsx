@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import GwentCard from "./GwentCard";
-import CardFilters from "./CardFilters";
-import ScrollToTopButton from "./ScrollToTopButton";
+import CardFilters from "../filter/CardFilters";
+import ScrollToTopButton from "../ui/ScrollToTopButton";
 
 const leadersContainerVariants = {
   hidden: {},

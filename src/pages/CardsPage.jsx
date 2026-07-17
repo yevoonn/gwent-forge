@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCards } from "../api/cards";
 import useCurrentLanguage from "../hooks/useCurrentLanguage";
-import LoadingSpinner from "../components/LoadingSpinner";
-import CardsGrid from "../components/CardsGrid";
-import CardsHeader from "../components/CardsHeader";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
+import CardsGrid from "../components/card/CardsGrid";
+import CardsHeader from "../components/card/CardsHeader";
 
 export default function CardsPage() {
   const language = useCurrentLanguage();
