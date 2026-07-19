@@ -77,7 +77,7 @@ export default function GwentCard({
         backdrop-blur-sm
         shadow-xl
         ${factionStyles[deckCode]}
-         ${isActive ? "animate-faction-glow" : ""}
+        ${isActive ? "animate-faction-glow" : ""}
       `}
         style={{
           transformStyle: "preserve-3d",

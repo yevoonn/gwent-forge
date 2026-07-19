@@ -68,6 +68,7 @@ export default function CardsGrid({
                 power={null}
                 deckCode={deckCode}
                 image={card.image_url}
+                type={card.type.code}
                 ability={card.abilities.length ? card.abilities[0] : null}
                 showTooltip
               />
