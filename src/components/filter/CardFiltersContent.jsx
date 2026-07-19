@@ -7,37 +7,15 @@ const sortFields = [
   { value: "code", label: "Code" },
 ];
 
-const cardTypes = [
-  { value: "", label: "All" },
-  { value: "hero", label: "Hero" },
-  { value: "special", label: "Special" },
-  { value: "unit", label: "Unit" },
-];
-
-const cardRanges = [
-  {
-    value: "agile",
-    icon: "/icons/agile_icon_transparent.webp",
-    label: "Agile",
-  },
-  {
-    value: "close",
-    icon: "/icons/close_icon_transparent.webp",
-    label: "Close",
-  },
-  {
-    value: "ranged",
-    icon: "/icons/ranged_icon_transparent.webp",
-    label: "Ranged",
-  },
-  {
-    value: "siege",
-    icon: "/icons/siege_icon_transparent.webp",
-    label: "Siege",
-  },
-];
+const rangeIcons = {
+  AGILE: "/icons/agile_icon_transparent.webp",
+  CLOSE: "/icons/close_icon_transparent.webp",
+  RANGED: "/icons/ranged_icon_transparent.webp",
+  SIEGE: "/icons/siege_icon_transparent.webp",
+};
 
 export default function CardFiltersContent({
+  filters,
   onClose,
   sortField,
   setSortField,
@@ -49,6 +27,23 @@ export default function CardFiltersContent({
   setCardRange,
 }) {
   const { t } = useTranslation();
+
+  const { cardTypes = [], cardRanges = [] } = filters || {};
+
+  const typeOptions = [
+    ...cardTypes.map((type) => ({
+      value: type.code.toLowerCase(),
+      label: type.name,
+    })),
+  ];
+
+  const rangeOptions = [
+    ...cardRanges.map((range) => ({
+      value: range.code.toLowerCase(),
+      label: range.name,
+      icon: rangeIcons[range.code],
+    })),
+  ];
 
   return (
     <>
@@ -80,7 +75,7 @@ export default function CardFiltersContent({
           {t("filters.sort_by")}
         </label>
 
-        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
+        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1 gap-1">
           {sortFields.map((field) => (
             <button
               key={field.value}
@@ -93,10 +88,12 @@ export default function CardFiltersContent({
               py-2
               text-sm
               transition-all
+              cursor-pointer
+              font-bold
               ${
                 sortField === field.value
                   ? "bg-amber-500 text-black"
-                  : "text-slate-300 hover:text-white"
+                  : "text-slate-300 hover:bg-slate-700"
               }
             `}
             >
@@ -124,6 +121,7 @@ export default function CardFiltersContent({
               transition-all
               hover:bg-amber-400
               active:scale-95
+              cursor-pointer
             "
           >
             <ArrowUp
@@ -142,12 +140,14 @@ export default function CardFiltersContent({
           {t("filters.type")}
         </label>
 
-        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
-          {cardTypes.map((type) => (
+        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1 gap-1">
+          {typeOptions.map((type) => (
             <button
               key={type.value}
               type="button"
-              onClick={() => setCardType(type.value)}
+              onClick={() =>
+                setCardType(cardType === type.value ? "" : type.value)
+              }
               className={`
                 flex-1
                 flex
@@ -160,10 +160,12 @@ export default function CardFiltersContent({
                 py-2
                 text-sm
                 transition-all
+                cursor-pointer
+                font-bold
                 ${
                   cardType === type.value
                     ? "bg-amber-500 text-black"
-                    : "text-slate-300 hover:text-white"
+                    : "text-slate-300 hover:bg-slate-700"
                 }
               `}
             >
@@ -179,8 +181,8 @@ export default function CardFiltersContent({
           {t("filters.range")}
         </label>
 
-        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1">
-          {cardRanges.map((range) => (
+        <div className="flex rounded-xl border border-slate-700 bg-slate-800 p-1 gap-1">
+          {rangeOptions.map((range) => (
             <button
               key={range.value}
               type="button"
@@ -196,6 +198,7 @@ export default function CardFiltersContent({
                 rounded-lg
                 py-2
                 transition-all
+                cursor-pointer
                 ${
                   cardRange === range.value
                     ? "bg-amber-500"
@@ -203,13 +206,10 @@ export default function CardFiltersContent({
                 }
               `}
             >
-              {range.value === "" ? (
-                <span className="text-sm font-medium">All</span>
-              ) : (
-                <img
-                  src={range.icon}
-                  alt={range.label}
-                  className={`
+              <img
+                src={range.icon}
+                alt={range.label}
+                className={`
                     h-6
                     w-6
                     object-contain
@@ -220,8 +220,7 @@ export default function CardFiltersContent({
                         : "brightness-0 invert opacity-80"
                     }
                   `}
-                />
-              )}
+              />
             </button>
           ))}
         </div>

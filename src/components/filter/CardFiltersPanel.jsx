@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import CardFiltersContent from "./CardFiltersContent";
 
 export default function CardFiltersPanel({
+  filters,
   isOpen,
   onClose,
   sortField,
@@ -51,6 +52,7 @@ export default function CardFiltersPanel({
             }}
           >
             <CardFiltersContent
+              filters={filters}
               onClose={onClose}
               sortField={sortField}
               setSortField={setSortField}
@@ -101,6 +103,7 @@ export default function CardFiltersPanel({
             }}
           >
             <CardFiltersContent
+              filters={filters}
               onClose={onClose}
               sortField={sortField}
               setSortField={setSortField}

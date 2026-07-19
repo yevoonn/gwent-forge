@@ -34,6 +34,7 @@ export default function CardsGrid({
   deckCode,
   leaders,
   cards,
+  filters,
   search,
   setSearch,
   sortField,
@@ -80,6 +81,7 @@ export default function CardsGrid({
       {/* CARDS GRID */}
       <section className="mx-auto max-w-screen-2xl px-6 pt-8">
         <CardFilters
+          filters={filters}
           search={search}
           setSearch={setSearch}
           sortField={sortField}

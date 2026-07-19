@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import CardFiltersPanel from "./CardFiltersPanel";
 
 export default function CardFilters({
+  filters,
   search,
   setSearch,
   sortField,
@@ -148,6 +149,7 @@ export default function CardFilters({
       </button>
 
       <CardFiltersPanel
+        filters={filters}
         isOpen={isFiltersOpen}
         onClose={() => setIsFiltersOpen(false)}
         sortField={sortField}
