@@ -1,0 +1,39 @@
+{
+  "title": "About Gwent Forge",
+  "tagline": "Less Setup, More Gwent",
+  "intro": "Gwent Forge is a fan-made web application designed to help players build, manage, and organize decks for Gwent: The Legendary Card Game before game night begins.",
+  "why": {
+    "title": "Why Gwent Forge Exists",
+    "paragraph1": "Building decks during a game session can take valuable time away from actually playing. Gwent Forge was created to solve that problem by allowing players to prepare their decks in advance.",
+    "paragraph2": "Whether you are testing new strategies, organizing multiple faction builds, or simply arriving ready to play, the goal is to make deck preparation fast, intuitive, and enjoyable."
+  },
+  "features_title": "What You Can Do",
+  "features_subtitle": "Tools focused on preparation, organization, and faster gameplay.",
+  "features": {
+    "deck_management": {
+      "title": "Deck Management",
+      "description": "Create, edit, and organize multiple deck configurations for every faction."
+    },
+    "card_browser": {
+      "title": "Card Browser",
+      "description": "Quickly browse, filter, and search for cards within a selected faction."
+    },
+    "localization": {
+      "title": "Localization",
+      "description": "Use the application in multiple languages with translated interface and game data."
+    },
+    "game_night": {
+      "title": "Game Night Ready",
+      "description": "Prepare decks before the session so you can spend more time playing and less time setting up."
+    }
+  },
+  "tech_stack": {
+    "title": "Tech Stack"
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "paragraph1": "Gwent Forge is an unofficial fan-made project and is not affiliated with, endorsed by, sponsored by, or approved by CD PROJEKT S.A., CD PROJEKT RED, No Loading Games, or any of their affiliates.",
+    "paragraph2": "Gwent, The Witcher, associated names, characters, artwork, and related intellectual property are trademarks and copyrighted properties of their respective owners.",
+    "paragraph3": "This project is created for educational, personal, and community purposes only."
+  }
+}

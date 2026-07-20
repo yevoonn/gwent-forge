@@ -1,0 +1,39 @@
+{
+  "title": "O Gwent Forge",
+  "tagline": "Mniej przygotowań, więcej Gwinta",
+  "intro": "Gwent Forge to fanowska aplikacja webowa stworzona, aby pomóc graczom budować, zarządzać i organizować talie do gry Gwint: Legendarna Gra Karciana jeszcze przed rozpoczęciem wieczoru z grą.",
+  "why": {
+    "title": "Dlaczego powstał Gwent Forge",
+    "paragraph1": "Budowanie talii podczas sesji potrafi zabrać cenny czas, który można poświęcić na samą rozgrywkę. Gwent Forge powstał właśnie po to, aby rozwiązać ten problem i umożliwić przygotowanie talii z wyprzedzeniem.",
+    "paragraph2": "Niezależnie od tego, czy testujesz nowe strategie, organizujesz wiele talii dla różnych frakcji, czy po prostu chcesz przyjść gotowy do gry - celem aplikacji jest uczynienie przygotowania szybkiego, intuicyjnego i przyjemnego."
+  },
+  "features_title": "Co umożliwia aplikacja",
+  "features_subtitle": "Narzędzia skupione na przygotowaniu, organizacji i szybszej rozgrywce.",
+  "features": {
+    "deck_management": {
+      "title": "Zarządzanie taliami",
+      "description": "Twórz, edytuj i organizuj wiele konfiguracji talii dla każdej frakcji."
+    },
+    "card_browser": {
+      "title": "Przeglądarka kart",
+      "description": "Szybko przeglądaj, filtruj i wyszukuj karty w ramach wybranej frakcji."
+    },
+    "localization": {
+      "title": "Lokalizacja",
+      "description": "Korzystaj z aplikacji w wielu językach dzięki przetłumaczonemu interfejsowi i danym gry."
+    },
+    "game_night": {
+      "title": "Gotowość na wieczór z grą",
+      "description": "Przygotuj talie przed sesją, aby spędzić więcej czasu na graniu, a mniej na przygotowaniach."
+    }
+  },
+  "tech_stack": {
+    "title": "Uzyte technologie"
+  },
+  "disclaimer": {
+    "title": "Zastrzeżenie",
+    "paragraph1": "Gwent Forge jest nieoficjalnym projektem fanowskim i nie jest powiązany z CD PROJEKT S.A., CD PROJEKT RED, No Loading Games ani żadną z ich spółek zależnych, nie jest przez nie sponsorowany ani zatwierdzony.",
+    "paragraph2": "Gwint, Wiedźmin, powiązane nazwy, postacie, grafiki oraz związana z nimi własność intelektualna są znakami towarowymi i prawami autorskimi należącymi do ich właścicieli.",
+    "paragraph3": "Projekt został stworzony wyłącznie w celach edukacyjnych, osobistych i społecznościowych."
+  }
+}

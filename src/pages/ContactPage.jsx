@@ -9,23 +9,23 @@ import {
 } from "lucide-react";
 
 export default function ContactPage() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("contact");
 
   const contactTopics = [
     {
       icon: Lightbulb,
-      title: t("contact.topics.suggestions.title"),
-      description: t("contact.topics.suggestions.description"),
+      title: t("topics.suggestions.title"),
+      description: t("topics.suggestions.description"),
     },
     {
       icon: Bug,
-      title: t("contact.topics.bugs.title"),
-      description: t("contact.topics.bugs.description"),
+      title: t("topics.bugs.title"),
+      description: t("topics.bugs.description"),
     },
     {
       icon: HeartHandshake,
-      title: t("contact.topics.feedback.title"),
-      description: t("contact.topics.feedback.description"),
+      title: t("topics.feedback.title"),
+      description: t("topics.feedback.description"),
     },
   ];
 
@@ -39,10 +39,10 @@ export default function ContactPage() {
         className="text-center"
       >
         <h1 className="font-cinzel text-4xl font-bold tracking-tight text-white md:text-6xl">
-          {t("contact.title")}
+          {t("title")}
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-400">
-          {t("contact.intro")}
+          {t("intro")}
         </p>
       </motion.section>
 
@@ -62,12 +62,10 @@ export default function ContactPage() {
 
             <div>
               <h2 className="font-cinzel text-2xl font-semibold text-white">
-                {t("contact.github.title")}
+                {t("github.title")}
               </h2>
 
-              <p className="mt-1 text-slate-400">
-                {t("contact.github.subtitle")}
-              </p>
+              <p className="mt-1 text-slate-400">{t("github.subtitle")}</p>
             </div>
           </div>
 
@@ -121,7 +119,7 @@ export default function ContactPage() {
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-slate-400">
-            {t("contact.github.note")}
+            {t("github.note")}
           </p>
         </div>
       </motion.section>
@@ -136,10 +134,10 @@ export default function ContactPage() {
       >
         <div className="mb-8 text-center">
           <h2 className="font-cinzel text-3xl font-semibold text-white">
-            {t("contact.topics_title")}
+            {t("topics_title")}
           </h2>
 
-          <p className="mt-2 text-slate-400">{t("contact.topics_subtitle")}</p>
+          <p className="mt-2 text-slate-400">{t("topics_subtitle")}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -180,16 +178,16 @@ export default function ContactPage() {
       >
         <div className="rounded-3xl border border-amber-400/20 bg-gradient-to-br from-amber-400/10 to-slate-900/60 p-8 text-center backdrop-blur-sm">
           <h2 className="font-cinzel text-2xl font-semibold text-white">
-            {t("contact.community.title")}
+            {t("community.title")}
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-slate-300 leading-relaxed">
-            {t("contact.community.description")}
+            {t("community.description")}
           </p>
 
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-amber-300">
             <HeartHandshake size={18} />
-            <span>{t("contact.community.footer")}</span>
+            <span>{t("community.footer")}</span>
           </div>
         </div>
       </motion.section>

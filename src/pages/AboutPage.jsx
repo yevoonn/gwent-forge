@@ -3,28 +3,28 @@ import { useTranslation } from "react-i18next";
 import { Sparkles, Layers3, Globe, Shield, Wrench, Swords } from "lucide-react";
 
 export default function AboutPage() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("about");
 
   const features = [
     {
       icon: Layers3,
-      title: t("about.features.deck_management.title"),
-      description: t("about.features.deck_management.description"),
+      title: t("features.deck_management.title"),
+      description: t("features.deck_management.description"),
     },
     {
       icon: Swords,
-      title: t("about.features.card_browser.title"),
-      description: t("about.features.card_browser.description"),
+      title: t("features.card_browser.title"),
+      description: t("features.card_browser.description"),
     },
     {
       icon: Globe,
-      title: t("about.features.localization.title"),
-      description: t("about.features.localization.description"),
+      title: t("features.localization.title"),
+      description: t("features.localization.description"),
     },
     {
       icon: Sparkles,
-      title: t("about.features.game_night.title"),
-      description: t("about.features.game_night.description"),
+      title: t("features.game_night.title"),
+      description: t("features.game_night.description"),
     },
   ];
 
@@ -50,13 +50,13 @@ export default function AboutPage() {
         className="text-center"
       >
         <h1 className="font-cinzel text-4xl font-bold tracking-tight text-white md:text-6xl">
-          {t("about.title")}
+          {t("title")}
         </h1>
         <p className="mx-auto mt-4 max-w-3xl font-cinzel text-xl text-slate-300 md:text-2xl">
-          {t("about.tagline")}
+          {t("tagline")}
         </p>
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-400">
-          {t("about.intro")}
+          {t("intro")}
         </p>
       </motion.section>
 
@@ -74,13 +74,13 @@ export default function AboutPage() {
               <Swords size={24} />
             </div>
             <h2 className="font-cinzel text-2xl font-semibold text-white">
-              {t("about.why.title")}
+              {t("why.title")}
             </h2>
           </div>
 
           <div className="mt-6 space-y-4 text-slate-300 leading-relaxed">
-            <p>{t("about.why.paragraph1")}</p>
-            <p>{t("about.why.paragraph2")}</p>
+            <p>{t("why.paragraph1")}</p>
+            <p>{t("why.paragraph2")}</p>
           </div>
         </div>
       </motion.section>
@@ -95,9 +95,9 @@ export default function AboutPage() {
       >
         <div className="mb-8 text-center">
           <h2 className="font-cinzel text-3xl font-semibold text-white">
-            {t("about.features_title")}
+            {t("features_title")}
           </h2>
-          <p className="mt-2 text-slate-400">{t("about.features_subtitle")}</p>
+          <p className="mt-2 text-slate-400">{t("features_subtitle")}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -142,7 +142,7 @@ export default function AboutPage() {
               <Wrench size={24} />
             </div>
             <h2 className="font-cinzel text-2xl font-semibold text-white">
-              {t("about.tech_stack.title")}
+              {t("tech_stack.title")}
             </h2>
           </div>
 
@@ -175,13 +175,13 @@ export default function AboutPage() {
 
             <div>
               <h2 className="font-cinzel text-2xl font-semibold text-red-300">
-                {t("about.disclaimer.title")}
+                {t("disclaimer.title")}
               </h2>
 
               <div className="mt-4 space-y-4 text-slate-300 leading-relaxed">
-                <p>{t("about.disclaimer.paragraph1")}</p>
-                <p>{t("about.disclaimer.paragraph2")}</p>
-                <p>{t("about.disclaimer.paragraph3")}</p>
+                <p>{t("disclaimer.paragraph1")}</p>
+                <p>{t("disclaimer.paragraph2")}</p>
+                <p>{t("disclaimer.paragraph3")}</p>
               </div>
             </div>
           </div>

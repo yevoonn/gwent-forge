@@ -1,0 +1,30 @@
+{
+  "title": "Contact",
+  "intro": "Have a question, an idea for a new feature, or found a bug? We would love to hear from you. Gwent Forge grows with the help of the community, and every suggestion helps make the application better for players.",
+  "github": {
+    "title": "GitHub Project",
+    "subtitle": "The preferred way to contact.",
+    "note": "For bug reports, feature requests, suggestions, or general feedback, please use the GitHub repository. This helps keep discussions public, organized, and accessible to the community."
+  },
+  "topics_title": "How can we help?",
+  "topics_subtitle": "The most common reasons to contact.",
+  "topics": {
+    "suggestions": {
+      "title": "Ideas & Features",
+      "description": "Share proposals for new features, interface improvements, or tools that could help the Gwent community."
+    },
+    "bugs": {
+      "title": "Bugs & Issues",
+      "description": "Report application problems, card data issues, filter or translation errors, and performance-related bugs."
+    },
+    "feedback": {
+      "title": "Project Feedback",
+      "description": "Tell us what works well, what could be improved, and how your experience with Gwent Forge can be made even better."
+    }
+  },
+  "community": {
+    "title": "Built with the Community",
+    "description": "Gwent Forge is developed as a fan-made project for Gwent players. Every message, suggestion, and bug report helps improve the application and deliver better tools for deck preparation and organization.",
+    "footer": "Thank you for supporting the project"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Kontakt",
+  "intro": "Masz pytanie, pomysł na nową funkcję lub znalazłeś błąd? Chętnie usłyszymy Twoją opinię. Gwent Forge rozwija się dzięki społeczności graczy i każda sugestia pomaga uczynić aplikację lepszą.",
+  "github": {
+    "title": "Projekt na GitHubie",
+    "subtitle": "Preferowany sposób kontaktu.",
+    "note": "W przypadku zgłoszeń błędów, propozycji nowych funkcji, sugestii lub ogólnego feedbacku prosimy o korzystanie z repozytorium GitHub. Dzięki temu dyskusje pozostają publiczne, uporządkowane i dostępne dla całej społeczności."
+  },
+  "topics_title": "W czym możemy pomóc?",
+  "topics_subtitle": "Najczęstsze powody kontaktu.",
+  "topics": {
+    "suggestions": {
+      "title": "Pomysły i funkcje",
+      "description": "Podziel się propozycjami nowych funkcji, ulepszeń interfejsu lub narzędzi dla społeczności Gwinta."
+    },
+    "bugs": {
+      "title": "Błędy i problemy",
+      "description": "Zgłoś nieprawidłowe działanie aplikacji, problemy z kartami, filtrami, tłumaczeniami lub wydajnością."
+    },
+    "feedback": {
+      "title": "Opinie o projekcie",
+      "description": "Napisz, co działa dobrze, co można poprawić i jakie doświadczenia masz z korzystania z Gwent Forge."
+    }
+  },
+  "community": {
+    "title": "Projekt tworzony przez społeczność",
+    "description": "Gwent Forge jest rozwijany jako projekt fanowski dla graczy Gwinta. Każda wiadomość, sugestia i zgłoszenie błędu pomaga rozwijać aplikację i dostarczać lepsze narzędzia do przygotowywania talii.",
+    "footer": "Dziękujemy za wsparcie projektu"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Contatti",
+  "intro": "Hai una domanda, un'idea per una nuova funzionalità o hai trovato un bug? Saremo felici di ricevere il tuo feedback. Gwent Forge cresce grazie alla comunità dei giocatori e ogni suggerimento aiuta a migliorare l'applicazione.",
+  "github": {
+    "title": "Progetto su GitHub",
+    "subtitle": "Il metodo di contatto preferito.",
+    "note": "Per segnalazioni di bug, richieste di funzionalità, suggerimenti o feedback generale, utilizza il repository GitHub. In questo modo le discussioni rimangono pubbliche, organizzate e accessibili alla comunità."
+  },
+  "topics_title": "Come possiamo aiutarti?",
+  "topics_subtitle": "I motivi più comuni per contattarci.",
+  "topics": {
+    "suggestions": {
+      "title": "Idee e funzionalità",
+      "description": "Condividi proposte per nuove funzionalità, miglioramenti dell'interfaccia o strumenti per la comunità di Gwent."
+    },
+    "bugs": {
+      "title": "Bug e problemi",
+      "description": "Segnala malfunzionamenti dell'applicazione, problemi con carte, filtri, traduzioni o prestazioni."
+    },
+    "feedback": {
+      "title": "Feedback sul progetto",
+      "description": "Raccontaci cosa funziona bene, cosa può essere migliorato e qual è la tua esperienza con Gwent Forge."
+    }
+  },
+  "community": {
+    "title": "Un progetto guidato dalla comunità",
+    "description": "Gwent Forge viene sviluppato come progetto fan-made per i giocatori di Gwent. Ogni messaggio, suggerimento e segnalazione di bug aiuta a far crescere l'applicazione e a offrire strumenti migliori per la preparazione dei mazzi.",
+    "footer": "Grazie per il supporto al progetto"
+  }
+}

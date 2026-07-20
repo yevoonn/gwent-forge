@@ -1,0 +1,39 @@
+{
+  "title": "Informazioni su Gwent Forge",
+  "tagline": "Meno preparazione, più Gwent",
+  "intro": "Gwent Forge è un'applicazione web fan-made progettata per aiutare i giocatori a creare, gestire e organizzare mazzi per Gwent: Il Leggendario Gioco di Carte prima dell'inizio della serata di gioco.",
+  "why": {
+    "title": "Perché esiste Gwent Forge",
+    "paragraph1": "Costruire i mazzi durante una sessione può sottrarre tempo prezioso al gioco vero e proprio. Gwent Forge è nato per risolvere questo problema permettendo ai giocatori di preparare i propri mazzi in anticipo.",
+    "paragraph2": "Che tu stia testando nuove strategie, organizzando più mazzi per diverse fazioni o semplicemente arrivando pronto a giocare, l'obiettivo è rendere la preparazione dei mazzi veloce, intuitiva e piacevole."
+  },
+  "features_title": "Cosa puoi fare",
+  "features_subtitle": "Strumenti pensati per la preparazione, l'organizzazione e partite più rapide.",
+  "features": {
+    "deck_management": {
+      "title": "Gestione dei mazzi",
+      "description": "Crea, modifica e organizza più configurazioni di mazzi per ogni fazione."
+    },
+    "card_browser": {
+      "title": "Esplorazione delle carte",
+      "description": "Sfoglia, filtra e cerca rapidamente le carte all'interno di una fazione selezionata."
+    },
+    "localization": {
+      "title": "Localizzazione",
+      "description": "Utilizza l'applicazione in più lingue con interfaccia e dati di gioco tradotti."
+    },
+    "game_night": {
+      "title": "Pronto per la serata di gioco",
+      "description": "Prepara i mazzi prima della sessione per dedicare più tempo al gioco e meno alla preparazione."
+    }
+  },
+  "tech_stack": {
+    "title": "Stack tecnologico"
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "paragraph1": "Gwent Forge è un progetto fan-made non ufficiale e non è affiliato, approvato, sponsorizzato o autorizzato da CD PROJEKT S.A., CD PROJEKT RED, No Loading Games o da una qualsiasi delle loro affiliate.",
+    "paragraph2": "Gwent, The Witcher, i nomi associati, i personaggi, le opere grafiche e la relativa proprietà intellettuale sono marchi registrati e opere protette dai rispettivi proprietari.",
+    "paragraph3": "Questo progetto è stato creato esclusivamente per scopi educativi, personali e comunitari."
+  }
+}
