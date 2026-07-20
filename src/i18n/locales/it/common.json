@@ -55,6 +55,11 @@
     "type": "Tipo",
     "range": "Fila",
     "ability": "Abilità",
-    "sort_by": "Ordina per"
+    "sort_by": "Ordina per",
+    "sort_fields": {
+      "name": "Nome",
+      "power": "Forza",
+      "code": "Codice"
+    }
   }
 }

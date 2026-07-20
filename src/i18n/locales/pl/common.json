@@ -55,6 +55,11 @@
     "type": "Typ",
     "range": "Zasięg",
     "ability": "Zdolność",
-    "sort_by": "Sortuj według"
+    "sort_by": "Sortuj według",
+    "sort_fields": {
+      "name": "Nazwa",
+      "power": "Siła",
+      "code": "Kod"
+    }
   }
 }

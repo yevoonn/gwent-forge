@@ -55,6 +55,11 @@
     "type": "Type",
     "range": "Range",
     "ability": "Ability",
-    "sort_by": "Sort by"
+    "sort_by": "Sort by",
+    "sort_fields": {
+      "name": "Name",
+      "power": "Power",
+      "code": "Code"
+    }
   }
 }

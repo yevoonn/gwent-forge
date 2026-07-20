@@ -2,9 +2,9 @@ import { useTranslation } from "react-i18next";
 import { ArrowUp, SlidersHorizontal, X } from "lucide-react";
 
 const sortFields = [
-  { value: "name", label: "Name" },
-  { value: "power", label: "Power" },
-  { value: "code", label: "Code" },
+  { value: "name", label: "filters.sort_fields.name" },
+  { value: "power", label: "filters.sort_fields.power" },
+  { value: "code", label: "filters.sort_fields.code" },
 ];
 
 const rangeIcons = {
@@ -97,7 +97,7 @@ export default function CardFiltersContent({
               }
             `}
             >
-              {field.label}
+              {t(field.label)}
             </button>
           ))}
 
