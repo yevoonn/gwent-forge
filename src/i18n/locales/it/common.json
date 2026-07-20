@@ -36,12 +36,73 @@
 
   "about": {
     "title": "Informazioni su Gwent Forge",
-    "description": "Gwent Forge è un creatore di mazzi fan-made per \"Gwent: Il Leggendario Gioco di Carte\". Non è affiliato in alcun modo con CD PROJEKT RED o GOG.com. Tutte le immagini delle carte e le risorse sono di proprietà di CD PROJEKT RED."
+    "tagline": "Meno preparazione, più Gwent",
+    "intro": "Gwent Forge è un'applicazione web fan-made progettata per aiutare i giocatori a creare, gestire e organizzare mazzi per Gwent: Il Leggendario Gioco di Carte prima dell'inizio della serata di gioco.",
+    "why": {
+      "title": "Perché esiste Gwent Forge",
+      "paragraph1": "Costruire i mazzi durante una sessione può sottrarre tempo prezioso al gioco vero e proprio. Gwent Forge è nato per risolvere questo problema permettendo ai giocatori di preparare i propri mazzi in anticipo.",
+      "paragraph2": "Che tu stia testando nuove strategie, organizzando più mazzi per diverse fazioni o semplicemente arrivando pronto a giocare, l'obiettivo è rendere la preparazione dei mazzi veloce, intuitiva e piacevole."
+    },
+    "features_title": "Cosa puoi fare",
+    "features_subtitle": "Strumenti pensati per la preparazione, l'organizzazione e partite più rapide.",
+    "features": {
+      "deck_management": {
+        "title": "Gestione dei mazzi",
+        "description": "Crea, modifica e organizza più configurazioni di mazzi per ogni fazione."
+      },
+      "card_browser": {
+        "title": "Esplorazione delle carte",
+        "description": "Esplora carte, abilità, schieramenti e fazioni con filtri e ricerca rapidi."
+      },
+      "localization": {
+        "title": "Localizzazione",
+        "description": "Utilizza l'applicazione in più lingue con interfaccia e dati di gioco tradotti."
+      },
+      "game_night": {
+        "title": "Pronto per la serata di gioco",
+        "description": "Prepara i mazzi prima della sessione per dedicare più tempo al gioco e meno alla preparazione."
+      }
+    },
+    "tech_stack": {
+      "title": "Stack tecnologico"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "paragraph1": "Gwent Forge è un progetto fan-made non ufficiale e non è affiliato, approvato, sponsorizzato o autorizzato da CD PROJEKT S.A., CD PROJEKT RED, No Loading Games o da una qualsiasi delle loro affiliate.",
+      "paragraph2": "Gwent, The Witcher, i nomi associati, i personaggi, le opere grafiche e la relativa proprietà intellettuale sono marchi registrati e opere protette dai rispettivi proprietari.",
+      "paragraph3": "Questo progetto è stato creato esclusivamente per scopi educativi, personali e comunitari."
+    }
   },
 
   "contact": {
-    "title": "Contatto",
-    "description": "Se hai domande, suggerimenti o feedback, non esitare a contattarci via email o sui social media. Apprezziamo il tuo contributo e non vediamo l'ora di sentirti!"
+    "title": "Contatti",
+    "intro": "Hai una domanda, un'idea per una nuova funzionalità o hai trovato un bug? Saremo felici di ricevere il tuo feedback. Gwent Forge cresce grazie alla comunità dei giocatori e ogni suggerimento aiuta a migliorare l'applicazione.",
+    "github": {
+      "title": "Progetto su GitHub",
+      "subtitle": "Il metodo di contatto preferito.",
+      "note": "Per segnalazioni di bug, richieste di funzionalità, suggerimenti o feedback generale, utilizza il repository GitHub. In questo modo le discussioni rimangono pubbliche, organizzate e accessibili alla comunità."
+    },
+    "topics_title": "Come possiamo aiutarti?",
+    "topics_subtitle": "I motivi più comuni per contattarci.",
+    "topics": {
+      "suggestions": {
+        "title": "Idee e funzionalità",
+        "description": "Condividi proposte per nuove funzionalità, miglioramenti dell'interfaccia o strumenti per la comunità di Gwent."
+      },
+      "bugs": {
+        "title": "Bug e problemi",
+        "description": "Segnala malfunzionamenti dell'applicazione, problemi con carte, filtri, traduzioni o prestazioni."
+      },
+      "feedback": {
+        "title": "Feedback sul progetto",
+        "description": "Raccontaci cosa funziona bene, cosa può essere migliorato e qual è la tua esperienza con Gwent Forge."
+      }
+    },
+    "community": {
+      "title": "Un progetto guidato dalla comunità",
+      "description": "Gwent Forge viene sviluppato come progetto fan-made per i giocatori di Gwent. Ogni messaggio, suggerimento e segnalazione di bug aiuta a far crescere l'applicazione e a offrire strumenti migliori per la preparazione dei mazzi.",
+      "footer": "Grazie per il supporto al progetto"
+    }
   },
 
   "footer": {

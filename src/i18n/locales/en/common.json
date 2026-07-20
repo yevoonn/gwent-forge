@@ -36,12 +36,73 @@
 
   "about": {
     "title": "About Gwent Forge",
-    "description": "Gwent Forge is a fan-made deck builder for \"Gwent: A Legendary Card Game\". It is not affiliated with CD PROJEKT RED or GOG.com in any way. All card images and assets are property of CD PROJEKT RED."
+    "tagline": "Less Setup, More Gwent",
+    "intro": "Gwent Forge is a fan-made web application designed to help players build, manage, and organize decks for Gwent: The Legendary Card Game before game night begins.",
+    "why": {
+      "title": "Why Gwent Forge Exists",
+      "paragraph1": "Building decks during a game session can take valuable time away from actually playing. Gwent Forge was created to solve that problem by allowing players to prepare their decks in advance.",
+      "paragraph2": "Whether you are testing new strategies, organizing multiple faction builds, or simply arriving ready to play, the goal is to make deck preparation fast, intuitive, and enjoyable."
+    },
+    "features_title": "What You Can Do",
+    "features_subtitle": "Tools focused on preparation, organization, and faster gameplay.",
+    "features": {
+      "deck_management": {
+        "title": "Deck Management",
+        "description": "Create, edit, and organize multiple deck configurations for every faction."
+      },
+      "card_browser": {
+        "title": "Card Browser",
+        "description": "Browse cards, abilities, ranges, and factions with fast filtering and search."
+      },
+      "localization": {
+        "title": "Localization",
+        "description": "Use the application in multiple languages with translated interface and game data."
+      },
+      "game_night": {
+        "title": "Game Night Ready",
+        "description": "Prepare decks before the session so you can spend more time playing and less time setting up."
+      }
+    },
+    "tech_stack": {
+      "title": "Tech Stack"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "paragraph1": "Gwent Forge is an unofficial fan-made project and is not affiliated with, endorsed by, sponsored by, or approved by CD PROJEKT S.A., CD PROJEKT RED, No Loading Games, or any of their affiliates.",
+      "paragraph2": "Gwent, The Witcher, associated names, characters, artwork, and related intellectual property are trademarks and copyrighted properties of their respective owners.",
+      "paragraph3": "This project is created for educational, personal, and community purposes only."
+    }
   },
 
   "contact": {
     "title": "Contact",
-    "description": "If you have any questions, suggestions, or feedback, feel free to reach out to us via email or social media. We value your input and look forward to hearing from you!"
+    "intro": "Have a question, an idea for a new feature, or found a bug? We would love to hear from you. Gwent Forge grows with the help of the community, and every suggestion helps make the application better for players.",
+    "github": {
+      "title": "GitHub Project",
+      "subtitle": "The preferred way to contact.",
+      "note": "For bug reports, feature requests, suggestions, or general feedback, please use the GitHub repository. This helps keep discussions public, organized, and accessible to the community."
+    },
+    "topics_title": "How can we help?",
+    "topics_subtitle": "The most common reasons to contact.",
+    "topics": {
+      "suggestions": {
+        "title": "Ideas & Features",
+        "description": "Share proposals for new features, interface improvements, or tools that could help the Gwent community."
+      },
+      "bugs": {
+        "title": "Bugs & Issues",
+        "description": "Report application problems, card data issues, filter or translation errors, and performance-related bugs."
+      },
+      "feedback": {
+        "title": "Project Feedback",
+        "description": "Tell us what works well, what could be improved, and how your experience with Gwent Forge can be made even better."
+      }
+    },
+    "community": {
+      "title": "Built with the Community",
+      "description": "Gwent Forge is developed as a fan-made project for Gwent players. Every message, suggestion, and bug report helps improve the application and deliver better tools for deck preparation and organization.",
+      "footer": "Thank you for supporting the project"
+    }
   },
 
   "footer": {
