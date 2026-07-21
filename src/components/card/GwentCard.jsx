@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { Check } from "lucide-react";
 import PowerBadge from "../badge/PowerBadge";
 import AbilityBadge from "../badge/AbilityBadge";
 import RangeBadge from "../badge/RangeBadge";
@@ -32,6 +33,8 @@ export default function GwentCard({
   range,
   currentFactionCode,
   showTooltip = false,
+  isSelected = false,
+  onClick,
 }) {
   const [hovered, setHovered] = useState(false);
   const isActive = currentFactionCode === deckCode;
@@ -73,11 +76,12 @@ export default function GwentCard({
         overflow-hidden
         rounded-2xl
         border-2
-        bg-slate-900/80
+        bg-slate-900/95
         backdrop-blur-sm
         shadow-xl
         ${factionStyles[deckCode]}
         ${isActive ? "animate-faction-glow" : ""}
+        ${onClick ? "cursor-pointer" : ""}
       `}
         style={{
           transformStyle: "preserve-3d",
@@ -85,7 +89,43 @@ export default function GwentCard({
             "--glow": factionGlow[deckCode],
           }),
         }}
+        onClick={onClick}
+        role={onClick ? "button" : undefined}
+        tabIndex={onClick ? 0 : undefined}
+        onKeyDown={
+          onClick
+            ? (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  onClick();
+                }
+              }
+            : undefined
+        }
       >
+        {isSelected && (
+          <>
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl"
+              style={{
+                zIndex: 15,
+                background: `linear-gradient(180deg, ${factionGlow[deckCode] ?? "#ef4444"}EE, ${factionGlow[deckCode] ?? "#ef4444"}CC 20%, ${factionGlow[deckCode] ?? "#ef4444"}99 45%, transparent 90%)`,
+                boxShadow: `inset 0 0 40px 10px ${factionGlow[deckCode] ?? "#ef4444"}55, 0 0 50px 24px ${factionGlow[deckCode] ?? "#ef4444"}25`,
+                mixBlendMode: "screen",
+                opacity: 1,
+              }}
+            />
+            <div className="pointer-events-none absolute right-3 top-3 z-20 h-11 w-11">
+              <div className="absolute inset-0 rounded-full bg-slate-950/90 ring-1 ring-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.25)]" />
+              <div className="absolute inset-[2px] rounded-full bg-slate-900/90 border border-white/10 flex items-center justify-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]">
+                <Check
+                  className="h-6 w-6"
+                  strokeWidth={3}
+                  style={{ color: factionGlow[deckCode] ?? "#ef4444" }}
+                />
+              </div>
+            </div>
+          </>
+        )}
         {/* Power */}
         {(power !== null || type === "SPECIAL") && (
           <PowerBadge power={power} type={type} ability={ability} />
@@ -107,6 +147,7 @@ export default function GwentCard({
           lg:h-72
           xl:h-80
           overflow-hidden
+          bg-slate-900/90
         `}
         >
           <img
@@ -118,6 +159,8 @@ export default function GwentCard({
             object-cover
             transition-transform
             duration-500
+            will-change-transform
+            ${isSelected ? "brightness-95 contrast-[1.05]" : ""}
           `}
           />
 
@@ -136,6 +179,9 @@ export default function GwentCard({
         {/* Content */}
         <div
           className={`
+          relative
+          z-10
+          -mt-px
           p-2
           sm:p-3
           md:p-4
@@ -147,6 +193,7 @@ export default function GwentCard({
           flex
           flex-col
           text-center
+          bg-slate-900/95
         `}
         >
           <div

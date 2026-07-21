@@ -47,6 +47,36 @@ export default function CardsGrid({
   setCardRange,
 }) {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [selectedCards, setSelectedCards] = useState([]);
+  const [selectedLeader, setSelectedLeader] = useState(null);
+
+  const handleLeaderClick = (leader) => {
+    if (selectedLeader?.code === leader.code) {
+      setSelectedLeader(null);
+      return;
+    }
+
+    setSelectedLeader(leader);
+  };
+
+  const handleCardClick = (card) => {
+    setSelectedCards((current) => {
+      const alreadySelected = current.some(
+        (selected) => selected.code === card.code,
+      );
+
+      if (alreadySelected) {
+        return current.filter((selected) => selected.code !== card.code);
+      }
+
+      return [...current, card];
+    });
+  };
+
+  const isCardSelected = (card) =>
+    selectedCards.some((selected) => selected.code === card.code);
+
+  const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
 
   return (
     <>
@@ -72,6 +102,8 @@ export default function CardsGrid({
                 type={card.type.code}
                 ability={card.abilities.length ? card.abilities[0] : null}
                 showTooltip
+                isSelected={isLeaderSelected(card)}
+                onClick={() => handleLeaderClick(card)}
               />
             </motion.div>
           ))}
@@ -114,6 +146,8 @@ export default function CardsGrid({
                 type={card.type.code}
                 ability={card.abilities.length ? card.abilities[0] : null}
                 range={card.range}
+                isSelected={isCardSelected(card)}
+                onClick={() => handleCardClick(card)}
               />
             </motion.div>
           ))}
