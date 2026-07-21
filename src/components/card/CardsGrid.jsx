@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "motion/react";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
+import DeckPowerCounter from "../ui/DeckPowerCounter";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -30,6 +31,8 @@ const cardVariants = {
   },
 };
 
+const maxPower = 130;
+
 export default function CardsGrid({
   deckCode,
   leaders,
@@ -49,6 +52,12 @@ export default function CardsGrid({
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
+
+  const totalPower = useMemo(() => {
+    return selectedCards.reduce((sum, card) => {
+      return sum + (card.power ?? 0);
+    }, 0);
+  }, [selectedCards]);
 
   const handleLeaderClick = (leader) => {
     if (selectedLeader?.code === leader.code) {
@@ -152,6 +161,13 @@ export default function CardsGrid({
             </motion.div>
           ))}
         </motion.div>
+
+        <DeckPowerCounter
+          visible={!isFiltersOpen}
+          totalPower={totalPower}
+          selectedCount={selectedCards.length}
+          maxPower={maxPower}
+        />
 
         <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />
       </section>
