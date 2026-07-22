@@ -54,7 +54,7 @@ export default function DeckStatusBar({
               cursor-default
               ${
                 value > maxValue
-                  ? "border-red-500/60 bg-red-950/20 shadow-red-500/15 hover:bg-red-950/30 hover:border-red-400"
+                  ? "border-red-500/60 bg-red-950/50 shadow-red-500/15 hover:bg-red-950/30 hover:border-red-400"
                   : "border-slate-700 bg-slate-900/70 shadow-amber-500/10 hover:bg-slate-800 hover:border-amber-400"
               }
             `}
