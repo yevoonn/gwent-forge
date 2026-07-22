@@ -89,7 +89,7 @@ export default function DeckStatusBar({
                   times: [0, 0.45, 1],
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-cinzel text-xl font-bold text-amber-400"
+                className="font-cinzel text-xl font-bold text-amber-400 w-8"
               >
                 {value}
               </motion.span>
