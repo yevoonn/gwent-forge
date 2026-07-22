@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
-import DeckPowerCounter from "../ui/DeckPowerCounter";
+import DeckStatusBar from "../ui/DeckStatusBar";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -162,11 +162,10 @@ export default function CardsGrid({
           ))}
         </motion.div>
 
-        <DeckPowerCounter
-          visible={!isFiltersOpen}
-          totalPower={totalPower}
-          selectedCount={selectedCards.length}
-          maxPower={maxPower}
+        <DeckStatusBar
+          visible={!isFiltersOpen && selectedCards.length}
+          value={totalPower}
+          maxValue={maxPower}
         />
 
         <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />

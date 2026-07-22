@@ -1,15 +1,15 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Swords } from "lucide-react";
 
-export default function DeckPowerCounter({
+export default function DeckStatusBar({
   visible,
-  totalPower,
-  selectedCount,
-  maxPower,
+  icon: Icon = Swords,
+  value,
+  maxValue,
 }) {
   return (
     <AnimatePresence>
-      {visible && selectedCount > 0 && (
+      {visible && (
         <motion.div
           initial={{
             opacity: 0,
@@ -59,24 +59,42 @@ export default function DeckPowerCounter({
               hover:shadow-amber-500/20
             `}
           >
-            {/* ICON */}{" "}
+            {/* ICON */}
             <div className="flex items-center justify-center text-amber-400">
               {" "}
-              <Swords size={20} />{" "}
+              <Icon size={20} />
             </div>
             {/* VALUE */}
             <div className="flex items-baseline gap-2">
               <motion.span
-                key={totalPower}
-                initial={{ scale: 0.8, opacity: 0.5 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.2 }}
+                key={value}
+                initial={{
+                  scale: 0.88,
+                  y: 2,
+                  opacity: 0.7,
+                  filter: "drop-shadow(0 0 0px rgba(251,191,36,0))",
+                }}
+                animate={{
+                  scale: [0.88, 1.18, 1],
+                  y: [2, -2, 0],
+                  opacity: 1,
+                  filter: [
+                    "drop-shadow(0 0 0px rgba(251,191,36,0))",
+                    "drop-shadow(0 0 10px rgba(251,191,36,0.9))",
+                    "drop-shadow(0 0 3px rgba(251,191,36,0.35))",
+                  ],
+                }}
+                transition={{
+                  duration: 0.38,
+                  times: [0, 0.45, 1],
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="font-cinzel text-xl font-bold text-amber-400"
               >
-                {totalPower}
+                {value}
               </motion.span>
 
-              <span className="text-xs text-slate-400">/{maxPower}</span>
+              <span className="text-xs text-slate-400">/{maxValue}</span>
             </div>
           </motion.div>
         </motion.div>
