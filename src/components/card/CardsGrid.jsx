@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
+import { CloudSunRain, Swords } from "lucide-react";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
@@ -32,6 +33,7 @@ const cardVariants = {
 };
 
 const maxPower = 130;
+const maxSpecialCards = 5;
 
 export default function CardsGrid({
   deckCode,
@@ -56,6 +58,12 @@ export default function CardsGrid({
   const totalPower = useMemo(() => {
     return selectedCards.reduce((sum, card) => {
       return sum + (card.power ?? 0);
+    }, 0);
+  }, [selectedCards]);
+
+  const totalSpecialCards = useMemo(() => {
+    return selectedCards.reduce((count, card) => {
+      return count + (card.type.code === "SPECIAL" ? 1 : 0);
     }, 0);
   }, [selectedCards]);
 
@@ -86,6 +94,8 @@ export default function CardsGrid({
     selectedCards.some((selected) => selected.code === card.code);
 
   const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
+
+  const showStatusBars = !isFiltersOpen && selectedCards.length > 0;
 
   return (
     <>
@@ -162,11 +172,21 @@ export default function CardsGrid({
           ))}
         </motion.div>
 
-        <DeckStatusBar
-          visible={!isFiltersOpen && selectedCards.length}
-          value={totalPower}
-          maxValue={maxPower}
-        />
+        {showStatusBars && (
+          <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3 sm:flex-row">
+            <DeckStatusBar
+              icon={Swords}
+              value={totalPower}
+              maxValue={maxPower}
+            />
+
+            <DeckStatusBar
+              icon={CloudSunRain}
+              value={totalSpecialCards}
+              maxValue={maxSpecialCards}
+            />
+          </div>
+        )}
 
         <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />
       </section>
