@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { CloudSunRain, Swords } from "lucide-react";
+import { CloudSunRain, Eye, Heart, Swords } from "lucide-react";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
@@ -34,6 +34,8 @@ const cardVariants = {
 
 const maxPower = 130;
 const maxSpecialCards = 5;
+const maxSpyCards = 2;
+const maxMedicCards = 2;
 
 export default function CardsGrid({
   deckCode,
@@ -64,6 +66,18 @@ export default function CardsGrid({
   const totalSpecialCards = useMemo(() => {
     return selectedCards.reduce((count, card) => {
       return count + (card.type.code === "SPECIAL" ? 1 : 0);
+    }, 0);
+  }, [selectedCards]);
+
+  const totalSpyCards = useMemo(() => {
+    return selectedCards.reduce((count, card) => {
+      return count + (card?.abilities[0]?.code === "SPY" ? 1 : 0);
+    }, 0);
+  }, [selectedCards]);
+
+  const totalMedicCards = useMemo(() => {
+    return selectedCards.reduce((count, card) => {
+      return count + (card?.abilities[0]?.code === "MEDIC" ? 1 : 0);
     }, 0);
   }, [selectedCards]);
 
@@ -184,6 +198,18 @@ export default function CardsGrid({
               icon={CloudSunRain}
               value={totalSpecialCards}
               maxValue={maxSpecialCards}
+            />
+
+            <DeckStatusBar
+              icon={Eye}
+              value={totalSpyCards}
+              maxValue={maxSpyCards}
+            />
+
+            <DeckStatusBar
+              icon={Heart}
+              value={totalMedicCards}
+              maxValue={maxMedicCards}
             />
           </div>
         )}
