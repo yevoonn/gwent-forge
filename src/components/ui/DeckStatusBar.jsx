@@ -32,11 +32,7 @@ export default function DeckStatusBar({
           ease: [0.22, 1, 0.36, 1],
         }}
       >
-        <motion.div
-          whileHover={{
-            scale: 1.04,
-            y: -2,
-          }}
+        <div
           className={`
               flex
               h-12
@@ -115,7 +111,7 @@ export default function DeckStatusBar({
               /{maxValue}
             </span>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

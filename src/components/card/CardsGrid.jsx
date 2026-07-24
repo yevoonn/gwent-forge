@@ -4,7 +4,7 @@ import { CloudSunRain, Eye, Heart, Swords } from "lucide-react";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
-import DeckStatusBar from "../ui/DeckStatusBar";
+import DeckStatusPanel from "../ui/DeckStatusPanel";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -109,7 +109,34 @@ export default function CardsGrid({
 
   const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
 
-  const showStatusBars = !isFiltersOpen && selectedCards.length > 0;
+  const showStatusBars = !isFiltersOpen;
+
+  const statuses = [
+    {
+      id: "power",
+      icon: Swords,
+      value: totalPower,
+      maxValue: maxPower,
+    },
+    {
+      id: "special",
+      icon: CloudSunRain,
+      value: totalSpecialCards,
+      maxValue: maxSpecialCards,
+    },
+    {
+      id: "spy",
+      icon: Eye,
+      value: totalSpyCards,
+      maxValue: maxSpyCards,
+    },
+    {
+      id: "medic",
+      icon: Heart,
+      value: totalMedicCards,
+      maxValue: maxMedicCards,
+    },
+  ];
 
   return (
     <>
@@ -186,33 +213,7 @@ export default function CardsGrid({
           ))}
         </motion.div>
 
-        {showStatusBars && (
-          <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3 sm:flex-row">
-            <DeckStatusBar
-              icon={Swords}
-              value={totalPower}
-              maxValue={maxPower}
-            />
-
-            <DeckStatusBar
-              icon={CloudSunRain}
-              value={totalSpecialCards}
-              maxValue={maxSpecialCards}
-            />
-
-            <DeckStatusBar
-              icon={Eye}
-              value={totalSpyCards}
-              maxValue={maxSpyCards}
-            />
-
-            <DeckStatusBar
-              icon={Heart}
-              value={totalMedicCards}
-              maxValue={maxMedicCards}
-            />
-          </div>
-        )}
+        {showStatusBars && <DeckStatusPanel statuses={statuses} />}
 
         <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />
       </section>
