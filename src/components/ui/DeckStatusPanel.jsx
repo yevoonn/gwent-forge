@@ -53,7 +53,7 @@ export default function DeckStatusPanel({ statuses = [] }) {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute top-0 right-0 h-3 w-3 rounded-full bg-red-500"
+            className="absolute top-1 right-1 h-3 w-3 rounded-full bg-red-500"
           />
         )}
       </motion.button>
