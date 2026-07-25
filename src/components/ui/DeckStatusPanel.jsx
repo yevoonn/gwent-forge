@@ -78,7 +78,17 @@ export default function DeckStatusPanel({ statuses = [] }) {
             }}
             className="overflow-hidden"
           >
-            <div className="flex flex-col gap-3">
+            <div
+              className={`
+                flex
+                flex-col
+                gap-3
+                max-h-[calc(100dvh-10rem)]
+                overflow-y-auto
+                no-scrollbar
+                pr-1
+              `}
+            >
               {statuses.map((status) => (
                 <DeckStatusBar key={status.id} {...status} />
               ))}
