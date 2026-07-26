@@ -66,23 +66,23 @@ export default function GwentCard({
           delay: isActive ? 0.75 : 0,
         }}
         className={`
-        group
-        relative
-        w-32
-        sm:w-40
-        md:w-48
-        lg:w-56
-        xl:w-64
-        overflow-hidden
-        rounded-2xl
-        border-2
-        bg-slate-900/95
-        backdrop-blur-sm
-        shadow-xl
-        ${factionStyles[deckCode]}
-        ${isActive ? "animate-faction-glow" : ""}
-        ${onClick ? "cursor-pointer" : ""}
-      `}
+          group
+          relative
+          w-32
+          sm:w-40
+          md:w-48
+          lg:w-56
+          xl:w-64
+          overflow-hidden
+          rounded-2xl
+          border-2
+          bg-slate-900/95
+          backdrop-blur-sm
+          shadow-xl
+          ${factionStyles[deckCode]}
+          ${isActive ? "animate-faction-glow" : ""}
+          ${onClick ? "cursor-pointer" : ""}
+        `}
         style={{
           transformStyle: "preserve-3d",
           ...(isActive && {
@@ -114,11 +114,27 @@ export default function GwentCard({
                 opacity: 1,
               }}
             />
-            <div className="pointer-events-none absolute right-3 top-3 z-20 h-11 w-11">
+            <div
+              className={`
+                pointer-events-none
+                absolute
+                right-2
+                top-2
+                z-20
+                h-8
+                w-8
+                sm:right-3
+                sm:top-3
+                sm:h-10
+                sm:w-10
+                md:h-11
+                md:w-11
+              `}
+            >
               <div className="absolute inset-0 rounded-full bg-slate-950/90 ring-1 ring-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.25)]" />
               <div className="absolute inset-[2px] rounded-full bg-slate-900/90 border border-white/10 flex items-center justify-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]">
                 <Check
-                  className="h-6 w-6"
+                  className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"
                   strokeWidth={3}
                   style={{ color: factionGlow[deckCode] ?? "#ef4444" }}
                 />
@@ -140,82 +156,82 @@ export default function GwentCard({
         {/* Image */}
         <div
           className={`
-          relative
-          h-40
-          sm:h-52
-          md:h-64
-          lg:h-72
-          xl:h-80
-          overflow-hidden
-          bg-slate-900/90
-        `}
+            relative
+            h-40
+            sm:h-52
+            md:h-64
+            lg:h-72
+            xl:h-80
+            overflow-hidden
+            bg-slate-900/90
+          `}
         >
           <img
             src={image}
             alt={name}
             className={`
-            h-full
-            w-full
-            object-cover
-            transition-transform
-            duration-500
-            will-change-transform
-            ${isSelected ? "brightness-95 contrast-[1.05]" : ""}
-          `}
+              h-full
+              w-full
+              object-cover
+              transition-transform
+              duration-500
+              will-change-transform
+              ${isSelected ? "brightness-95 contrast-[1.05]" : ""}
+            `}
           />
 
           <div
             className={`
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-slate-900
-            via-slate-900/20
-            to-transparent
-          `}
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-slate-900
+              via-slate-900/20
+              to-transparent
+            `}
           />
         </div>
 
         {/* Content */}
         <div
           className={`
-          relative
-          z-10
-          -mt-px
-          p-2
-          sm:p-3
-          md:p-4
-          h-16
-          sm:h-20
-          md:h-24
-          lg:h-28
-          xl:h-32
-          flex
-          flex-col
-          text-center
-          bg-slate-900/95
-        `}
+            relative
+            z-10
+            -mt-px
+            p-2
+            sm:p-3
+            md:p-4
+            h-16
+            sm:h-20
+            md:h-24
+            lg:h-28
+            xl:h-32
+            flex
+            flex-col
+            text-center
+            bg-slate-900/95
+          `}
         >
           <div
             className={`
-            flex-1
-            flex
-            items-center
-            justify-center
-          `}
+              flex-1
+              flex
+              items-center
+              justify-center
+            `}
           >
             <h1
               className={`
-              font-cinzel
-              text-xs
-              sm:text-sm
-              md:text-base
-              lg:text-lg
-              font-bold
-              text-white
-              line-clamp-2
-              leading-tight
-            `}
+                font-cinzel
+                text-xs
+                sm:text-sm
+                md:text-base
+                lg:text-lg
+                font-bold
+                text-white
+                line-clamp-2
+                leading-tight
+              `}
             >
               {name}
             </h1>
