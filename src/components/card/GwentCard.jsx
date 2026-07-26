@@ -108,7 +108,7 @@ export default function GwentCard({
               className="pointer-events-none absolute inset-0 rounded-2xl"
               style={{
                 zIndex: 15,
-                background: `linear-gradient(180deg, ${factionGlow[deckCode] ?? "#ef4444"}EE, ${factionGlow[deckCode] ?? "#ef4444"}CC 20%, ${factionGlow[deckCode] ?? "#ef4444"}99 45%, transparent 90%)`,
+                background: `linear-gradient(180deg, ${factionGlow[deckCode] ?? "#ef4444"}EE, ${factionGlow[deckCode] ?? "#ef4444"}CC 20%, ${factionGlow[deckCode] ?? "#ef4444"}99 45%, transparent 80%)`,
                 boxShadow: `inset 0 0 40px 10px ${factionGlow[deckCode] ?? "#ef4444"}55, 0 0 50px 24px ${factionGlow[deckCode] ?? "#ef4444"}25`,
                 mixBlendMode: "screen",
                 opacity: 1,
