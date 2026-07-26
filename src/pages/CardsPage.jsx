@@ -112,7 +112,7 @@ export default function CardsPage() {
     <>
       {loading && <LoadingSpinner />}
 
-      <CardsHeader />
+      <CardsHeader deckCode={deckCode} />
 
       <CardsGrid
         deckCode={deckCode}

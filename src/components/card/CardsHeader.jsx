@@ -1,40 +1,28 @@
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { factions } from "../../data/factions";
 
-export default function CardsHeader() {
+export default function CardsHeader({ deckCode }) {
   const { t } = useTranslation();
+  const faction = factions.find((f) => f.code === deckCode);
 
   return (
     <header className="mx-auto flex max-w-screen-2xl justify-center px-6 pt-2 pb-6">
-      <Link
-        to="/"
-        className="
-          inline-flex
-          items-center
-          gap-2
-          rounded-xl
-          border
-          border-slate-700
-          text-white
-          bg-slate-900/70
-          px-5
-          py-2.5
-          font-cinzel
-          backdrop-blur-sm
-          transition-all
-          duration-200
-          hover:text-amber-300
-          hover:-translate-y-0.5
-          hover:border-amber-400
-          hover:bg-slate-800
-          hover:shadow-lg
-          hover:shadow-amber-500/20
-        "
+      <div
+        className={`
+              text-2xl
+              sm:text-2xl
+              md:text-6xl
+              font-bold
+              tracking-wide
+              font-cinzel
+              ${faction.color}
+            `}
+        style={{
+          textShadow: "0 0 20px currentColor",
+        }}
       >
-        <ArrowLeft size={20} className="text-amber-400" />
-        <span>{t("buttons.back")}</span>
-      </Link>
+        {t(`factions.${faction.code}`)}
+      </div>
     </header>
   );
 }

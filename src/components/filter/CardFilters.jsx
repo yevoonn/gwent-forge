@@ -1,4 +1,5 @@
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowLeft, Search, SlidersHorizontal, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import CardFiltersPanel from "./CardFiltersPanel";
@@ -33,6 +34,37 @@ export default function CardFilters({
         gap-3
       "
     >
+      {/* BACK */}
+      <Link
+        to="/"
+        aria-label="Go back"
+        className={`
+          flex
+          h-[50px]
+          w-[50px]
+          shrink-0
+          items-center
+          justify-center
+          rounded-xl
+          border
+          border-slate-700
+          bg-slate-900/70
+          text-white
+          backdrop-blur-sm
+          transition-all
+          duration-200
+          shadow-lg
+          shadow-black/30
+          hover:-translate-y-0.5
+          hover:border-amber-400
+          hover:bg-slate-800
+          hover:text-amber-300
+          hover:shadow-amber-500/20
+        `}
+      >
+        <ArrowLeft size={18} className="text-amber-400" />
+      </Link>
+
       {/* SEARCH */}
       <div className="relative flex-1">
         <Search
