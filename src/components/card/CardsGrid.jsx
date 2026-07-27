@@ -1,6 +1,7 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
-import { CloudSunRain, Eye, Heart, Swords } from "lucide-react";
+import { deckStatusConfig } from "../../data/deckStatusConfig";
+import useDeckStats from "../../hooks/useDeckStats";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
@@ -32,11 +33,6 @@ const cardVariants = {
   },
 };
 
-const maxPower = 130;
-const maxSpecialCards = 5;
-const maxSpyCards = 2;
-const maxMedicCards = 2;
-
 export default function CardsGrid({
   deckCode,
   leaders,
@@ -57,29 +53,12 @@ export default function CardsGrid({
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
 
-  const totalPower = useMemo(() => {
-    return selectedCards.reduce((sum, card) => {
-      return sum + (card.power ?? 0);
-    }, 0);
-  }, [selectedCards]);
+  const deckStats = useDeckStats(selectedCards, selectedLeader);
 
-  const totalSpecialCards = useMemo(() => {
-    return selectedCards.reduce((count, card) => {
-      return count + (card.type.code === "SPECIAL" ? 1 : 0);
-    }, 0);
-  }, [selectedCards]);
-
-  const totalSpyCards = useMemo(() => {
-    return selectedCards.reduce((count, card) => {
-      return count + (card?.abilities[0]?.code === "SPY" ? 1 : 0);
-    }, 0);
-  }, [selectedCards]);
-
-  const totalMedicCards = useMemo(() => {
-    return selectedCards.reduce((count, card) => {
-      return count + (card?.abilities[0]?.code === "MEDIC" ? 1 : 0);
-    }, 0);
-  }, [selectedCards]);
+  const statuses = deckStatusConfig.map((status) => ({
+    ...status,
+    value: deckStats[status.source],
+  }));
 
   const handleLeaderClick = (leader) => {
     if (selectedLeader?.code === leader.code) {
@@ -110,33 +89,6 @@ export default function CardsGrid({
   const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
 
   const showStatusBars = !isFiltersOpen;
-
-  const statuses = [
-    {
-      id: "power",
-      icon: Swords,
-      value: totalPower,
-      maxValue: maxPower,
-    },
-    {
-      id: "special",
-      icon: CloudSunRain,
-      value: totalSpecialCards,
-      maxValue: maxSpecialCards,
-    },
-    {
-      id: "spy",
-      icon: Eye,
-      value: totalSpyCards,
-      maxValue: maxSpyCards,
-    },
-    {
-      id: "medic",
-      icon: Heart,
-      value: totalMedicCards,
-      maxValue: maxMedicCards,
-    },
-  ];
 
   return (
     <>

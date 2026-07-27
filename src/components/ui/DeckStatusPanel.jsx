@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import { isWarning } from "../../utils/deckStatusHelper";
 import DeckStatusBar from "./DeckStatusBar";
 
 export default function DeckStatusPanel({ statuses = [] }) {
@@ -8,7 +9,7 @@ export default function DeckStatusPanel({ statuses = [] }) {
     () => window.matchMedia("(min-width: 640px)").matches,
   );
 
-  const hasWarnings = statuses.some((status) => status.value > status.maxValue);
+  const hasWarnings = statuses.some(isWarning);
 
   return (
     <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
