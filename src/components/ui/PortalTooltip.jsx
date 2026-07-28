@@ -1,6 +1,10 @@
 import { useLayoutEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
+import {
+  getTooltipPosition,
+  getTooltipTransform,
+} from "../../utils/portalTooltipHelper";
 
 export default function PortalTooltip({
   targetRef,
@@ -16,63 +20,6 @@ export default function PortalTooltip({
     left: 0,
   });
 
-  const getPosition = (rect) => {
-    const gap = 12;
-
-    switch (placement) {
-      case "left":
-        return {
-          top: rect.top + rect.height / 2,
-          left: rect.left - gap,
-        };
-
-      case "top":
-        return {
-          top: rect.top - gap,
-          left: rect.left + rect.width / 2,
-        };
-
-      case "bottom":
-        return {
-          top: rect.bottom + gap,
-          left: rect.left + rect.width / 2,
-        };
-
-      case "center":
-        return {
-          top: rect.top + rect.height / 2,
-          left: rect.left + rect.width / 2,
-        };
-
-      case "right":
-      default:
-        return {
-          top: rect.top + rect.height / 2,
-          left: rect.right + gap,
-        };
-    }
-  };
-
-  const getTransform = () => {
-    switch (placement) {
-      case "left":
-        return "translate(-100%, -50%)";
-
-      case "top":
-        return "translate(-50%, -100%)";
-
-      case "bottom":
-        return "translate(-50%, 0)";
-
-      case "center":
-        return "translate(-50%, -50%)";
-
-      case "right":
-      default:
-        return "translate(0, -50%)";
-    }
-  };
-
   useLayoutEffect(() => {
     if (!visible || !targetRef?.current) {
       return;
@@ -81,7 +28,7 @@ export default function PortalTooltip({
     const updatePosition = () => {
       const rect = targetRef.current.getBoundingClientRect();
 
-      setPosition(getPosition(rect));
+      setPosition(getTooltipPosition(rect, placement));
     };
 
     updatePosition();
@@ -103,7 +50,7 @@ export default function PortalTooltip({
             position: "fixed",
             top: position.top,
             left: position.left,
-            transform: getTransform(),
+            transform: getTooltipTransform(placement),
             zIndex: 100,
           }}
           className="hidden md:block pointer-events-none"
