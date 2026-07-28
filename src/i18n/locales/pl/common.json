@@ -51,5 +51,32 @@
       "power": "Siła",
       "code": "Kod"
     }
+  },
+
+  "deck_status": {
+    "power": {
+      "title": "Siła",
+      "description": "Siła całkowita talii nie może przekroczyć 130."
+    },
+    "units": {
+      "title": "Karty jednostek",
+      "description": "Twoja talia musi zawierać co najmniej 22 karty jednostek."
+    },
+    "leader": {
+      "title": "Dowódca",
+      "description": "Należy wybrać dokładnie jedną kartę dowódcy."
+    },
+    "special": {
+      "title": "Karty specjalne",
+      "description": "Twoja talia może zawierać maksymalnie 5 kart specjalnych."
+    },
+    "spy": {
+      "title": "Szpieg",
+      "description": "Twoja talia może zawierać maksymalnie 2 karty ze zdolnością szpiegostwa."
+    },
+    "medic": {
+      "title": "Wskrzeszenie",
+      "description": "Twoja talia może zawierać maksymalnie 2 karty ze zdolnością wskrzeszenia."
+    }
   }
 }

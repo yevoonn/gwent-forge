@@ -51,5 +51,32 @@
       "power": "Forza",
       "code": "Codice"
     }
+  },
+
+  "deck_status": {
+    "power": {
+      "title": "Forza",
+      "description": "La Forza combinata di tutte le Unità in un mazzo non deve essere maggiore di 130."
+    },
+    "units": {
+      "title": "Carte Unità",
+      "description": "Il tuo mazzo deve contenere almeno 22 Carte Unità."
+    },
+    "leader": {
+      "title": "Comandante",
+      "description": "Deve essere selezionata esattamente una Carta Comandante."
+    },
+    "special": {
+      "title": "Carte Speciali",
+      "description": "Il tuo mazzo non può contenere più di 5 Carte Speciali."
+    },
+    "spy": {
+      "title": "Carte Spia",
+      "description": "Il tuo mazzo non può contenere più di 2 Carte Spia."
+    },
+    "medic": {
+      "title": "Carte Medico",
+      "description": "Il tuo mazzo non può contenere più di 2 Carte Medico."
+    }
   }
 }

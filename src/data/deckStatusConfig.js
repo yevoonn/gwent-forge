@@ -14,6 +14,8 @@ export const deckStatusConfig = [
     source: "leaders",
     limit: 1,
     mode: "min",
+    tooltipTitleKey: "deck_status.leader.title",
+    tooltipDescriptionKey: "deck_status.leader.description",
   },
   {
     id: "units",
@@ -21,6 +23,8 @@ export const deckStatusConfig = [
     source: "units",
     limit: 22,
     mode: "min",
+    tooltipTitleKey: "deck_status.units.title",
+    tooltipDescriptionKey: "deck_status.units.description",
   },
   {
     id: "power",
@@ -28,6 +32,8 @@ export const deckStatusConfig = [
     source: "power",
     limit: 130,
     mode: "max",
+    tooltipTitleKey: "deck_status.power.title",
+    tooltipDescriptionKey: "deck_status.power.description",
   },
   {
     id: "special",
@@ -35,6 +41,8 @@ export const deckStatusConfig = [
     source: "special",
     limit: 5,
     mode: "max",
+    tooltipTitleKey: "deck_status.special.title",
+    tooltipDescriptionKey: "deck_status.special.description",
   },
   {
     id: "spy",
@@ -42,6 +50,8 @@ export const deckStatusConfig = [
     source: "spy",
     limit: 2,
     mode: "max",
+    tooltipTitleKey: "deck_status.spy.title",
+    tooltipDescriptionKey: "deck_status.spy.description",
   },
   {
     id: "medic",
@@ -49,5 +59,7 @@ export const deckStatusConfig = [
     source: "medic",
     limit: 2,
     mode: "max",
+    tooltipTitleKey: "deck_status.medic.title",
+    tooltipDescriptionKey: "deck_status.medic.description",
   },
 ];

@@ -51,5 +51,32 @@
       "power": "Power",
       "code": "Code"
     }
+  },
+
+  "deck_status": {
+    "power": {
+      "title": "Strength",
+      "description": "The combined Strength of all Units in a deck cannot exceed 130."
+    },
+    "units": {
+      "title": "Unit Cards",
+      "description": "Your deck must contain at least 22 Unit Cards."
+    },
+    "leader": {
+      "title": "Leader",
+      "description": "Exactly one Leader Card must be selected."
+    },
+    "special": {
+      "title": "Special Cards",
+      "description": "Your deck can contain no more than 5 Special Cards."
+    },
+    "spy": {
+      "title": "Spy Cards",
+      "description": "Your deck can contain no more than 2 Spy Cards."
+    },
+    "medic": {
+      "title": "Medic Cards",
+      "description": "Your deck can contain no more than 2 Medic Cards."
+    }
   }
 }
