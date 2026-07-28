@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import PowerBadge from "../badge/PowerBadge";
 import AbilityBadge from "../badge/AbilityBadge";
 import RangeBadge from "../badge/RangeBadge";
-import Tooltip from "../ui/Tooltip";
+import PortalTooltip from "../ui/PortalTooltip";
 
 const factionStyles = {
   northern_realms: "border-sky-400 cursor-pointer",
@@ -37,10 +37,14 @@ export default function GwentCard({
   onClick,
 }) {
   const [hovered, setHovered] = useState(false);
+
+  const cardRef = useRef(null);
+
   const isActive = currentFactionCode === deckCode;
 
   return (
     <div
+      ref={cardRef}
       className="relative overflow-visible"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -241,13 +245,14 @@ export default function GwentCard({
         </div>
       </motion.div>
       {showTooltip && (
-        <Tooltip
+        <PortalTooltip
+          targetRef={cardRef}
           visible={hovered}
           title={ability?.name ?? null}
           description={ability?.description ?? null}
           width="w-56"
           descriptionSize="text-sm"
-          className="left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2"
+          placement="center"
         />
       )}
     </div>
