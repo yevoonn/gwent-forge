@@ -1,7 +1,9 @@
-import { useState } from "react";
-import Tooltip from "../ui/Tooltip";
+import { useRef, useState } from "react";
+import PortalTooltip from "../ui/PortalTooltip";
 
 export default function RangeBadge({ type, range }) {
+  const badgeRef = useRef(null);
+
   const [hovered, setHovered] = useState(false);
 
   let imageURL = `/icons/${range?.code?.toLowerCase()}_icon_transparent.webp`;
@@ -35,6 +37,7 @@ export default function RangeBadge({ type, range }) {
       `}
     >
       <div
+        ref={badgeRef}
         className="relative"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -62,11 +65,12 @@ export default function RangeBadge({ type, range }) {
           />
         </div>
 
-        <Tooltip
+        <PortalTooltip
+          targetRef={badgeRef}
           visible={hovered}
           title={range.name}
           description={range.description}
-          className="left-full top-1/2 ml-3 -translate-y-1/2"
+          placement="right"
         />
       </div>
     </div>

@@ -1,7 +1,9 @@
-import { useState } from "react";
-import Tooltip from "../ui/Tooltip";
+import { useRef, useState } from "react";
+import PortalTooltip from "../ui/PortalTooltip";
 
 export default function PowerBadge({ power, type, ability }) {
+  const badgeRef = useRef(null);
+
   const [hovered, setHovered] = useState(false);
 
   const imageURL =
@@ -87,16 +89,18 @@ export default function PowerBadge({ power, type, ability }) {
         >
           {type === "SPECIAL" ? (
             <div
+              ref={badgeRef}
               className="relative"
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             >
               <img src={imageURL} alt={ability.code} className="scale-85"></img>
-              <Tooltip
+              <PortalTooltip
+                targetRef={badgeRef}
                 visible={hovered}
                 title={ability.name}
                 description={ability.description}
-                className="left-full top-1/2 ml-3 -translate-y-1/10"
+                placement="right"
               />
             </div>
           ) : (

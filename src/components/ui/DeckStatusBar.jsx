@@ -15,7 +15,8 @@ export default function DeckStatusBar({
 }) {
   const { t } = useTranslation();
 
-  const tooltipRef = useRef(null);
+  const statusBarRef = useRef(null);
+
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
   const warning = isWarning({ value, limit, mode });
@@ -24,7 +25,7 @@ export default function DeckStatusBar({
     <AnimatePresence>
       <>
         <motion.div
-          ref={tooltipRef}
+          ref={statusBarRef}
           onMouseEnter={() => setIsTooltipVisible(true)}
           onMouseLeave={() => setIsTooltipVisible(false)}
           initial={{
@@ -132,7 +133,7 @@ export default function DeckStatusBar({
         </motion.div>
 
         <PortalTooltip
-          targetRef={tooltipRef}
+          targetRef={statusBarRef}
           visible={isTooltipVisible}
           title={t(tooltipTitleKey)}
           description={t(tooltipDescriptionKey)}
