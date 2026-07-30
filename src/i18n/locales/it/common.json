@@ -78,5 +78,11 @@
       "title": "Carte Medico",
       "description": "Il tuo mazzo non può contenere più di 2 Carte Medico."
     }
+  },
+
+  "card_details": {
+    "power": "Forza:",
+    "range": "Fila",
+    "ability": "Abilità"
   }
 }

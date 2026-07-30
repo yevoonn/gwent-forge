@@ -5,6 +5,8 @@ import PowerBadge from "../badge/PowerBadge";
 import AbilityBadge from "../badge/AbilityBadge";
 import RangeBadge from "../badge/RangeBadge";
 import PortalTooltip from "../ui/PortalTooltip";
+import CardDetailsSheet from "../ui/CardDetailsSheet";
+import CardDetailsContent from "./CardDetailsContent";
 
 const factionStyles = {
   northern_realms: "border-sky-400 cursor-pointer",
@@ -37,10 +39,37 @@ export default function GwentCard({
   onClick,
 }) {
   const [hovered, setHovered] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   const cardRef = useRef(null);
+  const longPressTimeoutRef = useRef(null);
+  const longPressTriggeredRef = useRef(false);
 
   const isActive = currentFactionCode === deckCode;
+
+  const startLongPress = () => {
+    longPressTriggeredRef.current = false;
+
+    longPressTimeoutRef.current = setTimeout(() => {
+      longPressTriggeredRef.current = true;
+      setDetailsOpen(true);
+    }, 500);
+  };
+
+  const cancelLongPress = () => {
+    clearTimeout(longPressTimeoutRef.current);
+  };
+
+  const handleCardClick = (event) => {
+    if (longPressTriggeredRef.current) {
+      event.preventDefault();
+      event.stopPropagation();
+      longPressTriggeredRef.current = false;
+      return;
+    }
+
+    onClick?.(event);
+  };
 
   return (
     <div
@@ -93,7 +122,7 @@ export default function GwentCard({
             "--glow": factionGlow[deckCode],
           }),
         }}
-        onClick={onClick}
+        onClick={handleCardClick}
         role={onClick ? "button" : undefined}
         tabIndex={onClick ? 0 : undefined}
         onKeyDown={
@@ -105,6 +134,10 @@ export default function GwentCard({
               }
             : undefined
         }
+        onTouchStart={startLongPress}
+        onTouchEnd={cancelLongPress}
+        onTouchCancel={cancelLongPress}
+        onTouchMove={cancelLongPress}
       >
         {isSelected && (
           <>
@@ -255,6 +288,20 @@ export default function GwentCard({
           placement="center"
         />
       )}
+
+      <CardDetailsSheet
+        open={detailsOpen}
+        onClose={() => setDetailsOpen(false)}
+      >
+        <CardDetailsContent
+          name={name}
+          power={power}
+          image={image}
+          type={type}
+          ability={ability}
+          range={range}
+        />
+      </CardDetailsSheet>
     </div>
   );
 }

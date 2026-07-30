@@ -78,5 +78,11 @@
       "title": "Wskrzeszenie",
       "description": "Twoja talia może zawierać maksymalnie 2 karty ze zdolnością wskrzeszenia."
     }
+  },
+
+  "card_details": {
+    "power": "Siła:",
+    "range": "Zasięg",
+    "ability": "Zdolność"
   }
 }

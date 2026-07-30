@@ -78,5 +78,11 @@
       "title": "Medic Cards",
       "description": "Your deck can contain no more than 2 Medic Cards."
     }
+  },
+
+  "card_details": {
+    "power": "Power:",
+    "range": "Range",
+    "ability": "Ability"
   }
 }
