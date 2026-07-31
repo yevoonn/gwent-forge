@@ -1,8 +1,6 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-
 import GwentCard from "./GwentCard";
-
 import { featuredCards } from "../../data/factions";
 
 const featuredContainerVariants = {
@@ -51,6 +49,7 @@ export default function FeaturedCards({ onFactionClick, currentFactionCode }) {
                   {...card}
                   currentFactionCode={currentFactionCode}
                   faction={t(`factions.${card.deckCode}`)}
+                  isFeatured={true}
                 />
               </button>
             </motion.div>

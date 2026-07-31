@@ -36,6 +36,7 @@ export default function GwentCard({
   currentFactionCode,
   showTooltip = false,
   isSelected = false,
+  isFeatured = false,
   onClick,
 }) {
   const [hovered, setHovered] = useState(false);
@@ -289,19 +290,23 @@ export default function GwentCard({
         />
       )}
 
-      <CardDetailsSheet
-        open={detailsOpen}
-        onClose={() => setDetailsOpen(false)}
-      >
-        <CardDetailsContent
-          name={name}
-          power={power}
-          image={image}
-          type={type}
-          ability={ability}
-          range={range}
-        />
-      </CardDetailsSheet>
+      {!isFeatured && (
+        <>
+          <CardDetailsSheet
+            open={detailsOpen}
+            onClose={() => setDetailsOpen(false)}
+          >
+            <CardDetailsContent
+              name={name}
+              power={power}
+              image={image}
+              type={type}
+              ability={ability}
+              range={range}
+            />
+          </CardDetailsSheet>
+        </>
+      )}
     </div>
   );
 }
