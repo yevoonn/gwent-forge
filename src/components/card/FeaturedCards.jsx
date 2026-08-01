@@ -7,6 +7,7 @@ const featuredContainerVariants = {
   hidden: {},
   show: {
     transition: {
+      delayChildren: 0.25,
       staggerChildren: 0.08,
     },
   },
@@ -15,15 +16,15 @@ const featuredContainerVariants = {
 const cardVariants = {
   hidden: {
     opacity: 0,
-    y: 30,
-    scale: 0.95,
+    y: 16,
+    scale: 0.98,
   },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.4,
+      duration: 0.25,
       ease: "easeOut",
     },
   },
@@ -41,6 +42,9 @@ export default function FeaturedCards({ onFactionClick, currentFactionCode }) {
           variants={featuredContainerVariants}
           initial="hidden"
           animate="show"
+          style={{
+            willChange: "transform, opacity",
+          }}
         >
           {featuredCards.map((card) => (
             <motion.div key={card.name} variants={cardVariants}>

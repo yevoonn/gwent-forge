@@ -80,10 +80,14 @@ export default function GwentCard({
       onMouseLeave={() => setHovered(false)}
     >
       <motion.div
-        whileHover={{
-          y: -10,
-          scale: 1.1,
-        }}
+        whileHover={
+          !isFeatured
+            ? {
+                y: -10,
+                scale: 1.1,
+              }
+            : undefined
+        }
         animate={
           isActive
             ? {
@@ -135,10 +139,10 @@ export default function GwentCard({
               }
             : undefined
         }
-        onTouchStart={startLongPress}
-        onTouchEnd={cancelLongPress}
-        onTouchCancel={cancelLongPress}
-        onTouchMove={cancelLongPress}
+        onTouchStart={!isFeatured ? startLongPress : undefined}
+        onTouchEnd={!isFeatured ? cancelLongPress : undefined}
+        onTouchCancel={!isFeatured ? cancelLongPress : undefined}
+        onTouchMove={!isFeatured ? cancelLongPress : undefined}
       >
         {isSelected && (
           <>
@@ -180,16 +184,21 @@ export default function GwentCard({
             </div>
           </>
         )}
-        {/* Power */}
-        {(power !== null || type === "SPECIAL") && (
-          <PowerBadge power={power} type={type} ability={ability} />
+
+        {!isFeatured && (
+          <>
+            {/* Power */}
+            {(power !== null || type === "SPECIAL") && (
+              <PowerBadge power={power} type={type} ability={ability} />
+            )}
+
+            {/* Range */}
+            {range && <RangeBadge type={type} range={range} />}
+
+            {/* Ability */}
+            {ability && <AbilityBadge type={type} ability={ability} />}
+          </>
         )}
-
-        {/* Range */}
-        {range && <RangeBadge type={type} range={range} />}
-
-        {/* Ability */}
-        {ability && <AbilityBadge type={type} ability={ability} />}
 
         {/* Image */}
         <div
@@ -207,6 +216,8 @@ export default function GwentCard({
           <img
             src={image}
             alt={name}
+            loading="lazy"
+            decoding="async"
             className={`
               h-full
               w-full
@@ -278,7 +289,7 @@ export default function GwentCard({
           <p className="hidden md:block text-sm text-slate-400">{faction}</p>
         </div>
       </motion.div>
-      {showTooltip && (
+      {showTooltip && !isFeatured && (
         <PortalTooltip
           targetRef={cardRef}
           visible={hovered}
