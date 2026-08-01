@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { isWarning } from "../../utils/deckStatusHelper";
 import DeckStatusBar from "./DeckStatusBar";
@@ -59,44 +59,40 @@ export default function DeckStatusPanel({ statuses = [] }) {
         )}
       </motion.button>
 
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-              height: 0,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              height: "auto",
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-              height: 0,
-            }}
-            className="overflow-hidden"
-          >
-            <div
-              className={`
-                flex
-                flex-col
-                gap-3
-                max-h-[calc(100dvh-10rem)]
-                overflow-y-auto
-                no-scrollbar
-                pr-1
-              `}
-            >
-              {statuses.map((status) => (
-                <DeckStatusBar key={status.id} {...status} />
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: expanded ? 1 : 0,
+          y: expanded ? 0 : 16,
+          scale: expanded ? 1 : 0.96,
+        }}
+        transition={{
+          duration: 0.22,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        style={{
+          pointerEvents: expanded ? "auto" : "none",
+          position: expanded ? "relative" : "absolute",
+          visibility: expanded ? "visible" : "hidden",
+          transformOrigin: "bottom left",
+        }}
+      >
+        <div
+          className="
+            flex
+            flex-col
+            gap-3
+            max-h-[calc(100dvh-10rem)]
+            overflow-y-auto
+            no-scrollbar
+            pr-1
+          "
+        >
+          {statuses.map((status) => (
+            <DeckStatusBar key={status.id} {...status} />
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }
