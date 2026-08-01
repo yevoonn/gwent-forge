@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 
 export default function CardDetailsSheet({ open, onClose, children }) {
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {open && (
         <>
           {/* Backdrop */}
@@ -13,6 +13,9 @@ export default function CardDetailsSheet({ open, onClose, children }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
+            transition={{
+              duration: 0.16,
+            }}
           />
 
           {/* Bottom sheet */}
@@ -31,13 +34,18 @@ export default function CardDetailsSheet({ open, onClose, children }) {
               border-slate-700
               bg-slate-900
             `}
+            style={{
+              willChange: "transform",
+              transform: "translateZ(0)",
+              contain: "layout paint style",
+              contentVisibility: "auto",
+            }}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 28,
+              duration: 0.24,
+              ease: [0.22, 1, 0.36, 1],
             }}
           >
             <div className="relative mb-5 flex h-10 items-center justify-center">
@@ -68,7 +76,24 @@ export default function CardDetailsSheet({ open, onClose, children }) {
               </button>
             </div>
 
-            <div className="overflow-y-auto px-6 pb-8">{children}</div>
+            <motion.div
+              className="overflow-y-auto px-6 pb-8"
+              initial={{
+                opacity: 0,
+                y: 8,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.16,
+                delay: 0.14,
+                ease: "easeOut",
+              }}
+            >
+              {children}
+            </motion.div>
           </motion.div>
         </>
       )}
