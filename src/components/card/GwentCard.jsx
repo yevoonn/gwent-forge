@@ -80,14 +80,10 @@ export default function GwentCard({
       onMouseLeave={() => setHovered(false)}
     >
       <motion.div
-        whileHover={
-          !isFeatured
-            ? {
-                y: -10,
-                scale: 1.1,
-              }
-            : undefined
-        }
+        whileHover={{
+          y: -10,
+          scale: 1.1,
+        }}
         animate={
           isActive
             ? {
