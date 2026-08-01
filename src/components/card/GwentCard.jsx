@@ -147,13 +147,17 @@ export default function GwentCard({
         {isSelected && (
           <>
             <div
-              className="pointer-events-none absolute inset-0 rounded-2xl"
+              className="pointer-events-none absolute rounded-2xl"
               style={{
                 zIndex: 15,
-                background: `linear-gradient(180deg, ${factionGlow[deckCode] ?? "#ef4444"}EE, ${factionGlow[deckCode] ?? "#ef4444"}CC 20%, ${factionGlow[deckCode] ?? "#ef4444"}99 45%, transparent 80%)`,
-                boxShadow: `inset 0 0 40px 10px ${factionGlow[deckCode] ?? "#ef4444"}55, 0 0 50px 24px ${factionGlow[deckCode] ?? "#ef4444"}25`,
-                mixBlendMode: "screen",
+                inset: -1,
+                backgroundColor: `${factionGlow[deckCode] ?? "#ef4444"}50`,
+                backgroundImage: `radial-gradient(circle at top left, ${factionGlow[deckCode] ?? "#ef4444"}24 0%, transparent 60%)`,
+                border: `1px solid ${factionGlow[deckCode] ?? "#ef4444"}45`,
+                boxShadow: `inset 0 0 0 1px ${factionGlow[deckCode] ?? "#ef4444"}20, 0 0 12px 0 ${factionGlow[deckCode] ?? "#ef4444"}16`,
                 opacity: 1,
+                borderRadius: "inherit",
+                overflow: "hidden",
               }}
             />
             <div
