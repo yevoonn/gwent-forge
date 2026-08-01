@@ -75,6 +75,8 @@ export default function DeckStatusPanel({ statuses = [] }) {
           position: expanded ? "relative" : "absolute",
           visibility: expanded ? "visible" : "hidden",
           transformOrigin: "bottom left",
+          willChange: "transform, opacity",
+          contain: "layout paint",
         }}
       >
         <div
