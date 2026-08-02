@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import FeaturedCards from "../components/card/FeaturedCards";
 import HeroSection from "../components/layout/HeroSection";
 import { factions } from "../data/factions";

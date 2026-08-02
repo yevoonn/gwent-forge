@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 
 import ParticlesBackground from "../components/effects/ParticlesBackground";
 import Navbar from "../components/navbar/Navbar";
