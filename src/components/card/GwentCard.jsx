@@ -5,8 +5,6 @@ import PowerBadge from "../badge/PowerBadge";
 import AbilityBadge from "../badge/AbilityBadge";
 import RangeBadge from "../badge/RangeBadge";
 import PortalTooltip from "../ui/PortalTooltip";
-import CardDetailsSheet from "../ui/CardDetailsSheet";
-import CardDetailsContent from "./CardDetailsContent";
 
 const factionStyles = {
   northern_realms: "border-sky-400 cursor-pointer",
@@ -38,27 +36,40 @@ export default function GwentCard({
   isSelected = false,
   isFeatured = false,
   onClick,
+  onShowDetails,
 }) {
   const [hovered, setHovered] = useState(false);
-  const [detailsOpen, setDetailsOpen] = useState(false);
 
   const cardRef = useRef(null);
   const longPressTimeoutRef = useRef(null);
   const longPressTriggeredRef = useRef(false);
 
   const isActive = currentFactionCode === deckCode;
+  const enableLongPress = !isFeatured && onShowDetails;
+
+  const showDetails = () => {
+    onShowDetails?.({
+      name,
+      power,
+      image_url: image,
+      type: { code: type },
+      abilities: ability ? [ability] : [],
+      range,
+    });
+  };
 
   const startLongPress = () => {
     longPressTriggeredRef.current = false;
 
     longPressTimeoutRef.current = setTimeout(() => {
       longPressTriggeredRef.current = true;
-      setDetailsOpen(true);
+      showDetails();
     }, 500);
   };
 
   const cancelLongPress = () => {
     clearTimeout(longPressTimeoutRef.current);
+    longPressTimeoutRef.current = null;
   };
 
   const handleCardClick = (event) => {
@@ -130,15 +141,16 @@ export default function GwentCard({
           onClick
             ? (event) => {
                 if (event.key === "Enter" || event.key === " ") {
-                  onClick();
+                  event.preventDefault();
+                  handleCardClick(event);
                 }
               }
             : undefined
         }
-        onTouchStart={!isFeatured ? startLongPress : undefined}
-        onTouchEnd={!isFeatured ? cancelLongPress : undefined}
-        onTouchCancel={!isFeatured ? cancelLongPress : undefined}
-        onTouchMove={!isFeatured ? cancelLongPress : undefined}
+        onTouchStart={enableLongPress ? startLongPress : undefined}
+        onTouchEnd={enableLongPress ? cancelLongPress : undefined}
+        onTouchCancel={enableLongPress ? cancelLongPress : undefined}
+        onTouchMove={enableLongPress ? cancelLongPress : undefined}
       >
         {isSelected && (
           <>
@@ -299,24 +311,6 @@ export default function GwentCard({
           descriptionSize="text-sm"
           placement="center"
         />
-      )}
-
-      {!isFeatured && (
-        <>
-          <CardDetailsSheet
-            open={detailsOpen}
-            onClose={() => setDetailsOpen(false)}
-          >
-            <CardDetailsContent
-              name={name}
-              power={power}
-              image={image}
-              type={type}
-              ability={ability}
-              range={range}
-            />
-          </CardDetailsSheet>
-        </>
       )}
     </div>
   );

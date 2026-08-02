@@ -6,6 +6,8 @@ import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
 import DeckStatusPanel from "../ui/DeckStatusPanel";
+import CardDetailsSheet from "../ui/CardDetailsSheet";
+import CardDetailsContent from "./CardDetailsContent";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -52,6 +54,7 @@ export default function CardsGrid({
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
+  const [detailsCard, setDetailsCard] = useState(null);
 
   const deckStats = useDeckStats(selectedCards, selectedLeader);
 
@@ -81,6 +84,14 @@ export default function CardsGrid({
 
       return [...current, card];
     });
+  };
+
+  const handleShowDetails = (card) => {
+    setDetailsCard(card);
+  };
+
+  const handleCloseDetails = () => {
+    setDetailsCard(null);
   };
 
   const isCardSelected = (card) =>
@@ -116,6 +127,7 @@ export default function CardsGrid({
                 showTooltip
                 isSelected={isLeaderSelected(card)}
                 onClick={() => handleLeaderClick(card)}
+                onShowDetails={handleShowDetails}
               />
             </motion.div>
           ))}
@@ -160,6 +172,7 @@ export default function CardsGrid({
                 range={card.range}
                 isSelected={isCardSelected(card)}
                 onClick={() => handleCardClick(card)}
+                onShowDetails={handleShowDetails}
               />
             </motion.div>
           ))}
@@ -169,6 +182,26 @@ export default function CardsGrid({
 
         <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />
       </section>
+
+      <CardDetailsSheet
+        open={detailsCard !== null}
+        onClose={handleCloseDetails}
+      >
+        {detailsCard && (
+          <CardDetailsContent
+            name={detailsCard.name}
+            power={
+              detailsCard.type.code !== "SPECIAL" ? detailsCard.power : null
+            }
+            image={detailsCard.image_url}
+            type={detailsCard.type.code}
+            ability={
+              detailsCard.abilities.length ? detailsCard.abilities[0] : null
+            }
+            range={detailsCard.range}
+          />
+        )}
+      </CardDetailsSheet>
     </>
   );
 }
