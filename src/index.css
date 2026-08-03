@@ -22,10 +22,6 @@ body,
   height: 100%;
 }
 
-html {
-  font-display: optional;
-}
-
 #root {
   position: relative;
   z-index: 1;
