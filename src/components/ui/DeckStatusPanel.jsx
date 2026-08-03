@@ -76,7 +76,6 @@ export default function DeckStatusPanel({ statuses = [] }) {
             justify-center
             rounded-xl
             border
-            backdrop-blur-sm
             shadow-lg
             hover:bg-slate-800
             ${

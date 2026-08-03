@@ -43,7 +43,6 @@ export default function MobileMenu({ isOpen, onClose }) {
             border
             border-slate-700
             bg-slate-900/95
-            backdrop-blur-md
             shadow-2xl
             md:hidden
           `}

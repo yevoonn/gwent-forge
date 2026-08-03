@@ -18,7 +18,6 @@ export default function NavLinkItem({
     px-4
     py-2
     font-cinzel
-    backdrop-blur-sm
     transition-all
     duration-200
     hover:-translate-y-0.5

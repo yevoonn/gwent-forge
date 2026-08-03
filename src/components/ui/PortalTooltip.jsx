@@ -85,7 +85,6 @@ export default function PortalTooltip({
               text-center
               shadow-xl
               shadow-black/40
-              backdrop-blur-sm
             `}
           >
             <h4 className="font-cinzel font-bold text-amber-300">{title}</h4>

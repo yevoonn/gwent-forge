@@ -71,7 +71,6 @@ export default function ScrollToTopButton({ visible }) {
               border-slate-700
               bg-slate-900/70
               text-amber-400
-              backdrop-blur-sm
               shadow-lg
               shadow-amber-500/10
               hover:border-amber-400

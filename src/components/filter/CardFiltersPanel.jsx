@@ -84,7 +84,6 @@ export default function CardFiltersPanel({
               bg-slate-900/95
               p-6
               shadow-2xl
-              backdrop-blur-md
             "
             initial={{
               opacity: 0,

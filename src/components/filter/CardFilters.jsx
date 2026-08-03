@@ -50,7 +50,6 @@ export default function CardFilters({
           border-slate-700
           bg-slate-900/70
           text-white
-          backdrop-blur-sm
           transition-all
           duration-200
           shadow-lg
@@ -95,7 +94,6 @@ export default function CardFilters({
             pr-10
             text-white
             placeholder:text-slate-500
-            backdrop-blur-sm
             transition-all
             duration-300
             shadow-lg
@@ -145,7 +143,6 @@ export default function CardFilters({
           border-slate-700
           bg-slate-900/70
           text-white
-          backdrop-blur-sm
           transition-all
           duration-200
           shadow-lg

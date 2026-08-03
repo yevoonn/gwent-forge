@@ -61,7 +61,6 @@ export default function DeckStatusBar({
               border
               px-4
               text-white
-              backdrop-blur-sm
               shadow-lg
               cursor-default
               ${

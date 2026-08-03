@@ -23,7 +23,6 @@ export default function LanguageSwitcher({ fullWidth = false }) {
         bg-slate-900/70
         px-3
         py-1.5
-        backdrop-blur-sm
         ${fullWidth ? "w-full justify-between" : ""}
       `}
     >

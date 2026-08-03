@@ -122,7 +122,6 @@ function GwentCard({
           rounded-2xl
           border-2
           bg-slate-900/95
-          backdrop-blur-sm
           shadow-xl
           ${factionStyles[deckCode]}
           ${isActive ? "animate-faction-glow" : ""}
