@@ -8,6 +8,7 @@ import ScrollToTopButton from "../ui/ScrollToTopButton";
 import DeckStatusPanel from "../ui/DeckStatusPanel";
 import CardDetailsSheet from "../ui/CardDetailsSheet";
 import CardDetailsContent from "./CardDetailsContent";
+import CardsList from "./CardsList";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -151,32 +152,13 @@ export default function CardsGrid({
           isFiltersOpen={isFiltersOpen}
           setIsFiltersOpen={setIsFiltersOpen}
         />
-        <motion.div
-          key={deckCode}
-          className="flex flex-wrap justify-center gap-8 pt-8"
-          initial="hidden"
-          animate="show"
-          exit={{
-            opacity: 0,
-          }}
-        >
-          {cards.map((card) => (
-            <motion.div key={card.code} variants={cardVariants}>
-              <GwentCard
-                name={card.name}
-                power={card.type.code !== "SPECIAL" ? card.power : null}
-                deckCode={deckCode}
-                image={card.image_url}
-                type={card.type.code}
-                ability={card.abilities.length ? card.abilities[0] : null}
-                range={card.range}
-                isSelected={isCardSelected(card)}
-                onClick={() => handleCardClick(card)}
-                onShowDetails={handleShowDetails}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        <CardsList
+          cards={cards}
+          deckCode={deckCode}
+          isCardSelected={isCardSelected}
+          handleCardClick={handleCardClick}
+          handleShowDetails={handleShowDetails}
+        />
 
         {showStatusBars && <DeckStatusPanel statuses={statuses} />}
 
