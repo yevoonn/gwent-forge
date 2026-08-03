@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import PowerBadge from "../badge/PowerBadge";
@@ -22,7 +22,7 @@ const factionGlow = {
   skellige: "#818cf8",
 };
 
-export default function GwentCard({
+function GwentCard({
   name,
   power,
   deckCode,
@@ -315,3 +315,5 @@ export default function GwentCard({
     </div>
   );
 }
+
+export default memo(GwentCard);
