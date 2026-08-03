@@ -227,8 +227,7 @@ function GwentCard({
           <img
             src={image}
             alt={name}
-            loading="lazy"
-            decoding="async"
+            fetchPriority="high"
             className={`
               h-full
               w-full
