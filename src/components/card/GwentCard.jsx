@@ -122,6 +122,7 @@ function GwentCard({
         className={`
           group
           relative
+          isolate
           w-32
           sm:w-40
           md:w-48
