@@ -1,6 +1,7 @@
 import { memo, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
+import useCanHover from "../../hooks/useCanHover";
 import PowerBadge from "../badge/PowerBadge";
 import AbilityBadge from "../badge/AbilityBadge";
 import RangeBadge from "../badge/RangeBadge";
@@ -47,6 +48,8 @@ function GwentCard({
   const isActive = currentFactionCode === deckCode;
   const enableLongPress = !isFeatured && onShowDetails;
 
+  const canHover = useCanHover();
+
   const showDetails = () => {
     onShowDetails?.({
       name,
@@ -87,15 +90,19 @@ function GwentCard({
     <div
       ref={cardRef}
       className="relative overflow-visible"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={canHover ? () => setHovered(true) : undefined}
+      onMouseLeave={canHover ? () => setHovered(false) : undefined}
       onContextMenu={(e) => e.preventDefault()}
     >
       <motion.div
-        whileHover={{
-          y: -10,
-          scale: 1.05,
-        }}
+        whileHover={
+          canHover
+            ? {
+                y: -10,
+                scale: 1.05,
+              }
+            : undefined
+        }
         animate={
           isActive
             ? {
