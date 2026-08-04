@@ -64,7 +64,7 @@ function GwentCard({
     longPressTimeoutRef.current = setTimeout(() => {
       longPressTriggeredRef.current = true;
       showDetails();
-    }, 500);
+    }, 300);
   };
 
   const cancelLongPress = () => {
@@ -89,11 +89,12 @@ function GwentCard({
       className="relative overflow-visible"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onContextMenu={(e) => e.preventDefault()}
     >
       <motion.div
         whileHover={{
           y: -10,
-          scale: 1.1,
+          scale: 1.05,
         }}
         animate={
           isActive
@@ -105,7 +106,8 @@ function GwentCard({
               }
         }
         transition={{
-          type: "spring",
+          ease: "easeOut",
+          duration: 0.22,
           stiffness: 300,
           damping: isActive ? 75 : 20,
           delay: isActive ? 0.75 : 0,
@@ -122,13 +124,12 @@ function GwentCard({
           rounded-2xl
           border-2
           bg-slate-900/95
-          shadow-xl
+          shadow-md
           ${factionStyles[deckCode]}
           ${isActive ? "animate-faction-glow" : ""}
           ${onClick ? "cursor-pointer" : ""}
         `}
         style={{
-          transformStyle: "preserve-3d",
           ...(isActive && {
             "--glow": factionGlow[deckCode],
           }),
@@ -234,7 +235,6 @@ function GwentCard({
               object-cover
               transition-transform
               duration-500
-              will-change-transform
               ${isSelected ? "brightness-95 contrast-[1.05]" : ""}
             `}
           />

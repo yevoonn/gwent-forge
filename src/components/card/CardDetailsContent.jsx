@@ -11,7 +11,7 @@ export default function CardDetailsContent({
   const { t } = useTranslation();
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5" onContextMenu={(e) => e.preventDefault()}>
       <img
         src={image}
         alt={name}
