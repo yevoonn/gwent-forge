@@ -9,7 +9,6 @@ import DeckStatusPanel from "../ui/DeckStatusPanel";
 import CardDetailsSheet from "../ui/CardDetailsSheet";
 import CardDetailsContent from "./CardDetailsContent";
 import CardsList from "./CardsList";
-import CardsListSkeleton from "./CardsListSkeleton";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -52,7 +51,6 @@ export default function CardsGrid({
   setCardType,
   cardRange,
   setCardRange,
-  loading,
 }) {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -154,17 +152,13 @@ export default function CardsGrid({
           isFiltersOpen={isFiltersOpen}
           setIsFiltersOpen={setIsFiltersOpen}
         />
-        {loading ? (
-          <CardsListSkeleton />
-        ) : (
-          <CardsList
-            cards={cards}
-            deckCode={deckCode}
-            isCardSelected={isCardSelected}
-            handleCardClick={handleCardClick}
-            handleShowDetails={handleShowDetails}
-          />
-        )}
+        <CardsList
+          cards={cards}
+          deckCode={deckCode}
+          isCardSelected={isCardSelected}
+          handleCardClick={handleCardClick}
+          handleShowDetails={handleShowDetails}
+        />
 
         {showStatusBars && <DeckStatusPanel statuses={statuses} />}
 

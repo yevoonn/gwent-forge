@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { fetchCards } from "../api/cards";
 import { fetchFilters } from "../api/filters";
 import useCurrentLanguage from "../hooks/useCurrentLanguage";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 import CardsGrid from "../components/card/CardsGrid";
 import CardsHeader from "../components/card/CardsHeader";
 
@@ -15,7 +16,9 @@ export default function CardsPage() {
   const [cards, setCards] = useState([]);
   const [filters, setFilters] = useState({ cardTypes: [], cardRanges: [] });
 
+  const [leadersLoading, setLeadersLoading] = useState(false);
   const [cardsLoading, setCardsLoading] = useState(false);
+  const [filtersLoading, setFiltersLoading] = useState(false);
 
   const [search, setSearch] = useState("");
   const [sortField, setSortField] = useState("name");
@@ -27,6 +30,7 @@ export default function CardsPage() {
     if (!deckCode) return;
 
     const loadLeaders = async () => {
+      setLeadersLoading(true);
       try {
         const leadersData = await fetchCards({
           deck: deckCode,
@@ -39,6 +43,8 @@ export default function CardsPage() {
         setLeaders(leadersData);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLeadersLoading(false);
       }
     };
 
@@ -85,19 +91,27 @@ export default function CardsPage() {
 
   useEffect(() => {
     const loadFilters = async () => {
+      setFiltersLoading(true);
+
       try {
         const data = await fetchFilters({ lang: language });
         setFilters(data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setFiltersLoading(false);
       }
     };
 
     loadFilters();
   }, [language]);
 
+  const loading = leadersLoading || cardsLoading || filtersLoading;
+
   return (
     <>
+      {loading && <LoadingSpinner />}
+
       <CardsHeader deckCode={deckCode} />
 
       <CardsGrid
@@ -115,7 +129,6 @@ export default function CardsPage() {
         setCardType={setCardType}
         cardRange={cardRange}
         setCardRange={setCardRange}
-        loading={cardsLoading}
       />
     </>
   );
