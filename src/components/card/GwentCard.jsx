@@ -92,7 +92,7 @@ function GwentCard({
       className="relative overflow-visible"
       onMouseEnter={canHover ? () => setHovered(true) : undefined}
       onMouseLeave={canHover ? () => setHovered(false) : undefined}
-      onContextMenu={(e) => e.preventDefault()}
+      onContextMenu={(e) => (!canHover ? e.preventDefault() : undefined)}
     >
       <motion.div
         whileHover={
