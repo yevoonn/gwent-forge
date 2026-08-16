@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import * as authApi from "../api/auth";
 import { AuthContext } from "./AuthContext";
 
@@ -6,6 +6,25 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInitializing, setIsInitializing] = useState(true);
+
+  useEffect(() => {
+    const restoreSession = async () => {
+      try {
+        const result = await authApi.refresh();
+
+        setUser(result.user);
+        setAccessToken(result.accessToken);
+      } catch {
+        setUser(null);
+        setAccessToken(null);
+      } finally {
+        setIsInitializing(false);
+      }
+    };
+
+    restoreSession();
+  }, []);
 
   const login = useCallback(async (credentials) => {
     setIsLoading(true);
@@ -51,6 +70,7 @@ export function AuthProvider({ children }) {
     accessToken,
     isAuthenticated: Boolean(accessToken),
     isLoading,
+    isInitializing,
     login,
     register,
     logout,
