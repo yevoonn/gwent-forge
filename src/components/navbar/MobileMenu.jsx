@@ -1,12 +1,13 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { LogIn, UserPlus2 } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
 
 import { navigationItems } from "../../data/navigation";
 
-export default function MobileMenu({ isOpen, onClose }) {
+export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
   const { t } = useTranslation();
 
   return (
@@ -58,6 +59,31 @@ export default function MobileMenu({ isOpen, onClose }) {
                 onClick={onClose}
               />
             ))}
+
+            {/* Temporarily hidden until authentication UI is ready for production. */}
+            <div className="hidden">
+              <NavLinkItem
+                icon={LogIn}
+                label={"Login"}
+                mobile
+                isButton
+                onClick={() => {
+                  onClose();
+                  onAuthOpen("login");
+                }}
+              />
+
+              <NavLinkItem
+                icon={UserPlus2}
+                label="Register"
+                mobile
+                isButton
+                onClick={() => {
+                  onClose();
+                  onAuthOpen("register");
+                }}
+              />
+            </div>
           </div>
 
           <div className="border-t border-slate-700 p-3">

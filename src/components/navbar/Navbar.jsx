@@ -1,17 +1,25 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { Menu, X } from "lucide-react";
+import { LogIn, Menu, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
 import MobileMenu from "./MobileMenu";
+import AuthModal from "../auth/AuthModal";
 
 import { navigationItems } from "../../data/navigation";
 
 export default function Navbar() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalMode, setAuthModalMode] = useState("login");
+
+  const openAuthModal = (mode) => {
+    setAuthModalMode(mode);
+    setIsAuthModalOpen(true);
+  };
 
   return (
     <nav className="relative z-50 text-white">
@@ -44,6 +52,26 @@ export default function Navbar() {
             </li>
           ))}
 
+          {/* Temporarily hidden until authentication UI is ready for production. */}
+          <li className="hidden">
+            <NavLinkItem
+              icon={LogIn}
+              label="Login"
+              isButton
+              onClick={() => openAuthModal("login")}
+            />
+          </li>
+
+          {/* Temporarily hidden until authentication UI is ready for production. */}
+          <li className="hidden">
+            <NavLinkItem
+              icon={UserPlus2}
+              label="Register"
+              isButton
+              onClick={() => openAuthModal("register")}
+            />
+          </li>
+
           <li>
             <LanguageSwitcher />
           </li>
@@ -66,7 +94,18 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown */}
-      <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <MobileMenu
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        onAuthOpen={openAuthModal}
+      />
+
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        mode={authModalMode}
+        onClose={() => setIsAuthModalOpen(false)}
+        onModeChange={setAuthModalMode}
+      />
     </nav>
   );
 }

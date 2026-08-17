@@ -6,6 +6,7 @@ export default function NavLinkItem({
   label,
   onClick,
   mobile = false,
+  isButton = false,
 }) {
   const desktopClasses = `
     inline-flex
@@ -45,15 +46,31 @@ export default function NavLinkItem({
     hover:text-amber-300
   `;
 
-  return (
-    <Link
-      to={to}
-      onClick={onClick}
-      className={mobile ? mobileClasses : desktopClasses}
-    >
+  const className = mobile ? mobileClasses : desktopClasses;
+
+  const content = (
+    <>
       <Icon size={mobile ? 18 : 16} className="shrink-0 text-amber-400" />
 
       <span>{label}</span>
+    </>
+  );
+
+  if (isButton) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={`${className} cursor-pointer`}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <Link to={to} onClick={onClick} className={className}>
+      {content}
     </Link>
   );
 }
