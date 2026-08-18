@@ -94,6 +94,7 @@ export default function AuthModal({
                 transition-colors
                 duration-200
                 hover:text-amber-400
+                cursor-pointer
               "
               aria-label="Close"
             >
