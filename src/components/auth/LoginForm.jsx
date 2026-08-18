@@ -2,7 +2,12 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 
-export default function LoginForm({ onClose, onModeChange }) {
+export default function LoginForm({
+  onClose,
+  onModeChange,
+  successMessage,
+  onSuccessMessageClear,
+}) {
   const { t } = useTranslation();
   const { login, isLoading } = useAuth();
 
@@ -22,6 +27,7 @@ export default function LoginForm({ onClose, onModeChange }) {
     }));
 
     setError("");
+    onSuccessMessageClear();
   };
 
   const handleSubmit = async (event) => {
@@ -47,6 +53,27 @@ export default function LoginForm({ onClose, onModeChange }) {
           {t("auth.login.subtitle", "Sign in to your Gwent Forge account")}
         </p>
       </div>
+
+      {successMessage && (
+        <p
+          className="
+            mb-4
+            rounded-lg
+            border
+            border-emerald-500/30
+            bg-emerald-500/10
+            px-3
+            py-2
+            text-sm
+            text-emerald-400
+            text-center
+          "
+          role="status"
+        >
+          {successMessage}
+        </p>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
@@ -133,6 +160,7 @@ export default function LoginForm({ onClose, onModeChange }) {
             hover:bg-amber-300
             disabled:cursor-not-allowed
             disabled:opacity-60
+            cursor-pointer
           "
         >
           {isLoading ? "Logging in..." : "Login"}
@@ -144,7 +172,7 @@ export default function LoginForm({ onClose, onModeChange }) {
         <button
           type="button"
           onClick={onModeChange}
-          className="text-amber-400 transition-colors hover:text-amber-300"
+          className="text-amber-400 transition-colors hover:text-amber-300 cursor-pointer"
         >
           Register
         </button>

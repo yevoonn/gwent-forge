@@ -1,5 +1,7 @@
 import { apiFetch } from "./client";
 
+let refreshPromise = null;
+
 export async function login({ email, password }) {
   return apiFetch("/api/auth/login", {
     method: "POST",
@@ -21,10 +23,20 @@ export async function register({ email, username, password }) {
   });
 }
 
-export async function refresh() {
-  return apiFetch("/api/auth/refresh", {
-    method: "POST",
-  });
+export function refresh() {
+  // If a refresh request is already in progress, reuse the same promise
+  // instead of sending another request to the API.
+  if (!refreshPromise) {
+    refreshPromise = apiFetch("/api/auth/refresh", {
+      method: "POST",
+    }).finally(() => {
+      // Allow the next refresh request only after the current one
+      // has completed successfully or failed.
+      refreshPromise = null;
+    });
+  }
+
+  return refreshPromise;
 }
 
 export async function logout() {

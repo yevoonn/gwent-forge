@@ -1,14 +1,16 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { LogIn, UserPlus2 } from "lucide-react";
+import { LogIn, LogOut, UserPlus2 } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
 
 import { navigationItems } from "../../data/navigation";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
   const { t } = useTranslation();
+  const { isAuthenticated, isInitializing, logout } = useAuth();
 
   return (
     <AnimatePresence>
@@ -33,7 +35,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
             duration: 0.25,
             ease: "easeInOut",
           }}
-          className={`
+          className="
             absolute
             right-6
             top-full
@@ -46,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
             bg-slate-900/95
             shadow-2xl
             md:hidden
-          `}
+          "
         >
           <div className="space-y-2 p-3">
             {navigationItems.map((item) => (
@@ -60,30 +62,46 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
               />
             ))}
 
-            {/* Temporarily hidden until authentication UI is ready for production. */}
-            <div className="hidden">
-              <NavLinkItem
-                icon={LogIn}
-                label={"Login"}
-                mobile
-                isButton
-                onClick={() => {
-                  onClose();
-                  onAuthOpen("login");
-                }}
-              />
+            {!isInitializing && (
+              <>
+                {!isAuthenticated ? (
+                  <>
+                    <NavLinkItem
+                      icon={LogIn}
+                      label="Login"
+                      mobile
+                      isButton
+                      onClick={() => {
+                        onClose();
+                        onAuthOpen("login");
+                      }}
+                    />
 
-              <NavLinkItem
-                icon={UserPlus2}
-                label="Register"
-                mobile
-                isButton
-                onClick={() => {
-                  onClose();
-                  onAuthOpen("register");
-                }}
-              />
-            </div>
+                    <NavLinkItem
+                      icon={UserPlus2}
+                      label="Register"
+                      mobile
+                      isButton
+                      onClick={() => {
+                        onClose();
+                        onAuthOpen("register");
+                      }}
+                    />
+                  </>
+                ) : (
+                  <NavLinkItem
+                    icon={LogOut}
+                    label="Logout"
+                    mobile
+                    isButton
+                    onClick={async () => {
+                      await logout();
+                      onClose();
+                    }}
+                  />
+                )}
+              </>
+            )}
           </div>
 
           <div className="border-t border-slate-700 p-3">

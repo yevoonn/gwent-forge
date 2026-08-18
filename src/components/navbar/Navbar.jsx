@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { LogIn, Menu, UserPlus2, X } from "lucide-react";
+import { LogIn, LogOut, Menu, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -10,8 +10,12 @@ import AuthModal from "../auth/AuthModal";
 
 import { navigationItems } from "../../data/navigation";
 
+import { useAuth } from "../../hooks/useAuth";
+
 export default function Navbar() {
   const { t } = useTranslation();
+  const { isAuthenticated, isInitializing, logout } = useAuth();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState("login");
@@ -52,25 +56,40 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* Temporarily hidden until authentication UI is ready for production. */}
-          <li className="hidden">
-            <NavLinkItem
-              icon={LogIn}
-              label="Login"
-              isButton
-              onClick={() => openAuthModal("login")}
-            />
-          </li>
+          {!isInitializing && (
+            <>
+              {!isAuthenticated ? (
+                <>
+                  <li>
+                    <NavLinkItem
+                      icon={LogIn}
+                      label="Login"
+                      isButton
+                      onClick={() => openAuthModal("login")}
+                    />
+                  </li>
 
-          {/* Temporarily hidden until authentication UI is ready for production. */}
-          <li className="hidden">
-            <NavLinkItem
-              icon={UserPlus2}
-              label="Register"
-              isButton
-              onClick={() => openAuthModal("register")}
-            />
-          </li>
+                  <li>
+                    <NavLinkItem
+                      icon={UserPlus2}
+                      label="Register"
+                      isButton
+                      onClick={() => openAuthModal("register")}
+                    />
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <NavLinkItem
+                    icon={LogOut}
+                    label="Logout"
+                    isButton
+                    onClick={logout}
+                  />
+                </li>
+              )}
+            </>
+          )}
 
           <li>
             <LanguageSwitcher />

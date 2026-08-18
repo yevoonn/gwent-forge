@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 
@@ -10,6 +11,18 @@ export default function AuthModal({
   onClose,
   onModeChange,
 }) {
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleModeChange = (nextMode) => {
+    setSuccessMessage("");
+    onModeChange(nextMode);
+  };
+
+  const handleRegisterSuccess = () => {
+    setSuccessMessage("Account created successfully. You can now log in.");
+    onModeChange("login");
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -91,10 +104,15 @@ export default function AuthModal({
               {mode === "login" ? (
                 <LoginForm
                   onClose={onClose}
-                  onModeChange={() => onModeChange("register")}
+                  onModeChange={() => handleModeChange("register")}
+                  successMessage={successMessage}
+                  onSuccessMessageClear={() => setSuccessMessage("")}
                 />
               ) : (
-                <RegisterForm onModeChange={() => onModeChange("login")} />
+                <RegisterForm
+                  onModeChange={() => handleModeChange("login")}
+                  onSuccess={handleRegisterSuccess}
+                />
               )}
             </div>
           </motion.div>

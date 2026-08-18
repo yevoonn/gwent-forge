@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 
-export default function RegisterForm({ onModeChange }) {
+export default function RegisterForm({ onModeChange, onSuccess }) {
   const { t } = useTranslation();
   const { register, isLoading } = useAuth();
 
@@ -34,7 +34,7 @@ export default function RegisterForm({ onModeChange }) {
 
       // Registration does not automatically authenticate the user yet.
       // Return to login after successful registration.
-      onModeChange();
+      onSuccess();
     } catch (error) {
       setError(error.message);
     }
@@ -158,7 +158,7 @@ export default function RegisterForm({ onModeChange }) {
         <button
           type="submit"
           disabled={isLoading}
-          className="
+          className={`
             w-full
             rounded-lg
             bg-amber-400
@@ -170,7 +170,8 @@ export default function RegisterForm({ onModeChange }) {
             hover:bg-amber-300
             disabled:cursor-not-allowed
             disabled:opacity-60
-          "
+            ${isLoading ? "cursor-wait" : "cursor-pointer"}
+          `}
         >
           {isLoading ? "Creating account..." : "Register"}
         </button>
@@ -181,7 +182,7 @@ export default function RegisterForm({ onModeChange }) {
         <button
           type="button"
           onClick={onModeChange}
-          className="text-amber-400 transition-colors hover:text-amber-300"
+          className="text-amber-400 transition-colors hover:text-amber-300 cursor-pointer"
         >
           Login
         </button>
