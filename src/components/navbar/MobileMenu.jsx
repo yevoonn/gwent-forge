@@ -68,7 +68,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                   <>
                     <NavLinkItem
                       icon={LogIn}
-                      label="Login"
+                      label={t("navigation.login")}
                       mobile
                       isButton
                       onClick={() => {
@@ -79,7 +79,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
 
                     <NavLinkItem
                       icon={UserPlus2}
-                      label="Register"
+                      label={t("navigation.register")}
                       mobile
                       isButton
                       onClick={() => {
@@ -91,7 +91,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                 ) : (
                   <NavLinkItem
                     icon={LogOut}
-                    label="Logout"
+                    label={t("navigation.logout")}
                     mobile
                     isButton
                     onClick={async () => {

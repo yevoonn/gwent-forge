@@ -6,7 +6,55 @@
 
   "navigation": {
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register"
+  },
+
+  "auth": {
+    "login_form": {
+      "title": "Login",
+      "subtitle_1": "Sign in to your Gwent Forge account",
+      "subtitle_2": {
+        "text": "Don't have an account?",
+        "link": "Register"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "password": {
+        "label": "Password"
+      },
+      "button": {
+        "static": "Login",
+        "loading": "Logging in..."
+      }
+    },
+    "register_form": {
+      "title": "Create account",
+      "subtitle_1": "Create your Gwent Forge account",
+      "subtitle_2": {
+        "text": "Already have an account?",
+        "link": "Login"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "username": {
+        "label": "Username"
+      },
+      "password": {
+        "label": "Password"
+      },
+      "button": {
+        "static": "Register",
+        "loading": "Creating account..."
+      },
+      "message": {
+        "register_success": "Account created successfully. You can now log in."
+      }
+    }
   },
 
   "buttons": {

@@ -46,11 +46,11 @@ export default function LoginForm({
     <>
       <div className="mb-6 text-center">
         <h2 className="font-cinzel text-2xl font-bold text-amber-400">
-          {t("auth.login.title", "Login")}
+          {t("auth.login_form.title")}
         </h2>
 
         <p className="mt-2 text-sm text-slate-400">
-          {t("auth.login.subtitle", "Sign in to your Gwent Forge account")}
+          {t("auth.login_form.subtitle_1")}
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export default function LoginForm({
             htmlFor="login-email"
             className="mb-1.5 block text-sm text-slate-300"
           >
-            {t("auth.email", "Email")}
+            {t("auth.login_form.email.label")}
           </label>
 
           <input
@@ -112,7 +112,7 @@ export default function LoginForm({
             htmlFor="login-password"
             className="mb-1.5 block text-sm text-slate-300"
           >
-            {t("auth.password", "Password")}
+            {t("auth.login_form.password.label")}
           </label>
 
           <input
@@ -163,18 +163,20 @@ export default function LoginForm({
             cursor-pointer
           "
         >
-          {isLoading ? "Logging in..." : "Login"}
+          {isLoading
+            ? t("auth.login_form.button.loading")
+            : t("auth.login_form.button.static")}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-slate-400">
-        Don't have an account?{" "}
+        {t("auth.login_form.subtitle_2.text") + " "}
         <button
           type="button"
           onClick={onModeChange}
           className="text-amber-400 transition-colors hover:text-amber-300 cursor-pointer"
         >
-          Register
+          {t("auth.login_form.subtitle_2.link")}
         </button>
       </p>
     </>

@@ -63,7 +63,7 @@ export default function Navbar() {
                   <li>
                     <NavLinkItem
                       icon={LogIn}
-                      label="Login"
+                      label={t("navigation.login")}
                       isButton
                       onClick={() => openAuthModal("login")}
                     />
@@ -72,7 +72,7 @@ export default function Navbar() {
                   <li>
                     <NavLinkItem
                       icon={UserPlus2}
-                      label="Register"
+                      label={t("navigation.register")}
                       isButton
                       onClick={() => openAuthModal("register")}
                     />
@@ -82,7 +82,7 @@ export default function Navbar() {
                 <li>
                   <NavLinkItem
                     icon={LogOut}
-                    label="Logout"
+                    label={t("navigation.logout")}
                     isButton
                     onClick={logout}
                   />

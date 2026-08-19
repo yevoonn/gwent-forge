@@ -6,7 +6,55 @@
 
   "navigation": {
     "about": "O projekcie",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "login": "Logowanie",
+    "logout": "Wyloguj",
+    "register": "Rejstracja"
+  },
+
+  "auth": {
+    "login_form": {
+      "title": "Logowanie",
+      "subtitle_1": "Zaloguj się na swoje konto Gwent Forge",
+      "subtitle_2": {
+        "text": "Nie masz konta?",
+        "link": "Zarejestruj się"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "password": {
+        "label": "Hasło"
+      },
+      "button": {
+        "static": "Zaloguj",
+        "loading": "Logowanie..."
+      }
+    },
+    "register_form": {
+      "title": "Utwórz konto",
+      "subtitle_1": "Utwórz konto w Gwent Forge",
+      "subtitle_2": {
+        "text": "Masz już konto?",
+        "link": "Zaloguj się"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "username": {
+        "label": "Nazwa użytkownika"
+      },
+      "password": {
+        "label": "Hasło"
+      },
+      "button": {
+        "static": "Zarejestruj",
+        "loading": "Tworzenie konta..."
+      },
+      "message": {
+        "register_success": "Konto zostało pomyślnie utworzone. Możesz się teraz zalogować."
+      }
+    }
   },
 
   "buttons": {

@@ -44,11 +44,11 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
     <>
       <div className="mb-6 text-center">
         <h2 className="font-cinzel text-2xl font-bold text-amber-400">
-          {t("auth.register.title", "Create account")}
+          {t("auth.register_form.title")}
         </h2>
 
         <p className="mt-2 text-sm text-slate-400">
-          {t("auth.register.subtitle", "Create your Gwent Forge account")}
+          {t("auth.register_form.subtitle_1")}
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
             htmlFor="register-email"
             className="mb-1.5 block text-sm text-slate-300"
           >
-            {t("auth.email", "Email")}
+            {t("auth.register_form.email.label")}
           </label>
 
           <input
@@ -90,7 +90,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
             htmlFor="register-username"
             className="mb-1.5 block text-sm text-slate-300"
           >
-            {t("auth.username", "Username")}
+            {t("auth.register_form.username.label")}
           </label>
 
           <input
@@ -122,7 +122,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
             htmlFor="register-password"
             className="mb-1.5 block text-sm text-slate-300"
           >
-            {t("auth.password", "Password")}
+            {t("auth.register_form.password.label")}
           </label>
 
           <input
@@ -173,18 +173,20 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
             ${isLoading ? "cursor-wait" : "cursor-pointer"}
           `}
         >
-          {isLoading ? "Creating account..." : "Register"}
+          {isLoading
+            ? t("auth.register_form.button.loading")
+            : t("auth.register_form.button.static")}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-slate-400">
-        Already have an account?{" "}
+        {t("auth.register_form.subtitle_2.text") + " "}
         <button
           type="button"
           onClick={onModeChange}
           className="text-amber-400 transition-colors hover:text-amber-300 cursor-pointer"
         >
-          Login
+          {t("auth.register_form.subtitle_2.link")}
         </button>
       </p>
     </>

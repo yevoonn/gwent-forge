@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
@@ -11,6 +12,7 @@ export default function AuthModal({
   onClose,
   onModeChange,
 }) {
+  const { t } = useTranslation();
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleModeChange = (nextMode) => {
@@ -19,7 +21,7 @@ export default function AuthModal({
   };
 
   const handleRegisterSuccess = () => {
-    setSuccessMessage("Account created successfully. You can now log in.");
+    setSuccessMessage(t("auth.register_form.message.register_success"));
     onModeChange("login");
   };
 
