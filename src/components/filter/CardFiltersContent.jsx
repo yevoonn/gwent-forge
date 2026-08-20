@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ArrowUp, SlidersHorizontal, X } from "lucide-react";
+import { ArrowUp, X } from "lucide-react";
 
 const sortFields = [
   { value: "name", label: "filters.sort_fields.name" },
@@ -53,25 +53,38 @@ export default function CardFiltersContent({
       </div>
 
       {/* HEADER */}
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-4 flex justify-center">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal size={20} />
-          <h2 className="font-cinzel text-lg text-white">
+          <h2 className="font-cinzel text-2xl font-bold text-amber-400">
             {t("filters.title")}
           </h2>
         </div>
 
         <button
+          type="button"
           onClick={onClose}
-          className="cursor-pointer text-slate-400 hover:text-white"
+          className="
+                absolute
+                right-4
+                top-4
+                z-10
+                rounded-lg
+                p-1.5
+                text-slate-400
+                transition-colors
+                duration-200
+                hover:text-amber-400
+                cursor-pointer
+              "
+          aria-label="Close"
         >
-          <X size={20} />
+          <X size={22} />
         </button>
       </div>
 
       {/* SORT FIELD */}
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">
+        <label className="mb-2 block text-sm text-slate-300">
           {t("filters.sort_by")}
         </label>
 
@@ -92,7 +105,7 @@ export default function CardFiltersContent({
               font-bold
               ${
                 sortField === field.value
-                  ? "bg-amber-500 text-black"
+                  ? "bg-amber-400 text-black"
                   : "text-slate-300 hover:bg-slate-700"
               }
             `}
@@ -116,7 +129,7 @@ export default function CardFiltersContent({
               items-center
               justify-center
               rounded-lg
-              bg-amber-500
+              bg-amber-400
               text-black
               transition-all
               hover:bg-amber-400
@@ -136,7 +149,7 @@ export default function CardFiltersContent({
 
       {/* TYPE */}
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">
+        <label className="mb-2 block text-sm text-slate-300">
           {t("filters.type")}
         </label>
 
@@ -164,7 +177,7 @@ export default function CardFiltersContent({
                 font-bold
                 ${
                   cardType === type.value
-                    ? "bg-amber-500 text-black"
+                    ? "bg-amber-400 text-black"
                     : "text-slate-300 hover:bg-slate-700"
                 }
               `}
@@ -177,7 +190,7 @@ export default function CardFiltersContent({
 
       {/* RANGE */}
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-slate-400">
+        <label className="mb-2 block text-sm text-slate-300">
           {t("filters.range")}
         </label>
 
@@ -201,7 +214,7 @@ export default function CardFiltersContent({
                 cursor-pointer
                 ${
                   cardRange === range.value
-                    ? "bg-amber-500"
+                    ? "bg-amber-400"
                     : "text-slate-300 hover:bg-slate-700"
                 }
               `}

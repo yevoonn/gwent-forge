@@ -38,7 +38,7 @@ export default function CardFiltersPanel({
               rounded-t-3xl
               border-t
               border-slate-700
-              bg-slate-900
+              bg-slate-950/95
               p-6
               shadow-2xl
               md:hidden
@@ -81,7 +81,7 @@ export default function CardFiltersPanel({
               rounded-3xl
               border
               border-slate-700
-              bg-slate-900/95
+              bg-slate-950/95
               p-6
               shadow-2xl
             "
