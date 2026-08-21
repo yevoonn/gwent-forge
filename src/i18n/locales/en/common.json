@@ -131,6 +131,7 @@
   "card_details": {
     "power": "Power:",
     "range": "Range",
-    "ability": "Ability"
+    "ability": "Ability",
+    "code": "Code"
   }
 }

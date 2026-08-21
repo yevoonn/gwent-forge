@@ -182,6 +182,7 @@ export default function CardsGrid({
               detailsCard.abilities.length ? detailsCard.abilities[0] : null
             }
             range={detailsCard.range}
+            code={detailsCard.code}
           />
         )}
       </CardDetailsSheet>

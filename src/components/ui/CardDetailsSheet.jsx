@@ -26,13 +26,13 @@ export default function CardDetailsSheet({ open, onClose, children }) {
               left-0
               right-0
               z-[91]
-              max-h-[90dvh]
+              max-h-[75dvh]
               flex
               flex-col
               rounded-t-3xl
               border-t
               border-slate-700
-              bg-slate-900
+              bg-slate-950/95
             `}
             style={{
               willChange: "transform",

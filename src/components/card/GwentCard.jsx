@@ -53,6 +53,7 @@ function GwentCard({
 
   const showDetails = () => {
     onShowDetails?.({
+      code,
       name,
       power,
       image_url: image,

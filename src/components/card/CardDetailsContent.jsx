@@ -7,6 +7,7 @@ export default function CardDetailsContent({
   type,
   ability,
   range,
+  code,
 }) {
   const { t } = useTranslation();
 
@@ -58,6 +59,16 @@ export default function CardDetailsContent({
           <p className="font-medium text-white">{range.name}</p>
 
           <p className="mt-1 text-sm text-slate-300">{range.description}</p>
+        </section>
+      )}
+
+      {code && (
+        <section>
+          <h3 className="mb-2 font-semibold text-amber-400">
+            {t("card_details.code")}
+          </h3>
+
+          <p className="mt-1 text-sm text-slate-300">{code.split("_")[0]}</p>
         </section>
       )}
     </div>

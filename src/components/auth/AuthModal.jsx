@@ -32,7 +32,7 @@ export default function AuthModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.16 }}
           className="
             fixed
             inset-0
@@ -50,24 +50,18 @@ export default function AuthModal({
           }}
         >
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-              scale: 0.97,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-              scale: 0.97,
-            }}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
             transition={{
-              duration: 0.2,
-              ease: "easeOut",
+              duration: 0.24,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{
+              willChange: "transform",
+              transform: "translateZ(0)",
+              contain: "layout paint style",
+              contentVisibility: "auto",
             }}
             className="
               relative
@@ -78,7 +72,6 @@ export default function AuthModal({
               border
               border-slate-700
               bg-slate-950/95
-              shadow-2xl
             "
           >
             <button
