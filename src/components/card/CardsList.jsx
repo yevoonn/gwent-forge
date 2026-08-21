@@ -38,6 +38,7 @@ export default function CardsList({
       {cards.map((card) => (
         <motion.div key={card.code} variants={cardVariants}>
           <GwentCard
+            code={card.code}
             name={card.name}
             power={card.type.code !== "SPECIAL" ? card.power : null}
             deckCode={deckCode}

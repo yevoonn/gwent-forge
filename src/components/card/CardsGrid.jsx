@@ -119,6 +119,7 @@ export default function CardsGrid({
           {leaders.map((card) => (
             <motion.div key={card.code} variants={cardVariants}>
               <GwentCard
+                code={card.code}
                 name={card.name}
                 power={null}
                 deckCode={deckCode}

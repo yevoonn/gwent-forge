@@ -24,6 +24,7 @@ const factionGlow = {
 };
 
 function GwentCard({
+  code,
   name,
   power,
   deckCode,
@@ -304,6 +305,14 @@ function GwentCard({
             </h1>
           </div>
 
+          {/* Code */}
+          {code && (
+            <div className="hidden md:block text-left">
+              <p className="text-xs text-slate-400">{code.split("_")[0]}</p>
+            </div>
+          )}
+
+          {/* Faction */}
           <p className="hidden md:block text-sm text-slate-400">{faction}</p>
         </div>
       </motion.div>
