@@ -17,7 +17,15 @@ export async function apiFetch(endpoint, options = {}) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data?.error?.message || "Request failed");
+    const error = new Error(data?.error?.message || "Request failed");
+
+    // Preserve the structured error information returned by the API.
+    // These values will later be used to map backend errors
+    // to frontend translation keys.
+    error.code = data?.error?.code;
+    error.details = data?.error?.details;
+
+    throw error;
   }
 
   return data;

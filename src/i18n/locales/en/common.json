@@ -133,5 +133,17 @@
     "range": "Range",
     "ability": "Ability",
     "code": "Code"
+  },
+
+  "errors": {
+    "generic": "Something went wrong.",
+    "validation": {
+      "email_invalid_format": "Please enter a valid email address."
+    },
+    "api": {
+      "INVALID_CREDENTIALS": "Invalid email or password.",
+      "EMAIL_ALREADY_EXISTS": "This email address is already in use.",
+      "USERNAME_ALREADY_EXISTS": "This username is already in use."
+    }
   }
 }

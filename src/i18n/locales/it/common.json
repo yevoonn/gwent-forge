@@ -133,5 +133,17 @@
     "range": "Fila",
     "ability": "Abilità",
     "code": "Codice"
+  },
+
+  "errors": {
+    "generic": "Qualcosa è andato storto.",
+    "validation": {
+      "email_invalid_format": "Inserisci un indirizzo email valido."
+    },
+    "api": {
+      "INVALID_CREDENTIALS": "Email o password non validi.",
+      "EMAIL_ALREADY_EXISTS": "Questo indirizzo email è già in uso.",
+      "USERNAME_ALREADY_EXISTS": "Questo nome utente è già in uso."
+    }
   }
 }

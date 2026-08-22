@@ -133,5 +133,17 @@
     "range": "Zasięg",
     "ability": "Zdolność",
     "code": "Kod"
+  },
+
+  "errors": {
+    "generic": "Coś poszło nie tak.",
+    "validation": {
+      "email_invalid_format": "Podaj prawidłowy adres email."
+    },
+    "api": {
+      "INVALID_CREDENTIALS": "Nieprawidłowy email lub hasło.",
+      "EMAIL_ALREADY_EXISTS": "Ten adres email jest już używany.",
+      "USERNAME_ALREADY_EXISTS": "Ta nazwa użytkownika jest już używana."
+    }
   }
 }

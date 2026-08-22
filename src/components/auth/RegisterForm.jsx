@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 
+import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
+
 export default function RegisterForm({ onModeChange, onSuccess }) {
   const { t } = useTranslation();
   const { register, isLoading } = useAuth();
@@ -36,7 +38,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
       // Return to login after successful registration.
       onSuccess();
     } catch (error) {
-      setError(error.message);
+      setError(getApiErrorMessage(error, t));
     }
   };
 
@@ -150,9 +152,11 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
         </div>
 
         {error && (
-          <p className="text-sm text-red-400" role="alert">
-            {error}
-          </p>
+          <div className="text-center">
+            <p className="text-sm text-red-400" role="alert">
+              {error}
+            </p>
+          </div>
         )}
 
         <button

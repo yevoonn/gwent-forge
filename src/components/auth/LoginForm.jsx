@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 
+import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
+
 export default function LoginForm({
   onClose,
   onModeChange,
@@ -38,7 +40,7 @@ export default function LoginForm({
       await login(formData);
       onClose();
     } catch (error) {
-      setError(error.message);
+      setError(getApiErrorMessage(error, t));
     }
   };
 
@@ -140,9 +142,11 @@ export default function LoginForm({
         </div>
 
         {error && (
-          <p className="text-sm text-red-400" role="alert">
-            {error}
-          </p>
+          <div className="text-center">
+            <p className="text-sm text-red-400" role="alert">
+              {error}
+            </p>
+          </div>
         )}
 
         <button
