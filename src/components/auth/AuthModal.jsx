@@ -57,12 +57,6 @@ export default function AuthModal({
               duration: 0.24,
               ease: [0.22, 1, 0.36, 1],
             }}
-            style={{
-              willChange: "transform",
-              transform: "translateZ(0)",
-              contain: "layout paint style",
-              contentVisibility: "auto",
-            }}
             className="
               relative
               w-full
