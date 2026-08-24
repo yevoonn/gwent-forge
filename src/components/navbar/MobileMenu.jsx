@@ -35,7 +35,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
             className="
               border-t
               border-slate-700
-              bg-slate-950/95
+              bg-slate-950
             "
           >
             <div className="space-y-2 p-3">
