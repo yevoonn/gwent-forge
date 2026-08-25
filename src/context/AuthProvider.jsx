@@ -65,6 +65,39 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
+  const authenticatedFetch = useCallback(
+    async (request) => {
+      // A protected request requires a valid access token.
+      // If there is no token, the user is not authenticated.
+      if (!accessToken) {
+        throw new Error("No access token available");
+      }
+
+      try {
+        // Execute the requested API call using the current access token.
+        return await request(accessToken);
+      } catch (error) {
+        // Only an invalid access token should trigger the refresh flow.
+        // Other API errors are passed to the caller unchanged.
+        if (error.code !== "INVALID_ACCESS_TOKEN") {
+          throw error;
+        }
+
+        // The refresh token is stored in an HttpOnly cookie, so the browser
+        // sends it automatically. The API returns a new access token.
+        const result = await authApi.refresh();
+
+        // Store the refreshed session in the AuthProvider state.
+        setUser(result.user);
+        setAccessToken(result.accessToken);
+
+        // Retry the original request with the new access token.
+        return request(result.accessToken);
+      }
+    },
+    [accessToken],
+  );
+
   const value = {
     user,
     accessToken,
@@ -74,6 +107,7 @@ export function AuthProvider({ children }) {
     login,
     register,
     logout,
+    authenticatedFetch,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
