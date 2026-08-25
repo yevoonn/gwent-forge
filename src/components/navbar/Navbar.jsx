@@ -26,7 +26,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative z-50 text-white">
+    <nav className="relative text-white">
       <div className="mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link
