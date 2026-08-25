@@ -23,6 +23,13 @@ export async function register({ email, username, password }) {
   });
 }
 
+export async function profile(accessToken) {
+  return apiFetch("/api/auth/profile", {
+    method: "GET",
+    accessToken,
+  });
+}
+
 export function refresh() {
   // If a refresh request is already in progress, reuse the same promise
   // instead of sending another request to the API.

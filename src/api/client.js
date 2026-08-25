@@ -1,13 +1,21 @@
 import { API_URL } from "../config";
 
 export async function apiFetch(endpoint, options = {}) {
+  const { accessToken, ...fetchOptions } = options;
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...fetchOptions.headers,
+  };
+
+  if (accessToken) {
+    headers.Authorization = `Bearer ${accessToken}`;
+  }
+
   const response = await fetch(`${API_URL}${endpoint}`, {
-    ...options,
+    ...fetchOptions,
     credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-      ...options.headers,
-    },
+    headers,
   });
 
   if (response.status === 204) {
