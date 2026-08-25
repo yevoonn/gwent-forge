@@ -143,7 +143,8 @@
     "api": {
       "INVALID_CREDENTIALS": "Nieprawidłowy email lub hasło.",
       "EMAIL_ALREADY_EXISTS": "Ten adres email jest już używany.",
-      "USERNAME_ALREADY_EXISTS": "Ta nazwa użytkownika jest już używana."
+      "USERNAME_ALREADY_EXISTS": "Ta nazwa użytkownika jest już używana.",
+      "username_too_big": "Nazwa użytkownika może zawierać maksymalnie 12 znaków."
     }
   }
 }

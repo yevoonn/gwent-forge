@@ -143,7 +143,8 @@
     "api": {
       "INVALID_CREDENTIALS": "Invalid email or password.",
       "EMAIL_ALREADY_EXISTS": "This email address is already in use.",
-      "USERNAME_ALREADY_EXISTS": "This username is already in use."
+      "USERNAME_ALREADY_EXISTS": "This username is already in use.",
+      "username_too_big": "Username must contain at most 12 characters."
     }
   }
 }
