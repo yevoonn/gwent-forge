@@ -98,6 +98,14 @@ export function AuthProvider({ children }) {
     [accessToken],
   );
 
+  const loadProfile = useCallback(async () => {
+    const result = await authenticatedFetch((token) => authApi.profile(token));
+
+    setUser(result.user);
+
+    return result.user;
+  }, [authenticatedFetch]);
+
   const value = {
     user,
     accessToken,
@@ -108,6 +116,7 @@ export function AuthProvider({ children }) {
     register,
     logout,
     authenticatedFetch,
+    loadProfile,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
