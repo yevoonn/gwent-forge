@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Mail, Shield, User } from "lucide-react";
@@ -45,13 +46,28 @@ export default function ProfilePage() {
   }
 
   return (
-    <main className="mx-auto max-w-screen-xl px-6 py-12">
-      <div className="mx-auto max-w-2xl">
-        <h1 className="font-cinzel text-3xl font-semibold text-amber-400">
+    <div className="mx-auto max-w-screen-2xl px-6 py-12 text-white">
+      {/* HERO */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-white md:text-6xl">
           {tProfile("title")}
         </h1>
+      </motion.section>
 
-        <div className="mt-8 overflow-hidden rounded-xl border border-slate-700 bg-slate-900/70">
+      {/* PROFILE CARD */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto mt-16 max-w-2xl"
+      >
+        <div className="overflow-hidden rounded-3xl border border-slate-700 bg-slate-900/60 backdrop-blur-sm">
           <div className="flex items-center gap-4 border-b border-slate-700 p-6">
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-800 text-amber-400">
               <User size={28} />
@@ -114,7 +130,7 @@ export default function ProfilePage() {
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </motion.section>
+    </div>
   );
 }
