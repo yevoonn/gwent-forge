@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { LogIn, LogOut, Menu, UserPlus2, X } from "lucide-react";
+import { LogIn, LogOut, Menu, User, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -79,14 +79,24 @@ export default function Navbar() {
                   </li>
                 </>
               ) : (
-                <li>
-                  <NavLinkItem
-                    icon={LogOut}
-                    label={t("navigation.logout")}
-                    isButton
-                    onClick={logout}
-                  />
-                </li>
+                <>
+                  <li>
+                    <NavLinkItem
+                      to="/profile"
+                      icon={User}
+                      label={t("navigation.profile")}
+                    />
+                  </li>
+
+                  <li>
+                    <NavLinkItem
+                      icon={LogOut}
+                      label={t("navigation.logout")}
+                      isButton
+                      onClick={logout}
+                    />
+                  </li>
+                </>
               )}
             </>
           )}

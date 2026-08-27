@@ -9,7 +9,8 @@
     "contact": "Kontakt",
     "login": "Logowanie",
     "logout": "Wyloguj",
-    "register": "Rejstracja"
+    "register": "Rejstracja",
+    "profile": "Moje konto"
   },
 
   "auth": {

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import MainLayout from "./layouts/MainLayout";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
 
@@ -7,6 +8,7 @@ const HomePage = lazy(() => import("./pages/HomePage"));
 const CardsPage = lazy(() => import("./pages/CardsPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 
 export default function App() {
   return (
@@ -17,6 +19,10 @@ export default function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="cards/:deckCode" element={<CardsPage />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="profile" element={<ProfilePage />} />
+          </Route>
         </Route>
       </Routes>
     </Suspense>

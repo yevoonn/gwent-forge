@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { LogIn, LogOut, UserPlus2 } from "lucide-react";
+import { LogIn, LogOut, User, UserPlus2 } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -77,16 +77,26 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                       />
                     </>
                   ) : (
-                    <NavLinkItem
-                      icon={LogOut}
-                      label={t("navigation.logout")}
-                      mobile
-                      isButton
-                      onClick={async () => {
-                        await logout();
-                        onClose();
-                      }}
-                    />
+                    <>
+                      <NavLinkItem
+                        to="/profile"
+                        icon={User}
+                        label={t("navigation.profile")}
+                        mobile
+                        onClick={onClose}
+                      />
+
+                      <NavLinkItem
+                        icon={LogOut}
+                        label={t("navigation.logout")}
+                        mobile
+                        isButton
+                        onClick={async () => {
+                          await logout();
+                          onClose();
+                        }}
+                      />
+                    </>
                   )}
                 </>
               )}

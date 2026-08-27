@@ -9,7 +9,8 @@
     "contact": "Contatto",
     "login": "Login",
     "logout": "Esci",
-    "register": "Registro"
+    "register": "Registro",
+    "profile": "Il mio conto"
   },
 
   "auth": {
