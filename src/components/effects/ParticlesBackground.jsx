@@ -2,13 +2,23 @@ import { useEffect } from "react";
 import { tsParticles } from "@tsparticles/engine";
 import { loadFirePreset } from "@tsparticles/preset-fire";
 
+let firePresetPromise = null;
+
+function loadFirePresetOnce() {
+  if (!firePresetPromise) {
+    firePresetPromise = loadFirePreset(tsParticles);
+  }
+
+  return firePresetPromise;
+}
+
 function ParticlesBackground() {
   useEffect(() => {
     let container;
     let cancelled = false;
 
     const init = async () => {
-      await loadFirePreset(tsParticles);
+      await loadFirePresetOnce();
 
       if (cancelled) return;
 

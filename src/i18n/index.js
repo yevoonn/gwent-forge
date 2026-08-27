@@ -14,6 +14,10 @@ import enContact from "./locales/en/contact.json";
 import plContact from "./locales/pl/contact.json";
 import itContact from "./locales/it/contact.json";
 
+import enProfile from "./locales/en/profile.json";
+import plProfile from "./locales/pl/profile.json";
+import itProfile from "./locales/it/profile.json";
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -23,23 +27,26 @@ i18n
         common: enCommon,
         about: enAbout,
         contact: enContact,
+        profile: enProfile,
       },
       pl: {
         common: plCommon,
         about: plAbout,
         contact: plContact,
+        profile: plProfile,
       },
       it: {
         common: itCommon,
         about: itAbout,
         contact: itContact,
+        profile: itProfile,
       },
     },
 
     fallbackLng: "en",
     supportedLngs: ["en", "pl", "it"],
 
-    ns: ["common", "about", "contact"],
+    ns: ["common", "about", "contact", "profile"],
     defaultNS: "common",
 
     interpolation: {

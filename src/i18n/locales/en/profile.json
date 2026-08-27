@@ -1,0 +1,11 @@
+{
+  "title": "Account details",
+  "username": "Username",
+  "email": "Email",
+  "role": "Role",
+  "USER": "User",
+  "ADMIN": "Admin",
+  "email_verified": "Email verification",
+  "verified": "Verified",
+  "not_verified": "Not verified"
+}

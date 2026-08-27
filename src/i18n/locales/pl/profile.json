@@ -1,0 +1,11 @@
+{
+  "title": "Dane konta",
+  "username": "Nazwa użytkownika",
+  "email": "Email",
+  "role": "Rola",
+  "USER": "Użytkownik",
+  "ADMIN": "Admin",
+  "email_verified": "Weryfikacja email",
+  "verified": "Zweryfikowany",
+  "not_verified": "Niezweryfikowany"
+}
