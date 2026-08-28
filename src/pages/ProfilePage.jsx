@@ -121,11 +121,11 @@ export default function ProfilePage() {
                   {tProfile("email_verified")}
                 </p>
 
-                <p className="text-white">
-                  {user.isEmailVerified
-                    ? tProfile("verified")
-                    : tProfile("not_verified")}
-                </p>
+                {user.isEmailVerified ? (
+                  <p className="text-green-300">{tProfile("verified")}</p>
+                ) : (
+                  <p className="text-red-300">{tProfile("not_verified")}</p>
+                )}
               </div>
             </div>
           </div>

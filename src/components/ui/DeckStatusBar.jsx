@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Swords } from "lucide-react";
-import { isWarning } from "../../utils/deckStatusHelper";
+import { getIsWarning } from "../../utils/deckStatusHelper";
 import PortalTooltip from "./PortalTooltip";
 
 export default function DeckStatusBar({
@@ -19,7 +19,7 @@ export default function DeckStatusBar({
 
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
-  const warning = isWarning({ value, limit, mode });
+  const warning = getIsWarning({ value, limit, mode });
 
   return (
     <AnimatePresence>
