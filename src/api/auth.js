@@ -30,6 +30,16 @@ export async function profile(accessToken) {
   });
 }
 
+export async function updateProfile(accessToken, { username }) {
+  return apiFetch("/api/auth/profile", {
+    method: "PATCH",
+    accessToken,
+    body: JSON.stringify({
+      username,
+    }),
+  });
+}
+
 export function refresh() {
   // If a refresh request is already in progress, reuse the same promise
   // instead of sending another request to the API.

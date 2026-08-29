@@ -7,5 +7,11 @@
   "ADMIN": "Admin",
   "email_verified": "Weryfikacja email",
   "verified": "Zweryfikowany",
-  "not_verified": "Niezweryfikowany"
+  "not_verified": "Niezweryfikowany",
+  "edit": "Edytuj",
+  "save": "Zapisz",
+  "cancel": "Anuluj",
+  "saving": "Zapisywanie...",
+  "username_updated": "Nazwa użytkownika została pomyślnie zaktualizowana",
+  "username_required": "Nazwa użytkownika jest wymagana"
 }

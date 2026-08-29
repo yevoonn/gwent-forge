@@ -106,6 +106,19 @@ export function AuthProvider({ children }) {
     return result.user;
   }, [authenticatedFetch]);
 
+  const updateProfile = useCallback(
+    async (data) => {
+      const result = await authenticatedFetch((token) =>
+        authApi.updateProfile(token, data),
+      );
+
+      setUser(result.user);
+
+      return result.user;
+    },
+    [authenticatedFetch],
+  );
+
   const value = {
     user,
     accessToken,
@@ -117,6 +130,7 @@ export function AuthProvider({ children }) {
     logout,
     authenticatedFetch,
     loadProfile,
+    updateProfile,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
