@@ -178,6 +178,7 @@ export default function ProfilePage() {
                           hover:bg-amber-300
                           disabled:cursor-not-allowed
                           disabled:opacity-50
+                          cursor-pointer
                         "
                         >
                           {tProfile("save")}
@@ -201,6 +202,7 @@ export default function ProfilePage() {
                           hover:text-white
                           disabled:cursor-not-allowed
                           disabled:opacity-50
+                          cursor-pointer
                         "
                         >
                           {tProfile("cancel")}
@@ -227,6 +229,7 @@ export default function ProfilePage() {
                             text-amber-400
                             transition-colors
                             hover:text-amber-300
+                            cursor-pointer
                           "
                         >
                           {tProfile("edit")}
