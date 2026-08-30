@@ -13,5 +13,7 @@
   "cancel": "Cancel",
   "saving": "Saving...",
   "username_updated": "Username updated successfully",
-  "username_required": "Username is required"
+  "username_required": "Username is required",
+  "username_too_long": "Username must contain at most 12 characters",
+  "username_too_short": "Username must contain at least 3 characters"
 }

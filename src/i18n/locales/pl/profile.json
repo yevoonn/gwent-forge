@@ -13,5 +13,7 @@
   "cancel": "Anuluj",
   "saving": "Zapisywanie...",
   "username_updated": "Nazwa użytkownika została pomyślnie zaktualizowana",
-  "username_required": "Nazwa użytkownika jest wymagana"
+  "username_required": "Nazwa użytkownika jest wymagana",
+  "username_too_long": "Nazwa użytkownika może zawierać maksymalnie 12 znaków",
+  "username_too_short": "Nazwa użytkownika musi zawierać co najmniej 3 znaki"
 }

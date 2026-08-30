@@ -146,6 +146,7 @@
       "EMAIL_ALREADY_EXISTS": "Questo indirizzo email è già in uso.",
       "USERNAME_ALREADY_EXISTS": "Questo nome utente è già in uso.",
       "username_too_big": "Il nome utente deve contenere al massimo 12 caratteri.",
+      "username_too_small": "Il nome utente deve contenere almeno 3 caratteri.",
       "password_too_small": "La password deve contenere almeno 8 caratteri."
     }
   }

@@ -5,6 +5,8 @@ import { Mail, Shield, User } from "lucide-react";
 
 import { useAuth } from "../hooks/useAuth";
 
+import { getApiErrorMessage } from "../utils/apiErrorMessageHelper";
+
 export default function ProfilePage() {
   const { t: tCommon } = useTranslation("common");
   const { t: tProfile } = useTranslation("profile");
@@ -18,6 +20,7 @@ export default function ProfilePage() {
 
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState(null);
+  const [usernameApiError, setUsernameApiError] = useState(null);
   const [usernameUpdated, setUsernameUpdated] = useState(false);
 
   useEffect(() => {
@@ -51,23 +54,49 @@ export default function ProfilePage() {
 
   const handleUsernameSave = async () => {
     setUsernameError(null);
+    setUsernameApiError(null);
     setUsernameUpdated(false);
+
+    const validationError = validateUsername(username);
+
+    if (validationError) {
+      setUsernameError(validationError);
+      return;
+    }
 
     try {
       setIsSavingUsername(true);
 
       await updateProfile({
-        username,
+        username: username.trim(),
       });
 
       setIsEditingUsername(false);
       setUsernameUpdated(true);
     } catch (error) {
       console.error("Username update error:", error);
-      setUsernameError(error);
+      setUsernameApiError(error);
     } finally {
       setIsSavingUsername(false);
     }
+  };
+
+  const validateUsername = (value) => {
+    const trimmedUsername = value.trim();
+
+    if (!trimmedUsername) {
+      return tProfile("username_required");
+    }
+
+    if (trimmedUsername.length < 3) {
+      return tProfile("username_too_short");
+    }
+
+    if (trimmedUsername.length > 12) {
+      return tProfile("username_too_long");
+    }
+
+    return null;
   };
 
   if (isLoading) {
@@ -221,7 +250,13 @@ export default function ProfilePage() {
 
                     {usernameError && (
                       <p className="mt-2 text-sm text-red-300">
-                        {tCommon("errors.generic")}
+                        {usernameError}
+                      </p>
+                    )}
+
+                    {usernameApiError && (
+                      <p className="mt-2 text-sm text-red-300">
+                        {getApiErrorMessage(usernameApiError, tCommon)}
                       </p>
                     )}
                   </div>

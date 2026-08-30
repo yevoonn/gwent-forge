@@ -13,5 +13,7 @@
   "cancel": "Cancellare",
   "saving": "Risparmio...",
   "username_updated": "Nome utente aggiornato con successo",
-  "username_required": "Il nome utente è obbligatorio"
+  "username_required": "Il nome utente è obbligatorio",
+  "username_too_long": "Il nome utente deve contenere al massimo 12 caratteri",
+  "username_too_short": "Il nome utente deve contenere almeno 3 caratteri"
 }
