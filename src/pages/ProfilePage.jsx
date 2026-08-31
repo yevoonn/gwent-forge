@@ -183,15 +183,16 @@ export default function ProfilePage() {
                       "
                     />
 
-                    <div className="mt-3 flex gap-2">
+                    <div className="mt-3 flex justify-end gap-2">
                       <button
                         type="button"
                         onClick={handleUsernameSave}
                         disabled={isSavingUsername}
                         className="
+                          box-border
                           flex
                           h-10
-                          w-24
+                          flex-1
                           items-center
                           justify-center
                           gap-2
@@ -206,6 +207,8 @@ export default function ProfilePage() {
                           disabled:cursor-not-allowed
                           disabled:opacity-50
                           cursor-pointer
+                          sm:flex-none
+                          sm:w-24
                         "
                       >
                         {isSavingUsername ? (
@@ -233,8 +236,12 @@ export default function ProfilePage() {
                         onClick={handleCancelUsernameEdit}
                         disabled={isSavingUsername}
                         className="
+                          box-border
+                          flex
                           h-10
-                          w-24
+                          flex-1
+                          items-center
+                          justify-center
                           rounded-lg
                           border
                           border-slate-600
@@ -248,6 +255,8 @@ export default function ProfilePage() {
                           disabled:cursor-not-allowed
                           disabled:opacity-50
                           cursor-pointer
+                          sm:flex-none
+                          sm:w-24
                         "
                       >
                         {tProfile("cancel")}
@@ -255,13 +264,13 @@ export default function ProfilePage() {
                     </div>
 
                     {usernameError && (
-                      <p className="mt-2 text-sm text-red-300">
+                      <p className="mt-2 text-left text-sm text-red-300 sm:text-right">
                         {usernameError}
                       </p>
                     )}
 
                     {usernameApiError && (
-                      <p className="mt-2 text-sm text-red-300">
+                      <p className="mt-2 text-left text-sm text-red-300 sm:text-right">
                         {getApiErrorMessage(usernameApiError, tCommon)}
                       </p>
                     )}
