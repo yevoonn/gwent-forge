@@ -64,6 +64,13 @@ export default function ProfilePage() {
       return;
     }
 
+    const trimmedUsername = username.trim();
+
+    if (trimmedUsername === user.username) {
+      setIsEditingUsername(false);
+      return;
+    }
+
     try {
       setIsSavingUsername(true);
 
