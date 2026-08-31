@@ -234,6 +234,7 @@ export default function ProfilePage() {
                         disabled={isSavingUsername}
                         className="
                           h-10
+                          w-24
                           rounded-lg
                           border
                           border-slate-600
