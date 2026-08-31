@@ -189,10 +189,14 @@ export default function ProfilePage() {
                         onClick={handleUsernameSave}
                         disabled={isSavingUsername}
                         className="
+                          flex
+                          h-10
+                          items-center
+                          justify-center
+                          gap-2
                           rounded-lg
                           bg-amber-400
                           px-4
-                          py-2
                           text-sm
                           font-medium
                           text-slate-950
@@ -204,22 +208,22 @@ export default function ProfilePage() {
                         "
                       >
                         {isSavingUsername ? (
-                          <div className="flex items-center gap-2">
+                          <>
                             <div
                               className="
-                                w-4
                                 h-4
+                                w-4
+                                animate-spin
+                                rounded-full
                                 border-2
                                 border-gray-400
                                 border-t-transparent
-                                rounded-full
-                                animate-spin
                               "
-                            ></div>
-                            <p>{tProfile("saving")}</p>
-                          </div>
+                            />
+                            <span>{tProfile("saving")}</span>
+                          </>
                         ) : (
-                          <p>{tProfile("save")}</p>
+                          <span>{tProfile("save")}</span>
                         )}
                       </button>
 
@@ -228,11 +232,11 @@ export default function ProfilePage() {
                         onClick={handleCancelUsernameEdit}
                         disabled={isSavingUsername}
                         className="
+                          h-10
                           rounded-lg
                           border
                           border-slate-600
                           px-4
-                          py-2
                           text-sm
                           font-medium
                           text-slate-300
