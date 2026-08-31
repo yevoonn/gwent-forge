@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Mail, Shield, User } from "lucide-react";
+import { Mail, Save, Shield, User } from "lucide-react";
 
 import { useAuth } from "../hooks/useAuth";
 
@@ -191,6 +191,7 @@ export default function ProfilePage() {
                         className="
                           flex
                           h-10
+                          w-24
                           items-center
                           justify-center
                           gap-2
@@ -208,22 +209,22 @@ export default function ProfilePage() {
                         "
                       >
                         {isSavingUsername ? (
-                          <>
-                            <div
-                              className="
-                                h-4
-                                w-4
-                                animate-spin
-                                rounded-full
-                                border-2
-                                border-gray-400
-                                border-t-transparent
-                              "
-                            />
-                            <span>{tProfile("saving")}</span>
-                          </>
+                          <div
+                            className="
+                              h-4
+                              w-4
+                              animate-spin
+                              rounded-full
+                              border-2
+                              border-gray-400
+                              border-t-transparent
+                            "
+                          />
                         ) : (
-                          <span>{tProfile("save")}</span>
+                          <>
+                            <Save size={16} />
+                            <span>{tProfile("save")}</span>
+                          </>
                         )}
                       </button>
 
