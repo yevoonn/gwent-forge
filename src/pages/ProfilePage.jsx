@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Mail, Shield } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 
 import ProfileHeader from "../components/profile/ProfileHeader";
+import ProfileInfo from "../components/profile/ProfileInfo";
 import UsernameSection from "../components/profile/UsernameSection";
 
 export default function ProfilePage() {
@@ -74,42 +74,7 @@ export default function ProfilePage() {
 
           <div className="divide-y divide-slate-700">
             <UsernameSection />
-
-            <div className="flex items-center gap-4 p-5">
-              <Mail size={20} className="text-slate-400" />
-
-              <div>
-                <p className="text-sm text-slate-400">{tProfile("email")}</p>
-
-                <p className="text-white">{user.email}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-5">
-              <Shield size={20} className="text-slate-400" />
-
-              <div>
-                <p className="text-sm text-slate-400">{tProfile("role")}</p>
-
-                <p className="text-white">{tProfile(user.role)}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-5">
-              <Mail size={20} className="text-slate-400" />
-
-              <div>
-                <p className="text-sm text-slate-400">
-                  {tProfile("email_verified")}
-                </p>
-
-                {user.isEmailVerified ? (
-                  <p className="text-green-300">{tProfile("verified")}</p>
-                ) : (
-                  <p className="text-red-300">{tProfile("not_verified")}</p>
-                )}
-              </div>
-            </div>
+            <ProfileInfo user={user} />
           </div>
         </div>
       </motion.section>
