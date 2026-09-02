@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Mail, Shield, User } from "lucide-react";
+import { Mail, Shield } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 
+import ProfileHeader from "../components/profile/ProfileHeader";
 import UsernameSection from "../components/profile/UsernameSection";
 
 export default function ProfilePage() {
@@ -69,19 +70,7 @@ export default function ProfilePage() {
         className="mx-auto mt-16 max-w-2xl"
       >
         <div className="overflow-hidden rounded-3xl border border-slate-700 bg-slate-900/60 backdrop-blur-sm">
-          <div className="flex items-center gap-4 border-b border-slate-700 p-6">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-800 text-amber-400">
-              <User size={28} />
-            </div>
-
-            <div>
-              <h2 className="text-xl font-semibold text-white">
-                {user.username}
-              </h2>
-
-              <p className="text-sm text-slate-400">{user.email}</p>
-            </div>
-          </div>
+          <ProfileHeader user={user} />
 
           <div className="divide-y divide-slate-700">
             <UsernameSection />
