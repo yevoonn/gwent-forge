@@ -119,6 +119,13 @@ export function AuthProvider({ children }) {
     [authenticatedFetch],
   );
 
+  const changePassword = useCallback(
+    async (data) => {
+      return authenticatedFetch((token) => authApi.changePassword(token, data));
+    },
+    [authenticatedFetch],
+  );
+
   const value = {
     user,
     accessToken,
@@ -131,6 +138,7 @@ export function AuthProvider({ children }) {
     authenticatedFetch,
     loadProfile,
     updateProfile,
+    changePassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/useAuth";
 import ProfileHeader from "../components/profile/ProfileHeader";
 import ProfileInfo from "../components/profile/ProfileInfo";
 import UsernameSection from "../components/profile/UsernameSection";
+import PasswordSection from "../components/profile/PasswordSection";
 
 export default function ProfilePage() {
   const { t: tCommon } = useTranslation("common");
@@ -74,6 +75,7 @@ export default function ProfilePage() {
 
           <div className="divide-y divide-slate-700">
             <UsernameSection />
+            <PasswordSection />
             <ProfileInfo user={user} />
           </div>
         </div>

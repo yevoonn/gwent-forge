@@ -15,5 +15,15 @@
   "username_updated": "Nome utente aggiornato con successo",
   "username_required": "Il nome utente è obbligatorio",
   "username_too_long": "Il nome utente deve contenere al massimo 12 caratteri",
-  "username_too_short": "Il nome utente deve contenere almeno 3 caratteri"
+  "username_too_short": "Il nome utente deve contenere almeno 3 caratteri",
+  "password": "Password",
+  "current_password": "Current password",
+  "new_password": "New password",
+  "confirm_password": "Conferma la nuova password",
+  "current_password_required": "È richiesta la password attuale",
+  "new_password_required": "È richiesta una nuova password",
+  "new_password_too_short": "La password deve contenere almeno 8 caratteri",
+  "new_password_too_long": "La password deve contenere al massimo 128 caratteri",
+  "confirm_password_required": "Si prega di confermare la nuova password",
+  "passwords_do_not_match": "Le password non corrispondono"
 }

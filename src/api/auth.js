@@ -40,6 +40,20 @@ export async function updateProfile(accessToken, { username }) {
   });
 }
 
+export async function changePassword(
+  accessToken,
+  { currentPassword, newPassword },
+) {
+  return apiFetch("/api/auth/password", {
+    method: "PATCH",
+    accessToken,
+    body: JSON.stringify({
+      currentPassword,
+      newPassword,
+    }),
+  });
+}
+
 export function refresh() {
   // If a refresh request is already in progress, reuse the same promise
   // instead of sending another request to the API.
