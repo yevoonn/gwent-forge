@@ -7,6 +7,7 @@ export function AuthProvider({ children }) {
   const [accessToken, setAccessToken] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);
+  const [authModalRequest, setAuthModalRequest] = useState(null);
 
   useEffect(() => {
     const restoreSession = async () => {
@@ -63,6 +64,22 @@ export function AuthProvider({ children }) {
       setAccessToken(null);
       setIsLoading(false);
     }
+  }, []);
+
+  const clearAuthState = useCallback(() => {
+    setUser(null);
+    setAccessToken(null);
+  }, []);
+
+  const clearAuthModalSuccessMessage = useCallback(() => {
+    setAuthModalRequest((prev) => {
+      if (!prev) return null;
+
+      return {
+        ...prev,
+        successMessage: "",
+      };
+    });
   }, []);
 
   const authenticatedFetch = useCallback(
@@ -126,6 +143,17 @@ export function AuthProvider({ children }) {
     [authenticatedFetch],
   );
 
+  const requestLogin = useCallback((successMessage = "") => {
+    setAuthModalRequest({
+      mode: "login",
+      successMessage,
+    });
+  }, []);
+
+  const clearAuthModalRequest = useCallback(() => {
+    setAuthModalRequest(null);
+  }, []);
+
   const value = {
     user,
     accessToken,
@@ -135,10 +163,15 @@ export function AuthProvider({ children }) {
     login,
     register,
     logout,
+    clearAuthState,
     authenticatedFetch,
     loadProfile,
     updateProfile,
     changePassword,
+    authModalRequest,
+    requestLogin,
+    clearAuthModalRequest,
+    clearAuthModalSuccessMessage,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

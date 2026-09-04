@@ -25,5 +25,6 @@
   "new_password_too_short": "La password deve contenere almeno 8 caratteri",
   "new_password_too_long": "La password deve contenere al massimo 128 caratteri",
   "confirm_password_required": "Si prega di confermare la nuova password",
-  "passwords_do_not_match": "Le password non corrispondono"
+  "passwords_do_not_match": "Le password non corrispondono",
+  "password_changed_successfully": "Password modificata con successo. Si prega di effettuare nuovamente l'accesso."
 }

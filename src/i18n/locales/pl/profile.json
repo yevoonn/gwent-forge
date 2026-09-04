@@ -25,5 +25,6 @@
   "new_password_too_short": "Hasło musi zawierać co najmniej 8 znaków",
   "new_password_too_long": "Hasło może zawierać maksymalnie 128 znaków",
   "confirm_password_required": "Potwierdź nowe hasło",
-  "passwords_do_not_match": "Hasła się nie zgadzają"
+  "passwords_do_not_match": "Hasła się nie zgadzają",
+  "password_changed_successfully": "Hasło zostało zmienione. Zaloguj się ponownie."
 }

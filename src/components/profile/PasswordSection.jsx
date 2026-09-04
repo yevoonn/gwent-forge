@@ -8,7 +8,7 @@ import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 export default function PasswordSection() {
   const { t: tCommon } = useTranslation("common");
   const { t: tProfile } = useTranslation("profile");
-  const { changePassword, logout } = useAuth();
+  const { changePassword, clearAuthState, requestLogin } = useAuth();
 
   const [isSavingPassword, setIsSavingPassword] = useState(false);
   const [isEditingPassword, setIsEditingPassword] = useState(false);
@@ -85,7 +85,10 @@ export default function PasswordSection() {
         newPassword,
       });
 
-      await logout();
+      clearAuthState();
+      requestLogin(tProfile("password_changed_successfully"));
+
+      handleCancelPasswordEdit();
     } catch (error) {
       console.error("Password change error:", error);
       setPasswordApiError(error);

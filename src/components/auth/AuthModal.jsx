@@ -11,12 +11,17 @@ export default function AuthModal({
   mode = "login",
   onClose,
   onModeChange,
+  successMessage: externalSuccessMessage = "",
+  onSuccessMessageClear,
 }) {
   const { t } = useTranslation();
   const [successMessage, setSuccessMessage] = useState("");
 
+  const displayedSuccessMessage = externalSuccessMessage || successMessage;
+
   const handleModeChange = (nextMode) => {
     setSuccessMessage("");
+    onSuccessMessageClear?.();
     onModeChange(nextMode);
   };
 
@@ -85,8 +90,11 @@ export default function AuthModal({
               <LoginForm
                 onClose={onClose}
                 onModeChange={() => handleModeChange("register")}
-                successMessage={successMessage}
-                onSuccessMessageClear={() => setSuccessMessage("")}
+                successMessage={displayedSuccessMessage}
+                onSuccessMessageClear={() => {
+                  setSuccessMessage("");
+                  onSuccessMessageClear?.();
+                }}
               />
             ) : (
               <RegisterForm
@@ -146,8 +154,11 @@ export default function AuthModal({
                 <LoginForm
                   onClose={onClose}
                   onModeChange={() => handleModeChange("register")}
-                  successMessage={successMessage}
-                  onSuccessMessageClear={() => setSuccessMessage("")}
+                  successMessage={displayedSuccessMessage}
+                  onSuccessMessageClear={() => {
+                    setSuccessMessage("");
+                    onSuccessMessageClear?.();
+                  }}
                 />
               ) : (
                 <RegisterForm

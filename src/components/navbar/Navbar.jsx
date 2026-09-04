@@ -14,7 +14,14 @@ import { useAuth } from "../../hooks/useAuth";
 
 export default function Navbar() {
   const { t } = useTranslation();
-  const { isAuthenticated, isInitializing, logout } = useAuth();
+  const {
+    isAuthenticated,
+    isInitializing,
+    logout,
+    authModalRequest,
+    clearAuthModalRequest,
+    clearAuthModalSuccessMessage,
+  } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -24,6 +31,12 @@ export default function Navbar() {
     setAuthModalMode(mode);
     setIsAuthModalOpen(true);
   };
+
+  const isRequestedAuthModalOpen = Boolean(authModalRequest);
+
+  const effectiveAuthModalMode = authModalRequest?.mode ?? authModalMode;
+
+  const effectiveAuthSuccessMessage = authModalRequest?.successMessage ?? "";
 
   return (
     <nav className="relative text-white">
@@ -130,10 +143,21 @@ export default function Navbar() {
       />
 
       <AuthModal
-        isOpen={isAuthModalOpen}
-        mode={authModalMode}
-        onClose={() => setIsAuthModalOpen(false)}
-        onModeChange={setAuthModalMode}
+        isOpen={isAuthModalOpen || isRequestedAuthModalOpen}
+        mode={effectiveAuthModalMode}
+        onClose={() => {
+          setIsAuthModalOpen(false);
+          clearAuthModalRequest();
+        }}
+        onModeChange={(mode) => {
+          clearAuthModalRequest();
+          setAuthModalMode(mode);
+          setIsAuthModalOpen(true);
+        }}
+        successMessage={effectiveAuthSuccessMessage}
+        onSuccessMessageClear={() => {
+          clearAuthModalSuccessMessage();
+        }}
       />
     </nav>
   );
