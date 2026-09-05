@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { LogIn, LogOut, User, UserPlus2 } from "lucide-react";
+import { Link } from "react-router";
+import { LogIn, LogOut, User, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -15,30 +16,80 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          style={{ willChange: "transform" }}
           className="
-            absolute
-            left-0
-            right-0
-            top-full
-            z-40
-            overflow-hidden
+            fixed
+            inset-0
+            z-55
+            flex
+            flex-col
+            overflow-y-auto
+            overscroll-contain
+            bg-slate-950
             md:hidden
           "
         >
-          <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.15 }}
-            style={{ willChange: "transform" }}
+          {/* Mobile Menu Header */}
+          <div
             className="
-              border-t
+              flex
+              h-[73px]
+              shrink-0
+              items-center
+              justify-between
+              border-b
               border-slate-700
-              bg-slate-950
+              px-6
             "
           >
-            <div className="space-y-2 p-3">
+            <Link
+              to="/"
+              onClick={onClose}
+              className="
+                inline-flex
+                items-center
+                gap-3
+                transition-all
+                duration-200
+              "
+            >
+              <img
+                src="/logo.png"
+                alt="Gwent Forge Logo"
+                className="h-8 w-auto"
+              />
+
+              <span className="font-cinzel text-xl font-semibold">
+                Gwent <span className="text-amber-400">Forge</span>
+              </span>
+            </Link>
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="
+                cursor-pointer
+                rounded-lg
+                p-1
+                text-white
+                transition-colors
+                duration-200
+                hover:text-amber-400
+              "
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex-1 p-6">
+            <div className="space-y-2">
               {navigationItems.map((item) => (
                 <NavLinkItem
                   key={item.to}
@@ -101,12 +152,13 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                 </>
               )}
             </div>
+          </div>
 
-            <div className="border-t border-slate-700 p-3">
-              <LanguageSwitcher fullWidth />
-            </div>
-          </motion.div>
-        </div>
+          {/* Language Switcher */}
+          <div className="shrink-0 border-t border-slate-700 p-6">
+            <LanguageSwitcher fullWidth />
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

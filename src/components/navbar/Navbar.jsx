@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { LogIn, LogOut, Menu, User, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -14,6 +14,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 export default function Navbar() {
   const { t } = useTranslation();
+  const location = useLocation();
   const {
     isAuthenticated,
     isInitializing,
@@ -23,7 +24,10 @@ export default function Navbar() {
     clearAuthModalSuccessMessage,
   } = useAuth();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [mobileMenuState, setMobileMenuState] = useState({
+    isOpen: false,
+    locationKey: null,
+  });
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState("login");
 
@@ -32,10 +36,10 @@ export default function Navbar() {
     setIsAuthModalOpen(true);
   };
 
+  const isMobileMenuOpen =
+    mobileMenuState.isOpen && mobileMenuState.locationKey === location.key;
   const isRequestedAuthModalOpen = Boolean(authModalRequest);
-
   const effectiveAuthModalMode = authModalRequest?.mode ?? authModalMode;
-
   const effectiveAuthSuccessMessage = authModalRequest?.successMessage ?? "";
 
   return (
@@ -121,7 +125,12 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={() => {
+            setMobileMenuState({
+              isOpen: !isMobileMenuOpen,
+              locationKey: location.key,
+            });
+          }}
           className="
             p-1
             transition-colors
@@ -131,14 +140,19 @@ export default function Navbar() {
           "
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Dropdown */}
       <MobileMenu
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        isOpen={isMobileMenuOpen}
+        onClose={() =>
+          setMobileMenuState((prev) => ({
+            ...prev,
+            isOpen: false,
+          }))
+        }
         onAuthOpen={openAuthModal}
       />
 
