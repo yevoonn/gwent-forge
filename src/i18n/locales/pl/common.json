@@ -133,7 +133,13 @@
     "power": "Siła:",
     "range": "Zasięg",
     "ability": "Zdolność",
-    "code": "Kod"
+    "code": "Kod",
+    "card_type": {
+      "LEADER": "Lider",
+      "HERO": "Bohater",
+      "SPECIAL": "Specjalna",
+      "UNIT": "Jednostka"
+    }
   },
 
   "errors": {

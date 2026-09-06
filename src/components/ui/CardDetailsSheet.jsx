@@ -1,21 +1,26 @@
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 
+const sheetTransition = {
+  type: "spring",
+  damping: 30,
+  stiffness: 320,
+  mass: 0.9,
+};
+
 export default function CardDetailsSheet({ open, onClose, children }) {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {open && (
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 z-[90] bg-black/60"
+            className="fixed inset-0 z-[90] bg-black/70 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            transition={{
-              duration: 0.16,
-            }}
+            transition={{ duration: 0.18 }}
           />
 
           {/* Bottom sheet */}
@@ -26,31 +31,40 @@ export default function CardDetailsSheet({ open, onClose, children }) {
               left-0
               right-0
               z-[91]
-              max-h-[75dvh]
               flex
+              max-h-[75dvh]
               flex-col
+              overflow-hidden
               rounded-t-3xl
               border-t
-              border-slate-700
-              bg-slate-950/95
+              border-slate-700/80
+              bg-gradient-to-b
+              from-slate-900
+              to-slate-950
+              shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.65)]
+              ring-1
+              ring-white/5
             `}
-            style={{
-              willChange: "transform",
-              transform: "translateZ(0)",
-              contain: "layout paint style",
-              contentVisibility: "auto",
+            style={{ willChange: "transform", contain: "layout paint style" }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={{ top: 0, bottom: 0.45 }}
+            onDragEnd={(_, info) => {
+              if (info.offset.y > 120 || info.velocity.y > 650) {
+                onClose();
+              }
             }}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
-            transition={{
-              duration: 0.24,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            transition={sheetTransition}
           >
-            <div className="relative mb-5 flex h-10 items-center justify-center">
+            {/* Subtle top accent line */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
+
+            <div className="relative flex h-11 shrink-0 items-center justify-center">
               {/* Handle */}
-              <div className="h-1.5 w-14 rounded-full bg-slate-600" />
+              <div className="h-1.5 w-12 rounded-full bg-slate-600/80" />
 
               {/* Close button */}
               <button
@@ -77,20 +91,10 @@ export default function CardDetailsSheet({ open, onClose, children }) {
             </div>
 
             <motion.div
-              className="overflow-y-auto px-6 pb-8"
-              initial={{
-                opacity: 0,
-                y: 8,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.16,
-                delay: 0.14,
-                ease: "easeOut",
-              }}
+              className="overflow-y-auto px-6 pt-2 pb-[calc(env(safe-area-inset-bottom)+2rem)] [scrollbar-width:thin] [scrollbar-color:theme(colors.slate.700)_transparent]"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.16, delay: 0.08, ease: "easeOut" }}
             >
               {children}
             </motion.div>

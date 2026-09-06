@@ -133,7 +133,13 @@
     "power": "Power:",
     "range": "Range",
     "ability": "Ability",
-    "code": "Code"
+    "code": "Code",
+    "card_type": {
+      "LEADER": "Leader",
+      "HERO": "Hero",
+      "SPECIAL": "Special",
+      "UNIT": "Unit"
+    }
   },
 
   "errors": {

@@ -133,7 +133,13 @@
     "power": "Forza:",
     "range": "Fila",
     "ability": "Abilità",
-    "code": "Codice"
+    "code": "Codice",
+    "card_type": {
+      "LEADER": "Comandante",
+      "HERO": "Eroe",
+      "SPECIAL": "Speciale",
+      "UNIT": "Unità"
+    }
   },
 
   "errors": {
