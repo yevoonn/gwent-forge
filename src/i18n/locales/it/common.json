@@ -99,7 +99,8 @@
       "name": "Nome",
       "power": "Forza",
       "code": "Codice"
-    }
+    },
+    "show_only_selected": "Mostra selezionati"
   },
 
   "deck_status": {

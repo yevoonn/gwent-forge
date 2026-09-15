@@ -99,7 +99,8 @@
       "name": "Nazwa",
       "power": "Siła",
       "code": "Kod"
-    }
+    },
+    "show_only_selected": "Pokaż wybrane"
   },
 
   "deck_status": {

@@ -18,6 +18,9 @@ export default function CardFilters({
   setCardRange,
   isFiltersOpen,
   setIsFiltersOpen,
+  showOnlySelected,
+  setShowOnlySelected,
+  hasSelectedCards,
 }) {
   const { t } = useTranslation();
 
@@ -162,7 +165,7 @@ export default function CardFilters({
 
         <span className="hidden sm:inline ml-2">{t("filters.title")}</span>
 
-        {(cardType || cardRange) && (
+        {(cardType || cardRange || showOnlySelected) && (
           <span
             className="
               absolute
@@ -189,6 +192,9 @@ export default function CardFilters({
         setCardType={setCardType}
         cardRange={cardRange}
         setCardRange={setCardRange}
+        showOnlySelected={showOnlySelected}
+        setShowOnlySelected={setShowOnlySelected}
+        hasSelectedCards={hasSelectedCards}
       />
     </div>
   );

@@ -56,6 +56,10 @@ export default function CardsGrid({
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
   const [detailsCard, setDetailsCard] = useState(null);
+  const [showOnlySelected, setShowOnlySelected] = useState(false);
+
+  const effectiveShowOnlySelected =
+    showOnlySelected && selectedCards.length > 0;
 
   const deckStats = useDeckStats(selectedCards, selectedLeader);
 
@@ -74,17 +78,25 @@ export default function CardsGrid({
   };
 
   const handleCardClick = (card) => {
-    setSelectedCards((current) => {
-      const alreadySelected = current.some(
-        (selected) => selected.code === card.code,
+    const alreadySelected = selectedCards.some(
+      (selected) => selected.code === card.code,
+    );
+
+    if (alreadySelected) {
+      const remaining = selectedCards.filter(
+        (selected) => selected.code !== card.code,
       );
 
-      if (alreadySelected) {
-        return current.filter((selected) => selected.code !== card.code);
+      setSelectedCards(remaining);
+
+      if (remaining.length === 0) {
+        setShowOnlySelected(false);
       }
 
-      return [...current, card];
-    });
+      return;
+    }
+
+    setSelectedCards((current) => [...current, card]);
   };
 
   const handleShowDetails = (card) => {
@@ -97,6 +109,12 @@ export default function CardsGrid({
 
   const isCardSelected = (card) =>
     selectedCards.some((selected) => selected.code === card.code);
+
+  const visibleCards = effectiveShowOnlySelected
+    ? cards.filter(isCardSelected)
+    : cards;
+
+  const hasSelectedCards = selectedCards.length > 0;
 
   const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
 
@@ -152,9 +170,12 @@ export default function CardsGrid({
           setSortDirection={setSortDirection}
           isFiltersOpen={isFiltersOpen}
           setIsFiltersOpen={setIsFiltersOpen}
+          showOnlySelected={effectiveShowOnlySelected}
+          setShowOnlySelected={setShowOnlySelected}
+          hasSelectedCards={hasSelectedCards}
         />
         <CardsList
-          cards={cards}
+          cards={visibleCards}
           deckCode={deckCode}
           isCardSelected={isCardSelected}
           handleCardClick={handleCardClick}
@@ -163,7 +184,9 @@ export default function CardsGrid({
 
         {showStatusBars && <DeckStatusPanel statuses={statuses} />}
 
-        <ScrollToTopButton visible={cards.length > 0 && !isFiltersOpen} />
+        <ScrollToTopButton
+          visible={visibleCards.length > 0 && !isFiltersOpen}
+        />
       </section>
 
       <CardDetailsSheet

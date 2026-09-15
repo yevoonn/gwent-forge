@@ -25,6 +25,9 @@ export default function CardFiltersContent({
   setCardType,
   cardRange,
   setCardRange,
+  showOnlySelected,
+  setShowOnlySelected,
+  hasSelectedCards,
 }) {
   const { t } = useTranslation();
 
@@ -79,6 +82,67 @@ export default function CardFiltersContent({
           aria-label="Close"
         >
           <X size={22} />
+        </button>
+      </div>
+
+      {/* SHOW ONLY SELECTED */}
+      <div className="mb-4">
+        <button
+          type="button"
+          disabled={!hasSelectedCards}
+          aria-disabled={!hasSelectedCards}
+          onClick={() => {
+            if (hasSelectedCards) {
+              setShowOnlySelected((prev) => !prev);
+            }
+          }}
+          className={`
+            flex
+            w-full
+            items-center
+            justify-between
+            rounded-xl
+            border
+            border-slate-700
+            bg-slate-800
+            px-4
+            py-3
+            transition-opacity
+            ${hasSelectedCards ? "cursor-pointer" : "cursor-not-allowed opacity-50"}
+          `}
+        >
+          <span className="text-sm text-slate-300 font-bold">
+            {t("filters.show_only_selected")}
+          </span>
+
+          <span
+            className={`
+              relative
+              inline-flex
+              h-6
+              w-11
+              shrink-0
+              items-center
+              rounded-full
+              transition-colors
+              duration-200
+              ${showOnlySelected ? "bg-amber-400" : "bg-slate-600"}
+            `}
+          >
+            <span
+              className={`
+                inline-block
+                h-4
+                w-4
+                transform
+                rounded-full
+                bg-slate-950
+                transition-transform
+                duration-200
+                ${showOnlySelected ? "translate-x-6" : "translate-x-1"}
+              `}
+            />
+          </span>
         </button>
       </div>
 

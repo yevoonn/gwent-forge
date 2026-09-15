@@ -99,7 +99,8 @@
       "name": "Name",
       "power": "Power",
       "code": "Code"
-    }
+    },
+    "show_only_selected": "Show selected"
   },
 
   "deck_status": {

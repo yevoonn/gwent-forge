@@ -13,6 +13,9 @@ export default function CardFiltersPanel({
   setCardType,
   cardRange,
   setCardRange,
+  showOnlySelected,
+  setShowOnlySelected,
+  hasSelectedCards,
 }) {
   return (
     <AnimatePresence>
@@ -62,6 +65,9 @@ export default function CardFiltersPanel({
               setCardType={setCardType}
               cardRange={cardRange}
               setCardRange={setCardRange}
+              showOnlySelected={showOnlySelected}
+              setShowOnlySelected={setShowOnlySelected}
+              hasSelectedCards={hasSelectedCards}
             />
           </motion.div>
 
@@ -112,6 +118,9 @@ export default function CardFiltersPanel({
               setCardType={setCardType}
               cardRange={cardRange}
               setCardRange={setCardRange}
+              showOnlySelected={showOnlySelected}
+              setShowOnlySelected={setShowOnlySelected}
+              hasSelectedCards={hasSelectedCards}
             />
           </motion.div>
         </>
