@@ -127,7 +127,8 @@
     "medic": {
       "title": "Carte Medico",
       "description": "Il tuo mazzo non può contenere più di 2 Carte Medico."
-    }
+    },
+    "title": "Stato del deck"
   },
 
   "card_details": {

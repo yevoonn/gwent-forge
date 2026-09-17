@@ -127,7 +127,8 @@
     "medic": {
       "title": "Medic Cards",
       "description": "Your deck can contain no more than 2 Medic Cards."
-    }
+    },
+    "title": "Deck status"
   },
 
   "card_details": {

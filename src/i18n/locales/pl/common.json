@@ -127,7 +127,8 @@
     "medic": {
       "title": "Wskrzeszenie",
       "description": "Twoja talia może zawierać maksymalnie 2 karty ze zdolnością wskrzeszenia."
-    }
+    },
+    "title": "Stan talii"
   },
 
   "card_details": {

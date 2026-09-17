@@ -57,6 +57,10 @@ export default function CardsGrid({
   const [selectedLeader, setSelectedLeader] = useState(null);
   const [detailsCard, setDetailsCard] = useState(null);
   const [showOnlySelected, setShowOnlySelected] = useState(false);
+  const [isStatusPanelExpandedDesktop, setIsStatusPanelExpandedDesktop] =
+    useState(true);
+  const [isStatusPanelExpandedMobile, setIsStatusPanelExpandedMobile] =
+    useState(false);
 
   const effectiveShowOnlySelected =
     showOnlySelected && selectedCards.length > 0;
@@ -122,72 +126,87 @@ export default function CardsGrid({
 
   return (
     <>
-      {/* LEADERS */}
-      <section className="mx-auto max-w-screen-2xl px-6 pt-0 md:pt-8">
-        <motion.div
-          key="leaders"
-          className="flex flex-wrap justify-center gap-8"
-          variants={leadersContainerVariants}
-          initial="hidden"
-          animate="show"
-          exit={{
-            opacity: 0,
-          }}
-        >
-          {leaders.map((card) => (
-            <motion.div key={card.code} variants={cardVariants}>
-              <GwentCard
-                code={card.code}
-                name={card.name}
-                power={null}
-                deckCode={deckCode}
-                image={card.image_url}
-                type={card.type.code}
-                ability={card.abilities.length ? card.abilities[0] : null}
-                showTooltip
-                isSelected={isLeaderSelected(card)}
-                onClick={() => handleLeaderClick(card)}
-                onShowDetails={handleShowDetails}
-              />
+      <div className="flex items-start gap-4 px-6">
+        {showStatusBars && (
+          <DeckStatusPanel
+            statuses={statuses}
+            expandedDesktop={isStatusPanelExpandedDesktop}
+            onToggleDesktop={() =>
+              setIsStatusPanelExpandedDesktop((prev) => !prev)
+            }
+            expandedMobile={isStatusPanelExpandedMobile}
+            onToggleMobile={() =>
+              setIsStatusPanelExpandedMobile((prev) => !prev)
+            }
+            onCloseMobile={() => setIsStatusPanelExpandedMobile(false)}
+          />
+        )}
+
+        <div className="mx-auto min-w-0 max-w-screen-2xl flex-1">
+          {/* LEADERS */}
+          <section className="pt-0 md:pt-8">
+            <motion.div
+              key="leaders"
+              className="flex flex-wrap justify-center gap-8"
+              variants={leadersContainerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{
+                opacity: 0,
+              }}
+            >
+              {leaders.map((card) => (
+                <motion.div key={card.code} variants={cardVariants}>
+                  <GwentCard
+                    code={card.code}
+                    name={card.name}
+                    power={null}
+                    deckCode={deckCode}
+                    image={card.image_url}
+                    type={card.type.code}
+                    ability={card.abilities.length ? card.abilities[0] : null}
+                    showTooltip
+                    isSelected={isLeaderSelected(card)}
+                    onClick={() => handleLeaderClick(card)}
+                    onShowDetails={handleShowDetails}
+                  />
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
-      </section>
+          </section>
 
-      {/* CARDS GRID */}
-      <section className="mx-auto max-w-screen-2xl px-6 pt-8">
-        <CardFilters
-          filters={filters}
-          search={search}
-          setSearch={setSearch}
-          sortField={sortField}
-          setSortField={setSortField}
-          sortDirection={sortDirection}
-          cardType={cardType}
-          setCardType={setCardType}
-          cardRange={cardRange}
-          setCardRange={setCardRange}
-          setSortDirection={setSortDirection}
-          isFiltersOpen={isFiltersOpen}
-          setIsFiltersOpen={setIsFiltersOpen}
-          showOnlySelected={effectiveShowOnlySelected}
-          setShowOnlySelected={setShowOnlySelected}
-          hasSelectedCards={hasSelectedCards}
-        />
-        <CardsList
-          cards={visibleCards}
-          deckCode={deckCode}
-          isCardSelected={isCardSelected}
-          handleCardClick={handleCardClick}
-          handleShowDetails={handleShowDetails}
-        />
+          {/* CARDS GRID */}
+          <section className="pt-8">
+            <CardFilters
+              filters={filters}
+              search={search}
+              setSearch={setSearch}
+              sortField={sortField}
+              setSortField={setSortField}
+              sortDirection={sortDirection}
+              cardType={cardType}
+              setCardType={setCardType}
+              cardRange={cardRange}
+              setCardRange={setCardRange}
+              setSortDirection={setSortDirection}
+              isFiltersOpen={isFiltersOpen}
+              setIsFiltersOpen={setIsFiltersOpen}
+              showOnlySelected={effectiveShowOnlySelected}
+              setShowOnlySelected={setShowOnlySelected}
+              hasSelectedCards={hasSelectedCards}
+            />
+            <CardsList
+              cards={visibleCards}
+              deckCode={deckCode}
+              isCardSelected={isCardSelected}
+              handleCardClick={handleCardClick}
+              handleShowDetails={handleShowDetails}
+            />
+          </section>
+        </div>
+      </div>
 
-        {showStatusBars && <DeckStatusPanel statuses={statuses} />}
-
-        <ScrollToTopButton
-          visible={visibleCards.length > 0 && !isFiltersOpen}
-        />
-      </section>
+      <ScrollToTopButton visible={visibleCards.length > 0 && !isFiltersOpen} />
 
       <CardDetailsSheet
         open={detailsCard !== null}
