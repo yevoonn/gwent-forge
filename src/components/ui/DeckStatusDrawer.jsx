@@ -167,6 +167,7 @@ export default function DeckStatusDrawer({
                       {...status}
                       showLabel
                       fullWidth
+                      lightweight
                     />
                   ))}
                 </div>

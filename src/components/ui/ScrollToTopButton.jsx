@@ -48,7 +48,7 @@ export default function ScrollToTopButton({ visible }) {
             duration: 0.5,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed bottom-6 right-6 z-30"
         >
           <motion.button
             onClick={scrollToTop}
