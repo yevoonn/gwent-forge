@@ -25,11 +25,14 @@ body,
 #root {
   position: relative;
   z-index: 1;
+  min-height: 100dvh;
 }
 
 body {
+  min-height: 100dvh;
   background: radial-gradient(rgb(74, 0, 0), rgb(0, 0, 0));
   color: #f5f5f5;
+  color-scheme: dark;
 }
 
 .font-cinzel {

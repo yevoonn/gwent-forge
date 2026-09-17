@@ -20,9 +20,9 @@ export default function DeckStatusDrawer({
         onClick={onToggle}
         aria-label="Toggle deck status panel"
         aria-expanded={expanded}
+        style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}
         className={`
           fixed
-          bottom-6
           left-6
           z-30
           flex
