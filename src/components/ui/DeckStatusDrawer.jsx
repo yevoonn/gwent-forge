@@ -3,13 +3,6 @@ import { useTranslation } from "react-i18next";
 import { ChevronUp, X } from "lucide-react";
 import DeckStatusBar from "./DeckStatusBar";
 
-const sheetTransition = {
-  type: "spring",
-  damping: 30,
-  stiffness: 320,
-  mass: 0.9,
-};
-
 export default function DeckStatusDrawer({
   statuses,
   expanded,
@@ -79,7 +72,6 @@ export default function DeckStatusDrawer({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onClose}
-              transition={{ duration: 0.18 }}
             />
 
             {/* DRAWER */}
@@ -104,22 +96,13 @@ export default function DeckStatusDrawer({
                 ring-1
                 ring-white/5
               "
-              style={{
-                willChange: "transform",
-                contain: "layout paint style",
-              }}
-              drag="y"
-              dragConstraints={{ top: 0, bottom: 0 }}
-              dragElastic={{ top: 0, bottom: 0.45 }}
-              onDragEnd={(_, info) => {
-                if (info.offset.y > 120 || info.velocity.y > 650) {
-                  onClose();
-                }
-              }}
+              style={{ willChange: "transform" }}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
-              transition={sheetTransition}
+              transition={{
+                duration: 0.15,
+              }}
             >
               {/* Subtle top accent line */}
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
@@ -152,12 +135,7 @@ export default function DeckStatusDrawer({
                 </button>
               </div>
 
-              <motion.div
-                className="overflow-y-auto px-6 pt-2 pb-[calc(env(safe-area-inset-bottom)+2rem)] [scrollbar-width:thin] [scrollbar-color:theme(colors.slate.700)_transparent]"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.16, delay: 0.08, ease: "easeOut" }}
-              >
+              <div className="overflow-y-auto px-6 pt-2 pb-[calc(env(safe-area-inset-bottom)+2rem)] [scrollbar-width:thin] [scrollbar-color:theme(colors.slate.700)_transparent]">
                 <h2 className="mb-4 text-center font-cinzel text-2xl font-bold text-amber-400">
                   {t("deck_status.title")}
                 </h2>
@@ -173,7 +151,7 @@ export default function DeckStatusDrawer({
                     />
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           </>
         )}
