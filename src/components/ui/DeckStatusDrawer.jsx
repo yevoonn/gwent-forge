@@ -22,12 +22,11 @@ export default function DeckStatusDrawer({
   return (
     <>
       {/* TRIGGER */}
-      <motion.button
+      <button
         type="button"
         onClick={onToggle}
         aria-label="Toggle deck status panel"
         aria-expanded={expanded}
-        whileTap={{ scale: 0.92 }}
         className={`
           fixed
           bottom-6
@@ -42,6 +41,9 @@ export default function DeckStatusDrawer({
           rounded-xl
           border
           shadow-lg
+          transition-transform
+          duration-150
+          active:scale-90
           ${
             hasWarnings
               ? "border-red-500/60 bg-red-950/50 text-red-400 shadow-red-500/15"
@@ -65,7 +67,7 @@ export default function DeckStatusDrawer({
             className="absolute top-1 right-1 h-3 w-3 rounded-full bg-red-500"
           />
         )}
-      </motion.button>
+      </button>
 
       <AnimatePresence>
         {expanded && (
