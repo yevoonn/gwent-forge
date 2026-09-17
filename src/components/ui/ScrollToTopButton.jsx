@@ -48,7 +48,8 @@ export default function ScrollToTopButton({ visible }) {
             duration: 0.5,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="fixed bottom-6 right-6 z-30"
+          style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}
+          className="fixed right-6 z-30"
         >
           <motion.button
             onClick={scrollToTop}
