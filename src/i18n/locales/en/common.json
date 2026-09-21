@@ -55,6 +55,13 @@
       "message": {
         "register_success": "Account created successfully. You can now log in."
       }
+    },
+    "verifyEmail": {
+      "verifying": "Verifying...",
+      "successTitle": "Success",
+      "successMessage": "Email verified successfully.",
+      "errorTitle": "Error",
+      "errorMessage": "An error occurred during email verification."
     }
   },
 

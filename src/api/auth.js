@@ -75,3 +75,12 @@ export async function logout() {
     method: "POST",
   });
 }
+
+export async function verifyEmail(token) {
+  return apiFetch("/api/auth/verify-email", {
+    method: "POST",
+    body: JSON.stringify({
+      token,
+    }),
+  });
+}

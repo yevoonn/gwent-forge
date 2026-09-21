@@ -9,6 +9,7 @@ const CardsPage = lazy(() => import("./pages/CardsPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const VerifyEmailPage = lazy(() => import("./pages/VerifyEmailPage"));
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="cards/:deckCode" element={<CardsPage />} />
+          <Route path="verify-email" element={<VerifyEmailPage />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="profile" element={<ProfilePage />} />
