@@ -57,7 +57,8 @@
       }
     },
     "verifyEmail": {
-      "verifying": "Verifica in corso...",
+      "verifyingTitle": "Verifica dell'email in corso",
+      "verifying": "Si prega di attendere mentre verifichiamo il tuo indirizzo e-mail.",
       "successTitle": "Successo",
       "successMessage": "L'indirizzo email è stato verificato con successo.",
       "errorTitle": "Errore",

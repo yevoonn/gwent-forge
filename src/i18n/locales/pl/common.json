@@ -57,7 +57,8 @@
       }
     },
     "verifyEmail": {
-      "verifying": "Trwa weryfikacja...",
+      "verifyingTitle": "Weryfikacja adresu e-mail",
+      "verifying": "Proszę czekać, trwa weryfikacja Twojego adresu e-mail.",
       "successTitle": "Sukces",
       "successMessage": "Poprawnie zweryfikowano email.",
       "errorTitle": "Błąd",
