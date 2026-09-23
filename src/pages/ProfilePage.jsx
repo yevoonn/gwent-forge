@@ -49,7 +49,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="mx-auto max-w-screen-2xl px-6 py-12 text-white">
+    <div className="mx-auto w-full max-w-screen-2xl px-6 py-12 text-white">
       {/* HERO */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
