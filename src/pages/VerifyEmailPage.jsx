@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { BadgeCheck, ShieldAlert, LoaderCircle } from "lucide-react";
 import { verifyEmail } from "../api/auth";
+import { getApiErrorMessage } from "../utils/apiErrorMessageHelper";
 
 export default function VerifyEmailPage() {
   const { t } = useTranslation("common");
@@ -12,7 +13,7 @@ export default function VerifyEmailPage() {
   const token = searchParams.get("token");
 
   const [status, setStatus] = useState(token ? "loading" : "invalid");
-  const [username, setUsername] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const verificationStarted = useRef(false);
 
@@ -25,11 +26,10 @@ export default function VerifyEmailPage() {
 
     async function verify() {
       try {
-        const response = await verifyEmail(token);
-
-        setUsername(response.user.username);
+        await verifyEmail(token);
         setStatus("success");
-      } catch {
+      } catch (error) {
+        setErrorMessage(getApiErrorMessage(error, t));
         setStatus("error");
       }
     }
@@ -80,9 +80,7 @@ export default function VerifyEmailPage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-slate-300 leading-relaxed">
-            {t("auth.verifyEmail.successMessage", {
-              username,
-            })}
+            {t("auth.verifyEmail.successMessage")}
           </p>
         </motion.div>
       </div>
@@ -106,7 +104,7 @@ export default function VerifyEmailPage() {
         </h1>
 
         <p className="mx-auto mt-4 max-w-md text-slate-300 leading-relaxed">
-          {t("auth.verifyEmail.errorMessage")}
+          {errorMessage || t("auth.verifyEmail.errorMessage")}
         </p>
       </motion.div>
     </div>

@@ -164,7 +164,10 @@
       "INVALID_CURRENT_PASSWORD": "La password attuale è errata.",
       "username_too_big": "Il nome utente deve contenere al massimo 12 caratteri.",
       "username_too_small": "Il nome utente deve contenere almeno 3 caratteri.",
-      "password_too_small": "La password deve contenere almeno 8 caratteri."
+      "password_too_small": "La password deve contenere almeno 8 caratteri.",
+      "INVALID_EMAIL_VERIFICATION_TOKEN": "Questo link di verifica dell'email non è valido.",
+      "EMAIL_VERIFICATION_TOKEN_USED": "Questo indirizzo e-mail è già stato verificato.",
+      "EMAIL_VERIFICATION_TOKEN_EXPIRED": "Questo link di verifica dell'email è scaduto."
     }
   }
 }

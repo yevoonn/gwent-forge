@@ -164,7 +164,10 @@
       "INVALID_CURRENT_PASSWORD": "The current password is incorrect.",
       "username_too_big": "Username must contain at most 12 characters.",
       "username_too_small": "Username must contain at least 3 characters.",
-      "password_too_small": "Password must contain at least 8 characters."
+      "password_too_small": "Password must contain at least 8 characters.",
+      "INVALID_EMAIL_VERIFICATION_TOKEN": "This email verification link is invalid.",
+      "EMAIL_VERIFICATION_TOKEN_USED": "This email address has already been verified.",
+      "EMAIL_VERIFICATION_TOKEN_EXPIRED": "This email verification link has expired."
     }
   }
 }
