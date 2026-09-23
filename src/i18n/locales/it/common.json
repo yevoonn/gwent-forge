@@ -53,7 +53,7 @@
         "loading": "Creazione dell'account in corso..."
       },
       "message": {
-        "register_success": "Account creato con successo. Ora puoi accedere."
+        "register_success": "Account creato con successo. Ti preghiamo di verificare il tuo indirizzo email prima di accedere."
       }
     },
     "verifyEmail": {
@@ -167,7 +167,8 @@
       "password_too_small": "La password deve contenere almeno 8 caratteri.",
       "INVALID_EMAIL_VERIFICATION_TOKEN": "Questo link di verifica dell'email non è valido.",
       "EMAIL_VERIFICATION_TOKEN_USED": "Questo indirizzo e-mail è già stato verificato.",
-      "EMAIL_VERIFICATION_TOKEN_EXPIRED": "Questo link di verifica dell'email è scaduto."
+      "EMAIL_VERIFICATION_TOKEN_EXPIRED": "Questo link di verifica dell'email è scaduto.",
+      "EMAIL_NOT_VERIFIED": "Ti preghiamo di verificare il tuo indirizzo email prima di accedere."
     }
   }
 }
