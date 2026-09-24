@@ -61,6 +61,8 @@
       "verifying": "Please wait while we verify your email address.",
       "successTitle": "Success",
       "successMessage": "Email verified successfully.",
+      "loginSuccessMessage": "You can now log in to your account.",
+      "loginButton": "Login",
       "errorTitle": "Error",
       "errorMessage": "An error occurred during email verification."
     }

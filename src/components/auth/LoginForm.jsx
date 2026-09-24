@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router";
 
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 
@@ -12,6 +13,7 @@ export default function LoginForm({
 }) {
   const { t } = useTranslation();
   const { login, isLoading } = useAuth();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -39,6 +41,7 @@ export default function LoginForm({
     try {
       await login(formData);
       onClose();
+      navigate("/");
     } catch (error) {
       setError(getApiErrorMessage(error, t));
     }

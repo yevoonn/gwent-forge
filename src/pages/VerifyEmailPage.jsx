@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../hooks/useAuth";
 import { motion } from "motion/react";
 import { BadgeCheck, ShieldAlert, LoaderCircle } from "lucide-react";
 import { verifyEmail } from "../api/auth";
@@ -8,6 +9,8 @@ import { getApiErrorMessage } from "../utils/apiErrorMessageHelper";
 
 export default function VerifyEmailPage() {
   const { t } = useTranslation("common");
+  const { requestLogin } = useAuth();
+
   const [searchParams] = useSearchParams();
 
   const token = searchParams.get("token");
@@ -35,7 +38,7 @@ export default function VerifyEmailPage() {
     }
 
     verify();
-  }, [token]);
+  }, [token, t]);
 
   if (status === "loading") {
     return (
@@ -82,6 +85,30 @@ export default function VerifyEmailPage() {
           <p className="mx-auto mt-4 max-w-md text-slate-300 leading-relaxed">
             {t("auth.verifyEmail.successMessage")}
           </p>
+
+          <button
+            type="button"
+            onClick={() =>
+              requestLogin(t("auth.verifyEmail.loginSuccessMessage"))
+            }
+            className="
+              mt-6
+              w-full
+              rounded-lg
+              bg-amber-400
+              px-4
+              py-2.5
+              font-semibold
+              text-slate-950
+              transition
+              hover:bg-amber-300
+              cursor-pointer
+              sm:w-auto
+              sm:min-w-32
+            "
+          >
+            {t("auth.verifyEmail.loginButton")}
+          </button>
         </motion.div>
       </div>
     );

@@ -61,6 +61,8 @@
       "verifying": "Proszę czekać, trwa weryfikacja Twojego adresu e-mail.",
       "successTitle": "Sukces",
       "successMessage": "Poprawnie zweryfikowano email.",
+      "loginSuccessMessage": "Możesz teraz zalogować się na swoje konto.",
+      "loginButton": "Zaloguj się",
       "errorTitle": "Błąd",
       "errorMessage": "Wystąpił błąd podczas weryfikacji adresu email."
     }

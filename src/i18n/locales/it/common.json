@@ -61,6 +61,8 @@
       "verifying": "Si prega di attendere mentre verifichiamo il tuo indirizzo e-mail.",
       "successTitle": "Successo",
       "successMessage": "L'indirizzo email è stato verificato con successo.",
+      "loginSuccessMessage": "Ora puoi accedere al tuo account.",
+      "loginButton": "Login",
       "errorTitle": "Errore",
       "errorMessage": "Si è verificato un errore durante la verifica dell'indirizzo e-mail."
     }
