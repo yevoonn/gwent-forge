@@ -30,6 +30,10 @@
       "button": {
         "static": "Login",
         "loading": "Accesso in corso..."
+      },
+      "resendVerification": {
+        "button": "Invia nuovamente l'email di verifica",
+        "success": "Una nuova email di verifica è stata inviata."
       }
     },
     "register_form": {

@@ -54,6 +54,16 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
+  const resendVerificationEmail = useCallback(async (email) => {
+    setIsLoading(true);
+
+    try {
+      return await authApi.resendVerificationEmail(email);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   const logout = useCallback(async () => {
     setIsLoading(true);
 
@@ -162,6 +172,7 @@ export function AuthProvider({ children }) {
     isInitializing,
     login,
     register,
+    resendVerificationEmail,
     logout,
     clearAuthState,
     authenticatedFetch,

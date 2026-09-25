@@ -12,7 +12,7 @@ export default function LoginForm({
   onSuccessMessageClear,
 }) {
   const { t } = useTranslation();
-  const { login, isLoading } = useAuth();
+  const { login, resendVerificationEmail, isLoading } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -21,6 +21,9 @@ export default function LoginForm({
   });
 
   const [error, setError] = useState("");
+
+  const [emailNotVerified, setEmailNotVerified] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -31,17 +34,38 @@ export default function LoginForm({
     }));
 
     setError("");
+    setEmailNotVerified(false);
+    setResendSuccess("");
     onSuccessMessageClear();
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
+    setEmailNotVerified(false);
+    setResendSuccess("");
 
     try {
       await login(formData);
       onClose();
       navigate("/");
+    } catch (error) {
+      setError(getApiErrorMessage(error, t));
+
+      if (error.code === "EMAIL_NOT_VERIFIED") {
+        setEmailNotVerified(true);
+      }
+    }
+  };
+
+  const handleResendVerification = async () => {
+    setError("");
+    setResendSuccess("");
+
+    try {
+      await resendVerificationEmail(formData.email);
+
+      setResendSuccess(t("auth.login_form.resendVerification.success"));
     } catch (error) {
       setError(getApiErrorMessage(error, t));
     }
@@ -149,6 +173,33 @@ export default function LoginForm({
             <p className="text-sm text-red-400" role="alert">
               {error}
             </p>
+          </div>
+        )}
+
+        {emailNotVerified && (
+          <div className="text-center">
+            <button
+              type="button"
+              onClick={handleResendVerification}
+              disabled={isLoading}
+              className="
+                text-sm
+                text-amber-400
+                transition-colors
+                hover:text-amber-300
+                disabled:cursor-not-allowed
+                disabled:opacity-60
+                cursor-pointer
+              "
+            >
+              {t("auth.login_form.resendVerification.button")}
+            </button>
+
+            {resendSuccess && (
+              <p className="mt-2 text-sm text-emerald-400" role="status">
+                {resendSuccess}
+              </p>
+            )}
           </div>
         )}
 

@@ -30,6 +30,10 @@
       "button": {
         "static": "Zaloguj",
         "loading": "Logowanie..."
+      },
+      "resendVerification": {
+        "button": "Wyślij ponownie email weryfikacyjny",
+        "success": "Nowy email weryfikacyjny został wysłany."
       }
     },
     "register_form": {

@@ -30,6 +30,10 @@
       "button": {
         "static": "Login",
         "loading": "Logging in..."
+      },
+      "resendVerification": {
+        "button": "Resend verification email",
+        "success": "A new verification email has been sent."
       }
     },
     "register_form": {

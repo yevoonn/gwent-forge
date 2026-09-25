@@ -84,3 +84,12 @@ export async function verifyEmail(token) {
     }),
   });
 }
+
+export async function resendVerificationEmail(email) {
+  return apiFetch("/api/auth/resend-verification-email", {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+    }),
+  });
+}
