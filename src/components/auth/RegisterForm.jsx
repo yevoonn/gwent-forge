@@ -101,7 +101,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
             type="text"
             value={formData.username}
             onChange={handleChange}
-            autoComplete="username"
+            autoComplete="off"
             required
             className="
               w-full
