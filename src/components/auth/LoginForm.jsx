@@ -11,7 +11,7 @@ export default function LoginForm({
   successMessage,
   onSuccessMessageClear,
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { login, resendVerificationEmail, isLoading } = useAuth();
   const navigate = useNavigate();
 
@@ -63,7 +63,10 @@ export default function LoginForm({
     setResendSuccess("");
 
     try {
-      await resendVerificationEmail(formData.email);
+      await resendVerificationEmail(
+        formData.email,
+        i18n.resolvedLanguage ?? "en",
+      );
 
       setResendSuccess(t("auth.login_form.resendVerification.success"));
     } catch (error) {

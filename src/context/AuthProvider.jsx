@@ -54,11 +54,11 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  const resendVerificationEmail = useCallback(async (email) => {
+  const resendVerificationEmail = useCallback(async (email, lang) => {
     setIsLoading(true);
 
     try {
-      return await authApi.resendVerificationEmail(email);
+      return await authApi.resendVerificationEmail(email, lang);
     } finally {
       setIsLoading(false);
     }

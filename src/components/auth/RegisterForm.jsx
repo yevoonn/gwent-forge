@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 
 export default function RegisterForm({ onModeChange, onSuccess }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { register, isLoading } = useAuth();
 
   const [formData, setFormData] = useState({
@@ -32,7 +32,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
     setError("");
 
     try {
-      await register(formData);
+      await register({ ...formData, lang: i18n.resolvedLanguage ?? "en" });
 
       // Registration does not automatically authenticate the user yet.
       // Return to login after successful registration.

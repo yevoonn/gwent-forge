@@ -12,14 +12,10 @@ export async function login({ email, password }) {
   });
 }
 
-export async function register({ email, username, password }) {
+export async function register({ email, username, password, lang }) {
   return apiFetch("/api/auth/register", {
     method: "POST",
-    body: JSON.stringify({
-      email,
-      username,
-      password,
-    }),
+    body: JSON.stringify({ email, username, password, lang }),
   });
 }
 
@@ -85,11 +81,9 @@ export async function verifyEmail(token) {
   });
 }
 
-export async function resendVerificationEmail(email) {
+export async function resendVerificationEmail(email, lang) {
   return apiFetch("/api/auth/resend-verification-email", {
     method: "POST",
-    body: JSON.stringify({
-      email,
-    }),
+    body: JSON.stringify({ email, lang }),
   });
 }
