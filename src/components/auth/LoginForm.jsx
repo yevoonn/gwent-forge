@@ -171,6 +171,25 @@ export default function LoginForm({
           />
         </div>
 
+        <p className="text-left">
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              navigate("/forgot-password");
+            }}
+            className="
+              text-sm
+              text-amber-400
+              transition-colors
+              hover:text-amber-300
+              cursor-pointer
+            "
+          >
+            {t("auth.login_form.forgot_password.link")}
+          </button>
+        </p>
+
         {error && (
           <div className="text-center">
             <p className="text-sm text-red-400" role="alert">

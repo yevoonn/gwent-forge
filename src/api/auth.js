@@ -87,3 +87,10 @@ export async function resendVerificationEmail(email, lang) {
     body: JSON.stringify({ email, lang }),
   });
 }
+
+export async function forgotPassword(email, lang) {
+  return apiFetch("/api/auth/forgot-password", {
+    method: "POST",
+    body: JSON.stringify({ email, lang }),
+  });
+}

@@ -34,6 +34,9 @@
       "resendVerification": {
         "button": "Invia nuovamente l'email di verifica",
         "success": "Una nuova email di verifica è stata inviata."
+      },
+      "forgot_password": {
+        "link": "Hai dimenticato la password?"
       }
     },
     "register_form": {
@@ -69,6 +72,19 @@
       "loginButton": "Login",
       "errorTitle": "Errore",
       "errorMessage": "Si è verificato un errore durante la verifica dell'indirizzo e-mail."
+    },
+    "forgot_password_form": {
+      "title": "Hai dimenticato la password?",
+      "subtitle": "Inserisci il tuo indirizzo email e ti invieremo un link per reimpostare la password.",
+      "email": {
+        "label": "Indirizzo email"
+      },
+      "button": {
+        "static": "Invia link di reimpostazione",
+        "loading": "Invio..."
+      },
+      "success": "Se esiste un account con questo indirizzo email, è stato inviato un link per reimpostare la password.",
+      "back_to_login": "Torna al login"
     }
   },
 

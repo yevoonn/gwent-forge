@@ -34,6 +34,9 @@
       "resendVerification": {
         "button": "Resend verification email",
         "success": "A new verification email has been sent."
+      },
+      "forgot_password": {
+        "link": "Forgot your password?"
       }
     },
     "register_form": {
@@ -69,6 +72,19 @@
       "loginButton": "Login",
       "errorTitle": "Error",
       "errorMessage": "An error occurred during email verification."
+    },
+    "forgot_password_form": {
+      "title": "Forgot your password?",
+      "subtitle": "Enter your email address and we'll send you a link to reset your password.",
+      "email": {
+        "label": "Email address"
+      },
+      "button": {
+        "static": "Send reset link",
+        "loading": "Sending..."
+      },
+      "success": "If an account with this email address exists, a password reset link has been sent.",
+      "back_to_login": "Back to login"
     }
   },
 

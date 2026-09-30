@@ -34,6 +34,9 @@
       "resendVerification": {
         "button": "Wyślij ponownie email weryfikacyjny",
         "success": "Nowy email weryfikacyjny został wysłany."
+      },
+      "forgot_password": {
+        "link": "Nie pamiętasz hasła?"
       }
     },
     "register_form": {
@@ -69,6 +72,19 @@
       "loginButton": "Zaloguj się",
       "errorTitle": "Błąd",
       "errorMessage": "Wystąpił błąd podczas weryfikacji adresu email."
+    },
+    "forgot_password_form": {
+      "title": "Nie pamiętasz hasła?",
+      "subtitle": "Podaj swój adres email, a wyślemy Ci link do zresetowania hasła.",
+      "email": {
+        "label": "Adres email"
+      },
+      "button": {
+        "static": "Wyślij link resetujący",
+        "loading": "Wysyłanie..."
+      },
+      "success": "Jeśli konto z tym adresem email istnieje, wysłaliśmy na niego link do zresetowania hasła.",
+      "back_to_login": "Powrót do logowania"
     }
   },
 

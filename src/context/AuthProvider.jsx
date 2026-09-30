@@ -64,6 +64,16 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
+  const forgotPassword = useCallback(async (email, lang) => {
+    setIsLoading(true);
+
+    try {
+      return await authApi.forgotPassword(email, lang);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   const logout = useCallback(async () => {
     setIsLoading(true);
 
@@ -173,6 +183,7 @@ export function AuthProvider({ children }) {
     login,
     register,
     resendVerificationEmail,
+    forgotPassword,
     logout,
     clearAuthState,
     authenticatedFetch,
