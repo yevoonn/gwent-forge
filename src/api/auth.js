@@ -94,3 +94,10 @@ export async function forgotPassword(email, lang) {
     body: JSON.stringify({ email, lang }),
   });
 }
+
+export async function resetPassword(token, newPassword) {
+  return apiFetch("/api/auth/reset-password", {
+    method: "POST",
+    body: JSON.stringify({ token, newPassword }),
+  });
+}

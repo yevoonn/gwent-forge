@@ -85,6 +85,26 @@
       },
       "success": "Jeśli konto z tym adresem email istnieje, wysłaliśmy na niego link do zresetowania hasła.",
       "back_to_login": "Powrót do logowania"
+    },
+    "reset_password_form": {
+      "title": "Zresetuj hasło",
+      "subtitle": "Wprowadź poniżej swoje nowe hasło.",
+      "new_password": {
+        "label": "Nowe hasło"
+      },
+      "confirm_password": {
+        "label": "Potwierdź nowe hasło"
+      },
+      "button": {
+        "static": "Zresetuj hasło",
+        "loading": "Resetowanie..."
+      },
+      "success": "Twoje hasło zostało pomyślnie zresetowane.",
+      "back_to_login": "Powrót do logowania",
+      "errors": {
+        "missing_token": "Link do resetowania hasła jest nieprawidłowy lub niekompletny.",
+        "passwords_do_not_match": "Hasła nie są takie same."
+      }
     }
   },
 
@@ -190,7 +210,12 @@
       "INVALID_EMAIL_VERIFICATION_TOKEN": "Link do weryfikacji adresu e-mail jest nieprawidłowy.",
       "EMAIL_VERIFICATION_TOKEN_USED": "Ten adres e-mail został już zweryfikowany.",
       "EMAIL_VERIFICATION_TOKEN_EXPIRED": "Link do weryfikacji adresu e-mail wygasł.",
-      "EMAIL_NOT_VERIFIED": "Proszę zweryfikować adres e-mail przed zalogowaniem się."
+      "EMAIL_NOT_VERIFIED": "Proszę zweryfikować adres e-mail przed zalogowaniem się.",
+      "INVALID_PASSWORD_RESET_TOKEN": "Link do resetowania hasła jest nieprawidłowy.",
+      "PASSWORD_RESET_TOKEN_USED": "Ten link do resetowania hasła został już wykorzystany.",
+      "PASSWORD_RESET_TOKEN_EXPIRED": "Ten link do resetowania hasła wygasł.",
+      "newPassword_too_small": "Hasło musi zawierać co najmniej 8 znaków.",
+      "newPassword_too_big": "Hasło może zawierać maksymalnie 128 znaków."
     }
   }
 }

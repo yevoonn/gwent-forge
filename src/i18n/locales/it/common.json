@@ -85,6 +85,26 @@
       },
       "success": "Se esiste un account con questo indirizzo email, è stato inviato un link per reimpostare la password.",
       "back_to_login": "Torna al login"
+    },
+    "reset_password_form": {
+      "title": "Reimposta la password",
+      "subtitle": "Inserisci qui sotto la tua nuova password.",
+      "new_password": {
+        "label": "Nuova password"
+      },
+      "confirm_password": {
+        "label": "Conferma nuova password"
+      },
+      "button": {
+        "static": "Reimposta password",
+        "loading": "Reimpostazione..."
+      },
+      "success": "La tua password è stata reimpostata correttamente.",
+      "back_to_login": "Torna al login",
+      "errors": {
+        "missing_token": "Il link per reimpostare la password non è valido o è incompleto.",
+        "passwords_do_not_match": "Le password non corrispondono."
+      }
     }
   },
 
@@ -190,7 +210,12 @@
       "INVALID_EMAIL_VERIFICATION_TOKEN": "Questo link di verifica dell'email non è valido.",
       "EMAIL_VERIFICATION_TOKEN_USED": "Questo indirizzo e-mail è già stato verificato.",
       "EMAIL_VERIFICATION_TOKEN_EXPIRED": "Questo link di verifica dell'email è scaduto.",
-      "EMAIL_NOT_VERIFIED": "Ti preghiamo di verificare il tuo indirizzo email prima di accedere."
+      "EMAIL_NOT_VERIFIED": "Ti preghiamo di verificare il tuo indirizzo email prima di accedere.",
+      "INVALID_PASSWORD_RESET_TOKEN": "Il link per reimpostare la password non è valido.",
+      "PASSWORD_RESET_TOKEN_USED": "Questo link per reimpostare la password è già stato utilizzato.",
+      "PASSWORD_RESET_TOKEN_EXPIRED": "Questo link per reimpostare la password è scaduto.",
+      "newPassword_too_small": "La password deve contenere almeno 8 caratteri.",
+      "newPassword_too_big": "La password può contenere al massimo 128 caratteri."
     }
   }
 }

@@ -85,6 +85,26 @@
       },
       "success": "If an account with this email address exists, a password reset link has been sent.",
       "back_to_login": "Back to login"
+    },
+    "reset_password_form": {
+      "title": "Reset your password",
+      "subtitle": "Enter your new password below.",
+      "new_password": {
+        "label": "New password"
+      },
+      "confirm_password": {
+        "label": "Confirm new password"
+      },
+      "button": {
+        "static": "Reset password",
+        "loading": "Resetting..."
+      },
+      "success": "Your password has been reset successfully.",
+      "back_to_login": "Back to login",
+      "errors": {
+        "missing_token": "The password reset link is invalid or incomplete.",
+        "passwords_do_not_match": "Passwords do not match."
+      }
     }
   },
 
@@ -190,7 +210,12 @@
       "INVALID_EMAIL_VERIFICATION_TOKEN": "This email verification link is invalid.",
       "EMAIL_VERIFICATION_TOKEN_USED": "This email address has already been verified.",
       "EMAIL_VERIFICATION_TOKEN_EXPIRED": "This email verification link has expired.",
-      "EMAIL_NOT_VERIFIED": "Please verify your email address before logging in."
+      "EMAIL_NOT_VERIFIED": "Please verify your email address before logging in.",
+      "INVALID_PASSWORD_RESET_TOKEN": "The password reset link is invalid.",
+      "PASSWORD_RESET_TOKEN_USED": "This password reset link has already been used.",
+      "PASSWORD_RESET_TOKEN_EXPIRED": "This password reset link has expired.",
+      "newPassword_too_small": "Password must contain at least 8 characters.",
+      "newPassword_too_big": "Password must contain at most 128 characters."
     }
   }
 }
