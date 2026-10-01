@@ -31,7 +31,7 @@
         "static": "Login",
         "loading": "Accesso in corso..."
       },
-      "resendVerification": {
+      "resend_verification": {
         "button": "Invia nuovamente l'email di verifica",
         "success": "Una nuova email di verifica è stata inviata."
       },
@@ -63,15 +63,15 @@
         "register_success": "Account creato con successo. Ti preghiamo di verificare il tuo indirizzo email prima di accedere."
       }
     },
-    "verifyEmail": {
-      "verifyingTitle": "Verifica dell'email in corso",
+    "verify_email": {
+      "verifying_title": "Verifica dell'email in corso",
       "verifying": "Si prega di attendere mentre verifichiamo il tuo indirizzo e-mail.",
-      "successTitle": "Successo",
-      "successMessage": "L'indirizzo email è stato verificato con successo.",
-      "loginSuccessMessage": "Ora puoi accedere al tuo account.",
-      "loginButton": "Login",
-      "errorTitle": "Errore",
-      "errorMessage": "Si è verificato un errore durante la verifica dell'indirizzo e-mail."
+      "success_title": "Successo",
+      "success_message": "L'indirizzo email è stato verificato con successo.",
+      "login_success_message": "Ora puoi accedere al tuo account.",
+      "login_button": "Login",
+      "error_title": "Errore",
+      "error_message": "Si è verificato un errore durante la verifica dell'indirizzo e-mail."
     },
     "forgot_password_form": {
       "title": "Hai dimenticato la password?",

@@ -31,7 +31,7 @@
         "static": "Zaloguj",
         "loading": "Logowanie..."
       },
-      "resendVerification": {
+      "resend_verification": {
         "button": "Wyślij ponownie email weryfikacyjny",
         "success": "Nowy email weryfikacyjny został wysłany."
       },
@@ -63,15 +63,15 @@
         "register_success": "Konto zostało pomyślnie utworzone. Przed zalogowaniem się zweryfikuj swój adres e-mail."
       }
     },
-    "verifyEmail": {
-      "verifyingTitle": "Weryfikacja adresu e-mail",
+    "verify_email": {
+      "verifying_title": "Weryfikacja adresu e-mail",
       "verifying": "Proszę czekać, trwa weryfikacja Twojego adresu e-mail.",
-      "successTitle": "Sukces",
-      "successMessage": "Poprawnie zweryfikowano email.",
-      "loginSuccessMessage": "Możesz teraz zalogować się na swoje konto.",
-      "loginButton": "Zaloguj się",
-      "errorTitle": "Błąd",
-      "errorMessage": "Wystąpił błąd podczas weryfikacji adresu email."
+      "success_title": "Sukces",
+      "success_message": "Poprawnie zweryfikowano email.",
+      "login_success_message": "Możesz teraz zalogować się na swoje konto.",
+      "login_button": "Zaloguj się",
+      "error_title": "Błąd",
+      "error_message": "Wystąpił błąd podczas weryfikacji adresu email."
     },
     "forgot_password_form": {
       "title": "Nie pamiętasz hasła?",

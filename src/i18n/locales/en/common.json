@@ -31,7 +31,7 @@
         "static": "Login",
         "loading": "Logging in..."
       },
-      "resendVerification": {
+      "resend_verification": {
         "button": "Resend verification email",
         "success": "A new verification email has been sent."
       },
@@ -63,15 +63,15 @@
         "register_success": "Account created successfully. Please verify your email address before logging in."
       }
     },
-    "verifyEmail": {
-      "verifyingTitle": "Verifying your email",
+    "verify_email": {
+      "verifying_title": "Verifying your email",
       "verifying": "Please wait while we verify your email address.",
-      "successTitle": "Success",
-      "successMessage": "Email verified successfully.",
-      "loginSuccessMessage": "You can now log in to your account.",
-      "loginButton": "Login",
-      "errorTitle": "Error",
-      "errorMessage": "An error occurred during email verification."
+      "success_title": "Success",
+      "success_message": "Email verified successfully.",
+      "login_success_message": "You can now log in to your account.",
+      "login_button": "Login",
+      "error_title": "Error",
+      "error_message": "An error occurred during email verification."
     },
     "forgot_password_form": {
       "title": "Forgot your password?",

@@ -68,7 +68,7 @@ export default function LoginForm({
         i18n.resolvedLanguage ?? "en",
       );
 
-      setResendSuccess(t("auth.login_form.resendVerification.success"));
+      setResendSuccess(t("auth.login_form.resend_verification.success"));
     } catch (error) {
       setError(getApiErrorMessage(error, t));
     }
@@ -214,7 +214,7 @@ export default function LoginForm({
                 cursor-pointer
               "
             >
-              {t("auth.login_form.resendVerification.button")}
+              {t("auth.login_form.resend_verification.button")}
             </button>
 
             {resendSuccess && (

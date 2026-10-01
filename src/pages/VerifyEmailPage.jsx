@@ -54,11 +54,11 @@ export default function VerifyEmailPage() {
           </div>
 
           <h1 className="mt-6 font-cinzel text-2xl font-semibold text-white sm:text-3xl">
-            {t("auth.verifyEmail.verifyingTitle")}
+            {t("auth.verify_email.verifying_title")}
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-slate-400 leading-relaxed">
-            {t("auth.verifyEmail.verifying")}
+            {t("auth.verify_email.verifying")}
           </p>
         </motion.div>
       </div>
@@ -79,17 +79,17 @@ export default function VerifyEmailPage() {
           </div>
 
           <h1 className="mt-6 font-cinzel text-2xl font-semibold text-emerald-300 sm:text-3xl">
-            {t("auth.verifyEmail.successTitle")}
+            {t("auth.verify_email.success_title")}
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-slate-300 leading-relaxed">
-            {t("auth.verifyEmail.successMessage")}
+            {t("auth.verify_email.success_message")}
           </p>
 
           <button
             type="button"
             onClick={() =>
-              requestLogin(t("auth.verifyEmail.loginSuccessMessage"))
+              requestLogin(t("auth.verify_email.login_success_message"))
             }
             className="
               mt-6
@@ -107,7 +107,7 @@ export default function VerifyEmailPage() {
               sm:min-w-32
             "
           >
-            {t("auth.verifyEmail.loginButton")}
+            {t("auth.verify_email.login_button")}
           </button>
         </motion.div>
       </div>
@@ -127,11 +127,11 @@ export default function VerifyEmailPage() {
         </div>
 
         <h1 className="mt-6 font-cinzel text-2xl font-semibold text-red-300 sm:text-3xl">
-          {t("auth.verifyEmail.errorTitle")}
+          {t("auth.verify_email.error_title")}
         </h1>
 
         <p className="mx-auto mt-4 max-w-md text-slate-300 leading-relaxed">
-          {errorMessage || t("auth.verifyEmail.errorMessage")}
+          {errorMessage || t("auth.verify_email.error_message")}
         </p>
       </motion.div>
     </div>
