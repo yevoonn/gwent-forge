@@ -8,8 +8,6 @@ import NavLinkItem from "./NavLinkItem";
 import MobileMenu from "./MobileMenu";
 import AuthModal from "../auth/AuthModal";
 
-import { navigationItems } from "../../data/navigation";
-
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Navbar() {
@@ -67,12 +65,6 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <ul className="hidden items-center gap-4 md:flex">
-          {navigationItems.map((item) => (
-            <li key={item.to}>
-              <NavLinkItem to={item.to} icon={item.icon} label={t(item.key)} />
-            </li>
-          ))}
-
           {!isInitializing && (
             <>
               {!isAuthenticated ? (
