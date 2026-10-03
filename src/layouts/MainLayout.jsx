@@ -3,10 +3,13 @@ import { Outlet } from "react-router";
 import ParticlesBackground from "../components/effects/ParticlesBackground";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/layout/Footer";
+import ScrollToTop from "../components/layout/ScrollToTop";
 
 export default function MainLayout() {
   return (
     <>
+      <ScrollToTop />
+
       <ParticlesBackground />
 
       <div className="min-h-screen flex flex-col">
