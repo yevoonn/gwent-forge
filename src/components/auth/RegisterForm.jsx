@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 
+import { API_URL } from "../../config";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 
 export default function RegisterForm({ onModeChange, onSuccess }) {
@@ -42,6 +43,10 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = `${API_URL}/api/auth/google`;
+  };
+
   return (
     <>
       <div className="mb-6 text-center">
@@ -52,6 +57,43 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
         <p className="mt-2 text-sm text-slate-400">
           {t("auth.register_form.subtitle_1")}
         </p>
+      </div>
+
+      <button
+        type="button"
+        onClick={handleGoogleLogin}
+        className="
+          flex
+          w-full
+          items-center
+          justify-center
+          gap-2
+          rounded-lg
+          border
+          border-slate-700
+          bg-slate-900
+          px-4
+          py-2.5
+          font-semibold
+          text-white
+          transition
+          hover:border-slate-600
+          hover:bg-slate-800
+          cursor-pointer
+        "
+      >
+        <span className="text-base font-medium">G</span>
+        {t("auth.login_form.google.button")}
+      </button>
+
+      <div className="my-5 flex items-center gap-3">
+        <div className="h-px flex-1 bg-slate-700" />
+
+        <span className="text-xs text-slate-500">
+          {t("auth.login_form.google.or")}
+        </span>
+
+        <div className="h-px flex-1 bg-slate-700" />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">

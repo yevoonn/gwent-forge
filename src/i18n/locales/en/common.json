@@ -37,6 +37,10 @@
       },
       "forgot_password": {
         "link": "Forgot your password?"
+      },
+      "google": {
+        "button": "Continue with Google",
+        "or": "or"
       }
     },
     "register_form": {
