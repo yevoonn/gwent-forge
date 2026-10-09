@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 
 import { API_URL } from "../../config";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
+import { GoogleIcon } from "../ui/GoogleIcon";
 
 export default function LoginForm({
   onClose,
@@ -134,7 +135,7 @@ export default function LoginForm({
           cursor-pointer
         "
       >
-        <span className="text-base font-medium">G</span>
+        <GoogleIcon size={18} />
         {t("auth.login_form.google.button")}
       </button>
 

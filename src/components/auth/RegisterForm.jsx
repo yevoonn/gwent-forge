@@ -4,6 +4,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 import { API_URL } from "../../config";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
+import { GoogleIcon } from "../ui/GoogleIcon";
 
 export default function RegisterForm({ onModeChange, onSuccess }) {
   const { t, i18n } = useTranslation();
@@ -82,7 +83,7 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
           cursor-pointer
         "
       >
-        <span className="text-base font-medium">G</span>
+        <GoogleIcon size={18} />
         {t("auth.login_form.google.button")}
       </button>
 
