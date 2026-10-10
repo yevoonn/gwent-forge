@@ -8,7 +8,7 @@ import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 export default function PasswordSection() {
   const { t: tCommon } = useTranslation("common");
   const { t: tProfile } = useTranslation("profile");
-  const { changePassword, clearAuthState, requestLogin } = useAuth();
+  const { user, changePassword, clearAuthState, requestLogin } = useAuth();
 
   const [isSavingPassword, setIsSavingPassword] = useState(false);
   const [isEditingPassword, setIsEditingPassword] = useState(false);
@@ -19,6 +19,8 @@ export default function PasswordSection() {
 
   const [passwordError, setPasswordError] = useState(null);
   const [passwordApiError, setPasswordApiError] = useState(null);
+
+  const hasPassword = user?.hasPassword ?? true;
 
   const handlePasswordEdit = () => {
     setCurrentPassword("");
@@ -39,7 +41,7 @@ export default function PasswordSection() {
   };
 
   const validatePassword = () => {
-    if (!currentPassword) {
+    if (hasPassword && !currentPassword) {
       return tProfile("current_password_required");
     }
 
@@ -81,7 +83,7 @@ export default function PasswordSection() {
 
     try {
       await changePassword({
-        currentPassword,
+        ...(hasPassword && { currentPassword }),
         newPassword,
       });
 
@@ -106,28 +108,30 @@ export default function PasswordSection() {
 
         {isEditingPassword ? (
           <div className="mt-2 space-y-3">
-            <input
-              type="password"
-              value={currentPassword}
-              onChange={(event) => setCurrentPassword(event.target.value)}
-              disabled={isSavingPassword}
-              placeholder={tProfile("current_password")}
-              className="
-                w-full
-                rounded-lg
-                border
-                border-slate-600
-                bg-slate-800
-                px-3
-                py-2
-                text-white
-                outline-none
-                transition-colors
-                focus:border-amber-400
-                disabled:cursor-not-allowed
-                disabled:opacity-50
-              "
-            />
+            {hasPassword && (
+              <input
+                type="password"
+                value={currentPassword}
+                onChange={(event) => setCurrentPassword(event.target.value)}
+                disabled={isSavingPassword}
+                placeholder={tProfile("current_password")}
+                className="
+                  w-full
+                  rounded-lg
+                  border
+                  border-slate-600
+                  bg-slate-800
+                  px-3
+                  py-2
+                  text-white
+                  outline-none
+                  transition-colors
+                  focus:border-amber-400
+                  disabled:cursor-not-allowed
+                  disabled:opacity-50
+                "
+              />
+            )}
 
             <input
               type="password"
@@ -270,7 +274,9 @@ export default function PasswordSection() {
         ) : (
           <div className="mt-1">
             <div className="flex items-center justify-between gap-4">
-              <p className="text-white">••••••••</p>
+              <p className="text-white">
+                {hasPassword ? "••••••••" : tProfile("password_not_set")}
+              </p>
 
               <button
                 type="button"
@@ -284,7 +290,7 @@ export default function PasswordSection() {
                   hover:text-amber-300
                 "
               >
-                {tProfile("edit")}
+                {hasPassword ? tProfile("edit") : tProfile("set")}
               </button>
             </div>
           </div>
