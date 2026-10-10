@@ -11,6 +11,7 @@ export default function LoginForm({
   onClose,
   onModeChange,
   successMessage,
+  infoMessage,
   onSuccessMessageClear,
 }) {
   const { t, i18n } = useTranslation();
@@ -91,6 +92,26 @@ export default function LoginForm({
           {t("auth.login_form.subtitle_1")}
         </p>
       </div>
+
+      {infoMessage && (
+        <p
+          className="
+            mb-4
+            rounded-lg
+            border
+            border-amber-400/30
+            bg-amber-400/10
+            px-3
+            py-2
+            text-center
+            text-sm
+            text-amber-200
+          "
+          role="alert"
+        >
+          {infoMessage}
+        </p>
+      )}
 
       {successMessage && (
         <p

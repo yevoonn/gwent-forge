@@ -40,7 +40,8 @@
       },
       "google": {
         "button": "Continue with Google",
-        "or": "or"
+        "or": "or",
+        "account_not_linked": "This Google account is not linked to an existing Gwent Forge account. Please log in with your email and password."
       }
     },
     "register_form": {

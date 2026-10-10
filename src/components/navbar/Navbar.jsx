@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { LogIn, LogOut, Menu, User, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -13,6 +13,7 @@ import { useAuth } from "../../hooks/useAuth";
 export default function Navbar() {
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const {
     isAuthenticated,
     isInitializing,
@@ -26,8 +27,18 @@ export default function Navbar() {
     isOpen: false,
     locationKey: null,
   });
+
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
   const [authModalMode, setAuthModalMode] = useState("login");
+
+  const [googleAuthError, setGoogleAuthError] = useState(() => {
+    const searchParams = new URLSearchParams(location.search);
+
+    return searchParams.get("googleAuthError") === "account_not_linked"
+      ? "account_not_linked"
+      : "";
+  });
 
   const openAuthModal = (mode) => {
     setAuthModalMode(mode);
@@ -36,9 +47,34 @@ export default function Navbar() {
 
   const isMobileMenuOpen =
     mobileMenuState.isOpen && mobileMenuState.locationKey === location.key;
+
   const isRequestedAuthModalOpen = Boolean(authModalRequest);
-  const effectiveAuthModalMode = authModalRequest?.mode ?? authModalMode;
+
+  const effectiveAuthModalMode = googleAuthError
+    ? "login"
+    : (authModalRequest?.mode ?? authModalMode);
+
   const effectiveAuthSuccessMessage = authModalRequest?.successMessage ?? "";
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+
+    if (searchParams.get("googleAuthError") !== "account_not_linked") {
+      return;
+    }
+
+    // Remove the OAuth error from the URL after handling it.
+    searchParams.delete("googleAuthError");
+
+    navigate(
+      {
+        pathname: location.pathname,
+        search: searchParams.toString() ? `?${searchParams.toString()}` : "",
+        hash: location.hash,
+      },
+      { replace: true },
+    );
+  }, [location.hash, location.pathname, location.search, navigate]);
 
   return (
     <nav className="relative text-white">
@@ -149,13 +185,24 @@ export default function Navbar() {
       />
 
       <AuthModal
-        isOpen={isAuthModalOpen || isRequestedAuthModalOpen}
+        isOpen={
+          isAuthModalOpen ||
+          isRequestedAuthModalOpen ||
+          Boolean(googleAuthError)
+        }
         mode={effectiveAuthModalMode}
+        infoMessage={
+          googleAuthError === "account_not_linked"
+            ? t("auth.login_form.google.account_not_linked")
+            : ""
+        }
         onClose={() => {
           setIsAuthModalOpen(false);
+          setGoogleAuthError("");
           clearAuthModalRequest();
         }}
         onModeChange={(mode) => {
+          setGoogleAuthError("");
           clearAuthModalRequest();
           setAuthModalMode(mode);
           setIsAuthModalOpen(true);

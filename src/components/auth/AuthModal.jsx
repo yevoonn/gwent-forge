@@ -12,6 +12,7 @@ export default function AuthModal({
   onClose,
   onModeChange,
   successMessage: externalSuccessMessage = "",
+  infoMessage = "",
   onSuccessMessageClear,
 }) {
   const { t } = useTranslation();
@@ -91,6 +92,7 @@ export default function AuthModal({
                 onClose={onClose}
                 onModeChange={() => handleModeChange("register")}
                 successMessage={displayedSuccessMessage}
+                infoMessage={infoMessage}
                 onSuccessMessageClear={() => {
                   setSuccessMessage("");
                   onSuccessMessageClear?.();
@@ -155,6 +157,7 @@ export default function AuthModal({
                   onClose={onClose}
                   onModeChange={() => handleModeChange("register")}
                   successMessage={displayedSuccessMessage}
+                  infoMessage={infoMessage}
                   onSuccessMessageClear={() => {
                     setSuccessMessage("");
                     onSuccessMessageClear?.();

@@ -40,7 +40,8 @@
       },
       "google": {
         "button": "Kontynuuj z Google",
-        "or": "lub"
+        "or": "lub",
+        "account_not_linked": "To konto Google nie jest połączone z istniejącym kontem Gwent Forge. Zaloguj się za pomocą adresu e-mail i hasła."
       }
     },
     "register_form": {
