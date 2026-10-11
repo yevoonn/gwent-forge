@@ -110,7 +110,8 @@
         "missing_token": "Il link per reimpostare la password non è valido o è incompleto.",
         "passwords_do_not_match": "Le password non corrispondono."
       }
-    }
+    },
+    "login_success": "Accesso effettuato con successo!"
   },
 
   "buttons": {

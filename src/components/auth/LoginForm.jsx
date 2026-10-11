@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router";
+import { useToast } from "../../hooks/useToast";
 
 import { API_URL } from "../../config";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
@@ -17,6 +18,7 @@ export default function LoginForm({
   const { t, i18n } = useTranslation();
   const { login, resendVerificationEmail, isLoading } = useAuth();
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -50,6 +52,8 @@ export default function LoginForm({
 
     try {
       await login(formData);
+
+      showToast(t("auth.login_success"));
       onClose();
       navigate("/");
     } catch (error) {

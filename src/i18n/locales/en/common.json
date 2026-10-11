@@ -110,7 +110,8 @@
         "missing_token": "The password reset link is invalid or incomplete.",
         "passwords_do_not_match": "Passwords do not match."
       }
-    }
+    },
+    "login_success": "Logged in successfully!"
   },
 
   "buttons": {
