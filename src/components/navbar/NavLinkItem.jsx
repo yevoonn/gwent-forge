@@ -7,6 +7,7 @@ export default function NavLinkItem({
   onClick,
   mobile = false,
   isButton = false,
+  variant = "default",
 }) {
   const desktopClasses = `
     inline-flex
@@ -14,19 +15,37 @@ export default function NavLinkItem({
     gap-2
     rounded-xl
     border
-    border-slate-700
-    bg-slate-900/70
     px-4
     py-2
     font-cinzel
     transition-all
     duration-200
-    hover:-translate-y-0.5
-    hover:border-amber-400
-    hover:bg-slate-800
-    hover:text-amber-300
-    hover:shadow-lg
-    hover:shadow-amber-500/20
+    ${
+      variant === "accent"
+        ? `
+          border-amber-400/80
+          bg-amber-400
+          text-slate-950
+          shadow-sm
+          shadow-amber-500/10
+          hover:-translate-y-0.5
+          hover:border-amber-300
+          hover:bg-amber-300
+          hover:shadow-lg
+          hover:shadow-amber-500/20
+        `
+        : `
+          border-slate-700
+          bg-slate-900/70
+          text-white
+          hover:-translate-y-0.5
+          hover:border-amber-400
+          hover:bg-slate-800
+          hover:text-amber-300
+          hover:shadow-lg
+          hover:shadow-amber-500/20
+        `
+    }
   `;
 
   const mobileClasses = `
@@ -50,7 +69,12 @@ export default function NavLinkItem({
 
   const content = (
     <>
-      <Icon size={mobile ? 18 : 16} className="shrink-0 text-amber-400" />
+      <Icon
+        size={mobile ? 18 : 16}
+        className={`shrink-0 ${
+          !mobile && variant === "accent" ? "text-slate-950" : "text-amber-400"
+        }`}
+      />
 
       <span>{label}</span>
     </>

@@ -119,6 +119,7 @@ export default function Navbar() {
                       icon={UserPlus2}
                       label={t("navigation.register")}
                       isButton
+                      variant="accent"
                       onClick={() => openAuthModal("register")}
                     />
                   </li>
