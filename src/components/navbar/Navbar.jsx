@@ -9,6 +9,7 @@ import MobileMenu from "./MobileMenu";
 import AuthModal from "../auth/AuthModal";
 
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ export default function Navbar() {
     clearAuthModalRequest,
     clearAuthModalSuccessMessage,
   } = useAuth();
+  const { showToast } = useToast();
 
   const [mobileMenuState, setMobileMenuState] = useState({
     isOpen: false,
@@ -39,6 +41,17 @@ export default function Navbar() {
       ? "account_not_linked"
       : "";
   });
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+
+      navigate("/", { replace: true });
+      showToast(t("auth.logout_success"));
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   const openAuthModal = (mode) => {
     setAuthModalMode(mode);
@@ -139,7 +152,7 @@ export default function Navbar() {
                       icon={LogOut}
                       label={t("navigation.logout")}
                       isButton
-                      onClick={logout}
+                      onClick={handleLogout}
                     />
                   </li>
                 </>

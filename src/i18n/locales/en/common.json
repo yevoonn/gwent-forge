@@ -111,7 +111,8 @@
         "passwords_do_not_match": "Passwords do not match."
       }
     },
-    "login_success": "Logged in successfully!"
+    "login_success": "Logged in successfully!",
+    "logout_success": "You have been logged out successfully."
   },
 
   "buttons": {

@@ -111,7 +111,8 @@
         "passwords_do_not_match": "Hasła nie są takie same."
       }
     },
-    "login_success": "Zalogowano pomyślnie!"
+    "login_success": "Zalogowano pomyślnie!",
+    "logout_success": "Wylogowano pomyślnie."
   },
 
   "buttons": {
