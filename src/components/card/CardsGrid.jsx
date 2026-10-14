@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { SlidersHorizontal, ListChecks } from "lucide-react";
 import { motion } from "motion/react";
 import { deckStatusConfig } from "../../data/deckStatusConfig";
 import useDeckStats from "../../hooks/useDeckStats";
@@ -9,6 +11,8 @@ import DeckStatusPanel from "../ui/DeckStatusPanel";
 import CardDetailsSheet from "../ui/CardDetailsSheet";
 import CardDetailsContent from "./CardDetailsContent";
 import CardsList from "./CardsList";
+import BottomNavBar from "../ui/BottomNavBar";
+import { getIsWarning } from "../../utils/deckStatusHelper";
 
 const leadersContainerVariants = {
   hidden: {},
@@ -52,6 +56,8 @@ export default function CardsGrid({
   cardRange,
   setCardRange,
 }) {
+  const { t } = useTranslation();
+
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
@@ -71,6 +77,8 @@ export default function CardsGrid({
     ...status,
     value: deckStats[status.source],
   }));
+
+  const hasWarnings = statuses.some(getIsWarning);
 
   const handleLeaderClick = (leader) => {
     if (selectedLeader?.code === leader.code) {
@@ -124,6 +132,27 @@ export default function CardsGrid({
 
   const showStatusBars = !isFiltersOpen;
 
+  const hasActiveFilters = Boolean(
+    cardType || cardRange || effectiveShowOnlySelected,
+  );
+
+  const bottomBarActions = [
+    {
+      id: "filters",
+      icon: SlidersHorizontal,
+      label: t("filters.title"),
+      onClick: () => setIsFiltersOpen(true),
+      badge: hasActiveFilters,
+    },
+    {
+      id: "deck-status",
+      icon: ListChecks,
+      label: t("deck_status.title"),
+      onClick: () => setIsStatusPanelExpandedMobile(true),
+      warning: hasWarnings,
+    },
+  ];
+
   return (
     <>
       <div className="flex items-start gap-4 px-6">
@@ -135,9 +164,6 @@ export default function CardsGrid({
               setIsStatusPanelExpandedDesktop((prev) => !prev)
             }
             expandedMobile={isStatusPanelExpandedMobile}
-            onToggleMobile={() =>
-              setIsStatusPanelExpandedMobile((prev) => !prev)
-            }
             onCloseMobile={() => setIsStatusPanelExpandedMobile(false)}
           />
         )}
@@ -205,6 +231,8 @@ export default function CardsGrid({
           </section>
         </div>
       </div>
+
+      <BottomNavBar actions={bottomBarActions} />
 
       <ScrollToTopButton visible={visibleCards.length > 0 && !isFiltersOpen} />
 

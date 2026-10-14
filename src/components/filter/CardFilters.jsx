@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { ArrowLeft, Search, SlidersHorizontal, X } from "lucide-react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
@@ -42,7 +43,8 @@ export default function CardFilters({
         to="/"
         aria-label="Go back"
         className={`
-          flex
+          hidden
+          md:flex
           h-[50px]
           w-[50px]
           shrink-0
@@ -134,7 +136,8 @@ export default function CardFilters({
         aria-label="Open filters"
         onClick={() => setIsFiltersOpen(true)}
         className="
-          flex
+          hidden
+          md:flex
           h-[50px]
           w-[50px]
           shrink-0
@@ -157,17 +160,18 @@ export default function CardFilters({
           hover:bg-slate-800
           hover:shadow-lg
           hover:shadow-amber-500/20
-          sm:w-auto
-          sm:px-4
+          md:w-auto
+          md:px-4
         "
       >
         <SlidersHorizontal size={18} className="text-amber-400" />
 
-        <span className="hidden sm:inline ml-2">{t("filters.title")}</span>
+        <span className="hidden md:inline ml-2">{t("filters.title")}</span>
 
         {(cardType || cardRange || showOnlySelected) && (
           <span
             className="
+              relative
               absolute
               -right-1
               -top-1
@@ -180,22 +184,25 @@ export default function CardFilters({
         )}
       </button>
 
-      <CardFiltersPanel
-        filters={filters}
-        isOpen={isFiltersOpen}
-        onClose={() => setIsFiltersOpen(false)}
-        sortField={sortField}
-        setSortField={setSortField}
-        sortDirection={sortDirection}
-        setSortDirection={setSortDirection}
-        cardType={cardType}
-        setCardType={setCardType}
-        cardRange={cardRange}
-        setCardRange={setCardRange}
-        showOnlySelected={showOnlySelected}
-        setShowOnlySelected={setShowOnlySelected}
-        hasSelectedCards={hasSelectedCards}
-      />
+      {createPortal(
+        <CardFiltersPanel
+          filters={filters}
+          isOpen={isFiltersOpen}
+          onClose={() => setIsFiltersOpen(false)}
+          sortField={sortField}
+          setSortField={setSortField}
+          sortDirection={sortDirection}
+          setSortDirection={setSortDirection}
+          cardType={cardType}
+          setCardType={setCardType}
+          cardRange={cardRange}
+          setCardRange={setCardRange}
+          showOnlySelected={showOnlySelected}
+          setShowOnlySelected={setShowOnlySelected}
+          hasSelectedCards={hasSelectedCards}
+        />,
+        document.body,
+      )}
     </div>
   );
 }

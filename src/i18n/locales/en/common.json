@@ -201,6 +201,10 @@
     }
   },
 
+  "bottom_bar": {
+    "home": "Home"
+  },
+
   "errors": {
     "generic": "Something went wrong.",
     "validation": {

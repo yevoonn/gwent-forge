@@ -201,6 +201,10 @@
     }
   },
 
+  "bottom_bar": {
+    "home": "Strona główna"
+  },
+
   "errors": {
     "generic": "Coś poszło nie tak.",
     "validation": {

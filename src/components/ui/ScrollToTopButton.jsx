@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUp } from "lucide-react";
+import { FLOATING_BOTTOM_OFFSET } from "../../utils/layout";
 
 export default function ScrollToTopButton({ visible }) {
   const [scrolled, setScrolled] = useState(false);
@@ -26,40 +27,17 @@ export default function ScrollToTopButton({ visible }) {
     <AnimatePresence>
       {visible && scrolled && (
         <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.5,
-            y: 120,
-            filter: "blur(8px)",
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            filter: "blur(0px)",
-          }}
-          exit={{
-            opacity: 0,
-            scale: 0.5,
-            y: 120,
-            filter: "blur(8px)",
-          }}
-          transition={{
-            duration: 0.5,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}
-          className="fixed right-6 z-30"
+          initial={{ opacity: 0, scale: 0.5, y: 120, filter: "blur(8px)" }}
+          animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, scale: 0.5, y: 120, filter: "blur(8px)" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ "--bottom-offset": FLOATING_BOTTOM_OFFSET }}
+          className="fixed right-6 bottom-(--bottom-offset) z-30 md:bottom-6"
         >
           <motion.button
             onClick={scrollToTop}
-            whileHover={{
-              scale: 1.12,
-              y: -3,
-            }}
-            whileTap={{
-              scale: 0.92,
-            }}
+            whileHover={{ scale: 1.12, y: -3 }}
+            whileTap={{ scale: 0.92 }}
             className="
               flex
               h-12

@@ -8,7 +8,6 @@ export default function DeckStatusPanel({
   expandedDesktop,
   onToggleDesktop,
   expandedMobile,
-  onToggleMobile,
   onCloseMobile,
 }) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -30,9 +29,7 @@ export default function DeckStatusPanel({
     <DeckStatusDrawer
       statuses={statuses}
       expanded={expandedMobile}
-      onToggle={onToggleMobile}
       onClose={onCloseMobile}
-      hasWarnings={hasWarnings}
     />
   );
 }
