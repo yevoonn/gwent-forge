@@ -168,22 +168,19 @@ export default function AboutPage() {
         className="mt-16"
       >
         <div className="rounded-3xl border border-red-500/30 bg-red-950/20 p-8 backdrop-blur-sm">
-          <div className="flex items-start gap-4">
+          <div className="flex items-center gap-3">
             <div className="rounded-xl bg-red-500/10 p-3 text-red-400">
               <Shield size={24} />
             </div>
+            <h2 className="font-cinzel text-2xl font-semibold text-red-300">
+              {t("disclaimer.title")}
+            </h2>
+          </div>
 
-            <div>
-              <h2 className="font-cinzel text-2xl font-semibold text-red-300">
-                {t("disclaimer.title")}
-              </h2>
-
-              <div className="mt-4 space-y-4 text-slate-300 leading-relaxed">
-                <p>{t("disclaimer.paragraph1")}</p>
-                <p>{t("disclaimer.paragraph2")}</p>
-                <p>{t("disclaimer.paragraph3")}</p>
-              </div>
-            </div>
+          <div className="mt-4 space-y-4 text-slate-300 leading-relaxed">
+            <p>{t("disclaimer.paragraph1")}</p>
+            <p>{t("disclaimer.paragraph2")}</p>
+            <p>{t("disclaimer.paragraph3")}</p>
           </div>
         </div>
       </motion.section>
