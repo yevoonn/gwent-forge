@@ -205,6 +205,14 @@
     "home": "Strona główna"
   },
 
+  "sections": {
+    "leader_title": "Wybierz dowódcę",
+    "leader_hint": "Zaznacz kartę, aby ją wybrać",
+    "cards_title": "Skompletuj talię",
+    "cards_selected": "Wybrane karty: {{selected}}",
+    "cards_hint": "Wybierz karty do swojej talii"
+  },
+
   "errors": {
     "generic": "Coś poszło nie tak.",
     "validation": {

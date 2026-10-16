@@ -205,6 +205,14 @@
     "home": "Home"
   },
 
+  "sections": {
+    "leader_title": "Choose your leader",
+    "leader_hint": "Select a card to choose it",
+    "cards_title": "Build your deck",
+    "cards_selected": "Selected cards: {{selected}}",
+    "cards_hint": "Pick cards for your deck"
+  },
+
   "errors": {
     "generic": "Something went wrong.",
     "validation": {

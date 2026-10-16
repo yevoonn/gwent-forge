@@ -205,6 +205,14 @@
     "home": "Home"
   },
 
+  "sections": {
+    "leader_title": "Scegli il comandante",
+    "leader_hint": "Tocca una carta per sceglierla",
+    "cards_title": "Costruisci il mazzo",
+    "cards_selected": "Carte selezionate: {{selected}}",
+    "cards_hint": "Scegli le carte per il tuo mazzo"
+  },
+
   "errors": {
     "generic": "Qualcosa è andato storto.",
     "validation": {

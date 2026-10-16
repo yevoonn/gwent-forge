@@ -5,7 +5,6 @@ import { fetchFilters } from "../api/filters";
 import useCurrentLanguage from "../hooks/useCurrentLanguage";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import CardsGrid from "../components/card/CardsGrid";
-import CardsHeader from "../components/card/CardsHeader";
 
 export default function CardsPage() {
   const language = useCurrentLanguage();
@@ -111,8 +110,6 @@ export default function CardsPage() {
   return (
     <>
       {loading && <LoadingSpinner />}
-
-      <CardsHeader deckCode={deckCode} />
 
       <CardsGrid
         deckCode={deckCode}

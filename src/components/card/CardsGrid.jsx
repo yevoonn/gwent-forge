@@ -10,6 +10,8 @@ import ScrollToTopButton from "../ui/ScrollToTopButton";
 import DeckStatusPanel from "../ui/DeckStatusPanel";
 import CardDetailsSheet from "../ui/CardDetailsSheet";
 import CardDetailsContent from "./CardDetailsContent";
+import SectionHeading from "../ui/SectionHeading";
+import CardsHeader from "./CardsHeader";
 import CardsList from "./CardsList";
 import BottomNavBar from "../ui/BottomNavBar";
 import { getIsWarning } from "../../utils/deckStatusHelper";
@@ -169,8 +171,16 @@ export default function CardsGrid({
         )}
 
         <div className="mx-auto min-w-0 max-w-screen-2xl flex-1">
+          <CardsHeader deckCode={deckCode} />
           {/* LEADERS */}
-          <section className="pt-0 md:pt-8">
+          <section className="pt-4 md:pt-8" aria-labelledby="leaders-heading">
+            <SectionHeading
+              id="leaders-heading"
+              title={t("sections.leader_title")}
+              subtitle={
+                selectedLeader ? selectedLeader.name : t("sections.leader_hint")
+              }
+            />
             <motion.div
               key="leaders"
               className="flex flex-wrap justify-center gap-8"
@@ -202,7 +212,18 @@ export default function CardsGrid({
           </section>
 
           {/* CARDS GRID */}
-          <section className="pt-8">
+          <section className="pt-12 md:pt-16" aria-labelledby="cards-heading">
+            <SectionHeading
+              id="cards-heading"
+              title={t("sections.cards_title")}
+              subtitle={
+                hasSelectedCards
+                  ? t("sections.cards_selected", {
+                      selected: selectedCards.length,
+                    })
+                  : t("sections.cards_hint")
+              }
+            />
             <CardFilters
               filters={filters}
               search={search}

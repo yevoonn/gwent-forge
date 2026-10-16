@@ -6,23 +6,21 @@ export default function CardsHeader({ deckCode }) {
   const faction = factions.find((f) => f.code === deckCode);
 
   return (
-    <header className="mx-auto flex max-w-screen-2xl justify-center px-6 pt-2 pb-6">
-      <div
+    <header className="flex justify-center pt-2 pb-6">
+      <h1
         className={`
-              text-2xl
-              sm:text-2xl
-              md:text-6xl
-              font-bold
-              tracking-wide
-              font-cinzel
-              ${faction.color}
-            `}
-        style={{
-          textShadow: "0 0 20px currentColor",
-        }}
+          text-center
+          text-2xl
+          font-bold
+          tracking-wide
+          font-cinzel
+          md:text-6xl
+          ${faction.color}
+        `}
+        style={{ textShadow: "0 0 20px currentColor" }}
       >
         {t(`factions.${faction.code}`)}
-      </div>
+      </h1>
     </header>
   );
 }
