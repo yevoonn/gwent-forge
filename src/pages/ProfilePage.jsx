@@ -7,13 +7,14 @@ import ProfileHeader from "../components/profile/ProfileHeader";
 import ProfileInfo from "../components/profile/ProfileInfo";
 import UsernameSection from "../components/profile/UsernameSection";
 import PasswordSection from "../components/profile/PasswordSection";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 
 export default function ProfilePage() {
   const { t: tCommon } = useTranslation("common");
   const { t: tProfile } = useTranslation("profile");
   const { user, loadProfile } = useAuth();
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -25,19 +26,15 @@ export default function ProfilePage() {
         console.error("Profile error:", error);
         setError(error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
 
     fetchProfile();
   }, [loadProfile]);
 
-  if (isLoading) {
-    return (
-      <main className="mx-auto max-w-screen-xl px-6 py-12">
-        <p className="text-slate-400">{tCommon("spinner.text")}</p>
-      </main>
-    );
+  if (loading) {
+    return <LoadingSpinner spinnerText={tCommon("spinner.text")} />;
   }
 
   if (error || !user) {
