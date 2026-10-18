@@ -49,10 +49,6 @@ export default function CardFiltersContent({
 
   return (
     <>
-      <h2 className="mb-4 text-center font-cinzel text-2xl font-bold text-amber-400">
-        {t("filters.title")}
-      </h2>
-
       {/* SHOW ONLY SELECTED */}
       <div className="mb-4">
         <button

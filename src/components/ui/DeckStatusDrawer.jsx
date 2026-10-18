@@ -1,105 +1,23 @@
-import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { X } from "lucide-react";
+import Sheet from "./Sheet";
 import DeckStatusBar from "./DeckStatusBar";
 
 export default function DeckStatusDrawer({ statuses, expanded, onClose }) {
   const { t } = useTranslation();
 
   return (
-    <AnimatePresence>
-      {expanded && (
-        <>
-          {/* BACKDROP */}
-          <motion.div
-            className="fixed inset-0 z-40 bg-black/70"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
+    <Sheet open={expanded} onClose={onClose} title={t("deck_status.title")}>
+      <div className="flex flex-col gap-3">
+        {statuses.map((status) => (
+          <DeckStatusBar
+            key={status.id}
+            {...status}
+            showLabel
+            fullWidth
+            lightweight
           />
-
-          {/* DRAWER */}
-          <motion.div
-            className="
-                fixed
-                bottom-0
-                left-0
-                right-0
-                z-50
-                flex
-                max-h-[75dvh]
-                flex-col
-                overflow-hidden
-                rounded-t-3xl
-                border-t
-                border-slate-700/80
-                bg-gradient-to-b
-                from-slate-900
-                to-slate-950
-                shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.65)]
-                ring-1
-                ring-white/5
-              "
-            style={{ willChange: "transform" }}
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{
-              duration: 0.15,
-            }}
-          >
-            {/* Subtle top accent line */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
-
-            <div className="relative flex h-11 shrink-0 items-center justify-center">
-              {/* Handle */}
-              <div className="h-1.5 w-12 rounded-full bg-slate-600/80" />
-
-              {/* Close button */}
-              <button
-                type="button"
-                onClick={onClose}
-                className="
-                    absolute
-                    right-4
-                    top-1/2
-                    -translate-y-1/2
-                    rounded-xl
-                    p-2
-                    text-slate-400
-                    transition-colors
-                    duration-200
-                    hover:bg-slate-800
-                    hover:text-white
-                    active:scale-95
-                  "
-                aria-label="Close"
-              >
-                <X size={22} />
-              </button>
-            </div>
-
-            <div className="overflow-y-auto px-6 pt-2 pb-[calc(env(safe-area-inset-bottom)+2rem)] [scrollbar-width:thin] [scrollbar-color:theme(colors.slate.700)_transparent]">
-              <h2 className="mb-4 text-center font-cinzel text-2xl font-bold text-amber-400">
-                {t("deck_status.title")}
-              </h2>
-
-              <div className="flex flex-col gap-3">
-                {statuses.map((status) => (
-                  <DeckStatusBar
-                    key={status.id}
-                    {...status}
-                    showLabel
-                    fullWidth
-                    lightweight
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+        ))}
+      </div>
+    </Sheet>
   );
 }
