@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ArrowUp, X } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 const sortFields = [
   { value: "name", label: "filters.sort_fields.name" },
@@ -16,7 +16,6 @@ const rangeIcons = {
 
 export default function CardFiltersContent({
   filters,
-  onClose,
   sortField,
   setSortField,
   sortDirection,
@@ -50,40 +49,9 @@ export default function CardFiltersContent({
 
   return (
     <>
-      {/* MOBILE DRAWER HANDLE */}
-      <div className="mb-4 flex justify-center md:hidden">
-        <div className="h-1.5 w-12 rounded-full bg-slate-600" />
-      </div>
-
-      {/* HEADER */}
-      <div className="mb-4 flex justify-center">
-        <div className="flex items-center gap-2">
-          <h2 className="font-cinzel text-2xl font-bold text-amber-400">
-            {t("filters.title")}
-          </h2>
-        </div>
-
-        <button
-          type="button"
-          onClick={onClose}
-          className="
-                absolute
-                right-4
-                top-4
-                z-10
-                rounded-lg
-                p-1.5
-                text-slate-400
-                transition-colors
-                duration-200
-                hover:text-amber-400
-                cursor-pointer
-              "
-          aria-label="Close"
-        >
-          <X size={22} />
-        </button>
-      </div>
+      <h2 className="mb-4 text-center font-cinzel text-2xl font-bold text-amber-400">
+        {t("filters.title")}
+      </h2>
 
       {/* SHOW ONLY SELECTED */}
       <div className="mb-4">
@@ -253,7 +221,7 @@ export default function CardFiltersContent({
       </div>
 
       {/* RANGE */}
-      <div className="mb-4">
+      <div>
         <label className="mb-2 block text-sm text-slate-300">
           {t("filters.range")}
         </label>
