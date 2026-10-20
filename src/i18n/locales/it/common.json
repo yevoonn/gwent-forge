@@ -205,6 +205,10 @@
     "home": "Home"
   },
 
+  "side_panel": {
+    "home": "Pagina iniziale"
+  },
+
   "sections": {
     "leader_title": "Scegli il comandante",
     "leader_hint": "Tocca una carta per sceglierla",

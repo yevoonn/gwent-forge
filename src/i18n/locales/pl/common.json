@@ -205,6 +205,10 @@
     "home": "Główna"
   },
 
+  "side_panel": {
+    "home": "Strona główna"
+  },
+
   "sections": {
     "leader_title": "Wybierz dowódcę",
     "leader_hint": "Zaznacz kartę, aby ją wybrać",

@@ -3,11 +3,13 @@ import { useTranslation } from "react-i18next";
 import { SlidersHorizontal, ListChecks } from "lucide-react";
 import { motion } from "motion/react";
 import { deckStatusConfig } from "../../data/deckStatusConfig";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import useDeckStats from "../../hooks/useDeckStats";
 import GwentCard from "./GwentCard";
 import CardFilters from "../filter/CardFilters";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
-import DeckStatusPanel from "../ui/DeckStatusPanel";
+import CardsSidePanel from "./CardsSidePanel";
+import DeckStatusDrawer from "../ui/DeckStatusDrawer";
 import CardDetailsSheet from "../ui/CardDetailsSheet";
 import CardDetailsContent from "./CardDetailsContent";
 import SectionHeading from "../ui/SectionHeading";
@@ -59,6 +61,7 @@ export default function CardsGrid({
   setCardRange,
 }) {
   const { t } = useTranslation();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -132,11 +135,24 @@ export default function CardsGrid({
 
   const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
 
-  const showStatusBars = !isFiltersOpen;
-
   const hasActiveFilters = Boolean(
     cardType || cardRange || effectiveShowOnlySelected,
   );
+
+  const filterProps = {
+    filters,
+    sortField,
+    setSortField,
+    sortDirection,
+    setSortDirection,
+    cardType,
+    setCardType,
+    cardRange,
+    setCardRange,
+    showOnlySelected: effectiveShowOnlySelected,
+    setShowOnlySelected,
+    hasSelectedCards,
+  };
 
   const bottomBarActions = [
     {
@@ -158,15 +174,15 @@ export default function CardsGrid({
   return (
     <>
       <div className="flex items-start gap-4 px-6">
-        {showStatusBars && (
-          <DeckStatusPanel
+        {isDesktop && (
+          <CardsSidePanel
+            expanded={isStatusPanelExpandedDesktop}
+            onToggle={() => setIsStatusPanelExpandedDesktop((prev) => !prev)}
             statuses={statuses}
-            expandedDesktop={isStatusPanelExpandedDesktop}
-            onToggleDesktop={() =>
-              setIsStatusPanelExpandedDesktop((prev) => !prev)
-            }
-            expandedMobile={isStatusPanelExpandedMobile}
-            onCloseMobile={() => setIsStatusPanelExpandedMobile(false)}
+            hasWarnings={hasWarnings}
+            search={search}
+            setSearch={setSearch}
+            filterProps={filterProps}
           />
         )}
 
@@ -224,24 +240,15 @@ export default function CardsGrid({
                   : t("sections.cards_hint")
               }
             />
-            <CardFilters
-              filters={filters}
-              search={search}
-              setSearch={setSearch}
-              sortField={sortField}
-              setSortField={setSortField}
-              sortDirection={sortDirection}
-              cardType={cardType}
-              setCardType={setCardType}
-              cardRange={cardRange}
-              setCardRange={setCardRange}
-              setSortDirection={setSortDirection}
-              isFiltersOpen={isFiltersOpen}
-              setIsFiltersOpen={setIsFiltersOpen}
-              showOnlySelected={effectiveShowOnlySelected}
-              setShowOnlySelected={setShowOnlySelected}
-              hasSelectedCards={hasSelectedCards}
-            />
+            {!isDesktop && (
+              <CardFilters
+                search={search}
+                setSearch={setSearch}
+                isFiltersOpen={isFiltersOpen}
+                setIsFiltersOpen={setIsFiltersOpen}
+                {...filterProps}
+              />
+            )}
             <CardsList
               cards={visibleCards}
               deckCode={deckCode}
@@ -254,6 +261,14 @@ export default function CardsGrid({
       </div>
 
       <BottomNavBar actions={bottomBarActions} />
+
+      {!isDesktop && (
+        <DeckStatusDrawer
+          statuses={statuses}
+          expanded={isStatusPanelExpandedMobile}
+          onClose={() => setIsStatusPanelExpandedMobile(false)}
+        />
+      )}
 
       <ScrollToTopButton visible={visibleCards.length > 0 && !isFiltersOpen} />
 

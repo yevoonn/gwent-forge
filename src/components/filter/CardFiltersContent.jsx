@@ -195,7 +195,6 @@ export default function CardFiltersContent({
                 items-center
                 justify-center
                 h-10
-                min-w-[80px]
                 rounded-lg
                 px-3
                 py-2

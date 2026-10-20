@@ -205,6 +205,10 @@
     "home": "Home"
   },
 
+  "side_panel": {
+    "home": "Home page"
+  },
+
   "sections": {
     "leader_title": "Choose your leader",
     "leader_hint": "Select a card to choose it",
