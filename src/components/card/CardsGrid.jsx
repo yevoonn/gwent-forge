@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SlidersHorizontal, ListChecks } from "lucide-react";
+import { useAuth } from "../../hooks/useAuth";
+import { SlidersHorizontal, ListChecks, Save } from "lucide-react";
 import { motion } from "motion/react";
 import { deckStatusConfig } from "../../data/deckStatusConfig";
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -16,6 +17,7 @@ import SectionHeading from "../ui/SectionHeading";
 import CardsHeader from "./CardsHeader";
 import CardsList from "./CardsList";
 import BottomNavBar from "../ui/BottomNavBar";
+import SaveDeckModal from "./SaveDeckModal";
 import { getIsWarning } from "../../utils/deckStatusHelper";
 
 const leadersContainerVariants = {
@@ -61,8 +63,10 @@ export default function CardsGrid({
   setCardRange,
 }) {
   const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
+  const [isSaveDeckOpen, setIsSaveDeckOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
@@ -169,6 +173,16 @@ export default function CardsGrid({
       onClick: () => setIsStatusPanelExpandedMobile(true),
       warning: hasWarnings,
     },
+    ...(isAuthenticated
+      ? [
+          {
+            id: "save-deck",
+            icon: Save,
+            label: t("save_deck.short"),
+            onClick: () => setIsSaveDeckOpen(true),
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -183,6 +197,8 @@ export default function CardsGrid({
             search={search}
             setSearch={setSearch}
             filterProps={filterProps}
+            canSaveDeck={isAuthenticated}
+            onSaveDeck={() => setIsSaveDeckOpen(true)}
           />
         )}
 
@@ -261,6 +277,13 @@ export default function CardsGrid({
       </div>
 
       <BottomNavBar actions={bottomBarActions} />
+
+      {isAuthenticated && (
+        <SaveDeckModal
+          open={isSaveDeckOpen}
+          onClose={() => setIsSaveDeckOpen(false)}
+        />
+      )}
 
       {!isDesktop && (
         <DeckStatusDrawer

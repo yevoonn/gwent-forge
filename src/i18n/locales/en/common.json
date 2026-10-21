@@ -209,6 +209,17 @@
     "home": "Home page"
   },
 
+  "save_deck": {
+    "open": "Create deck",
+    "short": "Save",
+    "title": "Save deck",
+    "name_label": "Deck name",
+    "name_placeholder": "e.g. Northern Realms - Rush",
+    "description_label": "Deck description",
+    "description_placeholder": "A short description of the strategy, card combos...",
+    "submit": "Save"
+  },
+
   "sections": {
     "leader_title": "Choose your leader",
     "leader_hint": "Select a card to choose it",

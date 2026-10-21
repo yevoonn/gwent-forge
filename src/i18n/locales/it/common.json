@@ -209,6 +209,17 @@
     "home": "Pagina iniziale"
   },
 
+  "save_deck": {
+    "open": "Crea mazzo",
+    "short": "Salva",
+    "title": "Salva mazzo",
+    "name_label": "Nome del mazzo",
+    "name_placeholder": "es. Regni del Nord - Rush",
+    "description_label": "Descrizione del mazzo",
+    "description_placeholder": "Una breve descrizione della strategia, combo di carte...",
+    "submit": "Salva"
+  },
+
   "sections": {
     "leader_title": "Scegli il comandante",
     "leader_hint": "Tocca una carta per sceglierla",

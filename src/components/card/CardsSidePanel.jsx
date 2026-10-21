@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { ChevronLeft, ChevronRight, Home, Save } from "lucide-react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import CardSearchInput from "../filter/CardSearchInput";
@@ -30,6 +30,8 @@ export default function CardsSidePanel({
   search,
   setSearch,
   filterProps,
+  canSaveDeck,
+  onSaveDeck,
 }) {
   const { t } = useTranslation();
 
@@ -135,6 +137,34 @@ export default function CardsSidePanel({
                 <DeckStatusBar key={status.id} {...status} fullWidth />
               ))}
             </div>
+
+            {canSaveDeck && (
+              <button
+                type="button"
+                onClick={onSaveDeck}
+                className="
+                  mt-4
+                  flex
+                  h-12
+                  w-full
+                  cursor-pointer
+                  items-center
+                  justify-center
+                  gap-2
+                  rounded-xl
+                  bg-amber-400
+                  font-bold
+                  text-black
+                  transition-all
+                  duration-200
+                  hover:bg-amber-300
+                  active:scale-[0.98]
+                "
+              >
+                <Save size={18} />
+                {t("save_deck.open")}
+              </button>
+            )}
           </section>
         </div>
       </motion.div>

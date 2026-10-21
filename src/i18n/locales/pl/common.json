@@ -209,6 +209,17 @@
     "home": "Strona główna"
   },
 
+  "save_deck": {
+    "open": "Utwórz talię",
+    "short": "Zapisz",
+    "title": "Zapisz talię",
+    "name_label": "Nazwa talii",
+    "name_placeholder": "np. Północne Królestwa - Rush",
+    "description_label": "Opis talii",
+    "description_placeholder": "Krótki opis strategii, kombinacji kart...",
+    "submit": "Zapisz"
+  },
+
   "sections": {
     "leader_title": "Wybierz dowódcę",
     "leader_hint": "Zaznacz kartę, aby ją wybrać",
