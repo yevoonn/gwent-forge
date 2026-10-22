@@ -112,6 +112,7 @@ export default function CardsPage() {
       {loading && <LoadingSpinner />}
 
       <CardsGrid
+        key={deckCode}
         deckCode={deckCode}
         leaders={leaders}
         cards={cards}

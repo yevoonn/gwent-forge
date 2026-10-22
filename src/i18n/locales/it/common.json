@@ -217,7 +217,12 @@
     "name_placeholder": "es. Regni Settentrionali - Attacco",
     "description_label": "Descrizione del mazzo",
     "description_placeholder": "Una breve descrizione della strategia, combo di carte...",
-    "submit": "Salva"
+    "submit": "Salva",
+    "saving": "Salvataggio...",
+    "success": "Mazzo salvato",
+    "session_expired": "La sessione è scaduta. Accedi di nuovo.",
+    "hint_no_cards": "Seleziona un comandante o almeno una carta per salvare il mazzo.",
+    "hint_too_many": "Un mazzo può contenere al massimo {{max}} carte."
   },
 
   "sections": {
@@ -249,7 +254,11 @@
       "PASSWORD_RESET_TOKEN_USED": "Questo link per reimpostare la password è già stato utilizzato.",
       "PASSWORD_RESET_TOKEN_EXPIRED": "Questo link per reimpostare la password è scaduto.",
       "newPassword_too_small": "La password deve contenere almeno 8 caratteri.",
-      "newPassword_too_big": "La password può contenere al massimo 128 caratteri."
+      "newPassword_too_big": "La password può contenere al massimo 128 caratteri.",
+      "VALIDATION_ERROR": "Verifica l'esattezza dei dati inseriti.",
+      "DECK_NOT_FOUND": "Il mazzo selezionato non è stato trovato.",
+      "CARD_NOT_IN_DECK_POOL": "Una delle carte selezionate non appartiene a questo mazzo.",
+      "USER_DECK_NOT_FOUND": "Nessun mazzo trovato."
     }
   }
 }

@@ -30,6 +30,7 @@ export async function apiFetch(endpoint, options = {}) {
     // Preserve the structured error information returned by the API.
     // These values will later be used to map backend errors
     // to frontend translation keys.
+    error.status = response.status;
     error.code = data?.error?.code;
     error.details = data?.error?.details;
 

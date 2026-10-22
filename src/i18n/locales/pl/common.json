@@ -217,7 +217,12 @@
     "name_placeholder": "np. Królestwa Północy - Atak",
     "description_label": "Opis talii",
     "description_placeholder": "Krótki opis strategii, kombinacji kart...",
-    "submit": "Zapisz"
+    "submit": "Zapisz",
+    "saving": "Zapisywanie...",
+    "success": "Talia została zapisana",
+    "session_expired": "Sesja wygasła. Zaloguj się ponownie.",
+    "hint_no_cards": "Wybierz lidera lub przynajmniej jedną kartę, aby zapisać talię.",
+    "hint_too_many": "Talia może zawierać maksymalnie {{max}} kart."
   },
 
   "sections": {
@@ -249,7 +254,11 @@
       "PASSWORD_RESET_TOKEN_USED": "Ten link do resetowania hasła został już wykorzystany.",
       "PASSWORD_RESET_TOKEN_EXPIRED": "Ten link do resetowania hasła wygasł.",
       "newPassword_too_small": "Hasło musi zawierać co najmniej 8 znaków.",
-      "newPassword_too_big": "Hasło może zawierać maksymalnie 128 znaków."
+      "newPassword_too_big": "Hasło może zawierać maksymalnie 128 znaków.",
+      "VALIDATION_ERROR": "Sprawdź poprawność wprowadzonych danych.",
+      "DECK_NOT_FOUND": "Nie znaleziono wybranej talii.",
+      "CARD_NOT_IN_DECK_POOL": "Jedna z wybranych kart nie należy do tej talii.",
+      "USER_DECK_NOT_FOUND": "Nie znaleziono talii."
     }
   }
 }

@@ -217,7 +217,12 @@
     "name_placeholder": "e.g. Northern Realms - Rush",
     "description_label": "Deck description",
     "description_placeholder": "A short description of the strategy, card combos...",
-    "submit": "Save"
+    "submit": "Save",
+    "saving": "Saving...",
+    "success": "Deck saved",
+    "session_expired": "Your session has expired. Please log in again.",
+    "hint_no_cards": "Select a leader or at least one card to save the deck.",
+    "hint_too_many": "A deck can contain at most {{max}} cards."
   },
 
   "sections": {
@@ -249,7 +254,11 @@
       "PASSWORD_RESET_TOKEN_USED": "This password reset link has already been used.",
       "PASSWORD_RESET_TOKEN_EXPIRED": "This password reset link has expired.",
       "newPassword_too_small": "Password must contain at least 8 characters.",
-      "newPassword_too_big": "Password must contain at most 128 characters."
+      "newPassword_too_big": "Password must contain at most 128 characters.",
+      "VALIDATION_ERROR": "Check the accuracy of the entered data.",
+      "DECK_NOT_FOUND": "The selected deck was not found.",
+      "CARD_NOT_IN_DECK_POOL": "One of the selected cards does not belong to this deck.",
+      "USER_DECK_NOT_FOUND": "No deck found."
     }
   }
 }

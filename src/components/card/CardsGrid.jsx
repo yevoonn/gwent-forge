@@ -139,6 +139,15 @@ export default function CardsGrid({
 
   const isLeaderSelected = (leader) => selectedLeader?.code === leader.code;
 
+  const deckId = leaders[0]?.deck?.id ?? cards[0]?.deck?.id;
+
+  const deckCardCodes = [
+    ...new Set([
+      ...(selectedLeader ? [selectedLeader.code] : []),
+      ...selectedCards.map((card) => card.code),
+    ]),
+  ];
+
   const hasActiveFilters = Boolean(
     cardType || cardRange || effectiveShowOnlySelected,
   );
@@ -282,6 +291,8 @@ export default function CardsGrid({
         <SaveDeckModal
           open={isSaveDeckOpen}
           onClose={() => setIsSaveDeckOpen(false)}
+          deckId={deckId}
+          cardCodes={deckCardCodes}
         />
       )}
 
