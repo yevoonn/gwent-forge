@@ -10,7 +10,8 @@
     "login": "Login",
     "logout": "Logout",
     "register": "Register",
-    "profile": "My account"
+    "profile": "My account",
+    "home": "Home page"
   },
 
   "auth": {
@@ -205,10 +206,6 @@
     "home": "Home"
   },
 
-  "side_panel": {
-    "home": "Home page"
-  },
-
   "save_deck": {
     "open": "Create deck",
     "short": "Save",
@@ -230,7 +227,6 @@
 
   "user_deck": {
     "not_found": "Deck not found",
-    "home": "Home page",
     "not_found_description": "This deck doesn't exist or you don't have access to it."
   },
 

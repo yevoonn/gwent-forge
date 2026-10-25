@@ -10,7 +10,8 @@
     "login": "Logowanie",
     "logout": "Wyloguj",
     "register": "Rejstracja",
-    "profile": "Moje konto"
+    "profile": "Moje konto",
+    "home": "Strona główna"
   },
 
   "auth": {
@@ -205,10 +206,6 @@
     "home": "Główna"
   },
 
-  "side_panel": {
-    "home": "Strona główna"
-  },
-
   "save_deck": {
     "open": "Utwórz talię",
     "short": "Zapisz",
@@ -230,7 +227,6 @@
 
   "user_deck": {
     "not_found": "Nie znaleziono talii",
-    "home": "Strona główna",
     "not_found_description": "Ta talia nie istnieje lub nie masz do niej dostępu."
   },
 

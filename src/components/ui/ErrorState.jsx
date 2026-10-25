@@ -6,18 +6,20 @@ export default function ErrorState({ icon: Icon, title, description }) {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
-      <div className="flex max-w-sm flex-col items-center">
-        <span className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-slate-700 bg-slate-900/70 text-amber-400 shadow-lg shadow-amber-500/10">
-          <Icon size={36} />
-        </span>
+    <div className="flex flex-1 items-center justify-center px-6 py-12">
+      <div className="w-full max-w-md rounded-3xl border border-slate-700 bg-slate-900/60 p-8 text-center backdrop-blur-sm">
+        {Icon && (
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-amber-400/10 text-amber-400">
+            <Icon size={28} />
+          </div>
+        )}
 
-        <h1 className="font-cinzel text-2xl font-bold text-amber-400">
+        <h1 className="font-cinzel text-2xl font-semibold text-white">
           {title}
         </h1>
 
         {description && (
-          <p className="mt-3 text-sm text-slate-400">{description}</p>
+          <p className="mt-3 leading-relaxed text-slate-400">{description}</p>
         )}
 
         <Link
@@ -41,7 +43,7 @@ export default function ErrorState({ icon: Icon, title, description }) {
           "
         >
           <Home size={18} />
-          {t("user_deck.home")}
+          {t("navigation.home")}
         </Link>
       </div>
     </div>

@@ -110,7 +110,7 @@ export default function CardsSidePanel({
             </span>
 
             <span className="text-sm font-bold text-slate-200 transition-colors group-hover:text-amber-300">
-              {t("side_panel.home")}
+              {t("navigation.home")}
             </span>
           </Link>
 

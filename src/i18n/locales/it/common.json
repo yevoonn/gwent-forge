@@ -10,7 +10,8 @@
     "login": "Login",
     "logout": "Esci",
     "register": "Registro",
-    "profile": "Il mio conto"
+    "profile": "Il mio conto",
+    "home": "Pagina iniziale"
   },
 
   "auth": {
@@ -205,10 +206,6 @@
     "home": "Home"
   },
 
-  "side_panel": {
-    "home": "Pagina iniziale"
-  },
-
   "save_deck": {
     "open": "Crea mazzo",
     "short": "Salva",
@@ -230,7 +227,6 @@
 
   "user_deck": {
     "not_found": "Mazzo non trovato",
-    "home": "Pagina iniziale",
     "not_found_description": "Questo mazzo non esiste o non hai accesso."
   },
 
