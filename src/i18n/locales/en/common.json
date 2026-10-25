@@ -229,7 +229,9 @@
   },
 
   "user_deck": {
-    "not_found": "Deck not found."
+    "not_found": "Deck not found",
+    "home": "Home page",
+    "not_found_description": "This deck doesn't exist or you don't have access to it."
   },
 
   "sections": {

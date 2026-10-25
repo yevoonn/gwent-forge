@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { fetchUserDeck } from "../api/userDecks";
 import { useAuth } from "../hooks/useAuth";
@@ -7,6 +7,8 @@ import useCurrentLanguage from "../hooks/useCurrentLanguage";
 import { getApiErrorMessage } from "../utils/apiErrorMessageHelper";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import DeckBuilder from "../components/card/DeckBuilder";
+import { SearchX, TriangleAlert } from "lucide-react";
+import ErrorState from "../components/ui/ErrorState";
 
 function UserDeckView({ userDeckId }) {
   const { t } = useTranslation();
@@ -53,23 +55,18 @@ function UserDeckView({ userDeckId }) {
   }, [authenticatedFetch, isAuthenticated, userDeckId, loadLanguage]);
 
   if (error) {
-    // Return 404 if the deck does not exist or belongs to another user,
-    // without distinguishing between the two cases.
+    // 404 means the deck does not exist or belongs to another user,
+    // and the two cases are intentionally not distinguished.
     const isNotFound = error.status === 404 || error.status === 400;
 
-    return (
-      <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
-        <p className="font-cinzel text-2xl font-bold text-amber-400">
-          {isNotFound ? t("user_deck.not_found") : getApiErrorMessage(error, t)}
-        </p>
-
-        <Link
-          to="/"
-          className="text-slate-300 underline transition-colors hover:text-amber-300"
-        >
-          {t("bottom_bar.home")}
-        </Link>
-      </div>
+    return isNotFound ? (
+      <ErrorState
+        icon={SearchX}
+        title={t("user_deck.not_found")}
+        description={t("user_deck.not_found_description")}
+      />
+    ) : (
+      <ErrorState icon={TriangleAlert} title={getApiErrorMessage(error, t)} />
     );
   }
 

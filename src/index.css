@@ -69,3 +69,11 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 767px) {
+  html.has-bottom-bar .app-shell {
+    padding-bottom: calc(
+      var(--bottom-bar-height) + env(safe-area-inset-bottom)
+    );
+  }
+}

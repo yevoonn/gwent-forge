@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
 import { Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -54,6 +55,18 @@ function ItemContent({ icon: Icon, label, active, badge, warning }) {
 
 export default function BottomNavBar({ actions = [] }) {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const root = document.documentElement;
+
+    root.style.setProperty("--bottom-bar-height", BOTTOM_BAR_HEIGHT);
+    root.classList.add("has-bottom-bar");
+
+    return () => {
+      root.classList.remove("has-bottom-bar");
+      root.style.removeProperty("--bottom-bar-height");
+    };
+  }, []);
 
   return (
     <nav

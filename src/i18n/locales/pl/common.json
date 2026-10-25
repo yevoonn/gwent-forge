@@ -229,7 +229,9 @@
   },
 
   "user_deck": {
-    "not_found": "Nie znaleziono talii."
+    "not_found": "Nie znaleziono talii",
+    "home": "Strona główna",
+    "not_found_description": "Ta talia nie istnieje lub nie masz do niej dostępu."
   },
 
   "sections": {

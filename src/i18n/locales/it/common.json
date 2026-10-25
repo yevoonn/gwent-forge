@@ -229,7 +229,9 @@
   },
 
   "user_deck": {
-    "not_found": "Mazzo non trovato."
+    "not_found": "Mazzo non trovato",
+    "home": "Pagina iniziale",
+    "not_found_description": "Questo mazzo non esiste o non hai accesso."
   },
 
   "sections": {
