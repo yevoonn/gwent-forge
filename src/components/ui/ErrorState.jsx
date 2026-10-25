@@ -1,13 +1,19 @@
 import { Link } from "react-router";
 import { Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 
 export default function ErrorState({ icon: Icon, title, description }) {
   const { t } = useTranslation();
 
   return (
     <div className="flex flex-1 items-center justify-center px-6 py-12">
-      <div className="w-full max-w-md rounded-3xl border border-slate-700 bg-slate-900/60 p-8 text-center backdrop-blur-sm">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-md rounded-3xl border border-slate-700 bg-slate-900/60 p-8 text-center backdrop-blur-sm"
+      >
         {Icon && (
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-amber-400/10 text-amber-400">
             <Icon size={28} />
@@ -45,7 +51,7 @@ export default function ErrorState({ icon: Icon, title, description }) {
           <Home size={18} />
           {t("navigation.home")}
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 }
