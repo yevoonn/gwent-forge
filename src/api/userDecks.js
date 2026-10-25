@@ -21,3 +21,28 @@ export async function createUserDeck({
 
   return data.userDeck;
 }
+
+export async function fetchUserDeck({ accessToken, id, lang = "en" }) {
+  const data = await apiFetch(`/api/user-decks/${id}?lang=${lang}`, {
+    accessToken,
+  });
+
+  return data.userDeck;
+}
+
+export async function updateUserDeck({
+  accessToken,
+  id,
+  lang,
+  name,
+  description,
+  cardCodes,
+}) {
+  const data = await apiFetch(`/api/user-decks/${id}`, {
+    method: "PATCH",
+    accessToken,
+    body: JSON.stringify({ lang, name, description, cardCodes }),
+  });
+
+  return data.userDeck;
+}

@@ -32,6 +32,7 @@ export default function CardsSidePanel({
   filterProps,
   canSaveDeck,
   onSaveDeck,
+  saveLabel,
 }) {
   const { t } = useTranslation();
 
@@ -162,7 +163,7 @@ export default function CardsSidePanel({
                 "
               >
                 <Save size={18} />
-                {t("save_deck.open")}
+                {saveLabel}
               </button>
             )}
           </section>

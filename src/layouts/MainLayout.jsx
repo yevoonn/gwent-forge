@@ -7,7 +7,9 @@ import ScrollToTop from "../components/layout/ScrollToTop";
 import { BOTTOM_BAR_HEIGHT } from "../utils/layout";
 
 export default function MainLayout() {
-  const isCardsPage = useMatch("/cards/:deckCode");
+  const matchCards = useMatch("/cards/:deckCode");
+  const matchUserDeck = useMatch("/decks/:userDeckId");
+  const hasBottomBar = Boolean(matchCards || matchUserDeck);
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function MainLayout() {
       <div
         className="min-h-screen flex flex-col"
         style={
-          isCardsPage
+          hasBottomBar
             ? {
                 "--bar-space": `calc(${BOTTOM_BAR_HEIGHT} + env(safe-area-inset-bottom))`,
               }
@@ -30,7 +32,7 @@ export default function MainLayout() {
           <Outlet />
         </main>
         <Footer />
-        {isCardsPage && (
+        {hasBottomBar && (
           <div className="h-(--bar-space) md:hidden" aria-hidden />
         )}
       </div>

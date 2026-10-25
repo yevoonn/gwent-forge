@@ -6,6 +6,7 @@ import LoadingSpinner from "./components/ui/LoadingSpinner";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const CardsPage = lazy(() => import("./pages/CardsPage"));
+const UserDeckPage = lazy(() => import("./pages/UserDeckPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
@@ -28,6 +29,7 @@ export default function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path="profile" element={<ProfilePage />} />
+            <Route path="decks/:userDeckId" element={<UserDeckPage />} />
           </Route>
         </Route>
       </Routes>

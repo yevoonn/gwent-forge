@@ -222,7 +222,14 @@
     "success": "Talia została zapisana",
     "session_expired": "Sesja wygasła. Zaloguj się ponownie.",
     "hint_no_cards": "Wybierz lidera lub przynajmniej jedną kartę, aby zapisać talię.",
-    "hint_too_many": "Talia może zawierać maksymalnie {{max}} kart."
+    "hint_too_many": "Talia może zawierać maksymalnie {{max}} kart.",
+    "open_edit": "Zapisz zmiany",
+    "title_edit": "Edytuj talię",
+    "success_edit": "Talia została zaktualizowana"
+  },
+
+  "user_deck": {
+    "not_found": "Nie znaleziono talii."
   },
 
   "sections": {
@@ -258,7 +265,8 @@
       "VALIDATION_ERROR": "Sprawdź poprawność wprowadzonych danych.",
       "DECK_NOT_FOUND": "Nie znaleziono wybranej talii.",
       "CARD_NOT_IN_DECK_POOL": "Jedna z wybranych kart nie należy do tej talii.",
-      "USER_DECK_NOT_FOUND": "Nie znaleziono talii."
+      "USER_DECK_NOT_FOUND": "Nie znaleziono talii.",
+      "INVALID_USER_DECK_ID": "Nieprawidłowy identyfikator talii."
     }
   }
 }

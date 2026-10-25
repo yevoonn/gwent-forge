@@ -222,7 +222,14 @@
     "success": "Deck saved",
     "session_expired": "Your session has expired. Please log in again.",
     "hint_no_cards": "Select a leader or at least one card to save the deck.",
-    "hint_too_many": "A deck can contain at most {{max}} cards."
+    "hint_too_many": "A deck can contain at most {{max}} cards.",
+    "open_edit": "Save changes",
+    "title_edit": "Edit deck",
+    "success_edit": "Deck updated"
+  },
+
+  "user_deck": {
+    "not_found": "Deck not found."
   },
 
   "sections": {
@@ -258,7 +265,8 @@
       "VALIDATION_ERROR": "Check the accuracy of the entered data.",
       "DECK_NOT_FOUND": "The selected deck was not found.",
       "CARD_NOT_IN_DECK_POOL": "One of the selected cards does not belong to this deck.",
-      "USER_DECK_NOT_FOUND": "No deck found."
+      "USER_DECK_NOT_FOUND": "No deck found.",
+      "INVALID_USER_DECK_ID": "Invalid deck ID."
     }
   }
 }

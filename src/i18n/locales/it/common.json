@@ -222,7 +222,14 @@
     "success": "Mazzo salvato",
     "session_expired": "La sessione è scaduta. Accedi di nuovo.",
     "hint_no_cards": "Seleziona un comandante o almeno una carta per salvare il mazzo.",
-    "hint_too_many": "Un mazzo può contenere al massimo {{max}} carte."
+    "hint_too_many": "Un mazzo può contenere al massimo {{max}} carte.",
+    "open_edit": "Salva modifiche",
+    "title_edit": "Modifica mazzo",
+    "success_edit": "Mazzo aggiornato"
+  },
+
+  "user_deck": {
+    "not_found": "Mazzo non trovato."
   },
 
   "sections": {
@@ -258,7 +265,8 @@
       "VALIDATION_ERROR": "Verifica l'esattezza dei dati inseriti.",
       "DECK_NOT_FOUND": "Il mazzo selezionato non è stato trovato.",
       "CARD_NOT_IN_DECK_POOL": "Una delle carte selezionate non appartiene a questo mazzo.",
-      "USER_DECK_NOT_FOUND": "Nessun mazzo trovato."
+      "USER_DECK_NOT_FOUND": "Nessun mazzo trovato.",
+      "INVALID_USER_DECK_ID": "ID del mazzo non valido."
     }
   }
 }

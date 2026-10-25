@@ -47,6 +47,7 @@ const cardVariants = {
 };
 
 export default function CardsGrid({
+  userDeck,
   deckCode,
   leaders,
   cards,
@@ -70,12 +71,26 @@ export default function CardsGrid({
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
   const [selectedLeader, setSelectedLeader] = useState(null);
+  const [currentUserDeck, setCurrentUserDeck] = useState(userDeck);
   const [detailsCard, setDetailsCard] = useState(null);
   const [showOnlySelected, setShowOnlySelected] = useState(false);
   const [isStatusPanelExpandedDesktop, setIsStatusPanelExpandedDesktop] =
     useState(true);
   const [isStatusPanelExpandedMobile, setIsStatusPanelExpandedMobile] =
     useState(false);
+  const [isSelectionInitialized, setIsSelectionInitialized] =
+    useState(!userDeck);
+
+  // Initialize the selection from the saved deck once card data is available.
+  if (!isSelectionInitialized && leaders.length > 0 && cards.length > 0) {
+    const savedCodes = new Set(userDeck.cardCodes);
+
+    setIsSelectionInitialized(true);
+    setSelectedLeader(
+      leaders.find((leader) => savedCodes.has(leader.code)) ?? null,
+    );
+    setSelectedCards(cards.filter((card) => savedCodes.has(card.code)));
+  }
 
   const effectiveShowOnlySelected =
     showOnlySelected && selectedCards.length > 0;
@@ -208,6 +223,7 @@ export default function CardsGrid({
             filterProps={filterProps}
             canSaveDeck={isAuthenticated}
             onSaveDeck={() => setIsSaveDeckOpen(true)}
+            saveLabel={t(userDeck ? "save_deck.open_edit" : "save_deck.open")}
           />
         )}
 
@@ -293,6 +309,8 @@ export default function CardsGrid({
           onClose={() => setIsSaveDeckOpen(false)}
           deckId={deckId}
           cardCodes={deckCardCodes}
+          userDeck={currentUserDeck}
+          onSaved={setCurrentUserDeck}
         />
       )}
 
