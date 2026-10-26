@@ -4,6 +4,7 @@ import { AlertCircle, CheckCircle2, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router";
 import { ToastContext } from "./ToastContext";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const TOAST_DURATION = 3000; // ms
 
@@ -30,6 +31,7 @@ export function ToastProvider({ children }) {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   // Restore the Google login success notification after the OAuth redirect.
   const [toast, setToast] = useState(() => {
@@ -100,16 +102,24 @@ export function ToastProvider({ children }) {
     <ToastContext.Provider value={value}>
       {children}
 
-      <div className="pointer-events-none fixed inset-x-0 top-4 z-[200] flex justify-center px-4">
+      <div className="pointer-events-none fixed inset-x-0 top-4 z-[200] flex justify-center px-4 md:top-20 md:justify-end md:px-6">
         <AnimatePresence mode="popLayout">
           {toast && (
             <motion.div
               key={toast.id}
               role={toast.type === "error" ? "alert" : "status"}
               aria-live={toast.type === "error" ? "assertive" : "polite"}
-              initial={{ opacity: 0, y: -32, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -16, scale: 0.97 }}
+              initial={
+                isDesktop
+                  ? { opacity: 0, x: 48 }
+                  : { opacity: 0, y: -32, scale: 0.95 }
+              }
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              exit={
+                isDesktop
+                  ? { opacity: 0, x: 24 }
+                  : { opacity: 0, y: -16, scale: 0.97 }
+              }
               transition={{ type: "spring", damping: 24, stiffness: 320 }}
               className={`
                 pointer-events-auto
