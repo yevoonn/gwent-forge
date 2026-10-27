@@ -6,7 +6,7 @@ export default function CardsHeader({ deckCode }) {
   const faction = factions.find((f) => f.code === deckCode);
 
   return (
-    <header className="flex justify-center pt-12 pb-6">
+    <header className="flex justify-center md:pt-12 pt-2 pb-6">
       <h1
         className={`
           text-center
