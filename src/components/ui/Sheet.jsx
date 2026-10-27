@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useDragControls } from "motion/react";
 import { X } from "lucide-react";
 
 const layers = {
-  default: { backdrop: "z-40", panel: "z-50" },
+  default: { backdrop: "z-[60]", panel: "z-[61]" },
   top: { backdrop: "z-[90]", panel: "z-[91]" },
 };
 

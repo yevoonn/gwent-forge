@@ -90,12 +90,26 @@ export default function Navbar() {
   }, [location.hash, location.pathname, location.search, navigate]);
 
   return (
-    <nav className="relative text-white">
-      <div className="mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="
+    <>
+      <nav
+        className="
+        relative
+        text-white
+        md:sticky
+        md:top-0
+        md:z-50
+        md:h-18
+        md:border-b
+        md:border-slate-800
+        md:bg-slate-950/80
+        md:backdrop-blur-md
+      "
+      >
+        <div className="mx-auto flex items-center justify-between px-6 py-4 md:h-full md:py-0">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="
             inline-flex
             items-center
             gap-3
@@ -104,100 +118,104 @@ export default function Navbar() {
             hover:-translate-y-0.5
             hover:drop-shadow-[0_0_10px_rgba(251,191,36,0.25)]
           "
-        >
-          <img src="/logo.png" alt="Gwent Forge Logo" className="h-8 w-auto" />
+          >
+            <img
+              src="/logo.png"
+              alt="Gwent Forge Logo"
+              className="h-8 w-auto"
+            />
 
-          <span className="hidden font-cinzel text-xl font-semibold sm:inline">
-            Gwent <span className="text-amber-400">Forge</span>
-          </span>
-        </Link>
+            <span className="hidden font-cinzel text-xl font-semibold sm:inline">
+              Gwent <span className="text-amber-400">Forge</span>
+            </span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden items-center gap-4 md:flex">
-          {!isInitializing && (
-            <>
-              {!isAuthenticated ? (
-                <>
-                  <li>
-                    <NavLinkItem
-                      icon={LogIn}
-                      label={t("navigation.login")}
-                      isButton
-                      onClick={() => openAuthModal("login")}
-                    />
-                  </li>
+          {/* Desktop Navigation */}
+          <ul className="hidden items-center gap-4 md:flex">
+            {!isInitializing && (
+              <>
+                {!isAuthenticated ? (
+                  <>
+                    <li>
+                      <NavLinkItem
+                        icon={LogIn}
+                        label={t("navigation.login")}
+                        isButton
+                        onClick={() => openAuthModal("login")}
+                      />
+                    </li>
 
-                  <li>
-                    <NavLinkItem
-                      icon={UserPlus2}
-                      label={t("navigation.register")}
-                      isButton
-                      variant="accent"
-                      onClick={() => openAuthModal("register")}
-                    />
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li>
-                    <NavLinkItem
-                      to="/profile"
-                      icon={User}
-                      label={t("navigation.profile")}
-                    />
-                  </li>
+                    <li>
+                      <NavLinkItem
+                        icon={UserPlus2}
+                        label={t("navigation.register")}
+                        isButton
+                        variant="accent"
+                        onClick={() => openAuthModal("register")}
+                      />
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <NavLinkItem
+                        to="/profile"
+                        icon={User}
+                        label={t("navigation.profile")}
+                      />
+                    </li>
 
-                  <li>
-                    <NavLinkItem
-                      icon={LogOut}
-                      label={t("navigation.logout")}
-                      isButton
-                      onClick={handleLogout}
-                    />
-                  </li>
-                </>
-              )}
-            </>
-          )}
+                    <li>
+                      <NavLinkItem
+                        icon={LogOut}
+                        label={t("navigation.logout")}
+                        isButton
+                        onClick={handleLogout}
+                      />
+                    </li>
+                  </>
+                )}
+              </>
+            )}
 
-          <li>
-            <LanguageSwitcher />
-          </li>
-        </ul>
+            <li>
+              <LanguageSwitcher />
+            </li>
+          </ul>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => {
-            setMobileMenuState({
-              isOpen: !isMobileMenuOpen,
-              locationKey: location.key,
-            });
-          }}
-          className="
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => {
+              setMobileMenuState({
+                isOpen: !isMobileMenuOpen,
+                locationKey: location.key,
+              });
+            }}
+            className="
             p-1
             transition-colors
             duration-200
             hover:text-amber-400
             md:hidden
           "
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
 
-      {/* Mobile Dropdown */}
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() =>
-          setMobileMenuState((prev) => ({
-            ...prev,
-            isOpen: false,
-          }))
-        }
-        onAuthOpen={openAuthModal}
-      />
-
+        {/* Mobile Dropdown */}
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() =>
+            setMobileMenuState((prev) => ({
+              ...prev,
+              isOpen: false,
+            }))
+          }
+          onAuthOpen={openAuthModal}
+        />
+      </nav>
       <AuthModal
         isOpen={
           isAuthModalOpen ||
@@ -226,6 +244,6 @@ export default function Navbar() {
           clearAuthModalSuccessMessage();
         }}
       />
-    </nav>
+    </>
   );
 }

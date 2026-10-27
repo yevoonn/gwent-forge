@@ -37,7 +37,7 @@ export default function CardsSidePanel({
   const { t } = useTranslation();
 
   return (
-    <div className="sticky top-0 z-40 flex h-dvh shrink-0 items-center">
+    <div className="sticky top-18 z-40 flex h-[calc(100dvh-4.5rem)] shrink-0 items-center">
       {/* PANEL */}
       <motion.div
         initial={false}
