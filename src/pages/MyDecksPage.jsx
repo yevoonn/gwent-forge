@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
-import { Layers3, TriangleAlert } from "lucide-react";
+import { Layers3, Trash2, TriangleAlert } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fetchUserDecks } from "../api/userDecks";
 import { useAuth } from "../hooks/useAuth";
@@ -10,8 +10,7 @@ import { getFactionStyle } from "../data/factions";
 import { getApiErrorMessage } from "../utils/apiErrorMessageHelper";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorState from "../components/ui/ErrorState";
-
-const MotionLink = motion.create(Link);
+import DeleteDeckModal from "../components/deck/DeleteDeckModal";
 
 export default function MyDecksPage() {
   const { t } = useTranslation();
@@ -20,6 +19,18 @@ export default function MyDecksPage() {
 
   const [decks, setDecks] = useState(null);
   const [error, setError] = useState(null);
+
+  const [deckToDelete, setDeckToDelete] = useState(null);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+
+  const openDelete = (deck) => {
+    setDeckToDelete(deck);
+    setIsDeleteOpen(true);
+  };
+
+  const handleDeleted = (id) => {
+    setDecks((prev) => prev.filter((deck) => deck.id !== id));
+  };
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -87,42 +98,73 @@ export default function MyDecksPage() {
           const style = getFactionStyle(factionCode);
 
           return (
-            <MotionLink
+            <motion.div
               key={deck.id}
-              to={`/decks/${deck.id}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
               whileHover={{ y: -4 }}
-              className={`group flex h-full flex-col rounded-2xl border p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-[border-color,box-shadow] duration-200 hover:shadow-xl ${style.tile}`}
+              className={`group relative h-full rounded-2xl border shadow-lg shadow-black/20 backdrop-blur-sm transition-[border-color,box-shadow] duration-200 hover:shadow-xl ${style.tile}`}
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div
-                  className={`inline-flex rounded-xl p-3 transition-transform group-hover:scale-105 ${style.icon}`}
-                >
-                  <Layers3 size={24} />
+              <Link
+                to={`/decks/${deck.id}`}
+                className="flex h-full flex-col rounded-2xl p-6"
+              >
+                <div className="mb-4 flex items-center gap-3 pr-10">
+                  <div
+                    className={`inline-flex rounded-xl p-3 transition-transform group-hover:scale-105 ${style.icon}`}
+                  >
+                    <Layers3 size={24} />
+                  </div>
+
+                  <span
+                    className={`text-sm font-bold uppercase tracking-widest ${style.label}`}
+                  >
+                    {t(`factions.${factionCode}`)}
+                  </span>
                 </div>
 
-                <span
-                  className={`text-sm font-bold uppercase tracking-widest ${style.label}`}
-                >
-                  {t(`factions.${factionCode}`)}
-                </span>
-              </div>
+                <h2 className="truncate font-cinzel text-xl font-semibold text-amber-400">
+                  {deck.name}
+                </h2>
 
-              <h2 className="truncate font-cinzel text-xl font-semibold text-amber-400">
-                {deck.name}
-              </h2>
-
-              {deck.description && (
                 <p className="mt-3 line-clamp-3 min-h-[4.875rem] leading-relaxed text-white">
                   {deck.description}
                 </p>
-              )}
-            </MotionLink>
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => openDelete(deck)}
+                aria-label={t("my_decks.delete_title")}
+                title={t("my_decks.delete_title")}
+                className="
+                  absolute
+                  right-3
+                  top-3
+                  cursor-pointer
+                  rounded-lg
+                  p-2
+                  text-slate-400
+                  transition-colors
+                  duration-200
+                  hover:bg-red-500/10
+                  hover:text-red-400
+                "
+              >
+                <Trash2 size={18} />
+              </button>
+            </motion.div>
           );
         })}
       </div>
+
+      <DeleteDeckModal
+        open={isDeleteOpen}
+        onClose={() => setIsDeleteOpen(false)}
+        deck={deckToDelete}
+        onDeleted={handleDeleted}
+      />
     </div>
   );
 }

@@ -54,3 +54,10 @@ export async function updateUserDeck({
 
   return data.userDeck;
 }
+
+export async function deleteUserDeck({ accessToken, id }) {
+  await apiFetch(`/api/user-decks/${id}`, {
+    method: "DELETE",
+    accessToken,
+  });
+}

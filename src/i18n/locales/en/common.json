@@ -235,7 +235,14 @@
     "title": "My decks",
     "subtitle": "Pick a deck to view and edit it",
     "empty_title": "You don't have any decks yet",
-    "empty_description": "Choose a faction, select cards and save your first deck."
+    "empty_description": "Choose a faction, select cards and save your first deck.",
+    "delete_title": "Delete deck",
+    "delete_question": "Are you sure you want to delete this deck?",
+    "delete_warning": "This action cannot be undone.",
+    "delete_confirm": "Delete",
+    "deleting": "Deleting...",
+    "cancel": "Cancel",
+    "delete_success": "Deck deleted"
   },
 
   "sections": {

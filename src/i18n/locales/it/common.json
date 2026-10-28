@@ -235,7 +235,14 @@
     "title": "I miei mazzi",
     "subtitle": "Scegli un mazzo per visualizzarlo e modificarlo",
     "empty_title": "Non hai ancora nessun mazzo",
-    "empty_description": "Scegli una fazione, seleziona le carte e salva il tuo primo mazzo."
+    "empty_description": "Scegli una fazione, seleziona le carte e salva il tuo primo mazzo.",
+    "delete_title": "Elimina mazzo",
+    "delete_question": "Sei sicuro di voler eliminare questo mazzo?",
+    "delete_warning": "Questa azione non può essere annullata.",
+    "delete_confirm": "Elimina",
+    "deleting": "Eliminazione...",
+    "cancel": "Annulla",
+    "delete_success": "Mazzo eliminato"
   },
 
   "sections": {

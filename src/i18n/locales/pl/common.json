@@ -235,7 +235,14 @@
     "title": "Moje talie",
     "subtitle": "Wybierz talię, aby ją przeglądać i edytować",
     "empty_title": "Nie masz jeszcze talii",
-    "empty_description": "Wybierz frakcję, zaznacz karty i zapisz swoją pierwszą talię."
+    "empty_description": "Wybierz frakcję, zaznacz karty i zapisz swoją pierwszą talię.",
+    "delete_title": "Usuń talię",
+    "delete_question": "Czy na pewno chcesz usunąć tę talię?",
+    "delete_warning": "Tej operacji nie można cofnąć.",
+    "delete_confirm": "Usuń",
+    "deleting": "Usuwanie...",
+    "cancel": "Anuluj",
+    "delete_success": "Talia została usunięta"
   },
 
   "sections": {
