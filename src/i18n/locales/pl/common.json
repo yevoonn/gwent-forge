@@ -11,7 +11,8 @@
     "logout": "Wyloguj",
     "register": "Rejstracja",
     "profile": "Moje konto",
-    "home": "Strona główna"
+    "home": "Strona główna",
+    "my_decks": "Moje talie"
   },
 
   "auth": {
@@ -228,6 +229,13 @@
   "user_deck": {
     "not_found": "Nie znaleziono talii",
     "not_found_description": "Ta talia nie istnieje lub nie masz do niej dostępu."
+  },
+
+  "my_decks": {
+    "title": "Moje talie",
+    "subtitle": "Wybierz talię, aby ją przeglądać i edytować",
+    "empty_title": "Nie masz jeszcze talii",
+    "empty_description": "Wybierz frakcję, zaznacz karty i zapisz swoją pierwszą talię."
   },
 
   "sections": {

@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { LogIn, LogOut, User, UserPlus2, X } from "lucide-react";
+import { Layers3, LogIn, LogOut, User, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -90,17 +90,6 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
           {/* Navigation */}
           <div className="flex-1 p-6">
             <div className="space-y-2">
-              {navigationItems.map((item) => (
-                <NavLinkItem
-                  key={item.to}
-                  to={item.to}
-                  icon={item.icon}
-                  label={t(item.key)}
-                  mobile
-                  onClick={onClose}
-                />
-              ))}
-
               {!isInitializing && (
                 <>
                   {!isAuthenticated ? (
@@ -130,6 +119,14 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                   ) : (
                     <>
                       <NavLinkItem
+                        to="/my-decks"
+                        icon={Layers3}
+                        label={t("navigation.my_decks")}
+                        mobile
+                        onClick={onClose}
+                      />
+
+                      <NavLinkItem
                         to="/profile"
                         icon={User}
                         label={t("navigation.profile")}
@@ -149,6 +146,16 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                       />
                     </>
                   )}
+                  {navigationItems.map((item) => (
+                    <NavLinkItem
+                      key={item.to}
+                      to={item.to}
+                      icon={item.icon}
+                      label={t(item.key)}
+                      mobile
+                      onClick={onClose}
+                    />
+                  ))}
                 </>
               )}
             </div>

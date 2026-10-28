@@ -13,6 +13,7 @@ const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const VerifyEmailPage = lazy(() => import("./pages/VerifyEmailPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
+const MyDecksPage = lazy(() => import("./pages/MyDecksPage"));
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path="profile" element={<ProfilePage />} />
+            <Route path="my-decks" element={<MyDecksPage />} />
             <Route path="decks/:userDeckId" element={<UserDeckPage />} />
           </Route>
         </Route>

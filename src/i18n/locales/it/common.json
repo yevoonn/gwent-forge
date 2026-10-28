@@ -11,7 +11,8 @@
     "logout": "Esci",
     "register": "Registro",
     "profile": "Il mio conto",
-    "home": "Pagina iniziale"
+    "home": "Pagina iniziale",
+    "my_decks": "I miei mazzi"
   },
 
   "auth": {
@@ -228,6 +229,13 @@
   "user_deck": {
     "not_found": "Mazzo non trovato",
     "not_found_description": "Questo mazzo non esiste o non hai accesso."
+  },
+
+  "my_decks": {
+    "title": "I miei mazzi",
+    "subtitle": "Scegli un mazzo per visualizzarlo e modificarlo",
+    "empty_title": "Non hai ancora nessun mazzo",
+    "empty_description": "Scegli una fazione, seleziona le carte e salva il tuo primo mazzo."
   },
 
   "sections": {

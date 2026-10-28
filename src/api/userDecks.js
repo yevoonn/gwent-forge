@@ -30,6 +30,14 @@ export async function fetchUserDeck({ accessToken, id, lang = "en" }) {
   return data.userDeck;
 }
 
+export async function fetchUserDecks({ accessToken, lang = "en" }) {
+  const data = await apiFetch(`/api/user-decks?lang=${lang}`, {
+    accessToken,
+  });
+
+  return data.userDecks;
+}
+
 export async function updateUserDeck({
   accessToken,
   id,

@@ -11,7 +11,8 @@
     "logout": "Logout",
     "register": "Register",
     "profile": "My account",
-    "home": "Home page"
+    "home": "Home page",
+    "my_decks": "My decks"
   },
 
   "auth": {
@@ -228,6 +229,13 @@
   "user_deck": {
     "not_found": "Deck not found",
     "not_found_description": "This deck doesn't exist or you don't have access to it."
+  },
+
+  "my_decks": {
+    "title": "My decks",
+    "subtitle": "Pick a deck to view and edit it",
+    "empty_title": "You don't have any decks yet",
+    "empty_description": "Choose a faction, select cards and save your first deck."
   },
 
   "sections": {

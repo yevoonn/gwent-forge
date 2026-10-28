@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router";
-import { LogIn, LogOut, Menu, User, UserPlus2, X } from "lucide-react";
+import { Layers3, LogIn, LogOut, Menu, User, UserPlus2, X } from "lucide-react";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -157,6 +157,13 @@ export default function Navbar() {
                   </>
                 ) : (
                   <>
+                    <li>
+                      <NavLinkItem
+                        to="/my-decks"
+                        icon={Layers3}
+                        label={t("navigation.my_decks")}
+                      />
+                    </li>
                     <li>
                       <NavLinkItem
                         to="/profile"
