@@ -13,18 +13,6 @@ import ErrorState from "../components/ui/ErrorState";
 
 const MotionLink = motion.create(Link);
 
-const DESCRIPTION_MAX_LENGTH = 100;
-
-function truncate(text, max) {
-  if (!text) return "";
-
-  const trimmed = text.trim();
-
-  return trimmed.length > max
-    ? `${trimmed.slice(0, max).trimEnd()}...`
-    : trimmed;
-}
-
 export default function MyDecksPage() {
   const { t } = useTranslation();
   const language = useCurrentLanguage();
@@ -93,14 +81,10 @@ export default function MyDecksPage() {
         <p className="mt-3 text-slate-400">{t("my_decks.subtitle")}</p>
       </motion.header>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid auto-rows-fr gap-6 md:grid-cols-2 xl:grid-cols-3">
         {decks.map((deck, index) => {
           const factionCode = deck.deck.code.toLowerCase();
           const style = getFactionStyle(factionCode);
-          const description = truncate(
-            deck.description,
-            DESCRIPTION_MAX_LENGTH,
-          );
 
           return (
             <MotionLink
@@ -110,7 +94,7 @@ export default function MyDecksPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
               whileHover={{ y: -4 }}
-              className={`group block rounded-2xl border p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-[border-color,box-shadow] duration-200 hover:shadow-xl ${style.tile}`}
+              className={`group flex h-full flex-col rounded-2xl border p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-[border-color,box-shadow] duration-200 hover:shadow-xl ${style.tile}`}
             >
               <div className="mb-4 flex items-center gap-3">
                 <div
@@ -126,12 +110,14 @@ export default function MyDecksPage() {
                 </span>
               </div>
 
-              <h2 className="font-cinzel text-xl font-semibold text-amber-400">
+              <h2 className="truncate font-cinzel text-xl font-semibold text-amber-400">
                 {deck.name}
               </h2>
 
-              {description && (
-                <p className="mt-3 leading-relaxed text-white">{description}</p>
+              {deck.description && (
+                <p className="mt-3 line-clamp-3 min-h-[4.875rem] leading-relaxed text-white">
+                  {deck.description}
+                </p>
               )}
             </MotionLink>
           );

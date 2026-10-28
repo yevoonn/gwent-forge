@@ -10,7 +10,7 @@ import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 import Sheet from "../ui/Sheet";
 
 const NAME_MAX_LENGTH = 255;
-const DESCRIPTION_MAX_LENGTH = 2000;
+const DESCRIPTION_MAX_LENGTH = 255;
 const MAX_CARDS = 200;
 
 const fieldClasses = `
