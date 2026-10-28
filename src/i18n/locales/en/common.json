@@ -113,6 +113,13 @@
         "passwords_do_not_match": "Passwords do not match."
       }
     },
+    "in_app_browser": {
+      "message": "Google doesn't allow signing in from a browser built into an app (such as Facebook). Open this page in your regular browser or sign in with email and password.",
+      "open": "Open in Chrome",
+      "copy": "Copy link",
+      "copied": "Copied",
+      "ios_hint": "Tap the menu icon (⋯) in the corner and choose “Open in Safari”."
+    },
     "login_success": "Logged in successfully!",
     "logout_success": "You have been logged out successfully."
   },

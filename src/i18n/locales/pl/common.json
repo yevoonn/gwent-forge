@@ -113,6 +113,13 @@
         "passwords_do_not_match": "Hasła nie są takie same."
       }
     },
+    "in_app_browser": {
+      "message": "Google nie pozwala logować się w przeglądarce wbudowanej w aplikację (np. Facebooka). Otwórz tę stronę w zwykłej przeglądarce lub zaloguj się e-mailem i hasłem.",
+      "open": "Otwórz w Chrome",
+      "copy": "Kopiuj link",
+      "copied": "Skopiowano",
+      "ios_hint": "Stuknij ikonę menu (⋯) w rogu ekranu i wybierz „Otwórz w Safari”."
+    },
     "login_success": "Zalogowano pomyślnie!",
     "logout_success": "Wylogowano pomyślnie."
   },

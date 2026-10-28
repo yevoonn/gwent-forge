@@ -113,6 +113,13 @@
         "passwords_do_not_match": "Le password non corrispondono."
       }
     },
+    "in_app_browser": {
+      "message": "Google non consente l'accesso da un browser integrato in un'app (come Facebook). Apri questa pagina nel browser abituale oppure accedi con e-mail e password.",
+      "open": "Apri in Chrome",
+      "copy": "Copia link",
+      "copied": "Copiato",
+      "ios_hint": "Tocca l'icona del menu (⋯) nell'angolo e scegli «Apri in Safari»."
+    },
     "login_success": "Accesso effettuato con successo!",
     "logout_success": "Hai effettuato correttamente il logout."
   },

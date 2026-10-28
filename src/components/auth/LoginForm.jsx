@@ -7,6 +7,8 @@ import { useToast } from "../../hooks/useToast";
 import { API_URL } from "../../config";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 import { GoogleIcon } from "../ui/GoogleIcon";
+import { isInAppBrowser } from "../../utils/inAppBrowser";
+import InAppBrowserNotice from "./InAppBrowserNotice";
 
 export default function LoginForm({
   onClose,
@@ -19,6 +21,8 @@ export default function LoginForm({
   const { login, resendVerificationEmail, isLoading } = useAuth();
   const navigate = useNavigate();
   const { showToast } = useToast();
+
+  const inApp = isInAppBrowser();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -137,10 +141,13 @@ export default function LoginForm({
         </p>
       )}
 
-      <button
-        type="button"
-        onClick={handleGoogleLogin}
-        className="
+      {inApp ? (
+        <InAppBrowserNotice />
+      ) : (
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          className="
           flex
           w-full
           items-center
@@ -159,10 +166,11 @@ export default function LoginForm({
           hover:bg-slate-800
           cursor-pointer
         "
-      >
-        <GoogleIcon size={18} />
-        {t("auth.login_form.google.button")}
-      </button>
+        >
+          <GoogleIcon size={18} />
+          {t("auth.login_form.google.button")}
+        </button>
+      )}
 
       <div className="my-5 flex items-center gap-3">
         <div className="h-px flex-1 bg-slate-700" />

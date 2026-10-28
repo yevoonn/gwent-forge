@@ -5,10 +5,14 @@ import { useAuth } from "../../hooks/useAuth";
 import { API_URL } from "../../config";
 import { getApiErrorMessage } from "../../utils/apiErrorMessageHelper";
 import { GoogleIcon } from "../ui/GoogleIcon";
+import { isInAppBrowser } from "../../utils/inAppBrowser";
+import InAppBrowserNotice from "./InAppBrowserNotice";
 
 export default function RegisterForm({ onModeChange, onSuccess }) {
   const { t, i18n } = useTranslation();
   const { register, isLoading } = useAuth();
+
+  const inApp = isInAppBrowser();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -60,10 +64,13 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
         </p>
       </div>
 
-      <button
-        type="button"
-        onClick={handleGoogleLogin}
-        className="
+      {inApp ? (
+        <InAppBrowserNotice />
+      ) : (
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          className="
           flex
           w-full
           items-center
@@ -82,10 +89,11 @@ export default function RegisterForm({ onModeChange, onSuccess }) {
           hover:bg-slate-800
           cursor-pointer
         "
-      >
-        <GoogleIcon size={18} />
-        {t("auth.login_form.google.button")}
-      </button>
+        >
+          <GoogleIcon size={18} />
+          {t("auth.login_form.google.button")}
+        </button>
+      )}
 
       <div className="my-5 flex items-center gap-3">
         <div className="h-px flex-1 bg-slate-700" />
