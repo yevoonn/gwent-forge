@@ -25,7 +25,7 @@ const sheetClasses = `
   fixed
   inset-x-0
   bottom-0
-  max-h-[85dvh]
+  max-h-[75dvh]
   rounded-t-3xl
   border-t
   shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.65)]
@@ -173,7 +173,7 @@ export default function Sheet({
               </div>
 
               <div
-                className={`${scrollClasses} px-6 pt-2 pb-[calc(env(safe-area-inset-bottom)+2rem)]`}
+                className={`${scrollClasses} flex-1 px-6 pt-2 pb-[calc(env(safe-area-inset-bottom)+2rem)]`}
               >
                 {title && <Title>{title}</Title>}
                 {children}
