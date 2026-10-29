@@ -59,6 +59,8 @@ export default function AuthModal({
               bg-slate-950/95
               p-6
               md:hidden
+              max-h-[90dvh]
+              overflow-y-auto
             "
             style={{ willChange: "transform" }}
             initial={{ y: "100%" }}
