@@ -260,6 +260,11 @@
     "cards_hint": "Scegli le carte per il tuo mazzo"
   },
 
+  "not_found_page": {
+    "title": "Pagina non trovata",
+    "description": "La pagina che cerchi non esiste o è stata spostata."
+  },
+
   "errors": {
     "generic": "Qualcosa è andato storto.",
     "validation": {

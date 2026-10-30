@@ -260,6 +260,11 @@
     "cards_hint": "Pick cards for your deck"
   },
 
+  "not_found_page": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved."
+  },
+
   "errors": {
     "generic": "Something went wrong.",
     "validation": {

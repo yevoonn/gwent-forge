@@ -14,6 +14,7 @@ const VerifyEmailPage = lazy(() => import("./pages/VerifyEmailPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const MyDecksPage = lazy(() => import("./pages/MyDecksPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 export default function App() {
   return (
@@ -33,6 +34,8 @@ export default function App() {
             <Route path="my-decks" element={<MyDecksPage />} />
             <Route path="decks/:userDeckId" element={<UserDeckPage />} />
           </Route>
+
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>

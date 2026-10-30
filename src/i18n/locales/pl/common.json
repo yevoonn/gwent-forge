@@ -260,6 +260,11 @@
     "cards_hint": "Wybierz karty do swojej talii"
   },
 
+  "not_found_page": {
+    "title": "Nie znaleziono strony",
+    "description": "Strona, której szukasz, nie istnieje lub została przeniesiona."
+  },
+
   "errors": {
     "generic": "Coś poszło nie tak.",
     "validation": {
