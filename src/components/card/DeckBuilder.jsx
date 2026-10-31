@@ -10,7 +10,11 @@ export default function DeckBuilder({ deckCode, userDeck = null }) {
 
   const [leaders, setLeaders] = useState([]);
   const [cards, setCards] = useState([]);
-  const [filters, setFilters] = useState({ cardTypes: [], cardRanges: [] });
+  const [filters, setFilters] = useState({
+    cardTypes: [],
+    cardRanges: [],
+    cardAbilities: [],
+  });
 
   const [leadersLoading, setLeadersLoading] = useState(false);
   const [cardsLoading, setCardsLoading] = useState(false);
@@ -21,6 +25,7 @@ export default function DeckBuilder({ deckCode, userDeck = null }) {
   const [sortDirection, setSortDirection] = useState("asc");
   const [cardType, setCardType] = useState("");
   const [cardRange, setCardRange] = useState("");
+  const [selectedAbilities, setSelectedAbilities] = useState([]);
 
   useEffect(() => {
     if (!deckCode) return;
@@ -62,6 +67,7 @@ export default function DeckBuilder({ deckCode, userDeck = null }) {
             sort: `${sortField}_${sortDirection}`,
             type: cardType,
             range: cardRange,
+            abilities: selectedAbilities,
           });
 
           setCards(cardsData);
@@ -83,6 +89,7 @@ export default function DeckBuilder({ deckCode, userDeck = null }) {
     sortDirection,
     cardType,
     cardRange,
+    selectedAbilities,
   ]);
 
   useEffect(() => {
@@ -125,6 +132,8 @@ export default function DeckBuilder({ deckCode, userDeck = null }) {
         setCardType={setCardType}
         cardRange={cardRange}
         setCardRange={setCardRange}
+        selectedAbilities={selectedAbilities}
+        setSelectedAbilities={setSelectedAbilities}
       />
     </>
   );

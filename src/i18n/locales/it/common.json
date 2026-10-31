@@ -166,7 +166,8 @@
       "power": "Forza",
       "code": "Codice"
     },
-    "show_only_selected": "Mostra selezionati"
+    "show_only_selected": "Mostra selezionati",
+    "abilities": "Abilità"
   },
 
   "deck_status": {

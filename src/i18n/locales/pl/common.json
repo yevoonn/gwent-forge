@@ -166,7 +166,8 @@
       "power": "Siła",
       "code": "Kod"
     },
-    "show_only_selected": "Pokaż wybrane"
+    "show_only_selected": "Pokaż wybrane",
+    "abilities": "Zdolności"
   },
 
   "deck_status": {

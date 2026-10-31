@@ -24,13 +24,15 @@ export default function CardFiltersContent({
   setCardType,
   cardRange,
   setCardRange,
+  selectedAbilities,
+  setSelectedAbilities,
   showOnlySelected,
   setShowOnlySelected,
   hasSelectedCards,
 }) {
   const { t } = useTranslation();
 
-  const { cardTypes = [], cardRanges = [] } = filters || {};
+  const { cardTypes = [], cardRanges = [], cardAbilities = [] } = filters || {};
 
   const typeOptions = [
     ...cardTypes.map((type) => ({
@@ -46,6 +48,18 @@ export default function CardFiltersContent({
       icon: rangeIcons[range.code],
     })),
   ];
+
+  const abilityOptions = cardAbilities.map((ability) => ({
+    value: ability.code,
+    label: ability.name ?? ability.code,
+  }));
+
+  const toggleAbility = (code) =>
+    setSelectedAbilities((prev) =>
+      prev.includes(code)
+        ? prev.filter((selected) => selected !== code)
+        : [...prev, code],
+    );
 
   return (
     <>
@@ -216,7 +230,7 @@ export default function CardFiltersContent({
       </div>
 
       {/* RANGE */}
-      <div>
+      <div className="mb-4">
         <label className="mb-2 block text-sm text-slate-300">
           {t("filters.range")}
         </label>
@@ -265,6 +279,64 @@ export default function CardFiltersContent({
           ))}
         </div>
       </div>
+
+      {/* ABILITIES */}
+      {abilityOptions.length > 0 && (
+        <div>
+          <label className="mb-2 block text-sm text-slate-300">
+            {t("filters.abilities")}
+          </label>
+
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(3rem,1fr))] gap-1 rounded-xl border border-slate-700 bg-slate-800 p-1">
+            {abilityOptions.map((ability) => {
+              const active = selectedAbilities.includes(ability.value);
+
+              return (
+                <button
+                  key={ability.value}
+                  type="button"
+                  aria-pressed={active}
+                  aria-label={ability.label}
+                  title={ability.label}
+                  onClick={() => toggleAbility(ability.value)}
+                  className={`
+                    flex
+                    aspect-square
+                    cursor-pointer
+                    items-center
+                    justify-center
+                    rounded-lg
+                    transition-all
+                    active:scale-95
+                    ${active ? "bg-amber-400" : "hover:bg-slate-700"}
+                  `}
+                >
+                  <span
+                    className={`
+                      flex
+                      h-9
+                      w-9
+                      items-center
+                      justify-center
+                      rounded-full
+                      border-2
+                      bg-stone-200
+                      transition-colors
+                      ${active ? "border-slate-950" : "border-orange-300"}
+                    `}
+                  >
+                    <img
+                      src={`/icons/${ability.value.toLowerCase()}_icon_transparent.webp`}
+                      alt=""
+                      className="h-7 w-7 object-contain"
+                    />
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </>
   );
 }

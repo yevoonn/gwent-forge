@@ -166,7 +166,8 @@
       "power": "Power",
       "code": "Code"
     },
-    "show_only_selected": "Show selected"
+    "show_only_selected": "Show selected",
+    "abilities": "Abilities"
   },
 
   "deck_status": {

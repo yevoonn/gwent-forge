@@ -7,6 +7,7 @@ export async function fetchCards({
   is_deck_card = "true",
   type,
   range,
+  abilities = [],
   search = "",
 }) {
   const params = new URLSearchParams({
@@ -23,6 +24,8 @@ export async function fetchCards({
   if (range) {
     params.append("range", range);
   }
+
+  abilities.forEach((code) => params.append("ability", code));
 
   if (search) {
     params.append("search", search);

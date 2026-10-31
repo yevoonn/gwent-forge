@@ -62,6 +62,8 @@ export default function CardsGrid({
   setCardType,
   cardRange,
   setCardRange,
+  selectedAbilities,
+  setSelectedAbilities,
 }) {
   const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
@@ -164,7 +166,10 @@ export default function CardsGrid({
   ];
 
   const hasActiveFilters = Boolean(
-    cardType || cardRange || effectiveShowOnlySelected,
+    cardType ||
+    cardRange ||
+    selectedAbilities.length > 0 ||
+    effectiveShowOnlySelected,
   );
 
   const filterProps = {
@@ -177,6 +182,8 @@ export default function CardsGrid({
     setCardType,
     cardRange,
     setCardRange,
+    selectedAbilities,
+    setSelectedAbilities,
     showOnlySelected: effectiveShowOnlySelected,
     setShowOnlySelected,
     hasSelectedCards,
