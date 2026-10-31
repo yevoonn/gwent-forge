@@ -37,7 +37,8 @@ export default function CardsSidePanel({
   const { t } = useTranslation();
 
   return (
-    <div className="sticky top-18 z-40 flex h-[calc(100dvh-4.5rem)] shrink-0 items-center">
+    <div className="sticky top-18 z-40 flex h-[calc(100dvh-4.5rem)] shrink-0 items-center py-6">
+      {" "}
       {/* PANEL */}
       <motion.div
         initial={false}
@@ -51,7 +52,7 @@ export default function CardsSidePanel({
           className="
             no-scrollbar
             flex
-            max-h-[calc(100dvh-2rem)]
+            max-h-[calc(100dvh-7.5rem)]
             flex-col
             gap-5
             overflow-y-auto
@@ -169,7 +170,6 @@ export default function CardsSidePanel({
           </section>
         </div>
       </motion.div>
-
       {/* HANDLE */}
       <motion.button
         type="button"
