@@ -18,7 +18,7 @@ function SectionTitle({ children }) {
 
 function Divider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+    <div className="h-px shrink-0 bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
   );
 }
 
@@ -38,7 +38,6 @@ export default function CardsSidePanel({
 
   return (
     <div className="sticky top-18 z-40 flex h-[calc(100dvh-4.5rem)] shrink-0 items-center py-6">
-      {" "}
       {/* PANEL */}
       <motion.div
         initial={false}
@@ -74,6 +73,7 @@ export default function CardsSidePanel({
               h-12
               shrink-0
               items-center
+              justify-center
               gap-3
               rounded-xl
               border
@@ -115,6 +115,40 @@ export default function CardsSidePanel({
             </span>
           </Link>
 
+          {/* SAVE DECK */}
+          {canSaveDeck && (
+            <>
+              <Divider />
+
+              <section>
+                <button
+                  type="button"
+                  onClick={onSaveDeck}
+                  className="
+                    flex
+                    h-12
+                    w-full
+                    cursor-pointer
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-xl
+                    bg-amber-400
+                    font-bold
+                    text-black
+                    transition-all
+                    duration-200
+                    hover:bg-amber-300
+                    active:scale-[0.98]
+                  "
+                >
+                  <Save size={18} />
+                  {saveLabel}
+                </button>
+              </section>
+            </>
+          )}
+
           <Divider />
 
           {/* SEARCH + FILTERS */}
@@ -139,34 +173,6 @@ export default function CardsSidePanel({
                 <DeckStatusBar key={status.id} {...status} fullWidth />
               ))}
             </div>
-
-            {canSaveDeck && (
-              <button
-                type="button"
-                onClick={onSaveDeck}
-                className="
-                  mt-4
-                  flex
-                  h-12
-                  w-full
-                  cursor-pointer
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-xl
-                  bg-amber-400
-                  font-bold
-                  text-black
-                  transition-all
-                  duration-200
-                  hover:bg-amber-300
-                  active:scale-[0.98]
-                "
-              >
-                <Save size={18} />
-                {saveLabel}
-              </button>
-            )}
           </section>
         </div>
       </motion.div>
