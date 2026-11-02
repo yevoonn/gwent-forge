@@ -1,13 +1,14 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { Sparkles, Layers3, Globe, Shield, Wrench, Swords } from "lucide-react";
+import { Sparkles, Globe, Shield, Wrench, Swords } from "lucide-react";
+import { PlayingCardsIcon } from "../components/ui/PlayingCardsIcon";
 
 export default function AboutPage() {
   const { t } = useTranslation("about");
 
   const features = [
     {
-      icon: Layers3,
+      icon: PlayingCardsIcon,
       title: t("features.deck_management.title"),
       description: t("features.deck_management.description"),
     },

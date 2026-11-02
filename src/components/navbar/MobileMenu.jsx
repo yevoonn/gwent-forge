@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { Layers3, LogIn, LogOut, User, UserPlus2, X } from "lucide-react";
+import { LogIn, LogOut, User, UserPlus2, X } from "lucide-react";
+import { PlayingCardsIcon } from "../ui/PlayingCardsIcon";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavLinkItem from "./NavLinkItem";
@@ -120,7 +121,7 @@ export default function MobileMenu({ isOpen, onClose, onAuthOpen }) {
                     <>
                       <NavLinkItem
                         to="/my-decks"
-                        icon={Layers3}
+                        icon={PlayingCardsIcon}
                         label={t("navigation.my_decks")}
                         mobile
                         onClick={onClose}
