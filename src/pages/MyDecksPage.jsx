@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
-import { Layers3, Trash2, TriangleAlert } from "lucide-react";
+import { Trash2, TriangleAlert } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fetchUserDecks } from "../api/userDecks";
 import { useAuth } from "../hooks/useAuth";
@@ -11,6 +11,7 @@ import { getApiErrorMessage } from "../utils/apiErrorMessageHelper";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorState from "../components/ui/ErrorState";
 import DeleteDeckModal from "../components/deck/DeleteDeckModal";
+import { PlayingCardsIcon } from "../components/ui/PlayingCardsIcon";
 
 export default function MyDecksPage() {
   const { t } = useTranslation();
@@ -71,7 +72,7 @@ export default function MyDecksPage() {
   if (decks.length === 0) {
     return (
       <ErrorState
-        icon={Layers3}
+        icon={PlayingCardsIcon}
         title={t("my_decks.empty_title")}
         description={t("my_decks.empty_description")}
       />
@@ -114,7 +115,7 @@ export default function MyDecksPage() {
                   <div
                     className={`inline-flex rounded-xl p-3 transition-transform group-hover:scale-105 ${style.icon}`}
                   >
-                    <Layers3 size={24} />
+                    <PlayingCardsIcon />
                   </div>
 
                   <span
