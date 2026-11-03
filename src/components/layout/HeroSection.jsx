@@ -5,7 +5,7 @@ export default function HeroSection({ currentFaction }) {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-[8rem] md:min-h-[20dvh] flex flex-col items-center justify-center text-center px-4">
+    <section className="min-h-[8rem] md:min-h-[20dvh] flex flex-col items-center justify-center text-center px-4 md:pt-12 pt-2">
       <h1 className="font-cinzel text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-none tracking-tight">
         Gwent <span className="text-amber-400">Forge</span>
       </h1>
