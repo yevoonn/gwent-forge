@@ -1,6 +1,13 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { Sparkles, Globe, Shield, Wrench, Swords } from "lucide-react";
+import {
+  Dices,
+  Globe,
+  Lightbulb,
+  Search,
+  TriangleAlert,
+  Wrench,
+} from "lucide-react";
 import { PlayingCardsIcon } from "../components/ui/PlayingCardsIcon";
 
 export default function AboutPage() {
@@ -13,7 +20,7 @@ export default function AboutPage() {
       description: t("features.deck_management.description"),
     },
     {
-      icon: Swords,
+      icon: Search,
       title: t("features.card_browser.title"),
       description: t("features.card_browser.description"),
     },
@@ -23,7 +30,7 @@ export default function AboutPage() {
       description: t("features.localization.description"),
     },
     {
-      icon: Sparkles,
+      icon: Dices,
       title: t("features.game_night.title"),
       description: t("features.game_night.description"),
     },
@@ -72,7 +79,7 @@ export default function AboutPage() {
         <div className="rounded-3xl border border-slate-700 bg-slate-900/60 p-8 backdrop-blur-sm">
           <div className="flex items-center gap-3">
             <div className="rounded-xl bg-amber-400/10 p-3 text-amber-400">
-              <Swords size={24} />
+              <Lightbulb size={24} />
             </div>
             <h2 className="font-cinzel text-2xl font-semibold text-white">
               {t("why.title")}
@@ -171,7 +178,7 @@ export default function AboutPage() {
         <div className="rounded-3xl border border-red-500/30 bg-red-950/20 p-8 backdrop-blur-sm">
           <div className="flex items-center gap-3">
             <div className="rounded-xl bg-red-500/10 p-3 text-red-400">
-              <Shield size={24} />
+              <TriangleAlert size={24} />
             </div>
             <h2 className="font-cinzel text-2xl font-semibold text-red-300">
               {t("disclaimer.title")}
