@@ -1,12 +1,7 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import {
-  MessagesSquare,
-  Link,
-  Lightbulb,
-  Bug,
-  HeartHandshake,
-} from "lucide-react";
+import { Link, Lightbulb, Bug, HeartHandshake } from "lucide-react";
+import { GithubIcon } from "../components/ui/GithubIcon";
 
 export default function ContactPage() {
   const { t } = useTranslation("contact");
@@ -54,10 +49,10 @@ export default function ContactPage() {
         transition={{ duration: 0.5 }}
         className="mt-16"
       >
-        <div className="rounded-3xl border border-slate-700 bg-slate-900/60 p-8 backdrop-blur-sm">
+        <div className="rounded-3xl border border-slate-700 bg-slate-900/60 p-8">
           <div className="flex items-center gap-3">
             <div className="rounded-xl bg-amber-400/10 p-3 text-amber-400">
-              <MessagesSquare size={24} />
+              <GithubIcon size={24} />
             </div>
 
             <div>
@@ -89,7 +84,6 @@ export default function ContactPage() {
                 py-4
                 text-base
                 text-slate-200
-                backdrop-blur-sm
                 transition-all
                 duration-200
                 hover:-translate-y-0.5
@@ -149,7 +143,7 @@ export default function ContactPage() {
                 key={topic.title}
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                className="group rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-center backdrop-blur-sm transition-colors hover:border-amber-400/40"
+                className="group rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-center transition-colors hover:border-amber-400/40"
               >
                 <div className="mb-4 inline-flex rounded-xl bg-amber-400/10 p-3 text-amber-400 transition-transform group-hover:scale-105">
                   <Icon size={24} />
@@ -176,7 +170,7 @@ export default function ContactPage() {
         transition={{ duration: 0.5 }}
         className="mt-16"
       >
-        <div className="rounded-3xl border border-amber-400/20 bg-gradient-to-br from-amber-400/10 to-slate-900/60 p-8 text-center backdrop-blur-sm">
+        <div className="rounded-3xl border border-amber-400/20 bg-gradient-to-br from-amber-400/10 to-slate-900/60 p-8 text-center">
           <h2 className="font-cinzel text-2xl font-semibold text-white">
             {t("community.title")}
           </h2>
