@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import CardSearchInput from "../filter/CardSearchInput";
 import CardFiltersContent from "../filter/CardFiltersContent";
 import DeckStatusBar from "../ui/DeckStatusBar";
+import { PlayingCardsIcon } from "../ui/PlayingCardsIcon";
 
 const PANEL_WIDTH = 320; // px
 
@@ -112,6 +113,57 @@ export default function CardsSidePanel({
 
             <span className="text-sm font-bold text-slate-200 transition-colors group-hover:text-amber-300">
               {t("navigation.home")}
+            </span>
+          </Link>
+
+          {/* MY DECKS */}
+          <Link
+            to="/my-decks"
+            className="
+              group
+              flex
+              h-12
+              shrink-0
+              items-center
+              justify-center
+              gap-3
+              rounded-xl
+              border
+              border-slate-700
+              bg-slate-900/70
+              py-1.5
+              pl-1.5
+              pr-4
+              shadow-lg
+              shadow-black/30
+              transition-all
+              duration-200
+              hover:border-amber-400
+              hover:bg-slate-800
+              hover:shadow-amber-500/20
+            "
+          >
+            <span
+              className="
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                rounded-lg
+                bg-amber-400/10
+                text-amber-400
+                transition-colors
+                duration-200
+                group-hover:bg-amber-400
+                group-hover:text-slate-950
+              "
+            >
+              <PlayingCardsIcon size={18} />
+            </span>
+
+            <span className="text-sm font-bold text-slate-200 transition-colors group-hover:text-amber-300">
+              {t("navigation.my_decks")}
             </span>
           </Link>
 
