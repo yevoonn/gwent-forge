@@ -87,7 +87,7 @@ export default function MyDecksPage() {
         transition={{ duration: 0.5 }}
         className="mb-10 text-center"
       >
-        <h1 className="font-cinzel text-4xl font-bold tracking-tight md:text-5xl">
+        <h1 className="font-cinzel text-4xl font-bold tracking-tight md:text-5xl text-amber-400">
           {t("my_decks.title")}
         </h1>
         <p className="mt-3 text-slate-400">{t("my_decks.subtitle")}</p>

@@ -33,7 +33,7 @@ export default function ContactPage() {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-white md:text-6xl">
+        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-amber-400 md:text-6xl">
           {t("title")}
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-400">

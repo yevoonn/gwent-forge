@@ -54,7 +54,7 @@ export default function ProfilePage() {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-white md:text-6xl">
+        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-amber-400 md:text-6xl">
           {tProfile("title")}
         </h1>
       </motion.section>

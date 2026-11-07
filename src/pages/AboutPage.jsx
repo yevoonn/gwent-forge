@@ -57,7 +57,7 @@ export default function AboutPage() {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-white md:text-6xl">
+        <h1 className="font-cinzel text-4xl font-bold tracking-tight text-amber-400 md:text-6xl">
           {t("title")}
         </h1>
         <p className="mx-auto mt-4 max-w-3xl font-cinzel text-xl text-slate-300 md:text-2xl">
